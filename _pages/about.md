@@ -2,24 +2,20 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Berlin, Germany
 
 profile:
   align: right
-  image: max.jpg
+  image:
   image_circular: true # crops the image to make it circular
-  address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  address:
 
 news: false  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
+I am a second-year PhD candidate at the [Institute of Mathematics, TU Berlin](https://www.tu.berlin/en/math) under the supervision of [Prof. Dr. Sebastian Pokutta](http://www.pokutta.com/) and work as a doctoral researcher in the [Interactive Optimization and Learning (IOL)](https://iol.zib.de/) research lab at the [Zuse Institute Berlin (ZIB)](https://www.zib.de/). My research interests are centered around Machine Learning and Optimization in general. In particular, I am interested in speeding up Neural Networks via Compression, Explainability (XAI), Fairness in AI and Constrained Optimization. Since 2022, I am also a member of the [BMS graduate school](https://www.math-berlin.de), which is part of the [MATH+ Cluster of Excellence](https://mathplus.de/).
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Before joining IOL in 2020 as a student research assistant, I worked on *Nash Flows over Time* together with Leon Sering at the [Combinatorial Optimization and Graph Algorithms Group (COGA)](https://www3.math.tu-berlin.de/coga/) at TU Berlin. During my BSc and MSc in Mathematics, which I both received from TU Berlin, I got the chance to intern in the research groups of [Prof. Sergio de Rosa at Università degli Studi di Napoli Federico II](https://www.pastalab.unina.it/) and [Prof. Marco Mondelli at IST Austria](https://ist.ac.at/en/research/mondelli-group/).
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+You can email me at **zimmer [at] zib.de**.

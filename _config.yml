@@ -6,7 +6,7 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Max
 middle_name:
 last_name: Zimmer
-email:
+email: zimmer@zib.de
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Academic website of Max Zimmer.
 footer_text: >
@@ -15,7 +15,7 @@ footer_text: >
 keywords: max zimmer, academic-website, mathematics, machine learning, optimization  # add your own keywords or leave empty
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: max.jpg # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: favicon.ico # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://zimmer-m.github.io # the base hostname & protocol for your site
 baseurl:  # the subpath of your site, e.g. /blog/
