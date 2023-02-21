@@ -9,3 +9,51 @@
   bibtex_show={true},
   pdf={https://arxiv.org/abs/2111.00843},
 }
+
+@article{zimmer2022compression,
+  title={Compression-aware Training of Neural Networks using Frank-Wolfe},
+  author={Zimmer, Max and Spiegel, Christoph and Pokutta, Sebastian},
+  journal={arXiv preprint arXiv:2205.11921},
+  year={2022},
+  abstract      = {Many existing Neural Network pruning approaches either rely on retraining to compensate for pruning-caused performance degradation or they induce strong biases to converge to a specific sparse solution throughout training. A third paradigm obtains a wide range of compression ratios from a single dense training run while also avoiding retraining. Recent work of Pokutta et al. (2020) and Miao et al. (2022) suggests that the Stochastic Frank-Wolfe (SFW) algorithm is particularly suited for training state-of-the-art models that are robust to compression. We propose leveraging $k$-support norm ball constraints and demonstrate significant improvements over the results of Miao et al. (2022) in the case of unstructured pruning. We also extend these ideas to the structured pruning domain and propose novel approaches to both ensure robustness to the pruning of convolutional filters as well as to low-rank tensor decompositions of convolutional layers. In the latter case, our approach performs on-par with nuclear-norm regularization baselines while requiring only half of the computational resources. Our findings also indicate that the robustness of SFW-trained models largely depends on the gradient rescaling of the learning rate and we establish a theoretical foundation for that practice.},
+  abbr={Preprint},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2205.11921},
+}
+
+@article{waldchen2022merlin,
+  title={Merlin-Arthur Classifiers: Formal Interpretability with Interactive Black Boxes},
+  author={W{\"a}ldchen, Stephan and Sharma, Kartikey and Zimmer, Max and Pokutta, Sebastian},
+  journal={arXiv preprint arXiv:2206.00759},
+  year={2022},
+  abstract      = {We present a new theoretical framework for making black box classifiers such as Neural Networks interpretable, basing our work on clear assumptions and guarantees. In our setting, which is inspired by the Merlin-Arthur protocol from Interactive Proof Systems, two functions cooperate to achieve a classification together: the \emph{prover} selects a small set of features as a certificate and presents it to the \emph{classifier}. Including a second, adversarial prover allows us to connect a game-theoretic equilibrium to information-theoretic guarantees on the exchanged features. We define notions of completeness and soundness that enable us to lower bound the mutual information between features and class. To demonstrate good agreement between theory and practice, we support our framework by providing numerical experiments for Neural Network classifiers, explicitly calculating the mutual information of features with respect to the class.},
+  abbr={Preprint},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2206.00759},
+}
+
+@article{ziemke2021flows,
+  title={Flows over time as continuous limits of packet-based network simulations},
+  author={Ziemke, Theresa and Sering, Leon and Koch, Laura Vargas and Zimmer, Max and Nagel, Kai and Skutella, Martin},
+  journal={Transportation Research Procedia},
+  volume={52},
+  pages={123--130},
+  year={2021},
+  abstract = {This study examines the connection between an agent-based transport simulation and Nash flows over time. While the former is able to represent many details of traffic and model large-scale, real-world traffic situations with a co-evolutionary approach, the latter provides an environment for provable mathematical statements and results on exact user equilibria. The flow dynamics of both models are very similar with the main difference that the simulation is discrete in terms of vehicles and time while the flows over time model considers continuous flows and continuous time. This raises the question whether Nash flows over time are the limit of the convergence process when decreasing the vehicle and time step size in the simulation coherently. The experiments presented in this study indicate this strong connection which provides a justification for the analytical model and a theoretical foundation for the simulation.},
+  publisher={Elsevier},
+  abbr={EWGT2020},
+  bibtex_show={true},
+  pdf={https://www.sciencedirect.com/science/article/pii/S2352146521000284},
+}
+
+
+@article{pokutta2020deep,
+  title={Deep Neural Network training with Frank-Wolfe},
+  author={Pokutta, Sebastian and Spiegel, Christoph and Zimmer, Max},
+  journal={arXiv preprint arXiv:2010.07243},
+  year={2020},
+  abstract      = {This paper studies the empirical efficacy and benefits of using projection-free first-order methods in the form of Conditional Gradients, a.k.a. Frank-Wolfe methods, for training Neural Networks with constrained parameters. We draw comparisons both to current state-of-the-art stochastic Gradient Descent methods as well as across different variants of stochastic Conditional Gradients. In particular, we show the general feasibility of training Neural Networks whose parameters are constrained by a convex feasible region using Frank-Wolfe algorithms and compare different stochastic variants. We then show that, by choosing an appropriate region, one can achieve performance exceeding that of unconstrained stochastic Gradient Descent and matching state-of-the-art results relying on $L^2$-regularization. Lastly, we also demonstrate that, besides impacting performance, the particular choice of constraints can have a drastic impact on the learned representations.},
+  abbr={Preprint},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2010.07243},
+}
