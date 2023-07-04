@@ -13,3 +13,7 @@ $max-content-width: {{ site.max_width }};
   "base",
   "distill"
 ;
+
+p { /* This was added by myself. */
+    text-align: justify;
+}
