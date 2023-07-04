@@ -5,8 +5,8 @@ permalink: /
 subtitle: Berlin, Germany
 
 profile:
-  align: right
-  image:
+  align: left
+  image: prof_pic.png
   image_circular: true # crops the image to make it circular
   address:
 
