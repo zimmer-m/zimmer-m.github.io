@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I presented our poster ["How I Learned to Stop Worrying and Love Retraining"](https://arxiv.org/abs/2111.00843) at ICLR2023 in Kigali, Rwanda! You can find all information in the publications below.
+I presented our poster ["How I Learned to Stop Worrying and Love Retraining"](https://arxiv.org/abs/2111.00843) at ICLR2023 in Kigali, Rwanda! You can find all information in the list of publications below.
