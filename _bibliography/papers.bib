@@ -1,3 +1,17 @@
+@article{zimmer2023perp,
+  author        = {Max Zimmer and Megi Andoni and Christoph Spiegel and Sebastian Pokutta},
+  title         = {PERP: Rethinking the Prune-Retrain Paradigm in the Era of LLMs},
+  year          = {2023},
+  abstract      = {Neural Networks can be efficiently compressed through pruning, significantly reducing storage and computational demands while maintaining predictive performance. Simple yet effective methods like Iterative Magnitude Pruning (IMP, Han et al., 2015) remove less important parameters and require a costly retraining procedure to recover performance after pruning. However, with the rise of Large Language Models (LLMs), full retraining has become infeasible due to memory and compute constraints. In this study, we challenge the practice of retraining all parameters by demonstrating that updating only a small subset of highly expressive parameters is often sufficient to recover or even improve performance compared to full retraining. Surprisingly, retraining as little as 0.27%-0.35% of the parameters of GPT-architectures (OPT-2.7B/6.7B/13B/30B) achieves comparable performance to One Shot IMP across various sparsity levels. Our method, Parameter-Efficient Retraining after Pruning (PERP), drastically reduces compute and memory demands, enabling pruning and retraining of up to 30 billion parameter models on a single NVIDIA A100 GPU within minutes. Despite magnitude pruning being considered as unsuited for pruning LLMs, our findings show that PERP positions it as a strong contender against state-of-the-art retraining-free approaches such as Wanda (Sun et al., 2023) and SparseGPT (Frantar & Alistarh, 2023), opening up a promising alternative to avoiding retraining.},
+  journal={arXiv preprint arXiv:2312.15230},
+  abbr={Preprint},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2312.15230},
+  code={https://github.com/ZIB-IOL/PERP},
+  preview={perp_dog.png},
+}
+
+
 @article{zimmer2023sparse,
   title={Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging},
   author={Zimmer, Max and Spiegel, Christoph and Pokutta, Sebastian},
