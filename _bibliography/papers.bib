@@ -80,17 +80,18 @@
   preview={sparsefw_pruneddistance.png},
 }
 
-@article{waldchen2022merlin,
-  title={Merlin-Arthur Classifiers: Formal Interpretability with Interactive Black Boxes},
-  author={W{\"a}ldchen, Stephan and Sharma, Kartikey and Zimmer, Max and Pokutta, Sebastian},
-  journal={arXiv preprint arXiv:2206.00759},
-  year={2022},
-  abstract      = {We present a new theoretical framework for making black box classifiers such as Neural Networks interpretable, basing our work on clear assumptions and guarantees. In our setting, which is inspired by the Merlin-Arthur protocol from Interactive Proof Systems, two functions cooperate to achieve a classification together: the \emph{prover} selects a small set of features as a certificate and presents it to the \emph{classifier}. Including a second, adversarial prover allows us to connect a game-theoretic equilibrium to information-theoretic guarantees on the exchanged features. We define notions of completeness and soundness that enable us to lower bound the mutual information between features and class. To demonstrate good agreement between theory and practice, we support our framework by providing numerical experiments for Neural Network classifiers, explicitly calculating the mutual information of features with respect to the class.},
-  abbr={Preprint},
+@InProceedings{waldchen2024interpretability,
+  title={Interpretability Guarantees with Merlin-Arthur Classifiers},
+  author={W{\"a}ldchen, Stephan and Sharma, Kartikey and Turan, Berkant and Zimmer, Max and Pokutta, Sebastian},
+  booktitle={International Conference on Artificial Intelligence and Statistics},
+  year={2024},
+  abstract={We propose an interactive multi-agent classifier that provides provable interpretability guarantees even for complex agents such as neural networks. These guarantees consist of lower bounds on the mutual information between selected features and the classification decision. Our results are inspired by the Merlin-Arthur protocol from Interactive Proof Systems and express these bounds in terms of measurable metrics such as soundness and completeness. Compared to existing interactive setups, we rely neither on optimal agents nor on the assumption that features are distributed independently. Instead, we use the relative strength of the agents as well as the new concept of Asymmetric Feature Correlation which captures the precise kind of correlations that make interpretability guarantees difficult. We evaluate our results on two small-scale datasets where high mutual information can be verified explicitly. },
   bibtex_show={true},
+  abbr={AISTATS24},
   pdf={https://arxiv.org/abs/2206.00759},
   preview={arthurmerlin.png},
 }
+
 
 @article{ziemke2021flows,
   title={Flows over time as continuous limits of packet-based network simulations},
