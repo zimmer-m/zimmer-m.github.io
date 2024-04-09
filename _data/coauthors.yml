@@ -28,4 +28,8 @@
 
 "Turan":
   - firstname: ["Berkant"]
-    url: https://b-turan.github.io/
+    url: https://b-turan.github.io
+
+"Mundinger":
+  - firstname: ["Konrad"]
+    url: https://iol.zib.de/team/konrad-mundinger.html
