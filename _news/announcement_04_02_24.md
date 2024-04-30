@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Two papers accepted to conferences as posters: [Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging](https://arxiv.org/abs/2306.16788) at **ICLR24** and [Interpretability Guarantees with Merlin-Arthur Classifiers](https://arxiv.org/abs/2206.00759) at **AISTATS24**! I will update with camera-ready versions soon and will be in both Valencia and Vienna.
+Two papers accepted to conferences as posters: [Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging](https://arxiv.org/abs/2306.16788) at **ICLR24** and [Interpretability Guarantees with Merlin-Arthur Classifiers](https://arxiv.org/abs/2206.00759) at **AISTATS24**! I will update with camera-ready versions soon and will be in Vienna.
