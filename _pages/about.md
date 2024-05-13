@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Berlin, Germany
+subtitle: Third-year PhD candidate in Mathematics at <a href="https://www.tu.berlin/en/math">TU Berlin</a> and Doctoral Researcher at <a href="https://iol.zib.de/">Zuse Institute Berlin (ZIB)</a>
 
 profile:
   align: left
