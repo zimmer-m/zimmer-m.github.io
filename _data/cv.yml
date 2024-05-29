@@ -1,0 +1,46 @@
+- title: Education
+  type: time_table
+  contents:
+    - title: PhD in Mathematics
+      institution: TU Berlin, Germany
+      year: 2021–present
+      description:
+        - Advised by <a href="http://www.pokutta.com/">Sebastian Pokutta</a>.
+    - title: MSc in Mathematics
+      institution: TU Berlin, Germany
+      year: 2018–2021
+      description:
+        - "Thesis: Sparsity in Neural Networks"
+        - "Supervisor: Prof. Dr. Sebastian Pokutta"
+    - title: BSc in Mathematics
+      institution: TU Berlin, Germany
+      year: 2013–2017
+      description:
+        - "Thesis: Nash Flows over Time - Models and computation"
+        - "Supervisor: Prof. Dr. Martin Skutella"
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: Doctoral Researcher
+      institution: IOL Lab, Zuse Institute Berlin
+      year: 2021–present
+    - title: Student Research Assistant
+      institution: IOL Lab, Zuse Institute Berlin
+      year: 2020–2021
+    - title: Research Intern
+      institution: Data Science, Machine Learning, and Information Theory Group, IST Austria, Vienna
+      year: Summer 2020
+      description:
+        - Hosted by Prof. Marco Mondelli
+    - title: Student Research Assistant
+      institution: Combinatorial Optimization & Graph Algorithms Group, TU Berlin
+      year: 2018–2020
+    - title: Research Intern
+      institution: Department of Industrial Engineering, University of Naples Federico II, Naples, Italy
+      year: Summer 2018
+      description:
+        - Hosted by Prof. Sergio De Rosa
+    - title: Student Trainee
+      institution: Dassault Systèmes, Berlin
+      year: 2013–2017
