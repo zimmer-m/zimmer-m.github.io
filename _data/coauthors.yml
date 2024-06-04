@@ -33,3 +33,15 @@
 "Mundinger":
   - firstname: ["Konrad"]
     url: https://iol.zib.de/team/konrad-mundinger.html
+
+"Saatchi":
+  - firstname: ["Sassan"]
+    url: https://science.jpl.nasa.gov/people/saatchi/
+
+"Ciais":
+  - firstname: ["Philippe"]
+    url: https://www.lsce.ipsl.fr/Phocea/Pisp/index.php?nom=philippe.ciais
+
+"Gieseke":
+  - firstname: ["Fabian"]
+    url: https://www.wi.uni-muenster.de/department/dasc/people/fabian-gieseke
