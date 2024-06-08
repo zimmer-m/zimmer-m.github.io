@@ -8,8 +8,8 @@
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
           {%- else -%}
             {%- assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' -%}
-            {% include figure.html 
-            path=entry_path 
+            {% include figure.html
+            path=entry_path
             class="preview z-depth-1 rounded"
             alt=entry.preview -%}
           {%- endif -%}
@@ -183,6 +183,12 @@
           {%- endif %}
           {%- if entry.website %}
             <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
+          {%- endif %}
+          {%- if entry.custom %}
+          {% assign custom_parts = entry.custom | split: "|" %}
+          {% if custom_parts.size >= 2 %}
+            <a href="{{ custom_parts[1] }}" class="btn btn-sm z-depth-0" role="button">{{ custom_parts[0] }}</a>
+          {% endif %}
           {%- endif %}
           </div>
           {% if site.badges %}
