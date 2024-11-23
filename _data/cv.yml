@@ -22,6 +22,9 @@
 - title: Experience
   type: time_table
   contents:
+    - title: Research Area Lead of <a href="https://iol.zib.de/research/iol-learn.html">iol.LEARN</a>
+      institution: Machine Learning Subgroup, IOL Lab, Zuse Institute Berlin
+      year: 2024–present
     - title: Doctoral Researcher
       institution: IOL Lab, Zuse Institute Berlin
       year: 2021–present
