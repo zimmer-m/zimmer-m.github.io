@@ -45,6 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const tag = hash || 'all';
         updateActiveTag(tag);
         filterPublications(tag);
+        
+        // If we're on the main page and there's a hash, scroll to publications
+        if (window.location.pathname === '/' && hash) {
+            const publicationsSection = document.querySelector('.publications');
+            if (publicationsSection) {
+                publicationsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     }
 
     window.addEventListener('hashchange', handleUrlHash);
