@@ -1,0 +1,13 @@
+.publication-tags {
+  margin-bottom: 2rem;
+  
+  .btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    
+    &.active {
+      background-color: var(--global-theme-color);
+      color: var(--global-bg-color);
+    }
+  }
+}
