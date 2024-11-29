@@ -535,12 +535,12 @@ footer.sticky-bottom {
           font-style: normal;
         }
         > span.more-authors {
-          color: var(--global-text-color-light);
-          border-bottom: 1px dashed var(--global-text-color-light);
+          color: inherit;
+          border-bottom: 1px dotted rgba(128, 128, 128, 0.4);
           cursor: pointer;
           &:hover {
-              color: var(--global-text-color);
-              border-bottom: 1px dashed var(--global-text-color);
+            color: inherit;
+            border-bottom-color: var(--global-theme-color);
           }
         }
       }
