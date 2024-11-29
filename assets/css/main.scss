@@ -60,3 +60,7 @@ html[data-theme='dark'] {
     text-decoration: none;
     color: var(--global-theme-color);
 }
+
+.title {
+    font-size: 1.1em;  // Increase title of papers from default
+}
