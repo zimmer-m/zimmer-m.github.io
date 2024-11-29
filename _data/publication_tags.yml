@@ -1,8 +1,19 @@
-- tag: deep-learning
-  name: Deep Learning
-
 - tag: efficiency
   name: Efficiency
 
+- tag: sustainability
+  name: Sustainability
+
+- tag: ai4science
+  name: AI4Science
+
+- tag: optimization
+  name: Optimization
+
 - tag: federated-learning
   name: Federated Learning
+
+- tag: interpretability
+  name: Interpretability
+
+
