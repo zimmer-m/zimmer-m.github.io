@@ -4,10 +4,20 @@
   .btn {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
+    border: 3px solid var(--global-theme-color);
+    border-radius: 4px;
+    color: var(--global-theme-color);
+    background-color: var(--global-bg-color);
+    transition: color 0.3s ease, background-color 0.3s ease;
+    
+    &:hover {
+      color: var(--global-bg-color);
+      background-color: var(--global-theme-color);
+    }
     
     &.active {
-      background-color: var(--global-theme-color);
       color: var(--global-bg-color);
+      background-color: var(--global-theme-color);
     }
   }
 }
