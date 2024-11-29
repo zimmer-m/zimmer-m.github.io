@@ -64,3 +64,13 @@ html[data-theme='dark'] {
 .title {
     font-size: 1.1em;  // Increase title of papers from default
 }
+
+.no-highlight {
+  color: inherit !important;
+  text-decoration: none !important;
+  
+  &:hover {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}

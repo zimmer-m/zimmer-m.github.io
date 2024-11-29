@@ -5,6 +5,7 @@
         <div class="col-sm-2 {% if entry.preview %}preview{% else %}abbr{% endif %}"
              data-tags="{{ entry.tags | join: ',' }}">
         {%- if entry.preview -%}
+          <a href="{{ entry.pdf }}" class="no-highlight">
           {% if entry.preview contains '://' -%}
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
           {%- else -%}
@@ -14,6 +15,7 @@
             class="preview z-depth-1 rounded"
             alt=entry.preview -%}
           {%- endif -%}
+          </a>
         {%- elsif entry.abbr -%}
           {%- if site.data.venues[entry.abbr] -%}
             {%- assign venue_style = nil -%}
@@ -30,7 +32,11 @@
         <!-- Entry bib key -->
         <div id="{{entry.key}}" class="col-sm-10">
         <!-- Title -->
-        <div class="title">{{entry.title}}</div>
+        <div class="title">
+          <a href="{{ entry.pdf }}" class="no-highlight">
+          {{entry.title}}
+          </a>
+        </div>
         <!-- Author -->
         <div class="author">
         {% assign author_array_size = entry.author_array | size %}
