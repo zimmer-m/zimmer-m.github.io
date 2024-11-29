@@ -63,7 +63,7 @@
             {%- if forloop.last and author_array_limit == author_array_size -%}and&nbsp;{%- endif -%}
           {%- endif -%}
           {%- if author_is_self -%}
-            <em><b>{% assign names = author.first | split: ' ' %}{% for name in names %}{{name | slice: 0}}. {% endfor %}{{author.last}}</b></em>
+            <em>{% assign names = author.first | split: ' ' %}{% for name in names %}{{name | slice: 0}}. {% endfor %}{{author.last}}</em>
           {%- else -%}
             {%- if coauthor_url -%}
               <a href="{{coauthor_url}}">{% assign names = author.first | split: ' ' %}{% for name in names %}{{name | slice: 0}}. {% endfor %}{{author.last}}</a>
