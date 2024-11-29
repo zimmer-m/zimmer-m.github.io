@@ -21,3 +21,17 @@
     }
   }
 }
+
+.publications {
+  .links {
+    .btn {
+      color: var(--global-theme-color);
+      border-color: var(--global-theme-color);
+      border-radius: 4px;
+      
+      &:hover {
+        color: var(--global-bg-color);
+      }
+    }
+  }
+}
