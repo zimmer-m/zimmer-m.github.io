@@ -82,7 +82,7 @@ tags={sustainability}
 @InProceedings{zimmer2023sparse,
   title={Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging},
   author={Zimmer, Max and Spiegel, Christoph and Pokutta, Sebastian},
-  booktitle = {International Conference on Learning Representations},
+  booktitle = {The Twelfth International Conference on Learning Representations},
   year={2024},
   abstract      = {Neural networks can be significantly compressed by pruning, leading to sparse models requiring considerably less storage and floating-point operations while maintaining predictive performance. Model soups (Wortsman et al., 2022) improve generalization and out-of-distribution performance by averaging the parameters of multiple models into a single one without increased inference time. However, identifying models in the same loss basin to leverage both sparsity and parameter averaging is challenging, as averaging arbitrary sparse models reduces the overall sparsity due to differing sparse connectivities. In this work, we address these challenges by demonstrating that exploring a single retraining phase of Iterative Magnitude Pruning (IMP) with varying hyperparameter configurations, such as batch ordering or weight decay, produces models that are suitable for averaging and share the same sparse connectivity by design. Averaging these models significantly enhances generalization performance compared to their individual components. Building on this idea, we introduce Sparse Model Soups (SMS), a novel method for merging sparse models by initiating each prune-retrain cycle with the averaged model of the previous phase. SMS maintains sparsity, exploits sparse network benefits being modular and fully parallelizable, and substantially improves IMP's performance. Additionally, we demonstrate that SMS can be adapted to enhance the performance of state-of-the-art pruning during training approaches.},
   abbr={ICLR2024},
@@ -113,7 +113,7 @@ tags={sustainability}
 
 @InProceedings{Zimmer2023,
   author    = {Max Zimmer and Christoph Spiegel and Sebastian Pokutta},
-  booktitle = {International Conference on Learning Representations},
+  booktitle = {The Eleventh International Conference on Learning Representations},
   title     = {{H}ow {I} {L}earned {T}o {S}top {W}orrying {A}nd {L}ove {R}etraining},
   year      = {2023},
   url       = {https://openreview.net/forum?id=_nF5imFKQI},
