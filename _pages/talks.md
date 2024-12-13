@@ -22,5 +22,8 @@ nav_order: 2
 * 05/2023 [[poster]](/assets/pdf/BIMP-poster-ICLR.pdf): Poster presentation, **ICLR 2023**, Kigali, RW <br>
 <i>How I Learned To Stop Worrying and Love Retraining</i>
 
+* 03/2023 [[poster]](/assets/pdf/BIMP-poster-ICLR.pdf): Poster presentation, **Workshop on Optimization and Machine Learning 2023**, Waischenfeld, DE <br>
+<i>How I Learned To Stop Worrying and Love Retraining</i>
+
 * 06/2022: Invited talk, **Siemens workshop @ ZIB**, Berlin, DE <br>
 <i>Sparsity in Neural Networks</i>
