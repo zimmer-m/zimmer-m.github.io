@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'jekyll', '~> 4.0.0'
-gem 'uri', '~> 0.10.1'
+gem 'uri', '0.10.1'
 group :jekyll_plugins do
     gem 'jekyll-archives'
     gem 'jekyll-diagrams'
