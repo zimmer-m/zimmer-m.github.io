@@ -17,8 +17,8 @@ RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/
 # ENV GEM_HOME='root/gems' \
 #     PATH="root/gems/bin:${PATH}"
-RUN gem install jekyll bundler
 RUN mkdir /srv/jekyll
 ADD Gemfile /srv/jekyll
+RUN gem install jekyll bundler
 WORKDIR /srv/jekyll
 RUN bundle install
