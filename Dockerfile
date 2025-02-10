@@ -13,6 +13,8 @@ ENV LC_ALL en_US.UTF-8
 # add ruby and jekyll
 RUN apt-get install --no-install-recommends ruby-full build-essential zlib1g-dev -y 
 RUN apt-get install imagemagick -y 
+RUN pip3 install --upgrade nbconvert
+RUN export JEKYLL_ENV=production
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/
 # ENV GEM_HOME='root/gems' \
