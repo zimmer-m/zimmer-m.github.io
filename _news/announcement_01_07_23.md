@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-We published a new paper: [Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging](https://arxiv.org/abs/2306.16788)! You can find the corresponding blogpost [here](www.pokutta.com/blog/research/2023/08/05/abstract-SMS.html).
+We published a new paper: [Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging](https://arxiv.org/abs/2306.16788)! You can find the corresponding blogpost [here](https://www.pokutta.com/blog/research/2023/08/05/abstract-SMS.html).
