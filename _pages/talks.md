@@ -1,29 +1,35 @@
 ---
 layout: page
 permalink: /talks/
-title: talks
-description: List of all my talks and poster sessions.
+title: talks & activities
+description: talks, posters, events, and other activities.
 nav: true
-nav_order: 2
+nav_order: 5
 ---
+{% assign all_presentations = site.activities | where: "type", "presentation" | sort: "date" | reverse %}
+{% if all_presentations.size > 0 %}
+### talks and posters
+{% for activity in all_presentations %}
+* {{ activity.date | date: "%m/%Y" }} • **{{ activity.venue }}**, {{ activity.location }}  
+  {% if activity.presentation_type == "talk" %}Invited Talk{% else %}Poster{% endif %}{% if activity.slides %} • [[slides]]({{ activity.slides }}){% endif %}{% if activity.poster %} • [[poster]]({{ activity.poster }}){% endif %} • *{{ activity.description }}*
 
-* 10/2024 [[slides]](/assets/pdf/talks/10-2024.pdf): Invited talk, **[Machine Learning and Data Engineering Group WWU](https://www.wi.uni-muenster.de/department/mlde)**, Münster, DE <br>
-<i>Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging</i>
+{% endfor %}
+{% endif %}
 
-* 07/2024 [[poster]](/assets/pdf/Canopy-poster-ICML.pdf): Poster presentation, **ICML 2024**, Vienna, AT <br>
-<i>Estimating Canopy Height at Scale</i>
+{% assign all_events = site.activities | where: "type", "event" | sort: "date" | reverse %}
+{% if all_events.size > 0 %}
+### events
+{% for activity in all_events %}
+* {{ activity.date | date: "%m/%Y" }} • **{{ activity.venue }}**, {{ activity.location }}  
+  *{{ activity.description }}*
+{% endfor %}
+{% endif %}
 
-* 05/2024 [[poster]](/assets/pdf/SMS-poster-ICLR.pdf): Poster presentation, **ICLR 2024**, Vienna, AT <br>
-<i>Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging</i>
-
-* 11/2023 [[slides]](/assets/pdf/talks/11-2023.pdf): Invited talk, **AI4Forest Kick-off Meeting**, Paris, FR <br>
-<i>Approaches to Neural Network Compression - Or: How I Learned To Stop Worrying and Love Retraining</i>
-
-* 05/2023 [[poster]](/assets/pdf/BIMP-poster-ICLR.pdf): Poster presentation, **ICLR 2023**, Kigali, RW <br>
-<i>How I Learned To Stop Worrying and Love Retraining</i>
-
-* 03/2023 [[poster]](/assets/pdf/BIMP-poster-ICLR.pdf): Poster presentation, **Workshop on Optimization and Machine Learning 2023**, Waischenfeld, DE <br>
-<i>How I Learned To Stop Worrying and Love Retraining</i>
-
-* 06/2022: Invited talk, **Siemens workshop @ ZIB**, Berlin, DE <br>
-<i>Sparsity in Neural Networks</i>
+{% assign reviewing_activities = site.activities | where: "type", "reviewing" | sort: "date" | reverse %}
+{% if reviewing_activities.size > 0 %}
+### other activities
+{% for activity in reviewing_activities %}
+* {{ activity.date | date: "%m/%Y" }} • **{{ activity.venue }}**  
+  *{{ activity.description }}*
+{% endfor %}
+{% endif %}
