@@ -26,8 +26,8 @@ nav_order: 5
 
 {% assign reviewing_activities = site.activities | where: "type", "reviewing" | sort: "date" | reverse %}
 {% if reviewing_activities.size > 0 %}
-### other activities
+### reviewing
 {% for activity in reviewing_activities %}
-* {{ activity.date | date: "%m/%Y" }} • **{{ activity.venue }}**
+* **{{ activity.venue }}**
 {% endfor %}
 {% endif %}
