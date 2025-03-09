@@ -18,10 +18,9 @@ nav_order: 5
 
 {% assign all_events = site.activities | where: "type", "event" | sort: "date" | reverse %}
 {% if all_events.size > 0 %}
-### events
+### event participation
 {% for activity in all_events %}
-* {{ activity.date | date: "%m/%Y" }} • **{{ activity.venue }}**, {{ activity.location }}  
-  *{{ activity.description }}*
+* {{ activity.date | date: "%m/%Y" }} • {% if activity.link %}**[{{ activity.venue }}]({{ activity.link }})**{% else %}**{{ activity.venue }}**{% endif %}, {{ activity.location }}
 {% endfor %}
 {% endif %}
 
@@ -29,7 +28,6 @@ nav_order: 5
 {% if reviewing_activities.size > 0 %}
 ### other activities
 {% for activity in reviewing_activities %}
-* {{ activity.date | date: "%m/%Y" }} • **{{ activity.venue }}**  
-  *{{ activity.description }}*
+* {{ activity.date | date: "%m/%Y" }} • **{{ activity.venue }}**
 {% endfor %}
 {% endif %}
