@@ -161,7 +161,7 @@ collections:
     output: false
     permalink: /projects/:path/
   activities:
-    output: true
+    output: false
     permalink: /activities/:path/
 
 news_scrollable: false # adds a vertical scroll bar if there are more than 3 news items
