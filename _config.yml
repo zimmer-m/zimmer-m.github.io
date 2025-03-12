@@ -160,9 +160,15 @@ collections:
   projects:
     output: false
     permalink: /projects/:path/
-  activities:
+  activities_talks:
     output: false
-    permalink: /activities/:path/
+    permalink: /activities/talks/:path/
+  activities_events:
+    output: false
+    permalink: /activities/events/:path/
+  activities_other:
+    output: false
+    permalink: /activities/other/:path/
 
 news_scrollable: false # adds a vertical scroll bar if there are more than 3 news items
 news_limit:  # leave blank to include all the news in the `_news` folder

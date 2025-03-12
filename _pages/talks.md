@@ -6,7 +6,7 @@ description: talks, posters, events, and other activities.
 nav: true
 nav_order: 5
 ---
-{% assign all_presentations = site.activities | where: "type", "presentation" | sort: "date" | reverse %}
+{% assign all_presentations = site.activities_talks | sort: "date" | reverse %}
 {% if all_presentations.size > 0 %}
 ### talks and posters
 {% for activity in all_presentations %}
@@ -16,7 +16,7 @@ nav_order: 5
 {% endfor %}
 {% endif %}
 
-{% assign all_events = site.activities | where: "type", "event" | sort: "date" | reverse %}
+{% assign all_events = site.activities_events | sort: "date" | reverse %}
 {% if all_events.size > 0 %}
 ### event participation
 {% for activity in all_events %}
@@ -24,7 +24,7 @@ nav_order: 5
 {% endfor %}
 {% endif %}
 
-{% assign reviewing_activities = site.activities | where: "type", "reviewing" | sort: "date" | reverse %}
+{% assign reviewing_activities = site.activities_other | sort: "date" | reverse %}
 {% if reviewing_activities.size > 0 %}
 ### reviewing
 {% for activity in reviewing_activities %}
