@@ -493,19 +493,37 @@ footer.sticky-bottom {
 
     li {
       margin-bottom: 1rem;
+      
+      .preview-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
       .preview {
         width: 100%;
         min-width: 80px;
         max-width: 200px;
+        margin-bottom: 0.25rem;
+        
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 4px;
+        }
       }
-      .abbr {
-        height: 2rem;
-        margin-bottom: 0.5rem;
-        abbr {
+      
+      .abbr-tag {
+        margin-top: 0.25rem;
+        
+        .badge {
           display: inline-block;
           background-color: var(--global-theme-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
+          padding: 0.15rem 0.5rem;
+          border-radius: 3px;
+          font-size: 0.75rem;
+          
           a {
             color: white;
             &:hover {
@@ -513,10 +531,30 @@ footer.sticky-bottom {
             }
           }
         }
-        .award {
-          color: var(--global-theme-color) !important;
-          border: 1px solid var(--global-theme-color);
+      }
+      
+      .abbr {
+        height: 2rem;
+        margin-bottom: 0.5rem;
+        
+        .badge {
+          display: inline-block;
+          background-color: var(--global-theme-color);
+          padding: 0.5rem 1rem;
+          border-radius: 3px;
+          
+          a {
+            color: white;
+            &:hover {
+              text-decoration: none;
+            }
+          }
         }
+      }
+      
+      .award {
+        color: var(--global-theme-color) !important;
+        border: 1px solid var(--global-theme-color);
       }
       .title {
         font-weight: bolder;
@@ -608,6 +646,43 @@ footer.sticky-bottom {
       }
       div.abstract.hidden.open {
         border-color: var(--global-text-color);
+      }
+      .periodical {
+        margin-bottom: 0.25rem;
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        
+        .badge {
+          display: inline-flex;
+          align-items: center;
+          background-color: var(--global-theme-color);
+          padding: 0.1rem 0.5rem;
+          border-radius: 3px;
+          font-size: 0.75rem;
+          line-height: 1.5;
+          white-space: nowrap;
+          
+          a {
+            color: white;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+        
+        .venue-name {
+          margin-left: 0.5rem;
+          flex: 1;
+        }
+        
+        .year {
+          white-space: nowrap;
+          margin-left: auto;
+          padding-left: 1rem;
+          color: var(--global-theme-color);
+          opacity: 0.8;
+        }
       }
     }
   }
