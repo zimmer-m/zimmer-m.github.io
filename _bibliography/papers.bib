@@ -1,3 +1,17 @@
+@inproceedings{lasby2025compressed,
+title={Compressed Sparse Tiles for Memory-Efficient Unstructured and Semi-Structured Sparsity},
+author={Mike Lasby and Max Zimmer and Sebastian Pokutta and Erik Schultheis},
+booktitle={Sparsity in LLMs (SLLM): Deep Dive into Mixture of Experts, Quantization, Hardware, and Inference},
+year={2025},
+abstract      = {Storing the weights of large language models (LLMs) in GPU memory for local inference is challenging due to their size. While quantization has proven successful in reducing the memory footprint of LLMs, unstructured pruning introduces overhead by requiring the non-pruned weights' location to be encoded. This overhead hinders the efficient combination of quantization and unstructured pruning, especially for smaller batch sizes common in inference scenarios. To address this, we propose the CS256 storage format, which offers a better balance between space efficiency and hardware acceleration compared to existing formats. CS256 partitions the weight matrix into tiles and uses a hierarchical indexing scheme to locate non-zero values, reducing the overhead associated with storing sparsity patterns. Our preliminary results with one-shot pruning of LLMs show that CS256 matches the performance of unstructured sparsity while being more hardware-friendly.},
+url={https://openreview.net/forum?id=iso0KV2HVq},
+  abbr={Workshop @ ICLR},
+  bibtex_show={true},
+  preview={cs256.png},
+  selected={true},
+  tags={efficiency}
+}
+
 @article{fayad2025dunia,
   title={DUNIA: Pixel-Sized Embeddings via Cross-Modal Alignment for Earth Observation Applications},
   author={Fayad, Ibrahim and Zimmer, Max and Schwartz, Martin and Ciais, Philippe and Gieseke, Fabian and Belouze, Gabriel and Brood, Sarah and De Truchis, Aurelien and d'Aspremont, Alexandre},
@@ -74,6 +88,8 @@ custom={Earth Engine|https://worldwidemap.projects.earthengine.app/view/canopy-h
 tags={sustainability, ai4science}
 }
 
+
+
 @Article{mundinger2024extending,
   author        = {Konrad Mundinger and Sebastian Pokutta and Christoph Spiegel and Max Zimmer},
   journal       = {Geombinatorics Quarterly},
@@ -92,15 +108,18 @@ tags={sustainability, ai4science}
   tags={ai4science}
 }
 
-@article{mundinger2024neural,
+
+
+@inproceedings{mundinger2024neural,
   author        = {Mundinger, Konrad and Zimmer, Max and Pokutta, Sebastian},
   title         = {Neural Parameter Regression for Explicit Representations of PDE Solution Operators},
   year          = {2024},
+  booktitle={ICLR 2024 Workshop on AI4DifferentialEquations In Science},
   abstract      = {We introduce Neural Parameter Regression (NPR), a novel framework specifically developed for learning solution operators in Partial Differential Equations (PDEs). Tailored for operator learning, this approach surpasses traditional DeepONets (Lu et al., 2021) by employing Physics-Informed Neural Network (PINN, Raissi et al., 2019) techniques to regress Neural Network (NN) parameters. By parametrizing each solution based on specific initial conditions, it effectively approximates a mapping between function spaces. Our method enhances parameter efficiency by incorporating low-rank matrices, thereby boosting computational efficiency and scalability. The framework shows remarkable adaptability to new initial and boundary conditions, allowing for rapid fine-tuning and inference, even in cases of out-of-distribution examples.},
-  journal={Workshop on AI4DifferentialEquations In Science (ICLR24)},
-  abbr={ICLR},
+  abbr={},
   bibtex_show={true},
   pdf={https://arxiv.org/abs/2403.12764},
+  url={https://openreview.net/forum?id=6Z0q0dzSJQ},
   preview={pde.png},
   poster={NPR-poster-ICLR.pdf},
   selected={true},
