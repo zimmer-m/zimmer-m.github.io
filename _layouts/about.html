@@ -24,21 +24,23 @@ layout: default
               {% endif -%}
             </div>
             <div class="col-sm-8">
-              <h1 class="post-title">
-                {% if site.title == "blank" -%}{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }} {%- else -%}{{ site.title }}{%- endif %}
-              </h1>
+              <div class="d-flex align-items-center justify-content-between">
+                <h1 class="post-title mb-0">
+                  {% if site.title == "blank" -%}{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }} {%- else -%}{{ site.title }}{%- endif %}
+                </h1>
+                {%- if page.social %}
+                <!-- Social -->
+                <div class="social">
+                  <div class="contact-icons" style="font-size: 2rem;">
+                  {% include social.html %}
+                  </div>
+                </div>
+                {%- endif %}
+              </div>
               <p class="desc">{{ page.subtitle }}</p>
               {%- if page.profile.address %}
               <div class="address">
                 {{ page.profile.address }}
-              </div>
-              {%- endif %}
-              {%- if page.social %}
-              <!-- Social -->
-              <div class="social text-left"">
-                <div class="contact-icons">
-                {% include social.html %}
-                </div>
               </div>
               {%- endif %}
             </div>
