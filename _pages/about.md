@@ -9,6 +9,9 @@ subtitle: |+
   <i class="fas fa-paragraph"></i> <b>Advisor: <a href="http://www.pokutta.com/">Prof. Dr. Sebastian Pokutta</a></b>
   </div>
 
+  <div class="alert alert-success" role="alert">
+    <i class="fas fa-flask"></i> <b>We are hiring!</b> We are seeking motivated PhD students to work on Deep Learning. Reach out or directly apply <a href="http://iol.zib.de/openings" class="alert-link">here</a>!
+  </div>
 
 profile:
   align: left
