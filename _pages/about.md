@@ -4,9 +4,9 @@ title: about
 permalink: /
 subtitle: |+
   <div class="alert alert-info" role="alert">
-  ML Research Lead at the <a href="https://iol.zib.de/">IOL Lab</a> of <a href="https://www.zib.de/">Zuse Institute Berlin</a><br><br>
-  4th-year PhD candidate in Mathematics at <a href="https://www.tu.berlin/en/math">TU Berlin</a><br>  
-  Advisor: <a href="http://www.pokutta.com/">Prof. Dr. Sebastian Pokutta</a>
+  <i class="fas fa-paragraph"></i> <b>ML Research Lead at the <a href="https://iol.zib.de/">IOL Lab</a> of <a href="https://www.zib.de/">Zuse Institute Berlin</a></b><br>
+  <i class="fas fa-paragraph"></i> <b>4th-year PhD candidate in Mathematics at <a href="https://www.tu.berlin/en/math">TU Berlin</a></b><br>  
+  <i class="fas fa-paragraph"></i> <b>Advisor: <a href="http://www.pokutta.com/">Prof. Dr. Sebastian Pokutta</a></b>
   </div>
 
 
