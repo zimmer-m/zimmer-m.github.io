@@ -2,10 +2,14 @@
 layout: page
 title: blog
 permalink: /blog/
-description: A simple blog about mathematics, machine learning, and optimization.
+description: Research summaries and paper TLDRs in deep learning, mathematics, and other topics.
 nav: true
 nav_order: 6
 ---
+
+<div class="alert alert-info" role="alert">
+  <i class="fas fa-tools"></i> Work in progress - blog posts coming soon!
+</div>
 
 <div class="post-list">
   {% for post in site.posts %}
