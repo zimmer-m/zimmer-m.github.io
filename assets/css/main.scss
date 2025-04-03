@@ -76,7 +76,7 @@ html[data-theme='dark'] {
 }
 
 .post {
-    counter-reset: figure-counter;
+    counter-reset: figure-counter table-counter;
 }
 
 .figure-container {
@@ -106,5 +106,40 @@ html[data-theme='dark'] {
             font-weight: bold;
             font-style: normal;
         }
+    }
+}
+
+.table-caption {
+    display: block;
+    text-align: center;
+    margin: 2rem auto 0.5rem;
+    font-size: 0.9em;
+    color: var(--global-text-color);
+    font-style: italic;
+    max-width: 80%;
+    counter-increment: table-counter;
+    
+    &::before {
+        content: "Table " counter(table-counter) ": ";
+        font-weight: bold;
+        font-style: normal;
+    }
+}
+
+// Style markdown tables
+.post table {
+    width: 80%;
+    margin: 0 auto 2rem;
+    border-collapse: collapse;
+    
+    th, td {
+        padding: 0.5rem;
+        border: 1px solid var(--global-text-color);
+        text-align: left;
+    }
+    
+    th {
+        background-color: var(--global-bg-color);
+        font-weight: bold;
     }
 }
