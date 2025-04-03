@@ -130,8 +130,8 @@ html[data-theme='dark'] {
     }
 }
 
-// Style markdown tables
-.post table {
+// Style markdown tables in blog posts with captions
+.post .table-caption + table {
     width: 80%;
     margin: 0 auto 2rem;
     border-collapse: collapse;
