@@ -70,23 +70,50 @@
       <d-byline></d-byline>
 
       <d-article>
-        {% if page.toc -%}
         <d-contents>
           <nav class="l-text figcaption">
           <h3>Contents</h3>
-            {% for section in page.toc -%}
-            <div><a href="#{{ section.name | slugify }}">{{ section.name }}</a></div>
-            {% if section.subsections -%}
-            <ul>
-              {% for subsection in section.subsections -%}
-              <li><a href="#{{ subsection.name | slugify }}">{{ subsection.name }}</a></li>
-              {% endfor %}
-            </ul>
-            {%- endif -%}
-            {%- endfor %}
+            {% assign h_min = 2 %}
+            {% assign h_max = 3 %}
+            {% assign last_h2 = "" %}
+            {% assign ul_open = false %}
+            
+            {% assign content_markdownify = content | markdownify %}
+            {% assign headings = content_markdownify | split: '<h' %}
+            
+            {% for heading in headings %}
+              {% if forloop.first %}{% continue %}{% endif %}
+              
+              {% assign part = heading | split: '</h' | first %}
+              {% assign level = part | slice: 0, 1 | plus: 0 %}
+              {% if level < h_min or level > h_max %}{% continue %}{% endif %}
+              
+              {% assign title_parts = part | split: '>' %}
+              {% assign title = title_parts[1] | strip %}
+              {% assign id = title | slugify %}
+              
+              {% assign next_level = h_min | plus: 1 %}
+              {% if level == h_min %}
+                {% if ul_open %}
+                  </ul>
+                  {% assign ul_open = false %}
+                {% endif %}
+                <div><a href="#{{ id }}">{{ title }}</a></div>
+                {% assign last_h2 = title %}
+              {% elsif level == next_level %}
+                {% unless ul_open %}
+                  <ul>
+                  {% assign ul_open = true %}
+                {% endunless %}
+                <li><a href="#{{ id }}">{{ title }}</a></li>
+              {% endif %}
+            {% endfor %}
+            
+            {% if ul_open %}
+              </ul>
+            {% endif %}
           </nav>
         </d-contents>
-        {%- endif %}
 
         {{ content }}
       </d-article>
