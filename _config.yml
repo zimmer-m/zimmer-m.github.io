@@ -113,7 +113,7 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 
 blog_name: blog  # blog_name will be displayed in your blog page
 blog_nav_title: blog  # your blog must have a title for it to be displayed in the nav bar
-blog_description: A simple blog about mathematics, machine learning, and optimization
+blog_description: Research summaries and paper TLDRs in deep learning, mathematics, and other topics.
 permalink: /blog/:year/:title/
 
 # Pagination
