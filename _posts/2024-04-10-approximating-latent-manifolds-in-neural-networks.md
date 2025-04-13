@@ -41,10 +41,10 @@ These manifolds can be conceptualized as locally Euclidean spaces, meaning they 
 
 
 
-What makes this even more interesting is that certain types of these manifolds often have mathematical descriptions using polynomial equations. For example, a sphere - one of the simplest manifolds - can be described by a single polynomial equation: \\(x^2 + y^2 + z^2 = 1\\). This connection between geometry and algebra inspired our work: we discovered that by analyzing neural networks layer by layer, we could characterize how data manifolds transform via vanishing ideals. 
+What makes this even more interesting is that certain types of these manifolds often have mathematical descriptions using polynomial equations. For example, a sphere - one of the simplest manifolds - can be described by a single polynomial equation: $x^2 + y^2 + z^2 = 1$. This connection between geometry and algebra inspired our work: we discovered that by analyzing neural networks layer by layer, we could characterize how data manifolds transform via vanishing ideals. 
 
 ## Applying Vanishing Ideal Algorithms to Latent Spaces
-Vanishing ideal algorithms, which construct approximately vanishing polynomials, have garnered significant attention recently<d-cite key="livni_vanishing_2013,wirth_conditional_2024,wirth_approximate_2023"></d-cite>. Given a set of data representations in the form of vectors \\(v_1, \dots, v_m \in \mathbb{R}^n\\), an approximately vanishing polynomial is defined as a polynomial \\(p\\) such that \\(p(v_i) \leq \epsilon\\) for all \\(i \in [m]\\). These polynomials can then be used to describe the data manifold as a compact set of polynomials.  
+Vanishing ideal algorithms, which construct approximately vanishing polynomials, have garnered significant attention recently<d-cite key="livni_vanishing_2013,wirth_conditional_2024,wirth_approximate_2023"></d-cite>. Given a set of data representations in the form of vectors $v_1, \dots, v_m \in \mathbb{R}^n$, an approximately vanishing polynomial is defined as a polynomial $p$ such that $p(v_i) \leq \epsilon$ for all $i \in [m]$. These polynomials can then be used to describe the data manifold as a compact set of polynomials.  
 
 Despite their potential, these algorithms face two main technical challenges: they struggle with the high dimensionality of data and tend to produce an excessive number of polynomials. 
 
@@ -68,12 +68,12 @@ While these techniques enabled us to compute polynomials that approximately vani
 
 <div class="figure-container">
     <img src="/assets/img/blog_img/approximating-latent-manifolds-in-neural-networks/pruning.png" alt="Pruning of Polynomials" style="max-width: 70%;" class="zoomable" data-zoomable>
-    <div class="figure-caption">Illustration of our pruning approach. We start by removing polynomials with the lowest pruning scores, such as \(p_2\) and \(p_4\). Rows with only zero entries, indicating non-contributing monomials, are also removed. This leaves only essential monomials (\(y\), \(x^2\), and \(y^2\)) for the final computation.</div>
+    <div class="figure-caption">Illustration of our pruning approach. We start by removing polynomials with the lowest pruning scores, such as \(p_2\) and \(p_4\). Rows with only zero entries, indicating non-contributing monomials, are also removed. This leaves only essential monomials \(y\), \(x^2\), and \(y^2\) for the final computation.</div>
 </div>
 
 
 
-To select this subset, we introduced a scoring function. For each polynomial we know by construction it vanishes approximately on instances of its own class \\(j\\). However, if it also vanishes on the instances \\(z^k_1, \dots, z^k_{m_k}\\) of other classes \\(k \neq j\\), then it does not describe the class specific manifolds but rather the manifold of the entire dataset.
+To select this subset, we introduced a scoring function. For each polynomial we know by construction it vanishes approximately on instances of its own class $j$. However, if it also vanishes on the instances $z^k_1, \dots, z^k_{m_k}$ of other classes $k \neq j$, then it does not describe the class specific manifolds but rather the manifold of the entire dataset.
 
 $$
     s(p) = \min_{k \neq j} \frac{1}{m_k}\sum_{i=1}^{m_k}\left|p(z^k_i)\right|.
@@ -120,7 +120,6 @@ Our pruning strategy effectively manages the number of newly introduced polynomi
 
 <div class="table-container">
   <table class="performance-table">
-    <caption>Performance Comparison for VI-Net. Total Parameters is the sum of Baseline Parameters (truncated ResNet) and Polynomial Parameters (generated expansions), measured in millions (M). Throughput is measured on the test split (batch size 256), averaged across 5 random seeds with standard deviation indicated.</caption>
     <thead>
       <tr>
         <th colspan="6" class="table-header">CIFAR-10 (ResNet-18)</th>
@@ -232,6 +231,7 @@ Our pruning strategy effectively manages the number of newly introduced polynomi
       </tr>
     </tbody>
   </table>
+  <div class="table-caption">Performance Comparison for VI-Net. Total Parameters is the sum of Baseline Parameters (truncated ResNet) and Polynomial Parameters (generated expansions), measured in millions (M). Throughput is measured on the test split (batch size 256), averaged across 5 random seeds with standard deviation indicated.</div>
 </div>
 
 ### Generalization Properties
