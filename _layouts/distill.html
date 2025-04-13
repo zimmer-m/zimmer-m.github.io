@@ -27,7 +27,13 @@
         {% for author in page.authors -%}
         {
           "author": "{{ author.name }}",
-          "authorURL": "{{ author.url }}",
+          {% assign lastname = author.name | split: " " | last %}
+          {% if site.data.coauthors[lastname] %}
+            {% assign coauthor = site.data.coauthors[lastname][0] %}
+            "authorURL": "{{ coauthor.url }}",
+          {% else %}
+            "authorURL": "{{ author.url }}",
+          {% endif %}
           "affiliations": [
             {
               "name": "{{ author.affiliations.name }}",
