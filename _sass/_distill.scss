@@ -133,13 +133,17 @@ d-appendix {
 .figure-container {
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  background: var(--global-bg-color);
-  margin: 2em auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 0 2px var(--global-theme-color);
+  background: var(--global-card-bg-color);
+  margin: 3em auto;
+  padding: 1.5em 1em 1em 1em;
+  border: 1px solid var(--global-theme-color);
 
   img {
     border-radius: 10px;
     transition: transform 0.3s ease;
+    margin: 0;
+    display: block;
     
     &.zoomable {
       cursor: zoom-in;
@@ -147,16 +151,16 @@ d-appendix {
   }
 
   .figure-caption {
-    padding: 15px;
+    padding: 15px 15px 5px 15px;
     margin: 0;
-    background: var(--global-bg-color);
+    background: var(--global-card-bg-color);
     color: var(--global-text-color);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
 
   &:hover {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3), 0 0 4px var(--global-theme-color);
     transform: translateY(-2px);
     transition: all 0.3s ease;
   }
