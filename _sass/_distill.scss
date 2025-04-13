@@ -84,6 +84,7 @@ d-article {
     }
     .figcaption {
       line-height: 1.4em;
+      color: var(--global-text-color);
     }
     toc-line {
       border-right: 1px solid var(--global-divider-color);
@@ -124,6 +125,81 @@ d-appendix {
       nav {
         grid-column: none;
       }
+    }
+  }
+}
+
+// Figure container styles
+.figure-container {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background: var(--global-bg-color);
+  margin: 2em auto;
+
+  img {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .figure-caption {
+    padding: 15px;
+    margin: 0;
+    background: var(--global-bg-color);
+    color: var(--global-text-color);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+}
+
+// Table styles
+.table-container {
+  overflow-x: auto;
+  margin: 2em 0;
+
+  .performance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    font-size: 0.9em;
+
+    caption {
+      margin-bottom: 1em;
+      text-align: left;
+      font-style: italic;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: center;
+      border: 1px solid var(--global-divider-color);
+    }
+
+    th {
+      background-color: var(--global-bg-color);
+      font-weight: bold;
+      color: var(--global-text-color);
+    }
+
+    .table-header {
+      background-color: var(--global-bg-color);
+      font-weight: bold;
+      color: var(--global-text-color);
+    }
+
+    .border-top {
+      border-top: 2px solid var(--global-divider-color);
+    }
+
+    tr:hover {
+      background-color: var(--global-hover-color);
     }
   }
 }
