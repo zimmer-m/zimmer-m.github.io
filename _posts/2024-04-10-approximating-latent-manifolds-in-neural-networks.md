@@ -34,7 +34,7 @@ These manifolds can be conceptualized as locally Euclidean spaces, meaning they 
 
 
 <div class="figure-container">
-    <img src="/assets/img/blog_img/approximating-latent-manifolds-in-neural-networks/manifold_nn.png" alt="Manifold Neural Network" style="max-width: 50%;" class="zoomable" data-zoomable>
+    <img src="/assets/img/blog_img/approximating-latent-manifolds-in-neural-networks/manifold_nn.png" alt="Manifold Neural Network" style="max-width: 80%;" class="zoomable" data-zoomable>
     <div class="figure-caption">The baseline NN output is interpreted as class probabilities. The truncated NN output is interpreted using the manifold hypothesis, suggesting that classes lie on distinct manifolds. We characterize these manifolds using a set of polynomials, capturing their underlying structure. The depicted manifold is a visualization of a Calabi–Yau manifold.</div>
 </div>
 
@@ -67,7 +67,7 @@ While these techniques enabled us to compute polynomials that approximately vani
 
 
 <div class="figure-container">
-    <img src="/assets/img/blog_img/approximating-latent-manifolds-in-neural-networks/pruning.png" alt="Pruning of Polynomials" style="max-width: 70%;" class="zoomable" data-zoomable>
+    <img src="/assets/img/blog_img/approximating-latent-manifolds-in-neural-networks/pruning.png" alt="Pruning of Polynomials" style="max-width: 90%;" class="zoomable" data-zoomable>
     <div class="figure-caption">Illustration of our pruning approach. We start by removing polynomials with the lowest pruning scores, such as $p_2$ and $p_4$. Rows with only zero entries, indicating non-contributing monomials, are also removed. This leaves only essential monomials $y$, $x^2$, and $y^2$ for the final computation.</div>
 </div>
 
@@ -111,7 +111,7 @@ We performed extensive experiments to validate our findings empirically. We foun
 Our experiments show that VI-Net achieves comparable accuracy to the original networks while significantly reducing the number of parameters, even achieving moderate speed ups for inference. 
 
 <div class="figure-container">
-    <img src="/assets/img/blog_img/approximating-latent-manifolds-in-neural-networks/cifar100.png" alt="Performance of VI-Net" style="max-width: 50%;" class="zoomable" data-zoomable>
+    <img src="/assets/img/blog_img/approximating-latent-manifolds-in-neural-networks/cifar100.png" alt="Performance of VI-Net" style="max-width: 80%;" class="zoomable" data-zoomable>
     <div class="figure-caption">Comparison of linear probing, randomly generated monomials, and VI-Net. Linear probing uses a linear classifier on the truncated network. Random monomials add non-linearity but lack our method's discriminative power. VI-Net uses polynomials from vanishing ideals, tailored to the data's structure, significantly outperforming other methods.</div>
 </div>
 
