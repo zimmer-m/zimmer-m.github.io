@@ -2,10 +2,11 @@
 layout: distill
 title: "Approximating Latent Manifolds in Neural Networks via Vanishing Ideals"
 date: 2025-04-30
-description: Our preprint 'Approximating Latent Manifolds in Neural Networks via Vanishing Ideals' introduces a novel approach to understanding data representation in neural networks through vanishing ideals. This work uncovers the structure of latent spaces, supports network compression, and scales vanishing ideal algorithms to handle high-dimensional data. Additionally, it provides learning guarantees for these methods, marking the first application of vanishing ideals to latent representations.
+description: Our paper <b>Approximating Latent Manifolds in Neural Networks via Vanishing Ideals</b> introduces a novel approach to understanding data representation in neural networks through vanishing ideals. This work uncovers the structure of latent spaces, supports network compression, and scales vanishing ideal algorithms to handle high-dimensional data. Additionally, it provides learning guarantees for these methods, marking the first application of vanishing ideals to latent representations.
 bibliography: approximating-latent-manifolds-in-neural-networks.bib
+publication_type: "Preprint"
 paper_url: "https://arxiv.org/abs/2502.15051"
-tags: [ml, deep-learning, neural-networks, algebraic-geometry]
+tags: [deep-learning, algebraic-geometry, manifold-learning]
 giscus_comments: false
 related_posts: false
 authors:
