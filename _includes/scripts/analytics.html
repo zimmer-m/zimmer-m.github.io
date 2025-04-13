@@ -1,7 +1,7 @@
 <!-- 
   Analytics are controlled by two factors:
   1. The respective analytics service must be enabled in _config.yml (site.enable_google_analytics or site.enable_panelbear_analytics)
-  2. Jekyll must be running in production environment
+  2. Jekyll must NOT be running in development environment
 
   Local development: 
   - Jekyll runs in development environment by default with `jekyll serve` or `bundle exec jekyll serve`
@@ -11,9 +11,11 @@
   - The bin/deploy script explicitly sets JEKYLL_ENV=production before building
   - This enables analytics in the GitHub Pages deployment
   - You can verify this in bin/deploy where it runs: export JEKYLL_ENV=production
+
+  Current Jekyll Environment: {{ jekyll.environment }}
 -->
 
-{% if site.enable_google_analytics and jekyll.environment == "production" %}
+{% if site.enable_google_analytics and jekyll.environment != "development" %}
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
   <script>
@@ -23,7 +25,7 @@
     gtag('config', '{{ site.google_analytics }}');
   </script>
 {% endif %}
-{% if site.enable_panelbear_analytics and jekyll.environment == "production" %}
+{% if site.enable_panelbear_analytics and jekyll.environment != "development" %}
   <!-- Panelbear Analytics - We respect your privacy -->
   <script async src="https://cdn.panelbear.com/analytics.js?site={{site.panelbear_analytics}}"></script>
   <script>
