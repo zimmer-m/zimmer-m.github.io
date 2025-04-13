@@ -100,15 +100,15 @@ Even with accurate height measurements, GPS and satellite positioning errors can
 
 Our solution involves three main components, which we will explain below:
 
-1. **Multiple Types of Satellite Data**
+(1) **Multiple Types of Satellite Data**
 
 Our approach leverages two complementary satellite data sources from ESA: Sentinel-2's high-resolution optical imagery (similar to Google Maps) and Sentinel-1's radar data. The radar signals can penetrate clouds and even some vegetation layers, providing crucial data in areas where optical sensors are limited. We combine these inputs with height measurements from NASA's GEDI laser system on the International Space Station, which serve as our ground truth labels.
 
-2. **Smart Cloud Handling**
+(2) **Smart Cloud Handling**
 
 Although we use radar data, it is still beneficial to use optical data as often as possible, as it has a higher level of detail. We therefore try to construct a cloud-free image where possible. Sentinel-2 does not only capture a single image per year, but an image of the entire globe every 6 days. We therefore make use of all images and mask out clouds from every image. Lastly, we combine all images into a single image by taking the per-pixel median of all non-cloud pixel values. This step effectively removes almost all clouds from the image and reduced noise and inter-year-variability.
 
-3. **Model Training**
+(3) **Model Training**
 
 We used a special loss function to address location erros in our ground-truth measurements. Our loss function allows the model to shift the measurements within a certain range if it is similar for all nearby measurements. Secondly, we pre-filter our labels to remove measurements that were taken on areas with a great slope.
 
