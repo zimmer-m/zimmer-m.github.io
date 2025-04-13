@@ -119,7 +119,7 @@ Our experiments show that VI-Net achieves comparable accuracy to the original ne
 Our pruning strategy effectively manages the number of newly introduced polynomials, enabling the construction of VI-Net models that are more parameter-efficient and often exhibit faster inference times.
 
 <div class="table-container">
-  <table class="performance-table">
+  <table>
     <thead>
       <tr>
         <th colspan="6" class="table-header">CIFAR-10 (ResNet-18)</th>
