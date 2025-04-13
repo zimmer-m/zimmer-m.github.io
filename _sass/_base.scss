@@ -136,8 +136,8 @@ blockquote {
 
 // Blog post tags
 .tag {
-  background-color: var(--global-theme-color);
-  color: var(--global-bg-color) !important;
+  background-color: var(--global-bg-color);
+  color: var(--global-theme-color) !important;
   padding: 0.2rem 0.5rem;
   border-radius: 0.3rem;
   font-size: 0.8rem;
@@ -145,7 +145,7 @@ blockquote {
   display: inline-block;
   
   &:hover {
-    background-color: var(--global-hover-color);
+    background-color: var(--global-theme-color);
     color: var(--global-bg-color) !important;
     text-decoration: none;
   }

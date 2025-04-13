@@ -33,7 +33,6 @@ nav_order: 6
         • 
         {% for tag in post.tags %}
           <a class="tag" href="{{ '/blog/tag/' | prepend: site.baseurl }}{{ tag }}">{{ tag }}</a>
-          {% unless forloop.last %}, {% endunless %}
         {% endfor %}
       {% endif %}
     </p>
