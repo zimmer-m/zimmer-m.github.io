@@ -140,6 +140,10 @@ d-appendix {
   img {
     border-radius: 10px;
     transition: transform 0.3s ease;
+    
+    &.zoomable {
+      cursor: zoom-in;
+    }
   }
 
   .figure-caption {
