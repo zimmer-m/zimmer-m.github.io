@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: "Approximating Latent Manifolds in Neural Networks via Vanishing Ideals"
-date: 2025-04-10
+date: 2025-04-30
 description: Our preprint 'Approximating Latent Manifolds in Neural Networks via Vanishing Ideals' introduces a novel approach to understanding data representation in neural networks through vanishing ideals. This work uncovers the structure of latent spaces, supports network compression, and scales vanishing ideal algorithms to handle high-dimensional data. Additionally, it provides learning guarantees for these methods, marking the first application of vanishing ideals to latent representations.
 bibliography: approximating-latent-manifolds-in-neural-networks.bib
 paper_url: "https://arxiv.org/abs/2502.15051"
@@ -22,7 +22,6 @@ authors:
     affiliations: 
       name: Zuse Institute Berlin
 ---
-
 
 
 ## Manifold Hypothesis and Algebraic Geometry
@@ -247,5 +246,3 @@ Future work could explore:
 - Application to larger models and datasets
 - Integration with other compression techniques
 - Theoretical analysis of the learned polynomial structures
-
-For those interested in the technical details, you can find our full research paper [here](https://arxiv.org/abs/2502.15051).
