@@ -2,8 +2,8 @@
 layout: distill
 title: "[ICML24] Global-Scale Forest Height Estimation"
 date: 2025-04-13
-description: Our paper 'Estimating Canopy Height at Scale' was accepted to ICML 2024! In this work, we present a novel framework for global-scale forest height estimation. Using a deep learning approach that leverages large amounts of satellite data with only sparsely distributed ground-truth height measurements from NASA's GEDI mission, we achieve state-of-the-art accuracy with MAE/RMSE of 2.43m/4.73m overall, significantly outperforming existing approaches. The resulting height map facilitates ecological analyses at a global scale.
-tags: [ml, ai4science, sustainability]
+description: Our paper <b>Estimating Canopy Height at Scale</b> was accepted to ICML 2024! In this work, we present a novel framework for global-scale forest height estimation. Using a deep learning approach that leverages large amounts of satellite data with only sparsely distributed ground-truth height measurements from NASA's GEDI mission, we achieve state-of-the-art accuracy with MAE/RMSE of 2.43m/4.73m overall, significantly outperforming existing approaches. The resulting height map facilitates ecological analyses at a global scale.
+tags: [deep-learning, ai4science, sustainability]
 bibliography: estimating-canopy-height-at-scale.bib
 publication_type: "ICML 2024"
 paper_url: "https://arxiv.org/abs/2406.01076"
