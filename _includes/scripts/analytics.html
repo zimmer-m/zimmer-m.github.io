@@ -1,4 +1,19 @@
-{%- if site.enable_google_analytics -%}
+<!-- 
+  Analytics are controlled by two factors:
+  1. The respective analytics service must be enabled in _config.yml (site.enable_google_analytics or site.enable_panelbear_analytics)
+  2. Jekyll must be running in production environment
+
+  Local development: 
+  - Jekyll runs in development environment by default with `jekyll serve` or `bundle exec jekyll serve`
+  - Analytics will be disabled automatically
+
+  Production deployment:
+  - The bin/deploy script explicitly sets JEKYLL_ENV=production before building
+  - This enables analytics in the GitHub Pages deployment
+  - You can verify this in bin/deploy where it runs: export JEKYLL_ENV=production
+-->
+
+{% if site.enable_google_analytics and jekyll.environment == "production" %}
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
   <script>
@@ -7,12 +22,12 @@
     gtag('js', new Date());
     gtag('config', '{{ site.google_analytics }}');
   </script>
-{%- endif -%}
-{%- if site.enable_panelbear_analytics -%}
+{% endif %}
+{% if site.enable_panelbear_analytics and jekyll.environment == "production" %}
   <!-- Panelbear Analytics - We respect your privacy -->
   <script async src="https://cdn.panelbear.com/analytics.js?site={{site.panelbear_analytics}}"></script>
   <script>
     window.panelbear = window.panelbear || function() { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
     panelbear('config', { site: '{{site.panelbear_analytics}}' });
   </script>
-{%- endif -%}
+{% endif %}
