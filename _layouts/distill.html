@@ -70,31 +70,33 @@
 
       <d-title>
         <h1>{{ page.title }}</h1>
-        <p>{{ page.description }}</p>
-        {% if page.publication_type %}
-        <p class="publication-info" style="font-size: 1.1em; color: var(--global-text-color); margin: -0.2em 0; padding-left: 2em;">
-          • <b style="display: inline-block; width: 100px;">Venue:</b> {{ page.publication_type }}
+        <p style="margin-bottom: 0.1em;">{{ page.description }}</p>
+        <p style="display: flex; gap: 0.5em; align-items: center;">
+          {% if page.publication_type %}
+          <span style="color: var(--global-text-color); font-size: 1.2em; margin-right: 0.2em;">
+            <i class="fas fa-university"></i> {{ page.publication_type }}
+          </span>
+          {% endif %}
+          {% if page.paper_url %}
+          <a class="btn btn-sm z-depth-0" href="{{ page.paper_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--global-theme-color); text-decoration: none; padding: 0.5em 0.5em; font-size: 1.2em;">
+            <i class="fas fa-file-alt"></i> PDF
+          </a>
+          {% endif %}
+          {% if page.code_url %}
+          <a class="btn btn-sm z-depth-0" href="{{ page.code_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--global-theme-color); text-decoration: none; padding: 0.5em 0.5em; font-size: 1.2em;">
+            <i class="fas fa-code"></i> Code
+          </a>
+          {% endif %}
+          {% if page.paper_custom %}
+          {% assign custom_parts = page.paper_custom | split: '|' %}
+          <a class="btn btn-sm z-depth-0" href="{{ custom_parts[1] }}" target="_blank" rel="noopener noreferrer" style="color: var(--global-theme-color); text-decoration: none; padding: 0.5em 0.5em; font-size: 1.2em;">
+            <i class="fas fa-link"></i> {{ custom_parts[0] }}
+          </a>
+          {% endif %}
         </p>
-        {% endif %}
-        {% if page.paper_url %}
-        <p class="publication-info" style="font-size: 1.1em; color: var(--global-text-color); margin: -0.2em 0; padding-left: 2em;">
-          • <b style="display: inline-block; width: 100px;">Paper:</b> <a href="{{ page.paper_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--global-theme-color);">{{ page.paper_url | remove: "https://" }}</a>
-        </p>
-        {% endif %}
-        {% if page.code_url %}
-        <p class="publication-info" style="font-size: 1.1em; color: var(--global-text-color); margin: -0.2em 0; padding-left: 2em;">
-          • <b style="display: inline-block; width: 100px;">Code:</b> <a href="{{ page.code_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--global-theme-color);">{{ page.code_url | remove: "https://" }}</a>
-        </p>
-        {% endif %}
-        {% if page.paper_custom %}
-        {% assign custom_parts = page.paper_custom | split: '|' %}
-        <p class="publication-info" style="font-size: 1.1em; color: var(--global-text-color); margin: -0.2em 0; padding-left: 2em;">
-          • <b style="display: inline-block; width: 100px; white-space: nowrap;">{{ custom_parts[0] }}:</b> <a href="{{ custom_parts[1] }}" target="_blank" rel="noopener noreferrer" style="color: var(--global-theme-color);">{{ custom_parts[1] | remove: "https://" }}</a>
-        </p>
-        {% endif %}
       </d-title>
 
-      <d-byline></d-byline>
+      <d-byline style="margin-top: 0.2em;"></d-byline>
 
       <d-article>
         <d-contents>
