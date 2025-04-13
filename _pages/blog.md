@@ -24,7 +24,19 @@ nav_order: 6
     <h2 class="post-title">
       <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
     </h2>
-    <p class="post-meta">{{ post.date | date: '%B %-d, %Y' }}</p>
+    <p class="post-meta">
+      {{ post.date | date: '%B %-d, %Y' }} • 
+      {% assign words = post.content | number_of_words %}
+      {% assign read_time = words | divided_by: 180 | plus: 1 %}
+      {{ read_time }} min read
+      {% if post.tags %}
+        • 
+        {% for tag in post.tags %}
+          <a class="tag" href="{{ '/blog/tag/' | prepend: site.baseurl }}{{ tag }}">{{ tag }}</a>
+          {% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endif %}
+    </p>
     <p class="post-description">{{ post.description }}</p>
   </div>
   {% endfor %}
