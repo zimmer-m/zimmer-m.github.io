@@ -86,6 +86,12 @@
           • <b style="display: inline-block; width: 100px;">Code:</b> <a href="{{ page.code_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--global-theme-color);">{{ page.code_url | remove: "https://" }}</a>
         </p>
         {% endif %}
+        {% if page.paper_custom %}
+        {% assign custom_parts = page.paper_custom | split: '|' %}
+        <p class="publication-info" style="font-size: 1.1em; color: var(--global-text-color); margin: -0.2em 0; padding-left: 2em;">
+          • <b style="display: inline-block; width: 100px; white-space: nowrap;">{{ custom_parts[0] }}:</b> <a href="{{ custom_parts[1] }}" target="_blank" rel="noopener noreferrer" style="color: var(--global-theme-color);">{{ custom_parts[1] | remove: "https://" }}</a>
+        </p>
+        {% endif %}
       </d-title>
 
       <d-byline></d-byline>
