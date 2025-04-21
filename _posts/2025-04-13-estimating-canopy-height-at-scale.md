@@ -183,3 +183,15 @@ Creating accurate global forest height maps is crucial for understanding and pro
 - Reducing the error for very tall trees
 
 Want to explore forest heights in your area? Our global canopy height map is available on Google Earth Engine. You can view our predicted forest height information for any location on Earth here: [worldwidemap.projects.earthengine.app/view/canopy-height-2020](https://worldwidemap.projects.earthengine.app/view/canopy-height-2020).
+
+If this work is helpful for your research, please consider citing our paper:
+
+```bibtex
+@inproceedings{pauls2024estimating,
+  title={Estimating Canopy Height at Scale},
+  author={Jan Pauls and Max Zimmer and Una M. Kelly and Martin Schwartz and Sassan Saatchi and Philippe Ciais and Sebastian Pokutta and Martin Brandt and Fabian Gieseke},
+  booktitle={Forty-first International Conference on Machine Learning},
+  year={2024},
+  url={https://openreview.net/forum?id=ZzCY0fRver}
+}
+```
