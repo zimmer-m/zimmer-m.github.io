@@ -1,3 +1,25 @@
+@inbook{ZimmerSpiegelPokutta+2025+137+168,
+url = {https://doi.org/10.1515/9783111376776-010},
+  title={Compression-aware Training of Neural Networks using Frank-Wolfe},
+booktitle = {Mathematical Optimization for Machine Learning},
+author = {Max Zimmer and Christoph Spiegel and Sebastian Pokutta},
+editor = {Konstantin Fackeldey and Aswin Kannan and Sebastian Pokutta and Kartikey Sharma and Daniel Walter and Andrea Walther and Martin Weiser},
+  abstract      = {Many existing Neural Network pruning approaches either rely on retraining to compensate for pruning-caused performance degradation or they induce strong biases to converge to a specific sparse solution throughout training. A third paradigm obtains a wide range of compression ratios from a single dense training run while also avoiding retraining. Recent work of Pokutta et al. (2020) and Miao et al. (2022) suggests that the Stochastic Frank-Wolfe (SFW) algorithm is particularly suited for training state-of-the-art models that are robust to compression. We propose leveraging $k$-support norm ball constraints and demonstrate significant improvements over the results of Miao et al. (2022) in the case of unstructured pruning. We also extend these ideas to the structured pruning domain and propose novel approaches to both ensure robustness to the pruning of convolutional filters as well as to low-rank tensor decompositions of convolutional layers. In the latter case, our approach performs on-par with nuclear-norm regularization baselines while requiring only half of the computational resources. Our findings also indicate that the robustness of SFW-trained models largely depends on the gradient rescaling of the learning rate and we establish a theoretical foundation for that practice.},
+publisher = {De Gruyter},
+address = {Berlin, Boston},
+pages = {137--168},
+doi = {doi:10.1515/9783111376776-010},
+isbn = {9783111376776},
+year = {2025},
+  abbr={Journal},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2205.11921},
+  code={https://github.com/ZIB-IOL/compression-aware-SFW},
+  preview={sparsefw_pruneddistance.png},
+  selected={true},
+  tags={efficiency, optimization},
+}
+
 @inproceedings{lasby2025compressed,
 title={Compressed Sparse Tiles for Memory-Efficient Unstructured and Semi-Structured Sparsity},
 author={Mike Lasby and Max Zimmer and Sebastian Pokutta and Erik Schultheis},
@@ -214,20 +236,9 @@ blog={blog/2025/estimating-canopy-height-at-scale/}
   tags={efficiency}
 }
 
-@article{zimmer2022compression,
-  title={Compression-aware Training of Neural Networks using Frank-Wolfe},
-  author={Zimmer, Max and Spiegel, Christoph and Pokutta, Sebastian},
-  journal={arXiv preprint arXiv:2205.11921},
-  year={2022},
-  abstract      = {Many existing Neural Network pruning approaches either rely on retraining to compensate for pruning-caused performance degradation or they induce strong biases to converge to a specific sparse solution throughout training. A third paradigm obtains a wide range of compression ratios from a single dense training run while also avoiding retraining. Recent work of Pokutta et al. (2020) and Miao et al. (2022) suggests that the Stochastic Frank-Wolfe (SFW) algorithm is particularly suited for training state-of-the-art models that are robust to compression. We propose leveraging $k$-support norm ball constraints and demonstrate significant improvements over the results of Miao et al. (2022) in the case of unstructured pruning. We also extend these ideas to the structured pruning domain and propose novel approaches to both ensure robustness to the pruning of convolutional filters as well as to low-rank tensor decompositions of convolutional layers. In the latter case, our approach performs on-par with nuclear-norm regularization baselines while requiring only half of the computational resources. Our findings also indicate that the robustness of SFW-trained models largely depends on the gradient rescaling of the learning rate and we establish a theoretical foundation for that practice.},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2205.11921},
-  code={https://github.com/ZIB-IOL/compression-aware-SFW},
-  preview={sparsefw_pruneddistance.png},
-  selected={true},
-  tags={efficiency, optimization}
-}
+
+
+
 
 
 @article{ziemke2021flows,
