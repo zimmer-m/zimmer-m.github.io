@@ -121,6 +121,7 @@
               {% assign title = title_parts[1] | strip %}
               {% assign id = title | slugify %}
               
+              {% unless title contains "Series:" %}
               {% assign next_level = h_min | plus: 1 %}
               {% if level == h_min %}
                 {% if ul_open %}
@@ -136,6 +137,7 @@
                 {% endunless %}
                 <li><a href="#{{ id }}">{{ title }}</a></li>
               {% endif %}
+              {% endunless %}
             {% endfor %}
             
             {% if ul_open %}
