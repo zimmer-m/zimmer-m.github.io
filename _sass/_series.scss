@@ -9,13 +9,17 @@
   transition: all 0.2s ease;
 
   .series-header {
-    display: flex;
-    align-items: center;
-    gap: 1em;
     margin-bottom: 1.5em;
     border: none !important;
     border-bottom: none !important;
     padding: 0;
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      margin-bottom: 0.5em;
+    }
 
     h3 {
       margin: 0;
@@ -27,6 +31,14 @@
       &::after {
         display: none !important;
       }
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+      color: var(--global-text-color);
+      opacity: 0.8;
+      font-size: 0.95em;
     }
   }
 
@@ -90,10 +102,6 @@
           background-color: rgba(255, 255, 255, 0.05);
         }
         
-        .post-title {
-          color: var(--global-theme-color);
-        }
-        
         .post-description {
           opacity: 1;
         }
@@ -113,10 +121,6 @@
     font-size: 1em;
     transition: all 0.2s ease;
     line-height: 1.2;
-
-    &:not(.current):hover {
-      color: var(--global-theme-color);
-    }
   }
 
   .current-badge {
