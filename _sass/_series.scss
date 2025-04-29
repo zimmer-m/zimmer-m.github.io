@@ -81,7 +81,7 @@
       text-decoration: none;
       color: var(--global-text-color);
       border-bottom: 2px solid var(--global-theme-color);
-      opacity: 0.6;
+      opacity: 0.4;
       transition: all 0.2s ease;
 
       * {
@@ -121,18 +121,6 @@
     font-size: 1em;
     transition: all 0.2s ease;
     line-height: 1.2;
-  }
-
-  .current-badge {
-    display: inline-block;
-    padding: 0.15em 0.4em;
-    border-radius: 3px;
-    font-size: 0.75em;
-    margin-left: 0.5em;
-    font-weight: 500;
-    background-color: var(--global-theme-color);
-    color: var(--global-bg-color);
-    vertical-align: middle;
   }
 
   .post-description {
