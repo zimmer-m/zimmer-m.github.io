@@ -69,10 +69,17 @@
       text-decoration: none;
       color: var(--global-text-color);
       border-bottom: 2px solid var(--global-theme-color);
+      opacity: 0.6;
+      transition: all 0.2s ease;
+
+      * {
+        transition: all 0.2s ease;
+      }
 
       &:hover {
         border: 2px solid var(--global-theme-color);
         text-decoration: none;
+        opacity: 1;
         // Light theme hover
         html[data-theme='light'] & {
           background-color: rgba(0, 0, 0, 0.05);
@@ -104,7 +111,7 @@
     text-decoration: none;
     color: var(--global-text-color);
     font-size: 1.1em;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
 
     &:not(.current):hover {
       color: var(--global-theme-color);
@@ -113,13 +120,14 @@
 
   .current-badge {
     display: inline-block;
-    padding: 0.2em 0.5em;
+    padding: 0.15em 0.4em;
     border-radius: 3px;
-    font-size: 0.8em;
+    font-size: 0.75em;
     margin-left: 0.5em;
     font-weight: 500;
     background-color: var(--global-theme-color);
     color: var(--global-bg-color);
+    vertical-align: middle;
   }
 
   .post-description {
