@@ -60,27 +60,18 @@
     display: flex;
     align-items: flex-start;
     transition: all 0.2s ease;
-    padding: 0.5em;
+    padding: 1em;
     border-radius: 4px;
+    border: 2px solid var(--global-theme-color);
     
-    &::before {
-      content: '';
-      width: 2px;
-      margin-right: 1.5em;
-      background-color: var(--global-theme-color);
-      align-self: stretch;
-      opacity: 1;
-      border-radius: 2px;
-    }
-
     &.inactive {
       cursor: pointer;
       text-decoration: none;
       color: var(--global-text-color);
-      border-bottom: none;
+      border-bottom: 2px solid var(--global-theme-color);
 
       &:hover {
-        border-bottom: none;
+        border: 2px solid var(--global-theme-color);
         text-decoration: none;
         // Light theme hover
         html[data-theme='light'] & {
