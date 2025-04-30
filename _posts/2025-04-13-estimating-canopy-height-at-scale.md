@@ -1,8 +1,8 @@
 ---
 layout: distill
-title: "[ICML24] Global-Scale Forest Height Estimation"
+title: "Global-Scale Forest Height Estimation"
 date: 2025-04-13
-description: Our paper <b>Estimating Canopy Height at Scale</b> was accepted to ICML 2024! In this work, we present a novel framework for global-scale forest height estimation. Using a deep learning approach that leverages large amounts of satellite data with only sparsely distributed ground-truth height measurements from NASA's GEDI mission, we achieve state-of-the-art accuracy with MAE/RMSE of 2.43m/4.73m overall, significantly outperforming existing approaches. The resulting height map facilitates ecological analyses at a global scale.
+description: Our paper <b>Estimating Canopy Height at Scale</b> was accepted to <b>ICML 2024</b>! In this work, we present a novel framework for global-scale forest height estimation. Using a deep learning approach that leverages large amounts of satellite data with only sparsely distributed ground-truth height measurements from NASA's GEDI mission, we achieve state-of-the-art accuracy with MAE/RMSE of 2.43m/4.73m overall, significantly outperforming existing approaches. The resulting height map facilitates ecological analyses at a global scale.
 tags: [deep-learning, ai4science, sustainability]
 bibliography: estimating-canopy-height-at-scale.bib
 publication_type: "ICML24"
@@ -40,6 +40,30 @@ authors:
     affiliations:
       name: University of Münster
 ---
+
+<div class="series-nav">
+  <div class="series-header">
+    <div class="title-row">
+      <span class="part-badge">Part 1 of 2</span>
+      <h3>Series: Tree Canopy Height Estimation</h3>
+    </div>
+    <p>This post is part of a series of posts on tree canopy height estimation using deep learning and satellite data.</p>
+  </div>
+  <div class="posts">
+    <div class="post">
+      <div class="post-content">
+        <strong class="post-title current">Part 1. Global-Scale Forest Height Estimation</strong>
+        <span class="post-description">Introduction of the problem of estimating tree height from satellite data, its challenges and how we have overcome them in our ICML24 paper.</span>
+      </div>
+    </div>
+    <a href="/blog/2025/capturing-temporal-dynamics-in-tree-canopy-height/" class="post inactive">
+      <div class="post-content">
+        <span class="post-title">Part 2. Capturing Temporal Dynamics in Canopy Height</span>
+        <span class="post-description">Part 2 reveals how we moved beyond a single-year map to track changes in canopy height over time, as detailed in our ICML25 paper.</span>
+      </div>
+    </a>
+  </div>
+</div>
 
 ## Intro: Why Forest Monitoring Matters
 
