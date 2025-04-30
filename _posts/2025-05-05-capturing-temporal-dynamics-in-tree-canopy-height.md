@@ -69,8 +69,11 @@ learning techniques on satellite data for forest height estimation and the chall
 
 While having a global forest height map might suggest that no more work is to be done, we are in fact missing out on a lot of information. In this post, we will explore some of the limitations of our current approach and discuss directions for improvements (and, non surprisingly, how we successfully address them). Two significant issues become apparent:
 
-1. **Tall trees are underpredicted.** Current models often struggle to accurately predict the height of tall trees. There's a consistent underestimation that worsens as the trees get taller. This is a big issue because large trees store most of the carbon, making their accurate prediction crucial for climate analysis.
-2. **Maps only capture a single year.** Most maps, including our previous work, only capture a single moment in time. However, forests change due to disturbances, logging, and regrowth. Without tracking these changes, we miss the complete picture and can't fully understand forest history or make informed predictions for the future.
+### 1. Tall trees are underpredicted.
+Current models often struggle to accurately predict the height of tall trees. There's a consistent underestimation that worsens as the trees get taller. This is a big issue because large trees store most of the carbon, making their accurate prediction crucial for climate analysis.
+
+### 2. Maps only capture a single year.
+Most maps, including our previous work, only capture a single moment in time. However, forests change due to disturbances, logging, and regrowth. Without tracking these changes, we miss the complete picture and can't fully understand forest history or make informed predictions for the future.
 
 Before we discuss how we tackle these challenges, check out the figure below from our paper. It's a short teaser of how much better we have gotten at predicting tall trees, comparing our latest work with the previous best and ALS data, which we aim to match.
 
@@ -155,7 +158,7 @@ Since we do not preprocess our data to create composite images, the datasets we 
 
 Our novel approach contributes in three key areas:
 
-**We obtain a new state-of-the-art 2020 Forest Height Map for Europe.**
+### Contribution 1: We obtain a new state-of-the-art 2020 Height Map for Europe.
 Our model outperforms all previous models in both quantitative and qualitative assessments. Compared to the second-best model, we achieve improvements of 13% in MAE, 11% in MSE, and 9% in RMSE. Additionally, our approach provides enhanced forest structure representation, more precisely aligned edges, and better differentiation between forest patches of varying heights.
 
 
@@ -164,7 +167,7 @@ Our model outperforms all previous models in both quantitative and qualitative a
     <div class="figure-caption">Qualitative comparison of canopy height maps for the reference year 2020.</div>
 </div>
 
-**We obtain significantly better results for tall trees.**
+### Contribution 2: We obtain significantly better results for tall trees.
 Our model predicts the height of large trees more accurately and is also able to detect single large trees close to larger areas of small trees, which has not been possible before. Further, our approach more closely matches the distribution of the labels and reduces the width of the scatterplot. This improves carbon stock estimates and helps spot old-growth forests.
 
 <div class="figure-container">
@@ -178,7 +181,8 @@ Our model predicts the height of large trees more accurately and is also able to
 </div>
 
 
-**We can track changes over time.** By applying our model across multiple years (2019-2023), we can observe how forests evolve over time. Our approach successfully identifies disturbances and regrowth. However, a four-year span is insufficient to capture very slow growth due to high uncertainty levels.
+### Contribution 3: We can track changes over time.
+By applying our model across multiple years (2019-2023), we can observe how forests evolve over time. Our approach successfully identifies disturbances and regrowth. However, a four-year span is insufficient to capture very slow growth due to high uncertainty levels.
 
 
 <div class="figure-container">
