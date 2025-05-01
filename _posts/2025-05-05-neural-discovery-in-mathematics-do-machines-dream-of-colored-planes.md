@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: "Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?"
-date: 2025-04-05
+date: 2025-05-30
 description: "Our ICML 2025 paper <b>Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?</b> introduces a novel neural network approach to tackle the famous Hadwiger-Nelson problem and related geometric coloring challenges. We reformulate the combinatorial task as continuous optimization, enabling NNs to find probabilistic colorings. This led to discovering two new 6-colorings, marking the first progress in 30 years on a key variant involving different forbidden distances and significantly expanding the known solution space."
 tags: [deep-learning, ai4science, ai4math]
 bibliography: neural_discovery_in_mathematics.bib

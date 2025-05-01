@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: "Capturing Temporal Dynamics in Tree Canopy Height"
-date: 2025-05-05
+date: 2025-05-01
 description: Our paper <b>Capturing Temporal Dynamics in Large-Scale Canopy Tree Height Estimation</b> was accepted to <b>ICML 2025</b>! In this work, we present a novel approach to generate large-scale, high-resolution canopy height maps over time. Using Sentinel-2 time series satellite data and GEDI LiDAR data as ground truth, we present the first 10m resolution temporal canopy height map of the European continent for the period 2019-2022. Our pipeline and the resulting temporal height map are publicly available, enabling comprehensive large-scale monitoring of forests.
 tags: [deep-learning, ai4science, sustainability]
 bibliography: capturing-temporal-dynamics-in-tree-canopy-height.bib
