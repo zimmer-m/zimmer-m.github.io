@@ -60,6 +60,11 @@ Because the network outputs probabilities and the loss function involves expecta
 
 The NN acts as a powerful function approximator, capable of learning complex, potentially non-repeating patterns directly from the geometric constraints, without needing us to guess the pattern beforehand. We use this not to find a fully automated proof, but as a tool to guide mathematical intuition <d-cite key="davies2021advancing"></d-cite>. The NN often discovers highly structured patterns that hint at formal mathematical constructions. When the loss converges to near-zero, the resulting probabilistic coloring often suggests a deterministic, valid coloring pattern that can then be analyzed and potentially formalized.
 
+<div class="figure-container">
+  <img src="/assets/img/blog_img/neural_discovery_mathematics/training_evolution.gif" alt="Animation illustrating the neural network's learning process" style="max-width: 100%;" class="zoomable" data-zoomable>
+  <div class="figure-caption">Animation illustrating the neural network's learning process. Watch as the initially random probabilistic coloring evolves over training iterations, guided by the loss function, eventually forming a structured pattern that minimizes conflicts.</div>
+</div>
+
 ## Discovering New Colorings: Variants and Recent Progress
 
 While finding a 6-coloring for the original problem remains elusive (our NNs consistently find patterns needing 7 colors, suggesting $\chi(\mathbb{R}^2)=7$), this approach proved highly successful on related variants where the forbidden distances are not uniform across all color pairs.
@@ -95,7 +100,14 @@ Focusing on the $(1,1,1,1,1,d)$ variant, our NN approach, exploring different va
   <div class="figure-caption">Our two novel 6-coloring patterns. Pattern 1 (upper image) is valid for $d \in [0.354, 0.553]$. Red avoids distance $d$ (shown for $d=0.45$), others avoid distance 1. Pattern 2 (lower image) is valid for $d \in [0.418, 0.657]$. Red avoids distance $d$ (shown for $d=0.657$ and $d=0.418$), others avoid distance 1. <d-cite key="2024_SixcoloringsExpansion"></d-cite></div>
 </div>
 
-Together, these NN-inspired constructions **significantly expand the known continuum of realizable distances** $d$ to $[0.354, 0.657]$, representing the first progress on this problem variant in 30 years. The plot below shows the conflict rate (how often the distance constraint is violated in the probabilistic coloring found by the NN) versus the distance $d$. Lower conflict rates suggest that a valid formal coloring might exist. The blue region highlights the expanded range of $d$ where our new constructions provide valid 6-colorings, compared to the previously known range shown in orange.
+Together, these NN-inspired constructions **significantly expand the known continuum of realizable distances** $d$ to $[0.354, 0.657]$, representing the first progress on this problem variant in 30 years.
+
+<div class="figure-container">
+    <img src="/assets/img/blog_img/neural_discovery_mathematics/varying_d.gif" alt="Animation showing coloring and conflicts changing with distance d" style="max-width: 100%;" class="zoomable" data-zoomable>
+    <div class="figure-caption">Animation showing how the probabilistic 6-coloring (left) and its corresponding conflicts (right, black points indicate violations) change as the forbidden distance `d` for the sixth color varies. This illustrates the exploration process for the $(1,1,1,1,1,d)$ variant.</div>
+</div>
+
+The plot below shows the conflict rate (how often the distance constraint is violated in the probabilistic coloring found by the NN) versus the distance $d$. Lower conflict rates suggest that a valid formal coloring might exist. The blue region highlights the expanded range of $d$ where our new constructions provide valid 6-colorings, compared to the previously known range shown in orange.
 
 <div class="figure-container">
     <img src="/assets/img/blog_img/neural_discovery_mathematics/distance_vs_conflicts.jpeg" alt="Conflict rate vs distance d for (1,1,1,1,1,d) colorings" style="max-width: 100%;" class="zoomable" data-zoomable>
