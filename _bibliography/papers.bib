@@ -1,3 +1,65 @@
+@inproceedings{mundinger2025neural,
+  title={Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?},
+  author={Mundinger, Konrad and Zimmer, Max and Kiem, Aldo and Spiegel, Christoph and Pokutta, Sebastian},
+  booktitle={Forty-second International Conference on Machine Learning},
+  year={2025},
+  url={https://openreview.net/forum?id=7Tp9zjP9At},
+  abstract      = {We demonstrate how neural networks can drive mathematical discovery through a case study of the Hadwiger-Nelson problem, a long-standing open problem from discrete geometry and combinatorics about coloring the plane avoiding monochromatic unit-distance pairs. Using neural networks as approximators, we reformulate this mixed discrete-continuous geometric coloring problem as an optimization task with a probabilistic, differentiable loss function. This enables gradient-based exploration of admissible configurations that most significantly led to the discovery of two novel six-colorings, providing the first improvements in thirty years to the off-diagonal variant of the original problem (Mundinger et al., 2024a). Here, we establish the underlying machine learning approach used to obtain these results and demonstrate its broader applicability through additional results and numerical insights.},
+  abbr={ICML25},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2501.18527},
+  preview={colordreaming.png},
+  selected={true},
+  tags={ai4science}
+}
+
+@inproceedings{fayad2025dunia,
+  title={DUNIA: Pixel-Sized Embeddings via Cross-Modal Alignment for Earth Observation Applications},
+  author={Fayad, Ibrahim and Zimmer, Max and Schwartz, Martin and Ciais, Philippe and Gieseke, Fabian and Belouze, Gabriel and Brood, Sarah and De Truchis, Aurelien and d'Aspremont, Alexandre},
+  booktitle={Forty-second International Conference on Machine Learning},
+  year={2025},
+  url={https://openreview.net/forum?id=JXCiQteuOv},
+  abstract      = {Significant efforts have been directed towards adapting self-supervised multimodal learning for Earth observation applications. However, existing methods produce coarse patch-sized embeddings, limiting their effectiveness and integration with other modalities like LiDAR. To close this gap, we present DUNIA, an approach to learn pixel-sized embeddings through cross-modal alignment between images and full-waveform LiDAR data. As the model is trained in a contrastive manner, the embeddings can be directly leveraged in the context of a variety of environmental monitoring tasks in a zero-shot setting. In our experiments, we demonstrate the effectiveness of the embeddings for seven such tasks (canopy height mapping, fractional canopy cover, land cover mapping, tree species identification, plant area index, crop type classification, and per-pixel waveform-based vertical structure mapping). The results show that the embeddings, along with zero-shot classifiers, often outperform specialized supervised models, even in low data regimes. In the fine-tuning setting, we show strong low-shot capabilities with performances near or better than state-of-the-art on five out of six tasks.},
+  abbr={ICML25},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2502.17066},
+  preview={dunia.png},
+  selected={true},
+  tags={sustainability, ai4science}
+}
+
+@inproceedings{pelleriti2025approximatinglatentmanifoldsneural,
+  title={Approximating Latent Manifolds in Neural Networks via Vanishing Ideals},
+  author={Nico Pelleriti and Max Zimmer and Elias Wirth and Sebastian Pokutta},
+  booktitle={Forty-second International Conference on Machine Learning},
+  year={2025},
+  url={https://openreview.net/forum?id=WYlerYGDPL},
+  abstract      = {Deep neural networks have reshaped modern machine learning by learning powerful latent representations that often align with the manifold hypothesis: high-dimensional data lie on lower-dimensional manifolds. In this paper, we establish a connection between manifold learning and computational algebra by demonstrating how vanishing ideals can characterize the latent manifolds of deep networks. To that end, we propose a new neural architecture that (i) truncates a pretrained network at an intermediate layer, (ii) approximates each class manifold via polynomial generators of the vanishing ideal, and (iii) transforms the resulting latent space into linearly separable features through a single polynomial layer. The resulting models have significantly fewer layers than their pretrained baselines, while maintaining comparable accuracy, achieving higher throughput, and utilizing fewer parameters. Furthermore, drawing on spectral complexity analysis, we derive sharper theoretical guarantees for generalization, showing that our approach can in principle offer tighter bounds than standard deep networks. Numerical experiments confirm the effectiveness and efficiency of the proposed approach.},
+  abbr={ICML25},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2502.15051},
+  preview={vanishingideals.png},
+  selected={true},
+  tags={efficiency}
+}
+
+@inproceedings{pauls2025capturing,
+  title={Capturing Temporal Dynamics in Large-Scale Canopy Tree Height Estimation},
+  author={Pauls, Jan and Zimmer, Max and Turan, Berkant and Saatchi, Sassan and Ciais, Philippe and Pokutta, Sebastian and Gieseke, Fabian},
+  booktitle={Forty-second International Conference on Machine Learning},
+  year={2025},
+  url={https://openreview.net/forum?id=ri1cs3vtXX},
+  abstract      = {With the rise in global greenhouse gas emissions, accurate large-scale tree canopy height maps are essential for understanding forest structure, estimating above-ground biomass, and monitoring ecological disruptions. To this end, we present a novel approach to generate large-scale, high-resolution canopy height maps over time. Our model accurately predicts canopy height over multiple years given Sentinel-2 time series satellite data. Using GEDI LiDAR data as the ground truth for training the model, we present the first 10m resolution temporal canopy height map of the European continent for the period 2019-2022. As part of this product, we also offer a detailed canopy height map for 2020, providing more precise estimates than previous studies. Our pipeline and the resulting temporal height map are publicly available, enabling comprehensive large-scale monitoring of forests and, hence, facilitating future research and ecological analyses. For an interactive viewer, see this https URL.},
+  abbr={ICML25},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2501.19328},
+  preview={temporalcanopy.png},
+  custom={Earth Engine|https://europetreemap.projects.earthengine.app/view/temporalcanopyheight},
+  selected={true},
+  blog={blog/2025/capturing-temporal-dynamics-in-tree-canopy-height},
+  tags={sustainability, ai4science}
+}
+
 @inbook{ZimmerSpiegelPokutta+2025+137+168,
 url = {https://doi.org/10.1515/9783111376776-010},
   title={Compression-aware Training of Neural Networks using Frank-Wolfe},
@@ -55,63 +117,6 @@ url={https://openreview.net/forum?id=iso0KV2HVq},
   poster={FedDistill-poster-ICLR.pdf}
 }
 
-@article{fayad2025dunia,
-  title={DUNIA: Pixel-Sized Embeddings via Cross-Modal Alignment for Earth Observation Applications},
-  author={Fayad, Ibrahim and Zimmer, Max and Schwartz, Martin and Ciais, Philippe and Gieseke, Fabian and Belouze, Gabriel and Brood, Sarah and De Truchis, Aurelien and d'Aspremont, Alexandre},
-  journal={arXiv preprint arXiv:2502.17066},
-  year={2025},
-  abstract      = {Significant efforts have been directed towards adapting self-supervised multimodal learning for Earth observation applications. However, existing methods produce coarse patch-sized embeddings, limiting their effectiveness and integration with other modalities like LiDAR. To close this gap, we present DUNIA, an approach to learn pixel-sized embeddings through cross-modal alignment between images and full-waveform LiDAR data. As the model is trained in a contrastive manner, the embeddings can be directly leveraged in the context of a variety of environmental monitoring tasks in a zero-shot setting. In our experiments, we demonstrate the effectiveness of the embeddings for seven such tasks (canopy height mapping, fractional canopy cover, land cover mapping, tree species identification, plant area index, crop type classification, and per-pixel waveform-based vertical structure mapping). The results show that the embeddings, along with zero-shot classifiers, often outperform specialized supervised models, even in low data regimes. In the fine-tuning setting, we show strong low-shot capabilities with performances near or better than state-of-the-art on five out of six tasks.},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2502.17066},
-  preview={dunia.png},
-  selected={true},
-  tags={sustainability, ai4science}
-}
-
-@article{pelleriti2025approximatinglatentmanifoldsneural,
-  title={Approximating Latent Manifolds in Neural Networks via Vanishing Ideals}, 
-  author={Nico Pelleriti and Max Zimmer and Elias Wirth and Sebastian Pokutta},
-  journal={arXiv preprint arXiv:2501.19328},
-  year={2025},
-  abstract      = {Deep neural networks have reshaped modern machine learning by learning powerful latent representations that often align with the manifold hypothesis: high-dimensional data lie on lower-dimensional manifolds. In this paper, we establish a connection between manifold learning and computational algebra by demonstrating how vanishing ideals can characterize the latent manifolds of deep networks. To that end, we propose a new neural architecture that (i) truncates a pretrained network at an intermediate layer, (ii) approximates each class manifold via polynomial generators of the vanishing ideal, and (iii) transforms the resulting latent space into linearly separable features through a single polynomial layer. The resulting models have significantly fewer layers than their pretrained baselines, while maintaining comparable accuracy, achieving higher throughput, and utilizing fewer parameters. Furthermore, drawing on spectral complexity analysis, we derive sharper theoretical guarantees for generalization, showing that our approach can in principle offer tighter bounds than standard deep networks. Numerical experiments confirm the effectiveness and efficiency of the proposed approach.},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2502.15051},
-  preview={vanishingideals.png},
-  selected={true},
-  tags={efficiency}
-}
-
-@article{pauls2025capturing,
-  title={Capturing Temporal Dynamics in Large-Scale Canopy Tree Height Estimation},
-  author={Pauls, Jan and Zimmer, Max and Turan, Berkant and Saatchi, Sassan and Ciais, Philippe and Pokutta, Sebastian and Gieseke, Fabian},
-  journal={arXiv preprint arXiv:2501.19328},
-  year={2025},
-  abstract      = {With the rise in global greenhouse gas emissions, accurate large-scale tree canopy height maps are essential for understanding forest structure, estimating above-ground biomass, and monitoring ecological disruptions. To this end, we present a novel approach to generate large-scale, high-resolution canopy height maps over time. Our model accurately predicts canopy height over multiple years given Sentinel-2 time series satellite data. Using GEDI LiDAR data as the ground truth for training the model, we present the first 10m resolution temporal canopy height map of the European continent for the period 2019-2022. As part of this product, we also offer a detailed canopy height map for 2020, providing more precise estimates than previous studies. Our pipeline and the resulting temporal height map are publicly available, enabling comprehensive large-scale monitoring of forests and, hence, facilitating future research and ecological analyses. For an interactive viewer, see this https URL.},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2501.19328},
-  preview={temporalcanopy.png},
-  custom={Earth Engine|https://europetreemap.projects.earthengine.app/view/temporalcanopyheight},
-  selected={true},
-  blog={blog/2025/capturing-temporal-dynamics-in-tree-canopy-height},
-  tags={sustainability, ai4science}
-}
-
-@article{mundinger2025neural,
-  title={Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?},
-  author={Mundinger, Konrad and Zimmer, Max and Kiem, Aldo and Spiegel, Christoph and Pokutta, Sebastian},
-  journal={arXiv preprint arXiv:2501.18527},
-  year={2025},
-  abstract      = {We demonstrate how neural networks can drive mathematical discovery through a case study of the Hadwiger-Nelson problem, a long-standing open problem from discrete geometry and combinatorics about coloring the plane avoiding monochromatic unit-distance pairs. Using neural networks as approximators, we reformulate this mixed discrete-continuous geometric coloring problem as an optimization task with a probabilistic, differentiable loss function. This enables gradient-based exploration of admissible configurations that most significantly led to the discovery of two novel six-colorings, providing the first improvements in thirty years to the off-diagonal variant of the original problem (Mundinger et al., 2024a). Here, we establish the underlying machine learning approach used to obtain these results and demonstrate its broader applicability through additional results and numerical insights.},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2501.18527},
-  preview={colordreaming.png},
-  selected={true},
-  tags={ai4science}
-}
 
 
 @InProceedings{pauls2024estimating,
