@@ -63,7 +63,7 @@ authors:
 ## Recap: Learning Forest Height at Scale
 
 This is the second part of the series on *Tree Canopy Height Estimation*. In [Part 1](/blog/2025/estimating-canopy-height-at-scale/), we discussed the motivation for using deep 
-learning techniques on satellite data for forest height estimation and the challenges involved. We have seen how our method overcomes key technical challenges to generate accurate, high-resolution canopy height maps, resulting in a high-resolution global forest height map for the year 2020. This post extends that work in an important new direction: we now track the canopy height over time.
+learning techniques on satellite data for forest height estimation and the challenges involved. We have seen how our method overcomes key technical challenges to generate accurate, high-resolution canopy height maps, resulting in a global forest height map for the year 2020. This post extends that work in an important new direction: we now track the canopy height over time.
 
 ## What Are We Missing?
 
@@ -90,7 +90,7 @@ Regarding the challenge of estimating tall trees, we identified a flaw in almost
 
 As a solution, we change our model architecture to a 3D U-Net<d-cite key="cciccek20163d"></d-cite>, which is able to process a stack of monthly images. The monthly data is advantageous, as the model can see variations in structure and pixel reflectance values between seasons and also sees shadows for different sun angles. We modify the model to have a more efficient backbone, as we want to strike a balance between performance and compute needed for large-scale application.
 
-We further train not only on image and label for a single year, but from all images and labels from 2019 to 2023 (all years with full GEDI coverage). This way our model becomes invariant to different year-specific color variations and we can apply it to multiple years to get a temporal change map.
+We further train not only on image and label for a single year, but from all images and labels from 2019 to 2022 (all years with full GEDI coverage). This way our model becomes invariant to different year-specific color variations and we can apply it to multiple years to get a temporal change map.
 
 ## Our results
 
