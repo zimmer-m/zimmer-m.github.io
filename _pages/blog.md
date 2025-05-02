@@ -20,6 +20,7 @@ nav_order: 6
 <br>
 <div class="post-list">
   {% for post in site.posts %}
+  {% if post.hidden != true %}
   <div class="post-preview">
     <h2 class="post-title">
       <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -38,5 +39,6 @@ nav_order: 6
     </p>
     <p class="post-description">{{ post.description }}</p>
   </div>
+  {% endif %}
   {% endfor %}
 </div> 
