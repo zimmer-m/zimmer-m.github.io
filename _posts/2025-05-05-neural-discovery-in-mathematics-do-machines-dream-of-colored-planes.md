@@ -142,7 +142,7 @@ Our numerical experiments for $k=6$ colors recovered patterns resembling known c
     </thead>
     <tbody>
       <tr>
-        <th>Best Known Density Removed</th>
+        <th>Best known density removed</th>
         <td>54.1271%</td>
         <td>31.1905%</td>
         <td>8.2541%</td>
@@ -150,7 +150,7 @@ Our numerical experiments for $k=6$ colors recovered patterns resembling known c
         <td>0.0143%</td>
       </tr>
       <tr>
-        <th>Our Numerics (Approx. Density Removed)</th>
+        <th>Our results (approx. density removed)</th>
         <td>51.03%</td>
         <td>29.38%</td>
         <td>8.68%</td>
