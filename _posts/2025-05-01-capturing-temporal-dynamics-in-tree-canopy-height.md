@@ -182,7 +182,7 @@ Our model predicts the height of large trees more accurately and is also able to
 
 
 ### Contribution 3: We can track changes over time.
-By applying our model across multiple years (2019-2023), we can observe how forests evolve over time. Our approach successfully identifies disturbances and regrowth. However, a four-year span is insufficient to capture very slow growth due to high uncertainty levels.
+By applying our model across multiple years (2019-2022), we can observe how forests evolve over time. Our approach successfully identifies disturbances and regrowth. However, a four-year span is insufficient to capture very slow growth due to high uncertainty levels.
 
 
 <div class="figure-container">
