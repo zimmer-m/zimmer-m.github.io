@@ -2,6 +2,8 @@
 layout: distill
 title: "Approximating Latent Manifolds in Neural Networks via Vanishing Ideals"
 date: 2025-05-30
+hidden: true
+sitemap: false
 description: Our paper <b>Approximating Latent Manifolds in Neural Networks via Vanishing Ideals</b> introduces a novel approach to understanding data representation in neural networks through vanishing ideals. This work uncovers the structure of latent spaces, supports network compression, and scales vanishing ideal algorithms to handle high-dimensional data. Additionally, it provides learning guarantees for these methods, marking the first application of vanishing ideals to latent representations.
 bibliography: approximating-latent-manifolds-in-neural-networks.bib
 publication_type: "Preprint"
