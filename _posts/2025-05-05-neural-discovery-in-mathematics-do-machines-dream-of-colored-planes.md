@@ -46,7 +46,7 @@ In our ICML 2025 paper, "Neural Discovery in Mathematics: Do Machines Dream of C
 
 Let $p_\theta: \mathbb{R}^2 \to \Delta^k$ be a neural network parameterized by $\theta$, where $k$ is the number of colors and $\Delta^k$ is the $k$-dimensional probability simplex. For an input point $x \in \mathbb{R}^2$, the output $p_\theta(x) = (p_1, ..., p_k)$ represents the probability that point $x$ should receive color $i$.
 
-We then train the network in an *unsupervised* way, that is, without labeled data. Instead, we define a way to measure how "bad" a probabilistic coloring is according to the problem's constraints. The resulting loss function is differentiable thanks to the probabilistic nature of the relaxed problem, allowing us to measure the violation of the unit distance constraint within a finite region $[-R,R]^2$. For the standard Hadwiger-Nelson problem, the loss function calculates the expected probability that two points $x, y$ exactly one unit apart *do* share the same color when said colors are sampled from their respective distributions $p_\theta(x)$ and $p_\theta(y)$:
+We then train the network in an *unsupervised* way, that is, without labeled data. Instead, we define a way to measure how "bad" a probabilistic coloring is according to the problem's constraints. The resulting loss function is differentiable thanks to the probabilistic nature of the relaxed problem, allowing us to measure the violation of the unit distance constraint within a finite region $[-R,R]^2$. For the standard Hadwiger-Nelson problem, the loss function calculates the *expected* probability that two points $x, y$ exactly one unit apart *do* share the same color when said colors are sampled from their respective distributions $p_\theta(x)$ and $p_\theta(y)$:
 
 $$
 \mathcal{L}(\theta) = \int_{[-R, R]^2} \int_{\partial B_1(x)} p_\theta(x)^T p_\theta(y) \; \mathrm{d}y \; \mathrm{d}x,
@@ -133,13 +133,14 @@ The plot below further summarizes these findings by showing the minimum conflict
 
 Beyond the distance variant, our framework demonstrated its applicability to other related geometric coloring problems, such as "almost coloring" the plane, arising as a natural extension of the HN problem: what is the minimum fraction of the plane that must be removed such that the remaining points *can* be colored with $k$ colors without monochromatic unit-distance pairs? We introduced an additional $(k+1)$-th color, corresponding to the removed points, and used a Lagrangian relaxation approach. This involves a modified loss function that penalizes conflicts among the first $k$ colors while also penalizing the use of the $(k+1)$-th "uncolored" color via a Lagrange multiplier $\lambda$.
 
-Our numerical experiments for $k=6$ colors recovered patterns resembling known constructions involving intersecting pentagonal rods <d-cite key="pritikin1998all"></d-cite>. The table below summarizes our numerical findings for $k=2$ to $k=6$ colors, showing the approximate minimum density of points that must be removed. These results align well with the best known bounds <d-cite key="pritikin1998all"></d-cite> <d-cite key="parts2020percent"></d-cite>, further validating our approach. For $k=2, 3, 4$, the NN-discovered patterns closely match known constructions, while the $k=5$ case revealed slightly different patterns.
+Our numerical experiments for $k=6$ colors recovered patterns resembling known constructions involving intersecting pentagonal rods <d-cite key="pritikin1998all"></d-cite>. The table below summarizes our numerical findings for $k=1$ to $k=6$ colors, showing the approximate minimum density of points that must be removed. These results align well with the best known bounds <d-cite key="pritikin1998all"></d-cite> <d-cite key="parts2020percent"></d-cite>, further validating our approach.
 
 <div class="table-container">
   <table>
     <thead>
       <tr>
         <th># Colors ($k$)</th>
+        <th>1</th>
         <th>2</th>
         <th>3</th>
         <th>4</th>
@@ -150,6 +151,7 @@ Our numerical experiments for $k=6$ colors recovered patterns resembling known c
     <tbody>
       <tr>
         <th>Best known density removed</th>
+        <td>74.5580%</td> 
         <td>54.1271%</td>
         <td>31.1905%</td>
         <td>8.2541%</td>
@@ -158,15 +160,19 @@ Our numerical experiments for $k=6$ colors recovered patterns resembling known c
       </tr>
       <tr>
         <th>Our results (approx. density removed)</th>
-        <td>51.03%</td>
-        <td>29.38%</td>
-        <td>8.68%</td>
-        <td>4.01%</td>
-        <td>0.03%</td>
+        <td>75.8578%</td>
+        <td>51.2859%</td>
+        <td>30.4729%</td>
+        <td>8.2051%</td>
+        <td>3.4657%</td>
+        <td>0.0158%</td>
       </tr>
     </tbody>
   </table>
-  <div class="table-caption">Minimum density of points that must be removed ("uncolored") to allow a conflict-free coloring of the remaining plane with $k$ colors. Our numerical results align well with known bounds <d-cite key="pritikin1998all"></d-cite> <d-cite key="parts2020percent"></d-cite>.</div>
+  <div class="table-caption">
+    Minimum density of points that must be removed ("uncolored") to allow a conflict-free coloring of the remaining plane with $k$ colors. Our numerical results align well with known bounds 
+    <d-cite key="pritikin1998all"></d-cite> <d-cite key="parts2020percent"></d-cite>.
+  </div>
 </div>
 
 ## Conclusion and Outlook
