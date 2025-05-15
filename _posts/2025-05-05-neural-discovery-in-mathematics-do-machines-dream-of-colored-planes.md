@@ -46,8 +46,13 @@ In our ICML 2025 paper, "Neural Discovery in Mathematics: Do Machines Dream of C
 
 Let $p_\theta: \mathbb{R}^2 \to \Delta^k$ be a neural network parameterized by $\theta$, where $k$ is the number of colors and $\Delta^k$ is the $k$-dimensional probability simplex. For an input point $x \in \mathbb{R}^2$, the output $p_\theta(x) = (p_1, ..., p_k)$ represents the probability that point $x$ should receive color $i$.
 
-We then train the network in an *unsupervised* way, that is, without labeled data. Instead, we define a way to measure how "bad" a probabilistic coloring is according to the problem's constraints. The resulting loss function is differentiable thanks to the probabilistic nature of the relaxed problem, allowing us to measure the violation of the unit distance constraint within a finite region $[-R,R]^2$. For the standard Hadwiger-Nelson problem, the loss function calculates the expected probability that two points $x, y$ exactly one unit apart *do* share the same color when said colors are sampled from their respective distributions $p_\theta(x)$ and $p_\theta(y)$.
+We then train the network in an *unsupervised* way, that is, without labeled data. Instead, we define a way to measure how "bad" a probabilistic coloring is according to the problem's constraints. The resulting loss function is differentiable thanks to the probabilistic nature of the relaxed problem, allowing us to measure the violation of the unit distance constraint within a finite region $[-R,R]^2$. For the standard Hadwiger-Nelson problem, the loss function calculates the expected probability that two points $x, y$ exactly one unit apart *do* share the same color when said colors are sampled from their respective distributions $p_\theta(x)$ and $p_\theta(y)$:
 
+$$
+\mathcal{L}(\theta) = \int_{[-R, R]^2} \int_{\partial B_1(x)} p_\theta(x)^T p_\theta(y) \; \mathrm{d}y \; \mathrm{d}x,
+$$
+
+where $\partial B_1(x)$ is the unit circle around $x$.
 
 In practice, we approximate this loss and its gradient using Monte Carlo sampling. At each training step, we sample a batch of $n$ center points $x_i \sim \mathcal{U}([-R, R]^2)$ and for each $x_i$, we sample $m$ points $y_{ij} \sim \mathcal{U}(\partial B_1(x_i))$ from the unit circle around it. The loss for the batch is then approximated by the average conflict probability:
 
