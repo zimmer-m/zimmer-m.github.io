@@ -11,7 +11,7 @@ nav_order: 5
 ### talks and posters
 {% for activity in all_presentations %}
 * {{ activity.date | date: "%m/%Y" }} • **{{ activity.venue }}**, {{ activity.location }}  
-  {% if activity.presentation_type == "talk" %}Invited Talk{% else %}Poster{% endif %}{% if activity.slides %} • [[slides]]({{ activity.slides }}){% endif %}{% if activity.poster %} • [[poster]]({{ activity.poster }}){% endif %} • *{{ activity.description }}*
+  {% if activity.presentation_type == "talk" %}Invited Talk{% else %}Poster{% endif %}{% if activity.slides %} • [[slides]]({{ activity.slides }}){% endif %}{% if activity.poster %} • [[poster]]({{ activity.poster }}){% endif %}{% if activity.video %} • [[video]]({{ activity.video }}){% endif %} • {% if activity.link %}*<a href="{{ activity.link }}">{{ activity.description }}</a>*{% else %}*{{ activity.description }}*{% endif %}
 
 {% endfor %}
 {% endif %}
