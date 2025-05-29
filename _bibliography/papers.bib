@@ -196,20 +196,7 @@ blog={blog/2025/estimating-canopy-height-at-scale/}
 }
 
 
-@article{zimmer2023perp,
-  author        = {Max Zimmer and Megi Andoni and Christoph Spiegel and Sebastian Pokutta},
-  title         = {PERP: Rethinking the Prune-Retrain Paradigm in the Era of LLMs},
-  year          = {2023},
-  abstract      = {Neural Networks can be effectively compressed through pruning, significantly reducing storage and compute demands while maintaining predictive performance. Simple yet effective methods like magnitude pruning remove less important parameters and typically require a costly retraining procedure to restore performance. However, with the rise of LLMs, full retraining has become infeasible due to memory and compute constraints. This study challenges the practice of retraining all parameters by showing that updating a small subset of highly expressive parameters can suffice to recover or even enhance performance after pruning. Surprisingly, retraining just 0.01%-0.05% of the parameters in GPT-architectures can match the performance of full retraining across various sparsity levels, significantly reducing compute and memory requirements, and enabling retraining of models with up to 30 billion parameters on a single GPU in minutes. To bridge the gap to full retraining in the high sparsity regime, we introduce two novel LoRA variants that, unlike standard LoRA, allow merging adapters back without compromising sparsity. Going a step further, we show that these methods can be applied for memory-efficient layer-wise reconstruction, significantly enhancing state-of-the-art retraining-free methods like Wanda (Sun et al., 2023) and SparseGPT (Frantar & Alistarh, 2023). Our findings present a promising alternative to avoiding retraining.},
-  journal={arXiv preprint arXiv:2312.15230},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2312.15230},
-  code={https://github.com/ZIB-IOL/PERP},
-  preview={perp_dog.png},
-  selected={true},
-  tags={efficiency}
-}
+
 
 @InProceedings{zimmer2023sparse,
   title={Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging},
@@ -243,6 +230,20 @@ blog={blog/2025/estimating-canopy-height-at-scale/}
   tags={interpretability}
 }
 
+@article{zimmer2023perp,
+  author        = {Max Zimmer and Megi Andoni and Christoph Spiegel and Sebastian Pokutta},
+  title         = {PERP: Rethinking the Prune-Retrain Paradigm in the Era of LLMs},
+  year          = {2023},
+  abstract      = {Neural Networks can be effectively compressed through pruning, significantly reducing storage and compute demands while maintaining predictive performance. Simple yet effective methods like magnitude pruning remove less important parameters and typically require a costly retraining procedure to restore performance. However, with the rise of LLMs, full retraining has become infeasible due to memory and compute constraints. This study challenges the practice of retraining all parameters by showing that updating a small subset of highly expressive parameters can suffice to recover or even enhance performance after pruning. Surprisingly, retraining just 0.01%-0.05% of the parameters in GPT-architectures can match the performance of full retraining across various sparsity levels, significantly reducing compute and memory requirements, and enabling retraining of models with up to 30 billion parameters on a single GPU in minutes. To bridge the gap to full retraining in the high sparsity regime, we introduce two novel LoRA variants that, unlike standard LoRA, allow merging adapters back without compromising sparsity. Going a step further, we show that these methods can be applied for memory-efficient layer-wise reconstruction, significantly enhancing state-of-the-art retraining-free methods like Wanda (Sun et al., 2023) and SparseGPT (Frantar & Alistarh, 2023). Our findings present a promising alternative to avoiding retraining.},
+  journal={arXiv preprint arXiv:2312.15230},
+  abbr={Preprint},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2312.15230},
+  code={https://github.com/ZIB-IOL/PERP},
+  preview={perp_dog.png},
+  selected={true},
+  tags={efficiency}
+}
 
 @InProceedings{Zimmer2023,
   author    = {Max Zimmer and Christoph Spiegel and Sebastian Pokutta},
