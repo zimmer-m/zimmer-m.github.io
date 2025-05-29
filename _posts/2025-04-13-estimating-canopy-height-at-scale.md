@@ -11,6 +11,7 @@ code_url: "https://github.com/AI4Forest/Global-Canopy-Height-Map"
 paper_custom: "Map|https://worldwidemap.projects.earthengine.app/view/canopy-height-2020"
 giscus_comments: false
 related_posts: false
+series_title: "Tree Canopy Height Estimation"
 authors:
   - name: Jan Pauls
     affiliations:
