@@ -7,13 +7,20 @@
 - tag: ai4science
   name: AI4Science
 
+- tag: ai4math
+  name: AI4Math
+
+- tag: computational-algebra
+  name: Computational Algebra
+
 - tag: optimization
   name: Optimization
 
 - tag: federated-learning
   name: Federated Learning
 
-- tag: interpretability
-  name: Interpretability
+- tag: xai
+  name: XAI
+
 
 
