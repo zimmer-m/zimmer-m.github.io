@@ -137,9 +137,9 @@
             {%- endif -%}
             <span class="venue-name">
               {%- if entry.type == "article" -%}
-                <em>{{entry.journal_short | default: entry.journal}}</em>
+                <em>{{entry.journal_short | default: entry.journal}}{% if entry.award %} ({{ entry.award }}){% endif %}</em>
               {%- else -%}
-                <em>{{entry.booktitle_short | default: entry.booktitle}}</em>
+                <em>{{entry.booktitle_short | default: entry.booktitle}}{% if entry.award %} ({{ entry.award }}){% endif %}</em>
               {%- endif -%}
             </span>
           {%- endcapture -%}
@@ -157,7 +157,7 @@
               {%- endif -%}
             {%- endif -%}
             <span class="venue-name">
-              <em>{{entry.booktitle_short | default: entry.booktitle}}</em>
+              <em>{{entry.booktitle_short | default: entry.booktitle}}{% if entry.award %} ({{ entry.award }}){% endif %}</em>
             </span>
           {%- endcapture -%}
         {%- elsif thesis contains entry.type -%}
@@ -179,6 +179,7 @@
         <div class="periodical">
           {{ periodical | strip }}
         </div>
+
         <div class="periodical">
           {{ entry.note | strip }}
         </div>
