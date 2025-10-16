@@ -1,3 +1,31 @@
+@article{roux2025dontbegreedyjustrelax,
+  title={Don't Be Greedy, Just Relax! Pruning LLMs via Frank-Wolfe},
+  author={Christophe Roux and Max Zimmer and Alexandre d'Aspremont and Sebastian Pokutta},
+  journal={arXiv preprint arXiv:2510.13713},
+  year={2025},
+  abstract      = {Pruning is a common technique to reduce the compute and storage requirements of Neural Networks. While conventional approaches typically retrain the model to recover pruning-induced performance degradation, state-of-the-art Large Language Model (LLM) pruning methods operate layer-wise, minimizing the per-layer pruning error on a small calibration dataset to avoid full retraining, which is considered computationally prohibitive for LLMs. However, finding the optimal pruning mask is a hard combinatorial problem and solving it to optimality is intractable. Existing methods hence rely on greedy heuristics that ignore the weight interactions in the pruning objective. In this work, we instead consider the convex relaxation of these combinatorial constraints and solve the resulting problem using the Frank-Wolfe (FW) algorithm. Our method drastically reduces the per-layer pruning error, outperforms strong baselines on state-of-the-art GPT architectures, and remains memory-efficient. We provide theoretical justification by showing that, combined with the convergence guarantees of the FW algorithm, we obtain an approximate solution to the original combinatorial problem upon rounding the relaxed solution to integrality.},
+  abbr={Preprint},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2510.13713},
+  preview={frankwolfe_pruning.png},
+  selected={true},
+  tags={efficiency, optimization}
+}
+
+@article{pelleriti2025neural,
+  title={Neural Sum-of-Squares: Certifying the Nonnegativity of Polynomials with Transformers},
+  author={Nico Pelleriti and Christoph Spiegel and Shiwei Liu and David Mart{\'i}nez-Rubio and Max Zimmer and Sebastian Pokutta},
+  journal={arXiv preprint arXiv:2510.13444},
+  year={2025},
+  abstract      = {Certifying nonnegativity of polynomials is a well-known NP-hard problem with direct applications spanning non-convex optimization, control, robotics, and beyond. A sufficient condition for nonnegativity is the Sum of Squares (SOS) property, i.e., it can be written as a sum of squares of other polynomials. In practice, however, certifying the SOS criterion remains computationally expensive and often involves solving a Semidefinite Program (SDP), whose dimensionality grows quadratically in the size of the monomial basis of the SOS expression; hence, various methods to reduce the size of the monomial basis have been proposed. In this work, we introduce the first learning-augmented algorithm to certify the SOS criterion. To this end, we train a Transformer model that predicts an almost-minimal monomial basis for a given polynomial, thereby drastically reducing the size of the corresponding SDP. Our overall methodology comprises three key components: efficient training dataset generation of over 100 million SOS polynomials, design and training of the corresponding Transformer architecture, and a systematic fallback mechanism to ensure correct termination, which we analyze theoretically. We validate our approach on over 200 benchmark datasets, achieving speedups of over 100× compared to state-of-the-art solvers and enabling the solution of instances where competing approaches fail. Our findings provide novel insights towards transforming the practical scalability of SOS programming.},
+  abbr={Preprint},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2510.13444},
+  preview={neural_sos.png},
+  selected={true},
+  tags={computational-algebra, ai4math, ai4science}
+}
+
 @article{kera2025computationalalgebraattentiontransformer,
   title={Computational Algebra with Attention: Transformer Oracles for Border Basis Algorithms},
   author={Hiroshi Kera and Nico Pelleriti and Yuki Ishihara and Max Zimmer and Sebastian Pokutta},

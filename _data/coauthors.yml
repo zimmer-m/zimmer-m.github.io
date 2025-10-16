@@ -34,6 +34,10 @@
   - firstname: ["Konrad"]
     url: https://iol.zib.de/team/konrad-mundinger.html
 
+"Martínez-Rubio":
+  - firstname: ["David"]
+    url: https://damaru2.github.io
+
 "Saatchi":
   - firstname: ["Sassan"]
     url: https://science.jpl.nasa.gov/people/saatchi/
@@ -41,6 +45,10 @@
 "Ciais":
   - firstname: ["Philippe"]
     url: https://www.lsce.ipsl.fr/Phocea/Pisp/index.php?nom=philippe.ciais
+
+"d'Aspremont":
+  - firstname: ["Alexandre"]
+    url: https://www.di.ens.fr/~aspremon/
 
 "Gieseke":
   - firstname: ["Fabian"]
@@ -53,6 +61,10 @@
 "Kelly":
   - firstname: ["Una M."]
     url: https://www.wi.uni-muenster.de/de/institut/dasc/personen/una-kelly
+
+"Liu":
+  - firstname: ["Shiwei"]
+    url: https://shiweiliuiiiiiii.github.io
 
 "Wirth":
   - firstname: ["Elias"]
