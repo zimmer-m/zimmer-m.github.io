@@ -1,3 +1,17 @@
+@article{wagner2025freelunchllmcompression,
+  title={A Free Lunch in LLM Compression: Revisiting Retraining after Pruning},
+  author={Moritz Wagner and Christophe Roux and Max Zimmer and Sebastian Pokutta},
+  journal={arXiv preprint arXiv:2510.14444},
+  year={2025},
+  abstract      = {While Neural Network pruning typically requires retraining the model to recover pruning-induced performance degradation, state-of-the-art Large Language Models (LLMs) pruning methods instead solve a layer-wise mask selection and reconstruction problem on a small set of calibration data to avoid full retraining, as it is considered computationally infeasible for LLMs. Reconstructing single matrices in isolation has favorable properties, such as convexity of the objective and significantly reduced memory requirements compared to full retraining. In practice, however, reconstruction is often implemented at coarser granularities, e.g., reconstructing a whole transformer block against its dense activations instead of a single matrix. In this work, we study the key design choices when reconstructing or retraining the remaining weights after pruning. We conduct an extensive computational study on state-of-the-art GPT architectures, and report several surprising findings that challenge common intuitions about retraining after pruning. In particular, we observe a free lunch scenario: reconstructing attention and MLP components separately within each transformer block is nearly the most resource-efficient yet achieves the best perplexity. Most importantly, this Pareto-optimal setup achieves better performance than full retraining, despite requiring only a fraction of the memory. Furthermore, we demonstrate that simple and efficient pruning criteria such as Wanda can outperform much more complex approaches when the reconstruction step is properly executed, highlighting its importance. Our findings challenge the narrative that retraining should be avoided at all costs and provide important insights into post-pruning performance recovery for LLMs.},
+  abbr={Preprint},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2510.14444},
+  preview={llm_compression.png},
+  selected={true},
+  tags={efficiency}
+}
+
 @article{roux2025dontbegreedyjustrelax,
   title={Don't Be Greedy, Just Relax! Pruning LLMs via Frank-Wolfe},
   author={Christophe Roux and Max Zimmer and Alexandre d'Aspremont and Sebastian Pokutta},
