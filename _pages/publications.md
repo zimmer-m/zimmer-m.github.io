@@ -2,7 +2,7 @@
 layout: blog
 permalink: /publications/
 title: publications
-description: List of all my publications. You can filter by tag.
+description: list of all my publications - you can filter by tag.
 nav: true
 nav_order: 1
 ---
