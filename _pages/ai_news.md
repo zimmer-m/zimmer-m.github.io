@@ -2,7 +2,7 @@
 layout: blog
 title: "AI news"
 description: "recent news and discussions about AI and deep learning, using a shared database with <a href='https://pokutta.com'>Sebastian</a> - feel free to contribute using your github account."
-permalink: /discussion/
+permalink: /ai_news/
 classes: wide
 nav: true
 nav_order: 7
