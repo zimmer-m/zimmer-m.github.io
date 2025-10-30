@@ -1,71 +1,406 @@
 <!-- Supabase HN Clone -->
 <style>
-  /* Minimal custom styles - matching main site font sizing (0.7em) */
-  .hn-header { margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
-  .hn-auth-buttons .btn { margin-left: 6px; font-size: 0.7em; padding: 3px 10px; }
-  .hn-post-form { margin-bottom: 15px; padding: 10px; border: 1px solid #eee; border-radius: 3px; }
-  .hn-post-form input, .hn-post-form textarea { width: 100%; margin-bottom: 6px; padding: 4px; border: 1px solid #ddd; font-size: 0.7em; }
-  .hn-story { padding: 6px 0; border-bottom: 1px solid #f6f6ef; position: relative; display: flex; align-items: flex-start; }
-  .hn-story-content { flex: 1; }
-  .hn-story h3 { font-size: 0.7em; margin: 0; font-weight: normal; display: block; }
-  .hn-story a { color: #333; text-decoration: none; }
-  .hn-story a:hover { text-decoration: underline; }
-  .hn-story-meta { font-size: 0.65em; color: #666; margin-top: 4px; display: flex; gap: 10px; }
-  .hn-upvote-btn { background: none; border: none; cursor: pointer; font-size: 0.75em; color: #666; padding: 0 6px 0 0; flex-shrink: 0; }
-  .hn-upvote-btn:hover { color: #ff6600; }
-/*  upvote button styling by data attribute was removed */
-  .hn-comments-link { color: #666; text-decoration: none; }
-  .hn-delete-btn { color: #cc0000; text-decoration: none; margin-left: 10px; cursor: pointer; }
-  .hn-delete-btn:hover { text-decoration: underline; }
-  .hn-comments-section { margin-top: 8px; padding-top: 6px; border-top: 1px solid #eee; display: none; }
-  .hn-comment { margin-bottom: 6px; padding-left: 10px; font-size: 0.7em; }
-  .hn-comment-author { color: #666; margin-right: 3px; font-size: 0.65em; }
-  .hn-hide { display: none !important; }
-  .hn-user-info { font-size: 0.7em; color: #555; margin-right: 8px; }
-  .btn { font-size: 0.7em !important; padding: 3px 10px !important; }
-  select, input[type="text"], input[type="url"] { font-size: 0.7em; }
+  /* AI News - Beautiful styling matching site design */
 
-  /* Dark mode styles matching main.scss */
-  [data-theme="dark"] .hn-header { border-bottom-color: #2a2f36; }
-  [data-theme="dark"] .hn-post-form { border-color: #2a2f36; background: #141920; }
-  [data-theme="dark"] .hn-post-form input,
-  [data-theme="dark"] .hn-post-form textarea {
-    border-color: #2a2f36;
-    background: #0f1216;
-    color: #d6d9df;
+  /* Controls Section */
+  .hn-controls-wrapper {
+    background-color: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
   }
-  [data-theme="dark"] .hn-story { border-bottom-color: #1a1f26; }
-  [data-theme="dark"] .hn-story h3 { color: #e6e9ef; }
-  [data-theme="dark"] .hn-story a { color: #c9d3dc; }
-  [data-theme="dark"] .hn-story a:hover { color: #7bbcff; }
-  [data-theme="dark"] .hn-story-meta { color: #d6d9df; }
-  [data-theme="dark"] .hn-upvote-btn { color: #d6d9df; }
-/*  dark theme upvote styling by data attribute was removed */
-  [data-theme="dark"] .hn-comments-link { color: #d6d9df; }
-  [data-theme="dark"] .hn-comments-section { border-top-color: #2a2f36; }
-  [data-theme="dark"] .hn-comment { color: #d6d9df; }
-  [data-theme="dark"] .hn-comment-author { color: #d6d9df; }
-  [data-theme="dark"] .hn-user-info { color: #d6d9df; }
-  [data-theme="dark"] select,
-  [data-theme="dark"] input[type="text"],
-  [data-theme="dark"] input[type="url"] {
-    background: #0f1216;
-    color: #d6d9df;
-    border-color: #2a2f36;
+
+  .hn-controls-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
   }
-  [data-theme="dark"] label { color: #d6d9df; }
+
+  .hn-search-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.5rem 0.75rem;
+    border: 2px solid var(--global-divider-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--global-bg-color);
+    color: var(--global-text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hn-search-input:focus {
+    outline: none;
+    border-color: var(--global-theme-color);
+    box-shadow: 0 0 0 3px rgba(38, 152, 186, 0.1);
+  }
+
+  .hn-search-input::placeholder {
+    color: var(--global-text-color-light);
+  }
+
+  .hn-sort-select {
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+    border: 2px solid var(--global-divider-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--global-bg-color);
+    color: var(--global-text-color);
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232698BA' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+  }
+
+  .hn-sort-select:hover {
+    border-color: var(--global-theme-color);
+  }
+
+  .hn-sort-select:focus {
+    outline: none;
+    border-color: var(--global-theme-color);
+    box-shadow: 0 0 0 3px rgba(38, 152, 186, 0.1);
+  }
+
+  /* Buttons matching site style */
+  .hn-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .hn-btn-primary {
+    border-color: var(--global-theme-color);
+    color: var(--global-theme-color);
+    background-color: var(--global-bg-color);
+  }
+
+  .hn-btn-primary:hover {
+    color: var(--global-bg-color);
+    background-color: var(--global-theme-color);
+  }
+
+  .hn-btn-success {
+    border-color: #00ab37;
+    color: #00ab37;
+    background-color: var(--global-bg-color);
+  }
+
+  .hn-btn-success:hover {
+    color: white;
+    background-color: #00ab37;
+  }
+
+  .hn-btn-danger {
+    border-color: #FF3636;
+    color: #FF3636;
+    background-color: var(--global-bg-color);
+  }
+
+  .hn-btn-danger:hover {
+    color: white;
+    background-color: #FF3636;
+  }
+
+  .hn-btn-secondary {
+    border-color: var(--global-divider-color);
+    color: var(--global-text-color);
+    background-color: var(--global-bg-color);
+  }
+
+  .hn-btn-secondary:hover {
+    border-color: var(--global-text-color);
+    background-color: var(--global-card-bg-color);
+  }
+
+  /* Post Form */
+  .hn-post-form {
+    background-color: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .hn-post-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .hn-post-form-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--global-text-color);
+    margin: 0;
+  }
+
+  .hn-user-info {
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+    margin-right: 1rem;
+  }
+
+  .hn-post-form input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    margin-bottom: 0.875rem;
+    border: 2px solid var(--global-divider-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--global-bg-color);
+    color: var(--global-text-color);
+    transition: border-color 0.3s ease;
+  }
+
+  .hn-post-form input:focus {
+    outline: none;
+    border-color: var(--global-theme-color);
+  }
+
+  /* Story Cards */
+  .hn-stories-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hn-story {
+    background-color: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 6px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .hn-story:hover {
+    border-color: var(--global-theme-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .hn-upvote-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 40px;
+  }
+
+  .hn-upvote-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: var(--global-text-color-light);
+    padding: 0.25rem;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hn-upvote-btn:hover {
+    color: var(--global-theme-color);
+    transform: scale(1.2);
+  }
+
+  .hn-points {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--global-theme-color);
+  }
+
+  .hn-story-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hn-story h3 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+  }
+
+  .hn-story h3 a {
+    color: var(--global-text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .hn-story h3 a:hover {
+    color: var(--global-theme-color);
+  }
+
+  .hn-story-meta {
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+    display: flex;
+    gap: 0.875rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .hn-story-meta a {
+    color: var(--global-text-color-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .hn-story-meta a:hover {
+    color: var(--global-theme-color);
+  }
+
+  .hn-comments-link {
+    color: var(--global-text-color-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .hn-comments-link:hover {
+    color: var(--global-theme-color);
+  }
+
+  .hn-delete-btn {
+    color: #FF3636;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+  }
+
+  .hn-delete-btn:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  /* Comments Section */
+  .hn-comments-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--global-divider-color);
+  }
+
+  .hn-comment {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    color: var(--global-text-color);
+  }
+
+  .hn-comment-author {
+    color: var(--global-text-color-light);
+    font-weight: 500;
+    margin-right: 0.5rem;
+  }
+
+  .hn-comment-input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    margin-bottom: 0.75rem;
+    border: 2px solid var(--global-divider-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--global-bg-color);
+    color: var(--global-text-color);
+    resize: vertical;
+  }
+
+  .hn-comment-input:focus {
+    outline: none;
+    border-color: var(--global-theme-color);
+  }
+
+  /* Utility Classes */
+  .hn-hide {
+    display: none !important;
+  }
+
+  /* Empty State */
+  .hn-empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--global-text-color-light);
+    font-size: 1rem;
+  }
+
+  .hn-loading-state {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--global-text-color-light);
+    font-size: 1rem;
+  }
+
+  /* Dark mode adjustments */
+  [data-theme="dark"] .hn-sort-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FF7F50' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  }
+
+  [data-theme="dark"] .hn-search-input:focus {
+    box-shadow: 0 0 0 3px rgba(255, 127, 80, 0.1);
+  }
+
+  [data-theme="dark"] .hn-sort-select:focus {
+    box-shadow: 0 0 0 3px rgba(255, 127, 80, 0.1);
+  }
+
+  [data-theme="dark"] .hn-story:hover {
+    box-shadow: 0 2px 12px rgba(255, 127, 80, 0.15);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hn-controls-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .hn-search-input {
+      min-width: 100%;
+    }
+
+    .hn-sort-label {
+      margin-left: 0;
+      margin-top: 0.5rem;
+    }
+
+    .hn-story {
+      padding: 1rem;
+    }
+
+    .hn-post-form-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  }
 </style>
 
-<!-- Search Bar -->
-<div style="margin-bottom: 12px;">
-  <div style="display: flex; gap: 6px; align-items: center;">
-    <input type="text" id="hn-search-input" placeholder="Search stories..." style="flex: 1; padding: 4px; border: 1px solid #ddd; border-radius: 2px; font-size: 0.7em;">
-    <button id="hn-search-btn" class="btn btn--primary" style="font-size: 0.7em; padding: 4px 10px;">Search</button>
-    <button id="hn-clear-search-btn" class="btn btn--secondary" style="font-size: 0.7em; padding: 4px 10px;">Clear</button>
-    <button id="hn-login-btn-header" class="btn btn--primary hn-hide" style="font-size: 0.7em; padding: 4px 10px;">Login</button>
-    <button id="hn-post-toggle" class="btn btn--success hn-hide" style="font-size: 0.7em; padding: 4px 10px;">+ Post</button>
-    <label style="margin-left: 12px; font-size: 0.7em;">Sort:</label>
-    <select id="hn-sort-select" style="padding: 3px; margin-left: 4px; font-size: 0.7em;">
+<!-- Controls Section -->
+<div class="hn-controls-wrapper">
+  <div class="hn-controls-row">
+    <input type="text" id="hn-search-input" placeholder="Search stories..." class="hn-search-input">
+    <button id="hn-search-btn" class="hn-btn hn-btn-primary">Search</button>
+    <button id="hn-clear-search-btn" class="hn-btn hn-btn-secondary">Clear</button>
+    <button id="hn-login-btn-header" class="hn-btn hn-btn-primary hn-hide">Login</button>
+    <button id="hn-post-toggle" class="hn-btn hn-btn-success hn-hide">+ Post</button>
+    <select id="hn-sort-select" class="hn-sort-select">
       <option value="hot">Hot</option>
       <option value="new">New</option>
       <option value="top">Top</option>
@@ -75,20 +410,20 @@
 
 <!-- Post Form (only visible to logged-in users) -->
 <div id="hn-post-form" class="hn-post-form hn-hide" style="display: none;">
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <h3 style="margin: 0; font-size: 0.8em;">Post a Link</h3>
+  <div class="hn-post-form-header">
+    <h3 class="hn-post-form-title">Post a Link</h3>
     <div style="display: flex; align-items: center;">
       <span id="hn-user-email" class="hn-user-info"></span>
-      <button id="hn-logout-btn" class="btn btn--danger">Logout</button>
+      <button id="hn-logout-btn" class="hn-btn hn-btn-danger">Logout</button>
     </div>
   </div>
   <input type="text" id="hn-title-input" placeholder="Title..." required>
   <input type="url" id="hn-url-input" placeholder="URL (e.g., https://example.com)" required>
-  <button id="hn-post-btn" class="btn btn--success">Post</button>
+  <button id="hn-post-btn" class="hn-btn hn-btn-success">Post</button>
 </div>
 
 <!-- Stories Container -->
-<div id="hn-stories-container"></div>
+<div id="hn-stories-container" class="hn-stories-container"></div>
 
    <script>
    // Supabase Configuration - using Jekyll include parameters
@@ -312,7 +647,7 @@
        try {
          if (!storiesContainer) return;
 
-         storiesContainer.innerHTML = '<p style="font-size: 0.7em;">Loading stories...</p>';
+         storiesContainer.innerHTML = '<div class="hn-loading-state">Loading stories...</div>';
          await refreshStories();
        } catch (err) {
          if (storiesContainer) {
@@ -495,7 +830,7 @@
 
          storiesContainer.innerHTML = '';
          if (stories.length === 0) {
-           storiesContainer.innerHTML = '<p style="font-size: 0.7em;">No stories yet—be the first to post!</p>';
+           storiesContainer.innerHTML = '<div class="hn-empty-state">No stories yet—be the first to post!</div>';
            return;
          }
 
@@ -526,25 +861,27 @@
            }
 
           storyElement.innerHTML = `
-            <button class="hn-upvote-btn" data-story-id="${story.id}">
-               ${voteDisplay}
-             </button>
-             <div class="hn-story-content">
-               <h3><a href="${story.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(story.title)}</a></h3>
-               <div class="hn-story-meta">
-                 <span>${story.points} points</span>
-                 <span>by ${authorDisplay}</span>
-                 <span>${timeAgo}</span>
-                 <!-- <a href="#" class="hn-comments-link" data-story-id="${story.id}">Comments (0)</a> -->
+            <div class="hn-upvote-section">
+              <button class="hn-upvote-btn" data-story-id="${story.id}">
+                ${voteDisplay}
+              </button>
+              <span class="hn-points">${story.points}</span>
+            </div>
+            <div class="hn-story-content">
+              <h3><a href="${story.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(story.title)}</a></h3>
+              <div class="hn-story-meta">
+                <span>by ${authorDisplay}</span>
+                <span>${timeAgo}</span>
+                <!-- <a href="#" class="hn-comments-link" data-story-id="${story.id}">Comments (0)</a> -->
                 ${deleteButton}
-               </div>
-             </div>
-             <div class="hn-comments-section hn-hide" data-story-id="${story.id}">
-               <textarea placeholder="Write a comment..." class="hn-comment-input" rows="2" data-story-id="${story.id}"></textarea>
-               <button class="btn btn--primary hn-post-comment-btn" data-story-id="${story.id}">Post Comment</button>
-               <div class="hn-comments-list" data-story-id="${story.id}"></div>
-             </div>
-           `;
+              </div>
+              <div class="hn-comments-section hn-hide" data-story-id="${story.id}">
+                <textarea placeholder="Write a comment..." class="hn-comment-input" rows="2" data-story-id="${story.id}"></textarea>
+                <button class="hn-btn hn-btn-primary hn-post-comment-btn" data-story-id="${story.id}">Post Comment</button>
+                <div class="hn-comments-list" data-story-id="${story.id}"></div>
+              </div>
+            </div>
+          `;
 
            storiesContainer.appendChild(storyElement);
          });
