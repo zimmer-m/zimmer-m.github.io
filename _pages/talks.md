@@ -1,11 +1,20 @@
 ---
-layout: page
+layout: blog
 permalink: /talks/
 title: talks & activities
 description: talks, posters, events, and other activities.
 nav: true
 nav_order: 5
 ---
+
+<div class="post">
+  <div class="header-bar" style="padding: 2rem; text-align: center;">
+    <h1>{{ page.title }}</h1>
+    <h2>{{ page.description }}</h2>
+  </div>
+<br>
+</div>
+
 {% assign all_presentations = site.activities_talks | sort: "date" | reverse %}
 {% if all_presentations.size > 0 %}
 ### talks and posters
