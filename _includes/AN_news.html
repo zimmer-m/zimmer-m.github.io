@@ -1,0 +1,891 @@
+<!-- Supabase HN Clone -->
+<style>
+  /* Minimal custom styles - matching main site font sizing (0.7em) */
+  .hn-header { margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+  .hn-auth-buttons .btn { margin-left: 6px; font-size: 0.7em; padding: 3px 10px; }
+  .hn-post-form { margin-bottom: 15px; padding: 10px; border: 1px solid #eee; border-radius: 3px; }
+  .hn-post-form input, .hn-post-form textarea { width: 100%; margin-bottom: 6px; padding: 4px; border: 1px solid #ddd; font-size: 0.7em; }
+  .hn-story { padding: 6px 0; border-bottom: 1px solid #f6f6ef; position: relative; display: flex; align-items: flex-start; }
+  .hn-story-content { flex: 1; }
+  .hn-story h3 { font-size: 0.7em; margin: 0; font-weight: normal; display: block; }
+  .hn-story a { color: #333; text-decoration: none; }
+  .hn-story a:hover { text-decoration: underline; }
+  .hn-story-meta { font-size: 0.65em; color: #666; margin-top: 4px; display: flex; gap: 10px; }
+  .hn-upvote-btn { background: none; border: none; cursor: pointer; font-size: 0.75em; color: #666; padding: 0 6px 0 0; flex-shrink: 0; }
+  .hn-upvote-btn:hover { color: #ff6600; }
+/*  upvote button styling by data attribute was removed */
+  .hn-comments-link { color: #666; text-decoration: none; }
+  .hn-delete-btn { color: #cc0000; text-decoration: none; margin-left: 10px; cursor: pointer; }
+  .hn-delete-btn:hover { text-decoration: underline; }
+  .hn-comments-section { margin-top: 8px; padding-top: 6px; border-top: 1px solid #eee; display: none; }
+  .hn-comment { margin-bottom: 6px; padding-left: 10px; font-size: 0.7em; }
+  .hn-comment-author { color: #666; margin-right: 3px; font-size: 0.65em; }
+  .hn-hide { display: none !important; }
+  .hn-user-info { font-size: 0.7em; color: #555; margin-right: 8px; }
+  .btn { font-size: 0.7em !important; padding: 3px 10px !important; }
+  select, input[type="text"], input[type="url"] { font-size: 0.7em; }
+
+  /* Dark mode styles matching main.scss */
+  [data-theme="dark"] .hn-header { border-bottom-color: #2a2f36; }
+  [data-theme="dark"] .hn-post-form { border-color: #2a2f36; background: #141920; }
+  [data-theme="dark"] .hn-post-form input,
+  [data-theme="dark"] .hn-post-form textarea {
+    border-color: #2a2f36;
+    background: #0f1216;
+    color: #d6d9df;
+  }
+  [data-theme="dark"] .hn-story { border-bottom-color: #1a1f26; }
+  [data-theme="dark"] .hn-story h3 { color: #e6e9ef; }
+  [data-theme="dark"] .hn-story a { color: #c9d3dc; }
+  [data-theme="dark"] .hn-story a:hover { color: #7bbcff; }
+  [data-theme="dark"] .hn-story-meta { color: #d6d9df; }
+  [data-theme="dark"] .hn-upvote-btn { color: #d6d9df; }
+/*  dark theme upvote styling by data attribute was removed */
+  [data-theme="dark"] .hn-comments-link { color: #d6d9df; }
+  [data-theme="dark"] .hn-comments-section { border-top-color: #2a2f36; }
+  [data-theme="dark"] .hn-comment { color: #d6d9df; }
+  [data-theme="dark"] .hn-comment-author { color: #d6d9df; }
+  [data-theme="dark"] .hn-user-info { color: #d6d9df; }
+  [data-theme="dark"] select,
+  [data-theme="dark"] input[type="text"],
+  [data-theme="dark"] input[type="url"] {
+    background: #0f1216;
+    color: #d6d9df;
+    border-color: #2a2f36;
+  }
+  [data-theme="dark"] label { color: #d6d9df; }
+</style>
+
+<!-- Search Bar -->
+<div style="margin-bottom: 12px;">
+  <div style="display: flex; gap: 6px; align-items: center;">
+    <input type="text" id="hn-search-input" placeholder="Search stories..." style="flex: 1; padding: 4px; border: 1px solid #ddd; border-radius: 2px; font-size: 0.7em;">
+    <button id="hn-search-btn" class="btn btn--primary" style="font-size: 0.7em; padding: 4px 10px;">Search</button>
+    <button id="hn-clear-search-btn" class="btn btn--secondary" style="font-size: 0.7em; padding: 4px 10px;">Clear</button>
+    <button id="hn-login-btn-header" class="btn btn--primary hn-hide" style="font-size: 0.7em; padding: 4px 10px;">Login</button>
+    <button id="hn-post-toggle" class="btn btn--success hn-hide" style="font-size: 0.7em; padding: 4px 10px;">+ Post</button>
+    <label style="margin-left: 12px; font-size: 0.7em;">Sort:</label>
+    <select id="hn-sort-select" style="padding: 3px; margin-left: 4px; font-size: 0.7em;">
+      <option value="hot">Hot</option>
+      <option value="new">New</option>
+      <option value="top">Top</option>
+    </select>
+  </div>
+</div>
+
+<!-- Post Form (only visible to logged-in users) -->
+<div id="hn-post-form" class="hn-post-form hn-hide" style="display: none;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+    <h3 style="margin: 0; font-size: 0.8em;">Post a Link</h3>
+    <div style="display: flex; align-items: center;">
+      <span id="hn-user-email" class="hn-user-info"></span>
+      <button id="hn-logout-btn" class="btn btn--danger">Logout</button>
+    </div>
+  </div>
+  <input type="text" id="hn-title-input" placeholder="Title..." required>
+  <input type="url" id="hn-url-input" placeholder="URL (e.g., https://example.com)" required>
+  <button id="hn-post-btn" class="btn btn--success">Post</button>
+</div>
+
+<!-- Stories Container -->
+<div id="hn-stories-container"></div>
+
+   <script>
+   // Supabase Configuration - using Jekyll include parameters
+   const SUPABASE_URL = '{{ include.supabase_url }}';
+   const SUPABASE_ANON_KEY = '{{ include.supabase_anon_key }}';
+
+   // Configuration
+   const STORIES_LIMIT = 100;  // Number of stories to display
+   const FALLBACK_FETCH_LIMIT = 500;  // Number of stories to fetch for fallback sorting
+   const TOP_TIME_LIMIT_DAYS = 365;  // Time lookback for "top" mode (1 year)
+   const HOT_TIME_LIMIT_DAYS = 90;   // Time lookback for "hot" mode (3 months)
+   const SHOW_GITHUB_USERNAMES = true;  // Set to false to show UIDs instead of GitHub usernames
+
+   // HTML escaping function to prevent XSS
+   function escapeHtml(unsafe) {
+     return unsafe
+       .replace(/&/g, "&amp;")
+       .replace(/</g, "&lt;")
+       .replace(/>/g, "&gt;")
+       .replace(/"/g, "&quot;")
+       .replace(/'/g, "&#039;");
+   }
+
+   // Load Supabase SDK if not already loaded
+   if (!window.supabase) {
+     const script = document.createElement('script');
+     script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+     script.async = true;
+     script.onload = () => {
+       setTimeout(initSupabase, 100); // Small delay to ensure DOM is ready
+     };
+     script.onerror = () => {
+       alert('Failed to load Supabase SDK. Please refresh the page.');
+     };
+     document.head.appendChild(script);
+   } else {
+     // Ensure DOM is ready before initializing
+     if (document.readyState === 'loading') {
+       document.addEventListener('DOMContentLoaded', initSupabase);
+     } else {
+       initSupabase();
+     }
+   }
+
+   function initSupabase() {
+     if (!window.supabase) {
+       alert('Failed to initialize. Please refresh the page.');
+       return;
+     }
+
+     const { createClient } = window.supabase;
+     const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+     let isInitialLoad = true;
+     let debounceTimer = null;
+
+     // DOM Elements
+     const loginBtnHeader = document.getElementById('hn-login-btn-header');
+     const logoutBtn = document.getElementById('hn-logout-btn');
+     const postForm = document.getElementById('hn-post-form');
+     const postToggle = document.getElementById('hn-post-toggle');
+     const storiesContainer = document.getElementById('hn-stories-container');
+     const titleInput = document.getElementById('hn-title-input');
+     const urlInput = document.getElementById('hn-url-input');
+     const postBtn = document.getElementById('hn-post-btn');
+     const userEmailSpan = document.getElementById('hn-user-email');
+     const searchInput = document.getElementById('hn-search-input');
+     const searchBtn = document.getElementById('hn-search-btn');
+     const clearSearchBtn = document.getElementById('hn-clear-search-btn');
+     const sortSelect = document.getElementById('hn-sort-select');
+
+     let currentSearchTerm = '';
+     let currentSortBy = 'hot';
+     let currentSession = null;
+     let searchDebounceTimer = null;
+     let isRefreshing = false; // Prevent race conditions
+     let refreshTimeoutId = null; // Safety timeout to reset isRefreshing
+
+     // Helper function to properly reset refresh state
+     function resetRefreshState() {
+       clearTimeout(refreshTimeoutId);
+       isRefreshing = false;
+     }
+
+     // Fetch GitHub usernames for an array of user IDs
+     async function fetchGithubUsernames(userIds) {
+       if (!userIds || userIds.length === 0) return {};
+
+       try {
+         const { data, error } = await supabase.rpc('get_github_usernames', {
+           user_ids: userIds
+         });
+
+         if (error) throw error;
+
+         // Convert to lookup map: user_id → {github_username, avatar_url}
+         const usernameMap = {};
+         (data || []).forEach(row => {
+           usernameMap[row.user_id] = {
+             username: row.github_username || 'unknown',
+             avatar: row.avatar_url || null
+           };
+         });
+
+         return usernameMap;
+       } catch (err) {
+         console.error('Error fetching GitHub usernames:', err);
+         return {};
+       }
+     }
+
+     // Auth State Management
+     function updateUI(session) {
+       currentSession = session;
+
+       if (session) {
+         // User is logged in
+         if (loginBtnHeader) loginBtnHeader.classList.add('hn-hide');
+         if (postToggle) postToggle.classList.remove('hn-hide');
+         if (userEmailSpan) userEmailSpan.textContent = `Logged in as: ${session.user.email}`;
+       } else {
+         // User is not logged in - ensure complete UI reset
+         if (loginBtnHeader) loginBtnHeader.classList.remove('hn-hide');
+         if (postToggle) {
+           postToggle.classList.add('hn-hide');
+           postToggle.textContent = '+ Post'; // Reset button text
+         }
+         if (postForm) {
+           postForm.classList.add('hn-hide');
+           postForm.style.display = 'none';
+         }
+         if (userEmailSpan) userEmailSpan.textContent = ''; // Clear email display
+       }
+     }
+
+     // Initialize auth and stories
+     async function initialize() {
+       try {
+         const { data: { session }, error } = await supabase.auth.getSession();
+         if (!error) {
+           updateUI(session);
+         }
+         // Always load stories once on initialization
+         await fetchStories();
+         isInitialLoad = false;
+       } catch (err) {
+         storiesContainer.innerHTML = '<p style="color: red;">Failed to initialize. Please refresh the page.</p>';
+       }
+     }
+
+     // Set up auth state listener (but prevent duplicate calls)
+     supabase.auth.onAuthStateChange((event, session) => {
+       if (!isInitialLoad) {
+         updateUI(session);
+         // Only refresh stories on actual auth changes, not on initial load
+         if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
+           clearTimeout(debounceTimer);
+           debounceTimer = setTimeout(() => fetchStories(), 500);
+         }
+       }
+     });
+
+     // Start initialization
+     initialize();
+
+     // Debug function to manually reset isRefreshing state (can be called from console)
+     window.resetRefreshState = resetRefreshState;
+
+     async function login() {
+       try {
+         const { error } = await supabase.auth.signInWithOAuth({
+           provider: 'github',
+           options: {
+             redirectTo: window.location.origin + window.location.pathname
+           }
+         });
+         if (error) {
+           alert('Login failed: ' + error.message);
+         }
+       } catch (err) {
+         alert('Login error: ' + err.message);
+       }
+     }
+
+     async function logout() {
+       try {
+         // Check current session first
+         const { data: { session: currentAuthSession } } = await supabase.auth.getSession();
+
+         if (!currentAuthSession) {
+           // Session already cleared - just update UI
+           currentSession = null;
+           updateUI(null);
+           return;
+         }
+
+         const { error } = await supabase.auth.signOut();
+         if (error) {
+           // Handle specific session-related errors gracefully
+           if (error.message.includes('Auth session missing') || error.message.includes('session')) {
+             // Force UI reset even if signOut fails due to session issues
+             currentSession = null;
+             updateUI(null);
+           } else {
+             alert('Logout failed: ' + error.message);
+           }
+         }
+       } catch (err) {
+         // For any other errors, still try to clear local state
+         if (err.message.includes('Auth session missing') || err.message.includes('session')) {
+           currentSession = null;
+           updateUI(null);
+         } else {
+           alert('Logout error: ' + err.message);
+         }
+       }
+     }
+
+     // Story Functions
+     async function fetchStories() {
+       try {
+         if (!storiesContainer) return;
+
+         storiesContainer.innerHTML = '<p style="font-size: 0.7em;">Loading stories...</p>';
+         await refreshStories();
+       } catch (err) {
+         if (storiesContainer) {
+           storiesContainer.innerHTML = `<p style="color: red; font-size: 0.7em;">Error loading stories: ${err.message}</p>`;
+         }
+       }
+     }
+
+     async function refreshStories() {
+       try {
+         if (!supabase || !storiesContainer || isRefreshing) return;
+
+         isRefreshing = true;
+
+         // Safety timeout to reset isRefreshing after 10 seconds
+         clearTimeout(refreshTimeoutId);
+         refreshTimeoutId = setTimeout(() => {
+           isRefreshing = false;
+         }, 10000);
+
+        // Escape Postgres LIKE wildcards and special chars in user input
+        function escapeLike(str) {
+          return str.replace(/[\\%_'";]/g, '\\\\$&');
+        }
+
+         // Time-optimized queries based on sort mode
+         let baseQuery = supabase.from('stories').select(`
+           id, title, url, author_id, created_at,
+           votes(vote_type)
+         `);
+
+         // Add search filter if specified
+         if (currentSearchTerm) {
+           const escaped = escapeLike(currentSearchTerm);
+           const searchTerm = `%${escaped}%`;
+           baseQuery = baseQuery.or(`title.ilike.${searchTerm},url.ilike.${searchTerm}`);
+         }
+
+         // Apply time constraints and limits based on sort mode
+         const now = new Date();
+         let fetchLimit;
+
+         switch (currentSortBy) {
+           case 'new':
+             // Fetch only recent stories, ordered by creation time
+             fetchLimit = STORIES_LIMIT;
+             baseQuery = baseQuery
+               .order('created_at', { ascending: false })
+               .limit(fetchLimit);
+             break;
+
+           case 'top':
+             // Fetch stories from last year for "top in last year"
+             const topCutoff = new Date(now.getTime() - (TOP_TIME_LIMIT_DAYS * 24 * 60 * 60 * 1000));
+             baseQuery = baseQuery
+               .gte('created_at', topCutoff.toISOString())
+               .order('created_at', { ascending: false });
+             break;
+
+           case 'hot':
+           default:
+             // Fetch stories from last 3 months for hot calculation
+             const hotCutoff = new Date(now.getTime() - (HOT_TIME_LIMIT_DAYS * 24 * 60 * 60 * 1000));
+             baseQuery = baseQuery
+               .gte('created_at', hotCutoff.toISOString())
+               .order('created_at', { ascending: false });
+             break;
+         }
+
+         const { data: allStories, error } = await baseQuery;
+         if (error) {
+           storiesContainer.innerHTML = `<p style="color: red; font-size: 0.7em;">Error: ${error.message}</p>`;
+           resetRefreshState();
+           return;
+         }
+
+         // Process stories based on sort mode
+         let stories;
+
+         if (currentSortBy === 'new') {
+           // For "new" mode, stories are already sorted by creation time
+           // Just add points for display
+           stories = (allStories || []).map(story => {
+             const points = (story.votes || []).reduce((sum, vote) => sum + (vote.vote_type || 0), 0);
+             return { ...story, points };
+           }).slice(0, STORIES_LIMIT);
+
+         } else {
+           // For "top" and "hot" modes, calculate points and sort
+           const storiesWithPoints = (allStories || []).map(story => {
+             const points = (story.votes || []).reduce((sum, vote) => sum + (vote.vote_type || 0), 0);
+             return { ...story, points };
+           });
+
+           switch (currentSortBy) {
+             case 'top':
+               // Sort by points within the time window
+               stories = storiesWithPoints
+                 .sort((a, b) => b.points - a.points)
+                 .slice(0, STORIES_LIMIT);
+               break;
+
+             case 'hot':
+             default:
+               // Apply hot score formula within the time window
+               stories = storiesWithPoints
+                 // For 1000 items, this is acceptable in the browser: O(n) for mapping, O(n log n) for sort.
+                 // If you expect much larger datasets, consider server-side sorting or pagination.
+                 .sort((a, b) => {
+                   // Precompute ages and scores for both items
+                   const now = Date.now();
+                   const ageA = (now - new Date(a.created_at).getTime()) / (1000 * 60 * 60);
+                   const ageB = (now - new Date(b.created_at).getTime()) / (1000 * 60 * 60);
+                   const scoreA = a.points / Math.pow(ageA + 2, 1.5);
+                   const scoreB = b.points / Math.pow(ageB + 2, 1.5);
+                   return scoreB - scoreA;
+                 })
+                 .slice(0, STORIES_LIMIT);
+               break;
+           }
+         }
+
+         if (!stories || stories.length === 0) {
+           renderStories([]);
+           resetRefreshState();
+           return;
+         }
+
+         // Get user votes for logged-in users
+         let userVotesMap = {};
+         if (currentSession) {
+           const storyIds = stories.map(s => s.id);
+           const { data: userVotes } = await supabase
+             .from('votes')
+             .select('story_id, vote_type')
+             .in('story_id', storyIds)
+             .eq('user_id', currentSession.user.id);
+
+           if (userVotes) {
+             userVotes.forEach(vote => {
+               userVotesMap[vote.story_id] = vote;
+             });
+           }
+         }
+
+         // Merge user vote data
+         const storiesWithVotes = stories.map(story => ({
+           ...story,
+           userVote: userVotesMap[story.id] || null
+         }));
+
+         // Conditionally fetch GitHub usernames based on configuration
+         let githubNames = {};
+         if (SHOW_GITHUB_USERNAMES) {
+           const uniqueAuthorIds = [...new Set(storiesWithVotes.map(s => s.author_id).filter(Boolean))];
+           githubNames = await fetchGithubUsernames(uniqueAuthorIds);
+         }
+
+         // Attach GitHub info to stories
+         const storiesWithGithubNames = storiesWithVotes.map(story => ({
+           ...story,
+           github_username: githubNames[story.author_id]?.username || null,
+           github_avatar: githubNames[story.author_id]?.avatar || null
+         }));
+
+         renderStories(storiesWithGithubNames);
+         resetRefreshState();
+
+       } catch (err) {
+         if (storiesContainer) {
+           storiesContainer.innerHTML = `<p style="color: red; font-size: 0.7em;">Error: ${err.message}</p>`;
+         }
+         resetRefreshState();
+       }
+     }
+
+     function renderStories(stories = []) {
+       try {
+         if (!storiesContainer) return;
+
+         storiesContainer.innerHTML = '';
+         if (stories.length === 0) {
+           storiesContainer.innerHTML = '<p style="font-size: 0.7em;">No stories yet—be the first to post!</p>';
+           return;
+         }
+
+         stories.forEach(story => {
+           const storyElement = document.createElement('div');
+           storyElement.className = 'hn-story';
+           storyElement.dataset.storyId = story.id;
+
+           const timeAgo = new Date(story.created_at).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+           // Check if user has voted
+           const userVote = story.userVote?.vote_type || 0;
+           const voteDisplay = userVote === 1 ? '▼' : '▲';
+
+           // Check if user owns this story
+           const isOwner = currentSession && story.author_id === currentSession.user.id;
+           const deleteButton = isOwner ? `<a href="#" class="hn-delete-btn" data-story-id="${story.id}">delete</a>` : '';
+
+           // Display author name based on configuration
+           let authorDisplay;
+           if (SHOW_GITHUB_USERNAMES && story.github_username) {
+             const escapedUsername = escapeHtml(story.github_username);
+             authorDisplay = `<a href="https://github.com/${escapedUsername}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">${escapedUsername}</a>`;
+           } else if (story.author_id) {
+             authorDisplay = story.author_id.slice(0, 8) + '...';
+           } else {
+             authorDisplay = 'unknown';
+           }
+
+          storyElement.innerHTML = `
+            <button class="hn-upvote-btn" data-story-id="${story.id}">
+               ${voteDisplay}
+             </button>
+             <div class="hn-story-content">
+               <h3><a href="${story.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(story.title)}</a></h3>
+               <div class="hn-story-meta">
+                 <span>${story.points} points</span>
+                 <span>by ${authorDisplay}</span>
+                 <span>${timeAgo}</span>
+                 <!-- <a href="#" class="hn-comments-link" data-story-id="${story.id}">Comments (0)</a> -->
+                ${deleteButton}
+               </div>
+             </div>
+             <div class="hn-comments-section hn-hide" data-story-id="${story.id}">
+               <textarea placeholder="Write a comment..." class="hn-comment-input" rows="2" data-story-id="${story.id}"></textarea>
+               <button class="btn btn--primary hn-post-comment-btn" data-story-id="${story.id}">Post Comment</button>
+               <div class="hn-comments-list" data-story-id="${story.id}"></div>
+             </div>
+           `;
+
+           storiesContainer.appendChild(storyElement);
+         });
+
+         // Event listeners will be handled by delegation on storiesContainer
+       } catch (err) {
+         // Silently fail rendering
+       }
+     }
+
+   async function handleUpvote(e) {
+     const btn = e.currentTarget || e.target;
+     const storyId = btn.dataset.storyId;
+
+     try {
+       if (!currentSession) {
+         // Trigger login if not logged in
+         await login();
+         return;
+       }
+
+       // Read the current vote state from the database
+       const { data: existingVote, error: voteCheckError } = await supabase
+         .from('votes')
+         .select('vote_type')
+         .eq('story_id', storyId)
+         .eq('user_id', currentSession.user.id)
+         .single();
+
+       if (voteCheckError && voteCheckError.code === 'PGRST116') {
+         // No vote exists: create/upsert an upvote
+         const { error } = await supabase
+           .from('votes')
+           .upsert({ story_id: storyId, user_id: currentSession.user.id, vote_type: 1 }, { onConflict: 'story_id,user_id' });
+         if (error) throw error;
+       } else if (voteCheckError) {
+         // Unexpected error fetching current vote
+         throw voteCheckError;
+       } else if (existingVote && existingVote.vote_type === 1) {
+         // Toggle off existing upvote
+         const { error } = await supabase
+           .from('votes')
+           .delete()
+           .eq('story_id', storyId)
+           .eq('user_id', currentSession.user.id);
+         if (error) throw error;
+       } else {
+         // Change to upvote (covers existing downvote or null cases handled above)
+         const { error } = await supabase
+           .from('votes')
+           .upsert({ story_id: storyId, user_id: currentSession.user.id, vote_type: 1 }, { onConflict: 'story_id,user_id' });
+         if (error) throw error;
+       }
+
+       // Refresh stories to get updated vote counts and points
+       await refreshStories();
+
+     } catch (error) {
+       alert('Upvote failed: ' + error.message);
+     }
+   }
+
+     // Comment Functions
+     function toggleComments(e) {
+       e.preventDefault();
+       const btn = e.currentTarget || e.target;
+       const storyId = btn.dataset.storyId;
+       const commentsSection = document.querySelector(`.hn-comments-section[data-story-id="${storyId}"]`);
+       if (commentsSection) {
+         commentsSection.classList.toggle('hn-hide');
+         if (!commentsSection.classList.contains('hn-hide')) {
+           loadComments(storyId);
+         }
+       }
+     }
+
+     async function loadComments(storyId) {
+       const commentsList = document.querySelector(`.hn-comments-list[data-story-id="${storyId}"]`);
+       if (!commentsList) return;
+       commentsList.innerHTML = '<p style="font-size: 0.85rem;">Loading comments...</p>';
+
+       try {
+         const { data: comments, error } = await supabase
+           .from('comments')
+           .select('id, content, author_id, created_at')
+           .eq('story_id', storyId)
+           .order('created_at', { ascending: true });
+
+         if (error) throw error;
+         if (comments.length === 0) {
+           commentsList.innerHTML = '<p style="font-size: 0.85rem;">No comments yet.</p>';
+         } else {
+           // Conditionally fetch GitHub usernames based on configuration
+           let githubNames = {};
+           if (SHOW_GITHUB_USERNAMES) {
+             const commentAuthorIds = [...new Set(comments.map(c => c.author_id).filter(Boolean))];
+             githubNames = await fetchGithubUsernames(commentAuthorIds);
+           }
+
+           commentsList.innerHTML = '';
+           comments.forEach(comment => {
+             const timeAgo = new Date(comment.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+             // Display author name based on configuration
+             let authorNameHTML;
+             if (SHOW_GITHUB_USERNAMES && githubNames[comment.author_id]) {
+               const username = githubNames[comment.author_id].username;
+               const escapedUsername = escapeHtml(username);
+               authorNameHTML = `<a href="https://github.com/${escapedUsername}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">${escapedUsername}</a>`;
+             } else if (comment.author_id) {
+               authorNameHTML = escapeHtml(comment.author_id.slice(0, 8) + '...');
+             } else {
+               authorNameHTML = 'unknown';
+             }
+
+             commentsList.innerHTML += `
+               <div class="hn-comment">
+                 <span class="hn-comment-author">${authorNameHTML}</span>
+                 <span>(${timeAgo})</span>
+                 <p>${escapeHtml(comment.content)}</p>
+               </div>
+             `;
+           });
+         }
+
+         const commentsLink = document.querySelector(`.hn-comments-link[data-story-id="${storyId}"]`);
+         if (commentsLink) {
+           commentsLink.textContent = `Comments (${comments.length})`;
+         }
+       } catch (error) {
+         commentsList.innerHTML = `<p style="font-size: 0.85rem; color: red;">Error loading comments</p>`;
+       }
+     }
+
+     async function handleDeleteStory(e) {
+      e.preventDefault();
+      const btn = e.currentTarget || e.target;
+      const storyId = btn.dataset.storyId;
+
+      if (!currentSession) {
+        alert('Please login to delete stories');
+        return;
+      }
+
+      if (confirm('Are you sure you want to delete this story? All votes and comments will be removed.')) {
+        try {
+          // First delete all votes for this story
+          const { error: votesError } = await supabase
+            .from('votes')
+            .delete()
+            .eq('story_id', storyId);
+
+          if (votesError) throw votesError;
+
+          // Then delete all comments for this story
+          const { error: commentsError } = await supabase
+            .from('comments')
+            .delete()
+            .eq('story_id', storyId);
+
+          if (commentsError) throw commentsError;
+
+          // Finally delete the story itself
+          const { error: storyError } = await supabase
+            .from('stories')
+            .delete()
+            .eq('id', storyId)
+            .eq('author_id', currentSession.user.id);
+
+          if (storyError) throw storyError;
+
+          // Remove story from DOM
+          const storyElement = document.querySelector(`.hn-story[data-story-id="${storyId}"]`);
+          if (storyElement) {
+            storyElement.remove();
+          }
+        } catch (err) {
+          alert('Failed to delete story: ' + err.message);
+        }
+      }
+    }
+
+    async function handlePostComment(e) {
+       const btn = e.currentTarget || e.target;
+       const storyId = btn.dataset.storyId;
+       const commentInput = document.querySelector(`.hn-comment-input[data-story-id="${storyId}"]`);
+       if (!commentInput) return;
+       const content = commentInput.value.trim();
+       if (!content) return alert('Comment cannot be empty!');
+
+       try {
+         if (!currentSession) {
+           alert('Login to comment!');
+           return;
+         }
+
+         const { error } = await supabase.from('comments').insert({
+           story_id: storyId,
+           content,
+           author_id: currentSession.user.id
+         });
+         if (error) throw error;
+
+         commentInput.value = '';
+         loadComments(storyId);
+       } catch (error) {
+         alert('Post comment failed: ' + error.message);
+       }
+     }
+
+     async function postStory() {
+       const title = titleInput?.value?.trim();
+       const url = urlInput?.value?.trim();
+       if (!title || !url) return alert('Title and URL are required!');
+      try {
+        const parsed = new URL(url);
+        if (!['http:', 'https:'].includes(parsed.protocol)) {
+          return alert('URL must use http:// or https://');
+        }
+      } catch (e) {
+        return alert('Invalid URL format. Please use http:// or https://');
+      }
+
+       try {
+         if (!currentSession) {
+           alert('Login to post!');
+           return;
+         }
+
+         const { error } = await supabase.from('stories').insert({
+           title,
+           url,
+           author_id: currentSession.user.id
+           // Points are now calculated from votes, no need to initialize
+         });
+         if (error) throw error;
+
+         titleInput.value = '';
+         urlInput.value = '';
+
+         // Collapse the form after posting
+         if (postForm) {
+           postForm.style.display = 'none';
+           postForm.classList.add('hn-hide');
+         }
+         if (postToggle) {
+           postToggle.textContent = '+ Post';
+         }
+
+         await refreshStories();
+       } catch (error) {
+         alert('Post story failed: ' + error.message);
+       }
+     }
+
+     // Search and Sort Functions
+     function performSearch() {
+       try {
+         currentSearchTerm = searchInput?.value?.trim() || '';
+         refreshStories();
+       } catch (error) {
+         console.error('performSearch error:', error);
+         resetRefreshState();
+       }
+     }
+
+     function clearSearch() {
+       try {
+         currentSearchTerm = '';
+         if (searchInput) searchInput.value = '';
+         refreshStories();
+       } catch (error) {
+         console.error('clearSearch error:', error);
+         resetRefreshState();
+       }
+     }
+
+     function handleSortChange() {
+       currentSortBy = sortSelect?.value || 'hot';
+       refreshStories();
+     }
+
+     // Event Listeners
+     if (loginBtnHeader) loginBtnHeader.addEventListener('click', login);
+     if (logoutBtn) logoutBtn.addEventListener('click', logout);
+     if (postBtn) postBtn.addEventListener('click', postStory);
+     if (postToggle) {
+       postToggle.addEventListener('click', (e) => {
+         e.preventDefault();
+         if (postForm) {
+           const isHidden = postForm.style.display === 'none';
+           postForm.style.display = isHidden ? 'block' : 'none';
+           postForm.classList.toggle('hn-hide', !isHidden);
+           postToggle.textContent = isHidden ? '- Post' : '+ Post';
+         }
+       });
+     }
+
+     // Event delegation for stories container - prevents memory leaks
+     if (storiesContainer) {
+       storiesContainer.addEventListener('click', (e) => {
+         const upvoteBtn = e.target.closest('.hn-upvote-btn');
+         const commentsLink = e.target.closest('.hn-comments-link');
+         const postCommentBtn = e.target.closest('.hn-post-comment-btn');
+         const deleteBtn = e.target.closest('.hn-delete-btn');
+
+         if (upvoteBtn) {
+           // Create a new event object with the correct target
+           const newEvent = { ...e, target: upvoteBtn, currentTarget: upvoteBtn };
+           handleUpvote(newEvent);
+         } else if (commentsLink) {
+           const newEvent = { ...e, target: commentsLink, currentTarget: commentsLink };
+           toggleComments(newEvent);
+         } else if (postCommentBtn) {
+           const newEvent = { ...e, target: postCommentBtn, currentTarget: postCommentBtn };
+           handlePostComment(newEvent);
+         } else if (deleteBtn) {
+           const newEvent = { ...e, target: deleteBtn, currentTarget: deleteBtn, preventDefault: e.preventDefault.bind(e) };
+           handleDeleteStory(newEvent);
+         }
+       });
+     }
+
+     // Search and sort event listeners
+     if (searchBtn) searchBtn.addEventListener('click', performSearch);
+     if (clearSearchBtn) clearSearchBtn.addEventListener('click', clearSearch);
+     if (sortSelect) sortSelect.addEventListener('change', handleSortChange);
+     if (searchInput) {
+       searchInput.addEventListener('input', (e) => {
+         clearTimeout(searchDebounceTimer);
+         searchDebounceTimer = setTimeout(() => {
+           performSearch();
+         }, 400);
+       });
+       searchInput.addEventListener('keypress', (e) => {
+         if (e.key === 'Enter') {
+           clearTimeout(searchDebounceTimer);
+           performSearch();
+         }
+       });
+     }
+   }
+
+</script>
