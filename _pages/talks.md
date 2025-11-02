@@ -9,7 +9,7 @@ nav_order: 5
 
 <div class="post">
   <div class="header-bar" style="padding: 2rem; text-align: center;">
-    <h1>{{ page.title }}</h1>
+    <h1>talks</h1>
     <h2>{{ page.description }}</h2>
   </div>
 <br>
