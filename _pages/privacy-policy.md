@@ -47,7 +47,11 @@ Legal basis: Art. 6(1)(f) GDPR (legitimate interest in providing an open academi
 If you contact me via email, your message and contact data will be stored to process your inquiry. No data are shared with third parties unless required by law.
 
 ### 4. Cookies and Analytics
-This site may use minimal cookies required for functionality (e.g., session preferences). No advertising or profiling cookies are used. If Google Analytics or similar services are activated, data processing occurs in accordance with Art. 6(1)(a) GDPR (user consent). You can disable cookies through your browser settings.
+This site uses a self‑hosted installation of Plausible Analytics to measure website usage. The analytics software is privacy‑focused and cookie‑free. It does not use cookies and does not collect personally identifiable information; measurements are aggregated and anonymous, with no cross‑site tracking and no advertising profiles.
+
+Analytics data are processed on our own server under our control; no data are sent to plausible.io or third‑party analytics providers. For the software’s privacy approach, see Plausible’s documentation: https://plausible.io/data-policy.
+
+Legal basis: Art. 6(1)(f) GDPR (legitimate interest in privacy‑friendly audience measurement). This site does not rely on non‑essential cookies for analytics.
 
 ### 5. Data Retention
 Personal data are stored only as long as necessary to achieve the purposes stated above or as required by law. AI News posts may remain online until removed or moderated. Blog comments are stored by GitHub as part of GitHub Discussions until deleted there.
@@ -114,7 +118,11 @@ Wenn Sie mich per E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung der A
 
 
 ### 4. Cookies und Analyse
-Diese Website verwendet nur technisch notwendige Cookies. Es findet kein Tracking zu Werbe- oder Profilingzwecken statt. Falls Analyse-Dienste wie Google Analytics aktiviert sind, erfolgt die Verarbeitung nur mit Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+Diese Website verwendet eine selbst gehostete Installation von Plausible Analytics zur Reichweitenmessung. Die Analysesoftware ist datenschutzfreundlich und setzt keine Cookies ein. Es werden keine personenbezogenen Daten erhoben; die Messungen sind aggregiert und anonym, ohne seitenübergreifendes Tracking und ohne Werbe‑Profiling.
+
+Die Analysedaten werden auf einem von uns betriebenen Server verarbeitet; es werden keine Daten an plausible.io oder sonstige Drittanbieter von Analytics übermittelt. Zum Datenschutzansatz der Software siehe die Hinweise von Plausible: https://plausible.io/data-policy.
+
+Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer datenschutzfreundlichen Reichweitenmessung). Für die Analyse setzt diese Website keine nicht zwingend erforderlichen Cookies ein.
 
 
 
