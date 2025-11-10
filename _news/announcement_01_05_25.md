@@ -3,6 +3,8 @@ layout: post
 date: 2025-05-01 15:59:00-0400
 inline: true
 related_posts: false
+title: "Four Papers Accepted at ICML 2025 Including Spotlight for 'Neural Discovery in Mathematics'"
+description: "Four papers accepted to ICML 2025: one spotlight on neural discovery in mathematics and three posters on latent manifolds, canopy height, and Earth observation."
 ---
 
 Happy to announce that four papers have been accepted at **ICML25**!

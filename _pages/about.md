@@ -2,6 +2,7 @@
 layout: about
 title: about
 permalink: /
+description: "Max Zimmer - DL Research Lead at IOL Lab, Zuse Institute Berlin. PhD candidate in Mathematics at TU Berlin focusing on neural network efficiency, sparsity, quantization, AI for science, and sustainability challenges."
 subtitle: |+
   <div class="alert alert-info" role="alert">
   <i class="fas fa-briefcase"></i>&nbsp;&nbsp;&nbsp;<b>DL Research Lead at the <a href="https://iol.zib.de/learn">IOL Lab</a> of <a href="https://www.zib.de/">Zuse Institute Berlin</a></b><br>

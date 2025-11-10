@@ -20,6 +20,9 @@
     {%- endif -%}
     {% if page.url == '/blog/index.html' %}
         {{ site.blog_nav_title }} | {{ title }}
+    {%- elsif page.url contains '/blog/tag/' -%}
+        {%- capture tag_name -%}{{ page.title | replace: "-", " " | capitalize }}{%- endcapture -%}
+        {{ tag_name }} | Blog of {{ title }}
     {%- elsif page.title != "blank" and page.url != "/" -%}
         {%- if page.title == nil or page.title == "" -%}
             {{ page.date | date: "%Y" }} | {{ title }}
