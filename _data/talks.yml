@@ -1,0 +1,88 @@
+- date: 2022-06-01
+  venue: Siemens workshop @ ZIB
+  description: Sparsity in Neural Networks
+  presentation_type: talk
+  location: Berlin, DE
+- date: 2023-03-01
+  venue: Workshop on Optimization and Machine Learning
+  description: How I Learned To Stop Worrying and Love Retraining
+  presentation_type: poster
+  poster: /assets/pdf/BIMP-poster-ICLR.pdf
+  location: Waischenfeld, DE
+- date: 2023-05-01
+  venue: ICLR 2023
+  description: How I Learned To Stop Worrying and Love Retraining
+  presentation_type: poster
+  poster: /assets/pdf/BIMP-poster-ICLR.pdf
+  location: Kigali, RW
+- date: 2023-11-01
+  venue: AI4Forest Kick-off Meeting
+  description: 'Approaches to Neural Network Compression - Or: How I Learned To Stop
+    Worrying and Love Retraining'
+  presentation_type: talk
+  slides: /assets/pdf/talks/11-2023.pdf
+  location: Paris, FR
+- date: 2024-05-01
+  venue: ICLR 2024
+  description: 'Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging'
+  presentation_type: poster
+  poster: /assets/pdf/SMS-poster-ICLR.pdf
+  location: Vienna, AT
+- date: 2024-07-01
+  venue: ICML 2024
+  description: Estimating Canopy Height at Scale
+  presentation_type: poster
+  poster: /assets/pdf/Canopy-poster-ICML.pdf
+  location: Vienna, AT
+- date: 2024-10-01
+  venue: Machine Learning and Data Engineering Group WWU
+  description: 'Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging'
+  presentation_type: talk
+  slides: /assets/pdf/talks/10-2024.pdf
+  location: Münster, DE
+- date: 2025-04-26
+  venue: ICLR 2025
+  description: Compressed sparse tiles for memory-efficient unstructured and semi-structured
+    sparsity
+  presentation_type: poster
+  poster: /assets/pdf/CS256-poster-ICLR.pdf
+  location: Singapore
+- date: 2025-04-26
+  venue: ICLR 2025
+  description: On the Byzantine-Resilience of Distillation-Based Federated Learning
+  presentation_type: poster
+  poster: /assets/pdf/FedDistill-poster-ICLR.pdf
+  location: Singapore
+- date: 2025-05-21
+  venue: RIKEN AIP
+  description: 'Towards Efficient Prune-Retrain Pipelines: SMS and PERP'
+  presentation_type: talk
+  slides: /assets/pdf/talks/05-2025.pdf
+  video: https://www.youtube.com/watch?v=qfCpjUGlEPo
+  location: Tokyo, JP
+  link: https://aip.riken.jp/events/event_184306/
+- date: 2025-07-18
+  venue: ICML 2025
+  description: Capturing Temporal Dynamics in Large-Scale Canopy Tree Height Estimation
+  presentation_type: poster
+  poster: /assets/pdf/TemporalCanopy-poster-ICML.pdf
+  location: Vancouver, CA
+- date: 2025-07-14
+  venue: ICML 2025
+  description: 'Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?'
+  presentation_type: poster
+  poster: /assets/pdf/NeuralDiscovery-poster-ICML.pdf
+  location: Vancouver, CA
+- date: 2025-07-15
+  venue: ICML 2025
+  description: 'DUNIA: Pixel-Sized Embeddings via Cross-Modal Alignment for Earth
+    Observation Applications'
+  presentation_type: poster
+  poster: /assets/pdf/DUNIA-poster-ICML.pdf
+  location: Vancouver, CA
+- date: 2025-07-17
+  venue: ICML 2025
+  description: Approximating Latent Manifolds in Neural Networks via Vanishing Ideals
+  presentation_type: poster
+  poster: /assets/pdf/ApproximatingLatentManifolds-poster-ICML.pdf
+  location: Vancouver, CA

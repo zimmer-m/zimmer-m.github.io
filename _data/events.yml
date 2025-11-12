@@ -1,0 +1,52 @@
+- date: 2023-03-01
+  venue: Workshop on Optimization and Machine Learning
+  location: Waischenfeld, DE
+  link: https://www.scs.fraunhofer.de/en/events/2023/workshop-optimization-ml.html
+- date: 2023-05-01
+  venue: 11th International Conference on Learning Representations (ICLR)
+  location: Kigali, RW
+  link: https://iclr.cc/Conferences/2023
+- date: 2023-12-01
+  venue: Neurips@Paris
+  location: Paris, FR
+  link: https://neuripsinparis.github.io/neurips2023paris/
+- date: 2024-03-01
+  venue: ELLIS Winter School on Foundation Models
+  location: Amsterdam, NL
+  link: https://amsterdam-fomo.github.io/
+- date: 2024-05-01
+  venue: 12th International Conference on Learning Representations (ICLR)
+  location: Vienna, AT
+  link: https://iclr.cc/Conferences/2024
+- date: 2024-07-01
+  venue: 41st International Conference on Machine Learning (ICML)
+  location: Vienna, AT
+  link: https://icml.cc/Conferences/2024
+- date: 2024-10-16
+  venue: Google AI Connect Conference
+  location: Berlin, DE
+  link: https://rsvp.withgoogle.com/events/google-ai-connect-berlin
+- date: 2024-10-01
+  venue: Google Responsible AI Summit
+  location: Paris, FR
+  link: https://rsvp.withgoogle.com/events/responsible_ai_summit_084fe4_a9b712_2d7fc8_2f7660/accueil
+- date: 2025-04-26
+  venue: 13th International Conference on Learning Representations (ICLR)
+  location: Singapore
+  link: https://iclr.cc/Conferences/2025
+- date: 2025-05-03
+  venue: 28th International Conference on Artificial Intelligence and Statistics (AISTATS)
+  location: Phuket, TH
+  link: https://aistats.org/aistats2025/
+- date: 2025-05-01
+  venue: 7th DOxML Conference
+  location: Kyoto, JP
+  link: https://doml.zib.de/previous/doml2025.html
+- date: 2025-07-13
+  venue: 42nd International Conference on Machine Learning (ICML)
+  location: Vancouver, CA
+  link: https://icml.cc/Conferences/2025
+- date: 2025-11-04
+  venue: Google - Shaping a New Era of Innovative Cities
+  location: Barcelona, ES
+  link: https://rsvp.withgoogle.com/events/smart-city-reception
