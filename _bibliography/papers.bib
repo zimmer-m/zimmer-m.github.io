@@ -1,3 +1,31 @@
+@article{zimmer2025sparseswaps,
+  title={SparseSwaps: Tractable LLM Pruning Mask Refinement at Scale},
+  author={Max Zimmer and Christophe Roux and Moritz Wagner and Deborah Hendrych and Sebastian Pokutta},
+  journal={arXiv preprint arXiv:2512.10922},
+  year={2025},
+  abstract      = {The resource requirements of Neural Networks can be significantly reduced through pruning -- the removal of seemingly less important parameters. However, with the rise of Large Language Models (LLMs), full retraining to recover pruning-induced performance degradation is often prohibitive and classical approaches such as global magnitude pruning are suboptimal on Transformer architectures. State-of-the-art methods hence solve a layer-wise mask selection problem, the problem of finding a pruning mask which minimizes the per-layer pruning error on a small set of calibration data. Exactly solving this problem to optimality using Integer Programming (IP) solvers is computationally infeasible due to its combinatorial nature and the size of the search space, and existing approaches therefore rely on approximations or heuristics. In this work, we demonstrate that the mask selection problem can be made drastically more tractable at LLM scale. To that end, we decouple the rows by enforcing equal sparsity levels per row. This allows us to derive optimal 1-swaps (exchanging one kept and one pruned weight) that can be computed efficiently using the Gram matrix of the calibration data. Using these observations, we propose a tractable and simple 1-swap algorithm that warm starts from any pruning mask, runs efficiently on GPUs at LLM scale, and is essentially hyperparameter-free. We demonstrate that our approach reduces per-layer pruning error by up to 60% over Wanda (Sun et al., 2023) and consistently improves perplexity and zero-shot accuracy across state-of-the-art GPT architectures.},
+  abbr={Preprint},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2512.10922},
+  preview={sparseswaps.png},
+  selected={true},
+  tags={efficiency}
+}
+
+@article{kuzinowicz2025objective,
+  title={Objective Coefficient Rounding and Almost Symmetries in Binary Programs},
+  author={Dominik Kuzinowicz and Paweł Lichocki and Gioni Mexi and Marc E. Pfetsch and Sebastian Pokutta and Max Zimmer},
+  journal={arXiv preprint arXiv:2512.10507},
+  year={2025},
+  abstract      = {This article investigates the interplay of rounding objective coefficients in binary programs and almost symmetries. Empirically, reducing the number of significant bits through rounding often leads to instances that are easier to solve. One reason can be that the amount of symmetries increases, which enables solvers to be more effective when they are exploited. This can signify that the original instance contains 'almost symmetries'. Furthermore, solving the rounded problems provides approximations to the original objective values. We empirically investigate these relations on instances of the capacitated facility location problem, the knapsack problem and a diverse collection of additional instances, using the solvers SCIP and CP-SAT. For all investigated problem classes, we show empirically that this yields faster algorithms with guaranteed solution quality. The influence of symmetry depends on the instance type and solver.},
+  abbr={Preprint},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2512.10507},
+  preview={bit_rounding.png},
+  selected={true},
+  tags={optimization}
+}
+
 @article{wagner2025freelunchllmcompression,
   title={A Free Lunch in LLM Compression: Revisiting Retraining after Pruning},
   author={Moritz Wagner and Christophe Roux and Max Zimmer and Sebastian Pokutta},
