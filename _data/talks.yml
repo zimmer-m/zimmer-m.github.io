@@ -86,3 +86,9 @@
   presentation_type: poster
   poster: /assets/pdf/ApproximatingLatentManifolds-poster-ICML.pdf
   location: Vancouver, CA
+- date: 2025-12-06
+  venue: NeurIPS 2025
+  description: "Computational Algebra with Attention: Transformer Oracles for Border Basis Algorithms"
+  presentation_type: poster
+  poster: /assets/pdf/OBBA-poster-NeurIPS.pdf
+  location: San Diego, US
