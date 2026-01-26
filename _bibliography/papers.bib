@@ -1,3 +1,33 @@
+@inproceedings{urbano2025recon,
+  title={RECON: Robust symmetry discovery via Explicit Canonical Orientation Normalization},
+  author={Urbano, Alonso and Romero, David W and Zimmer, Max and Pokutta, Sebastian},
+  booktitle={The Fourteenth International Conference on Learning Representations},
+  year={2026},
+  abstract      = {Real-world data often exhibits unknown or approximate symmetries, yet existing equivariant networks must commit to a fixed transformation group prior to training, e.g., continuous SO(2) rotations. This mismatch degrades performance when the actual data symmetries differ from those in the transformation group. We introduce RECON, a framework to discover each input's intrinsic symmetry distribution from unlabeled data. RECON leverages class-pose decompositions and applies a data-driven normalization to align arbitrary reference frames into a common natural pose, yielding directly comparable and interpretable symmetry descriptors. We demonstrate effective symmetry discovery on 2D image benchmarks and -- for the first time -- extend it to 3D transformation groups, paving the way towards more flexible equivariant modeling.},
+  abbr={ICLR26},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2505.13289},
+  preview={recon.png},
+  selected={true},
+  tags={efficiency}
+}
+@inproceedings{pelleriti2025neural,
+  title={Neural Sum-of-Squares: Certifying the Nonnegativity of Polynomials with Transformers},
+  author={Nico Pelleriti and Christoph Spiegel and Shiwei Liu and David Mart{\'i}nez-Rubio and Max Zimmer and Sebastian Pokutta},
+  booktitle={The Fourteenth International Conference on Learning Representations},
+  year={2026},
+  abstract      = {Certifying nonnegativity of polynomials is a well-known NP-hard problem with direct applications spanning non-convex optimization, control, robotics, and beyond. A sufficient condition for nonnegativity is the Sum of Squares (SOS) property, i.e., it can be written as a sum of squares of other polynomials. In practice, however, certifying the SOS criterion remains computationally expensive and often involves solving a Semidefinite Program (SDP), whose dimensionality grows quadratically in the size of the monomial basis of the SOS expression; hence, various methods to reduce the size of the monomial basis have been proposed. In this work, we introduce the first learning-augmented algorithm to certify the SOS criterion. To this end, we train a Transformer model that predicts an almost-minimal monomial basis for a given polynomial, thereby drastically reducing the size of the corresponding SDP. Our overall methodology comprises three key components: efficient training dataset generation of over 100 million SOS polynomials, design and training of the corresponding Transformer architecture, and a systematic fallback mechanism to ensure correct termination, which we analyze theoretically. We validate our approach on over 200 benchmark datasets, achieving speedups of over 100× compared to state-of-the-art solvers and enabling the solution of instances where competing approaches fail. Our findings provide novel insights towards transforming the practical scalability of SOS programming.},
+  abbr={ICLR26},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2510.13444},
+  preview={neural_sos.png},
+  selected={true},
+  tags={computational-algebra, ai4math, ai4science},
+  code={https://github.com/ZIB-IOL/Neural-Sum-of-Squares},
+}
+
+
+
 @article{zimmer2025sparseswaps,
   title={SparseSwaps: Tractable LLM Pruning Mask Refinement at Scale},
   author={Max Zimmer and Christophe Roux and Moritz Wagner and Deborah Hendrych and Sebastian Pokutta},
@@ -54,20 +84,7 @@
   tags={efficiency, optimization}
 }
 
-@article{pelleriti2025neural,
-  title={Neural Sum-of-Squares: Certifying the Nonnegativity of Polynomials with Transformers},
-  author={Nico Pelleriti and Christoph Spiegel and Shiwei Liu and David Mart{\'i}nez-Rubio and Max Zimmer and Sebastian Pokutta},
-  journal={arXiv preprint arXiv:2510.13444},
-  year={2025},
-  abstract      = {Certifying nonnegativity of polynomials is a well-known NP-hard problem with direct applications spanning non-convex optimization, control, robotics, and beyond. A sufficient condition for nonnegativity is the Sum of Squares (SOS) property, i.e., it can be written as a sum of squares of other polynomials. In practice, however, certifying the SOS criterion remains computationally expensive and often involves solving a Semidefinite Program (SDP), whose dimensionality grows quadratically in the size of the monomial basis of the SOS expression; hence, various methods to reduce the size of the monomial basis have been proposed. In this work, we introduce the first learning-augmented algorithm to certify the SOS criterion. To this end, we train a Transformer model that predicts an almost-minimal monomial basis for a given polynomial, thereby drastically reducing the size of the corresponding SDP. Our overall methodology comprises three key components: efficient training dataset generation of over 100 million SOS polynomials, design and training of the corresponding Transformer architecture, and a systematic fallback mechanism to ensure correct termination, which we analyze theoretically. We validate our approach on over 200 benchmark datasets, achieving speedups of over 100× compared to state-of-the-art solvers and enabling the solution of instances where competing approaches fail. Our findings provide novel insights towards transforming the practical scalability of SOS programming.},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2510.13444},
-  preview={neural_sos.png},
-  selected={true},
-  tags={computational-algebra, ai4math, ai4science},
-  code={https://github.com/ZIB-IOL/Neural-Sum-of-Squares},
-}
+
 
 @inproceedings{kera2025computationalalgebraattentiontransformer,
   title={Computational Algebra with Attention: Transformer Oracles for Border Basis Algorithms},
@@ -86,19 +103,7 @@
   poster={OBBA-poster-NeurIPS.pdf}
 }
 
-@article{urbano2025recon,
-  title={RECON: Robust symmetry discovery via Explicit Canonical Orientation Normalization},
-  author={Urbano, Alonso and Romero, David W and Zimmer, Max and Pokutta, Sebastian},
-  journal={arXiv preprint arXiv:2505.13289},
-  year={2025},
-  abstract      = {Real-world data often exhibits unknown or approximate symmetries, yet existing equivariant networks must commit to a fixed transformation group prior to training, e.g., continuous SO(2) rotations. This mismatch degrades performance when the actual data symmetries differ from those in the transformation group. We introduce RECON, a framework to discover each input's intrinsic symmetry distribution from unlabeled data. RECON leverages class-pose decompositions and applies a data-driven normalization to align arbitrary reference frames into a common natural pose, yielding directly comparable and interpretable symmetry descriptors. We demonstrate effective symmetry discovery on 2D image benchmarks and -- for the first time -- extend it to 3D transformation groups, paving the way towards more flexible equivariant modeling.},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2505.13289},
-  preview={recon.png},
-  selected={true},
-  tags={efficiency}
-}
+
 
 @inproceedings{mundinger2025neural,
   title={Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?},
