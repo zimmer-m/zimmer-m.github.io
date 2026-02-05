@@ -5,4 +5,6 @@ inline: true
 related_posts: false
 ---
 
-New preprint online led by [Louis Schiekiera](https://schiekiera.github.io): [From Associations to Activations: Comparing Behavioral and Hidden-State Semantic Geometry in LLMs](https://arxiv.org/abs/2602.00628)
+Two new preprints online:
+- [From Associations to Activations: Comparing Behavioral and Hidden-State Semantic Geometry in LLMs](https://arxiv.org/abs/2602.00628)
+- [Lower Bounds for Frank-Wolfe on Strongly Convex Sets](https://arxiv.org/abs/2602.04378)
