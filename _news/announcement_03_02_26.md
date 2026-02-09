@@ -5,6 +5,7 @@ inline: true
 related_posts: false
 ---
 
-Two new preprints online:
+Three new preprints online:
 - [From Associations to Activations: Comparing Behavioral and Hidden-State Semantic Geometry in LLMs](https://arxiv.org/abs/2602.00628)
 - [Lower Bounds for Frank-Wolfe on Strongly Convex Sets](https://arxiv.org/abs/2602.04378)
+- [121 Patchworked Curves of Degree Seven](https://arxiv.org/abs/2602.06888)
