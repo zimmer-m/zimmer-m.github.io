@@ -3,6 +3,7 @@ layout: post
 date: 2025-05-01 15:59:00-0400
 inline: true
 related_posts: false
+title: "Four Papers Accepted at ICML 2025"
 ---
 
 Happy to announce that four papers have been accepted at **ICML25**!
