@@ -455,8 +455,8 @@
     <button id="hn-login-btn-header" class="hn-btn hn-btn-primary hn-hide">Login</button>
     <button id="hn-post-toggle" class="hn-btn hn-btn-success hn-hide">+ Post</button>
     <select id="hn-sort-select" class="hn-sort-select">
-      <option value="hot">Hot</option>
       <option value="new">New</option>
+      <option value="hot">Hot</option>
       <option value="top">Top</option>
     </select>
   </div>
@@ -587,7 +587,7 @@
      const sortSelect = document.getElementById('hn-sort-select');
 
      let currentSearchTerm = '';
-     let currentSortBy = 'hot';
+     let currentSortBy = 'new';
      let currentSession = null;
      let searchDebounceTimer = null;
      let isRefreshing = false; // Prevent race conditions

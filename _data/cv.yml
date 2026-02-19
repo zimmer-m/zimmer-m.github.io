@@ -1,6 +1,9 @@
 - title: Current Position
   type: time_table
   contents:
+    - title: Visiting Researcher
+      institution: <a href="https://www.di.ens.fr/~aspremon/">INRIA Paris</a> (hosted by Alexandre d'Aspremont)
+      year: Feb–Apr 2026
     - title: Deep Learning Research Lead of <a href="https://iol.zib.de/research/iol-learn.html">iol.LEARN</a>
       institution: Interactive Optimization and Learning Lab, Zuse Institute Berlin
       year: 2024–present
