@@ -19,10 +19,10 @@ nav_order: 7
 
 ### some essays & articles I find worth reading
 
-- [Brain Time](https://www.edge.org/conversation/brain-time) — David M. Eagleman
-- [The Tail End](https://waitbutwhy.com/2015/12/the-tail-end.html) — Tim Urban
-- [Laws of Tech: Commoditize Your Complement](https://gwern.net/complement) — Gwern
-- [Musings on typicality](https://sander.ai/2020/09/01/typicality.html) — Sander Dieleman
+{%- assign sorted_links = site.data.links | sort: "year" | reverse -%}
+{%- for link in sorted_links %}
+- [{{ link.title }}]({{ link.url }}) — {{ link.author }}, {{ link.year }}
+{%- endfor %}
 
 ---
 
