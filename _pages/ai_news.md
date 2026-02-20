@@ -56,7 +56,7 @@ nav_order: 7
     min-width: 0;
   }
   .link-hint {
-    color: var(--global-text-color-light);
+    color: var(--global-theme-color);
     font-size: 0.8rem;
     cursor: pointer;
     white-space: nowrap;
@@ -68,16 +68,22 @@ nav_order: 7
     border: none;
     padding: 0;
     font-family: inherit;
+    text-decoration: none;
   }
   .link-hint:hover {
     opacity: 1;
-    color: var(--global-theme-color);
+    text-decoration: none;
   }
   .link-hint .link-arrow {
     display: inline-block;
-    font-size: 0.65rem;
-    margin-right: 0.2rem;
+    width: 0;
+    height: 0;
+    border-top: 0.25em solid transparent;
+    border-bottom: 0.25em solid transparent;
+    border-left: 0.35em solid currentColor;
+    margin-right: 0.3rem;
     transition: transform 0.2s ease;
+    vertical-align: middle;
   }
   .link-hint.open .link-arrow {
     transform: rotate(90deg);
@@ -108,7 +114,7 @@ nav_order: 7
           <a href="{{ link.url }}">{{ link.title }}</a> — {{ link.author }}, {{ link.year }}
         </span>
         {%- if link.description and link.description != "" %}
-        <button class="link-hint" onclick="var d=this.closest('li').querySelector('.link-desc'); d.classList.toggle('open'); this.classList.toggle('open'); this.querySelector('.link-label').textContent=d.classList.contains('open')?'hide description':'show description';"><span class="link-arrow">&#9654;</span><span class="link-label">show description</span></button>
+        <button class="link-hint" onclick="var d=this.closest('li').querySelector('.link-desc'); d.classList.toggle('open'); this.classList.toggle('open'); this.querySelector('.link-label').textContent=d.classList.contains('open')?'hide description':'show description';"><span class="link-arrow"></span><span class="link-label">show description</span></button>
         {%- endif %}
       </div>
       {%- if link.description and link.description != "" %}
