@@ -10,28 +10,25 @@ nav_order: 7
 ---
 
 <div class="post">
-  <div class="header-bar" style="padding: 2rem; text-align: center;">
+  <div class="header-bar">
     <h1>{{ page.title }}</h1>
     <h2>{{ page.description }}</h2>
   </div>
-<br>
 </div>
 
-### some essays & articles I find worth reading
+<h3 class="section-header">some essays & articles I find worth reading</h3>
 
 <style>
   .links-section {
     margin-bottom: 1.5rem;
   }
   .links-category {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--global-theme-color);
-    padding-bottom: 0.3rem;
+    color: var(--global-text-color);
+    padding-bottom: 0.2rem;
     margin-bottom: 0;
-    border-bottom: 2px solid var(--global-theme-color);
+    margin-top: 0.5rem;
   }
   .links-list {
     list-style: none;
@@ -129,7 +126,7 @@ nav_order: 7
 
 ---
 
-### ai news
+<h3 class="section-header">ai news</h3>
 
 Recent news and discussions about AI and deep learning, using a shared database with [Sebastian](https://pokutta.com) — feel free to contribute using your GitHub account.
 

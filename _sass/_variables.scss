@@ -8,11 +8,8 @@
 $red-color:           #FF3636 !default;
 $red-color-dark:      #B71C1C !default;
 $orange-color:        #F26D21 !default;
-$orange-color-light:  #FF7F50 !default;
 $blue-color:          #0076df !default;
 $blue-color-dark:     #00369f !default;
-$cyan-color:          #2698BA !default;
-$light-cyan-color:    lighten($cyan-color, 25%);
 $green-color:         #00ab37 !default;
 $green-color-lime:    #B7D12A !default;
 $green-color-dark:    #009f06 !default;
@@ -36,11 +33,10 @@ $black-color: #000000 !default;
 // Theme colors I added, modify these to change the theme
 
 $code-bg-color-light:     rgba($purple-color, 0.05);
-$code-bg-color-dark:      #2c3237 !default;
 
 // Theme colors
 $cyan-color:          #2698BA !default;  // Light mode accent
-$orange-color-light:  #FF7F50 !default;  // Dark mode accent
+$cyan-color-dark:     #4db8d1 !default;  // Dark mode accent (lighter cyan)
 
 // Background colors
 $bg-color-light:      #f5fbfd !default;  // Light cyan tinted background
@@ -49,3 +45,8 @@ $bg-color-dark:       #1a2634 !default;  // Deep navy blue background
 // Text colors for dark/light modes
 $text-color-light:    #2c3e50 !default;  // Dark blue-grey for light mode
 $text-color-dark:     #e0e0e0 !default;  // Light grey for dark mode
+$text-color-dark-muted: #8a9bae !default;  // Blue-grey muted text for dark mode
+
+// Dark mode supplementary
+$code-bg-color-dark:      #1f2f3f !default;  // Slightly lighter than bg
+$divider-color-dark:      #2d3d4d;           // Blue-tinted divider

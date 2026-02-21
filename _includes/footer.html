@@ -8,7 +8,7 @@
         {%- if site.last_updated -%}
         Last updated: {{ "now" | date: '%B %d, %Y' }}.
         {%- endif %}
-         | <a href="{{ site.url }}{{ site.baseurl }}/legal-notice">[Legal Notice]</a> | <a href="{{ site.url }}{{ site.baseurl }}/privacy-policy">[Privacy Policy]</a>
+         · <a href="{{ site.url }}{{ site.baseurl }}/legal-notice">Legal Notice</a> · <a href="{{ site.url }}{{ site.baseurl }}/privacy-policy">Privacy Policy</a>
       </div>
     </footer>
     {%- else -%}
@@ -21,7 +21,7 @@
         {%- if site.last_updated -%}
         Last updated: {{ "now" | date: '%B %d, %Y' }}.
         {%- endif %}
-         | <a href="{{ site.url }}{{ site.baseurl }}/legal-notice">[Legal Notice]</a> | <a href="{{ site.url }}{{ site.baseurl }}/privacy-policy">[Privacy Policy]</a>
+         · <a href="{{ site.url }}{{ site.baseurl }}/legal-notice">Legal Notice</a> · <a href="{{ site.url }}{{ site.baseurl }}/privacy-policy">Privacy Policy</a>
       </div>
     </footer>
     {%- endif %}

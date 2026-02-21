@@ -4,16 +4,15 @@ layout: default
 <!-- _layouts/cv.html -->
         <div class="post">
 
-          <div class="header-bar" style="padding: 2rem; text-align: center;">
+          <div class="header-bar">
             <h1>cv</h1>
           </div>
-          <br>
 
           <article>
             <div class="cv">
               {% for entry in site.data.cv %}
-                <div class="card mt-3 p-3">
-                  <h3 class="card-title font-weight-medium">{{ entry.title }}</h3>
+                <div class="{% if forloop.first %}mt-0{% else %}mt-4{% endif %}">
+                  <h3 class="section-header">{{ entry.title }}</h3>
                   <div>
                   {% if entry.type == "list" %}
                     {% include cv/list.html %}

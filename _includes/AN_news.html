@@ -304,7 +304,7 @@
 
   /* Dark mode */
   [data-theme="dark"] .hn-sort-select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%23FF7F50' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%234db8d1' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   }
 
   /* Responsive */
@@ -343,15 +343,20 @@
       overflow: visible;
     }
     .hn-col-author {
-      width: 100%;
+      width: auto;
       text-align: left;
       padding-left: 2.6rem;
-      padding-top: 0.1rem;
+      padding-top: 0.15rem;
+      font-size: 0.8rem;
+    }
+    .hn-col-author::after {
+      content: " · ";
     }
     .hn-col-time {
       width: auto;
       text-align: left;
-      padding-left: 0.5rem;
+      padding-left: 0;
+      font-size: 0.8rem;
     }
     .hn-post-form-header {
       flex-direction: column;

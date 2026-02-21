@@ -136,17 +136,22 @@ blockquote {
 
 // Blog post tags
 .tag {
-  background-color: var(--global-bg-color);
-  color: var(--global-theme-color) !important;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.3rem;
-  font-size: 0.8rem;
+  background-color: transparent;
+  color: var(--global-text-color-light) !important;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 3px;
+  font-size: 0.7rem;
   text-decoration: none;
   display: inline-block;
-  
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+
   &:hover {
-    background-color: var(--global-theme-color);
-    color: var(--global-bg-color) !important;
+    background-color: transparent;
+    color: var(--global-theme-color) !important;
+    border-color: var(--global-theme-color);
     text-decoration: none;
   }
 }
@@ -314,23 +319,139 @@ footer.sticky-bottom {
   font-size: 0.9rem;
 }
 
+// Section header (reusable minimal style matching essays aesthetic)
+
+.section-header {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--global-theme-color);
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--global-theme-color);
+  margin-bottom: 1rem;
+}
+
+// News list
+
+.news-list {
+  .news-entry {
+    display: flex;
+    gap: 1rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--global-divider-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .news-date {
+    flex: 0 0 auto;
+    min-width: 55px;
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+    white-space: nowrap;
+  }
+
+  .news-content {
+    flex: 1;
+    font-size: 0.95rem;
+  }
+}
+
+// About page callout boxes
+
+.about-callout {
+  border-left: 3px solid var(--global-theme-color);
+  background: var(--global-code-bg-color);
+  padding: 0.65rem 0.9rem;
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 0.6rem;
+
+  &.about-callout-role {
+    line-height: 1.7;
+  }
+
+  &.about-callout-hiring {
+    font-size: 0.9rem;
+  }
+}
+
 // CV
 
 .cv {
   margin-bottom: 40px;
 
-  .card {
-    background-color: var(--global-card-bg-color);
-    border: 1px solid var(--global-divider-color);
+  .list-group {
+    border: none;
+  }
 
-    .list-group-item {
-      background-color: inherit;
-      border-color: var(--global-divider-color);
+  .list-group-item {
+    background-color: transparent !important;
+    border-color: var(--global-divider-color) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: 1px solid var(--global-divider-color) !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
-      .badge {
-        color: var(--global-card-bg-color) !important;
-        background-color: var(--global-theme-color) !important;
+  .cv-time-table {
+    .cv-entry {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--global-divider-color);
+
+      &:last-child {
+        border-bottom: none;
       }
+    }
+
+    .cv-entry-inner {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .cv-year {
+      flex: 0 0 auto;
+      min-width: 130px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--global-text-color);
+      padding-top: 0;
+      white-space: nowrap;
+    }
+
+    .cv-details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cv-title {
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .cv-institution {
+      font-size: 0.95rem;
+      color: var(--global-text-color);
+      margin-bottom: 0.25rem;
+    }
+
+    .cv-items {
+      margin: 0.25rem 0 0 0;
+      padding-left: 1.2rem;
+      font-size: 0.9rem;
+
+      li {
+        margin-bottom: 0.1rem;
+      }
+    }
+
+    .cv-subitems {
+      padding-left: 1rem;
+      font-size: 0.85rem;
     }
   }
 }
@@ -348,11 +469,19 @@ footer.sticky-bottom {
 .header-bar {
   border-bottom: 1px solid var(--global-divider-color);
   text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   h1 {
     color: var(--global-theme-color);
-    font-size: 5rem;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  h2 {
+    font-size: 0.95rem;
+    color: var(--global-text-color-light);
+    margin-top: 0.25rem;
+    font-weight: 400;
   }
 }
 
@@ -388,18 +517,47 @@ footer.sticky-bottom {
       font-size: 0.875rem;
       margin-bottom: 0;
     }
-    .post-tags {
-      color: var(--global-text-color-light);
-      font-size: 0.875rem;
-      padding-top: 0.25rem;
-      padding-bottom: 0;
-    }
     a {
       color: var(--global-text-color);
       text-decoration: none;
       &:hover {
         color: var(--global-theme-color);
       }
+    }
+  }
+
+  .post-preview {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--global-divider-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .post-title, .post-title-link {
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 0.1rem;
+
+      a {
+        color: var(--global-text-color);
+        text-decoration: none;
+        &:hover {
+          color: var(--global-theme-color);
+        }
+      }
+    }
+
+    .post-meta {
+      color: var(--global-text-color-light);
+      font-size: 0.8rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .post-description {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+      color: var(--global-text-color);
     }
   }
 }
@@ -509,25 +667,64 @@ footer.sticky-bottom {
     margin-top: 0;
 
     li {
-      margin-bottom: 1rem;
-      
+      // Use :has() to collapse li when its .entry child is hidden by JS filter
+      &:has(.entry[style*="display: none"]) {
+        display: none;
+      }
+
+      .row.entry {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 0;
+        margin-right: 0;
+        border-bottom: 1px solid var(--global-divider-color);
+      }
+
+      &:last-child .row.entry {
+        border-bottom: none;
+      }
+
+      .pub-thumb-col {
+        flex: 0 0 75px;
+        max-width: 75px;
+        padding-right: 15px;
+      }
+
+      .pub-content-col {
+        flex: 1;
+        min-width: 0;
+      }
+
       .preview-container {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
       }
-      
+
       .preview {
-        width: 100%;
-        min-width: 80px;
-        max-width: 200px;
+        width: 60px;
+        min-width: 60px;
+        max-width: 60px;
         margin-bottom: 0.25rem;
-        
+        overflow: visible;
+
         img {
           width: 100%;
           height: auto;
           border-radius: 4px;
+          box-shadow: none !important;
+          cursor: zoom-in;
+          transition: transform 0.25s ease;
+
+          &:hover {
+            transform: scale(2.5);
+            transform-origin: top left;
+            z-index: 10;
+            position: relative;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15) !important;
+          }
         }
       }
       
@@ -600,20 +797,34 @@ footer.sticky-bottom {
         }
       }
       .links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.25rem;
+        margin-top: 0.35rem;
+
         a.btn {
-          margin-right: 0.5rem;
-          margin-bottom: 0.5rem;
-          border: 2px solid var(--global-theme-color);
-          border-radius: 4px;
-          color: var(--global-theme-color);
-          background-color: var(--global-bg-color);
-          padding: 0.25rem 0.5rem;
-          transition: color 0.3s ease, background-color 0.3s ease;
-          
-          &:hover {
-            color: var(--global-bg-color);
-            background-color: var(--global-theme-color);
+          margin: 0 !important;
+          padding: 0.15rem 0.5rem !important;
+          border: 1px solid var(--global-divider-color) !important;
+          border-radius: 3px !important;
+          color: var(--global-text-color-light) !important;
+          background: transparent !important;
+          background-color: transparent !important;
+          font-size: 0.75rem;
+          text-transform: lowercase;
+          line-height: 1.4;
+          letter-spacing: 0.02em;
+          box-shadow: none !important;
+          transition: all 0.2s ease;
+
+          &:hover, &:focus {
+            color: var(--global-theme-color) !important;
+            background: transparent !important;
+            background-color: transparent !important;
+            border-color: var(--global-theme-color) !important;
             text-decoration: none;
+            box-shadow: none !important;
           }
         }
       }
@@ -634,11 +845,7 @@ footer.sticky-bottom {
         max-height: 0px;
         overflow: hidden;
         text-align: justify;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        transition: max-height 0.15s ease;
 
         p {
           line-height: 1.4em;
@@ -652,17 +859,13 @@ footer.sticky-bottom {
       }
       .hidden.open {
         max-height: 100em;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        transition: max-height 0.15s ease;
       }
       div.abstract.hidden {
-        border: dashed 1px var(--global-bg-color);
+        border: none;
       }
       div.abstract.hidden.open {
-        border-color: var(--global-text-color);
+        border: none;
       }
       .periodical {
         margin-bottom: 0.25rem;
@@ -736,7 +939,7 @@ html.transition,
 html.transition *,
 html.transition *:before,
 html.transition *:after {
-  transition: all 750ms !important;
+  transition: color 750ms, background-color 750ms, border-color 750ms, fill 750ms, stroke 750ms, box-shadow 750ms, outline-color 750ms !important;
   transition-delay: 0 !important;
 }
 
@@ -747,23 +950,87 @@ html.transition *:after {
     font-size: 0.875rem;
     margin-bottom: 0;
   }
-  .post-tags{
-    color: var(--global-text-color-light);
-    font-size: 0.875rem;
-    padding-top: 0.25rem;
-    padding-bottom: 1rem;
-    a {
-      color: var(--global-text-color-light);
-      text-decoration: none;
-      &:hover {
-        color: var(--global-theme-color);
-      }
-    }
-  }
   .post-content{
     blockquote {
       border-left: 5px solid var(--global-theme-color);
       padding: 8px;
+    }
+
+    h2 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--global-theme-color);
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--global-theme-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--global-theme-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  .page-content {
+    h2 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--global-theme-color);
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--global-theme-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--global-theme-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--global-text-color);
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .post-header {
+    border-bottom: 1px solid var(--global-divider-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+
+    .post-title {
+      color: var(--global-theme-color);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+
+    .post-meta {
+      font-size: 0.85rem;
+      color: var(--global-text-color-light);
+      margin-bottom: 0;
+
+      .tag {
+        vertical-align: baseline;
+      }
     }
   }
 }
@@ -824,14 +1091,8 @@ progress {
  }
 
 .publication-tags {
-  margin-bottom: 2rem;
-  
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .btn {
-    margin: 0.2rem;
-  }
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
 }

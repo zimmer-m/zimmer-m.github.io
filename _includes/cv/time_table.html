@@ -1,52 +1,48 @@
-<ul class="card-text font-weight-light list-group list-group-flush">
+<div class="cv-time-table">
     {% for content in entry.contents %}
-      <li class="list-group-item">
-        <div class="row">
+      <div class="cv-entry">
+        <div class="cv-entry-inner">
           {% if content.year %}
-            <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px;">
-              <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
-                {{ content.year }}
-              </span>
-            </div>
+            <div class="cv-year">{{ content.year }}</div>
           {% endif %}
-          <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
+          <div class="cv-details">
             {% if content.title %}
-            <h6 class="title font-weight-bold ml-1 ml-md-4">{{content.title}}</h6>
+            <div class="cv-title">{{content.title}}</div>
             {% endif %}
             {% if content.institution %}
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem;">{{content.institution}}</h6>
+            <div class="cv-institution">{{content.institution}}</div>
             {% endif %}
             {% if content.description %}
-              <ul class="items">
+              <ul class="cv-items">
                 {% for item in content.description %}
                   <li>
                     {% if item.contents %}
                       <span class="item-title">{{ item.title }}</span>
-                      <ul class="subitems">
+                      <ul class="cv-subitems">
                       {% for subitem in item.contents %}
-                        <li><span class="subitem">{{ subitem }}</span></li>
+                        <li>{{ subitem }}</li>
                       {% endfor %}
                       </ul>
                     {% else %}
-                      <span class="item">{{ item }}</span>
+                      {{ item }}
                     {% endif %}
                   </li>
                 {% endfor %}
               </ul>
             {% endif %}
             {% if content.items %}
-              <ul class="items">
+              <ul class="cv-items">
                 {% for item in content.items %}
                   <li>
                     {% if item.contents %}
                       <span class="item-title">{{ item.title }}</span>
-                      <ul class="subitems">
+                      <ul class="cv-subitems">
                       {% for subitem in item.contents %}
-                        <li><span class="subitem">{{ subitem }}</span></li>
+                        <li>{{ subitem }}</li>
                       {% endfor %}
                       </ul>
                     {% else %}
-                      <span class="item">{{ item }}</span>
+                      {{ item }}
                     {% endif %}
                   </li>
                 {% endfor %}
@@ -54,6 +50,6 @@
             {% endif %}
           </div>
         </div>
-      </li>
+      </div>
     {% endfor %}
-    </ul>
+    </div>

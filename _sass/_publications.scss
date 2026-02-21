@@ -1,23 +1,32 @@
 .publication-tags {
-  margin-bottom: 2rem;
-  
   .btn {
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: 2px solid var(--global-theme-color);
-    border-radius: 4px;
-    color: var(--global-theme-color);
-    background-color: var(--global-bg-color);
-    transition: color 0.3s ease, background-color 0.3s ease;
-    
-    &:hover {
-      color: var(--global-bg-color);
-      background-color: var(--global-theme-color);
+    margin: 0 !important;
+    padding: 0.2rem 0.55rem !important;
+    border: 1px solid var(--global-divider-color) !important;
+    border-radius: 3px !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--global-text-color-light) !important;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    box-shadow: none !important;
+
+    &:hover, &:focus {
+      background: transparent !important;
+      background-color: transparent !important;
+      color: var(--global-theme-color) !important;
+      border-color: var(--global-theme-color) !important;
+      box-shadow: none !important;
     }
-    
+
     &.active {
-      color: var(--global-bg-color);
-      background-color: var(--global-theme-color);
+      font-weight: 600;
+      background: var(--global-theme-color) !important;
+      background-color: var(--global-theme-color) !important;
+      color: white !important;
+      border-color: var(--global-theme-color) !important;
     }
   }
 }
@@ -25,12 +34,23 @@
 .publications {
   .links {
     .btn {
-      color: var(--global-theme-color);
-      border-color: var(--global-theme-color);
-      border-radius: 4px;
-      
-      &:hover {
-        color: var(--global-bg-color);
+      margin: 0 !important;
+      padding: 0.15rem 0.5rem !important;
+      border: 1px solid var(--global-divider-color) !important;
+      border-radius: 3px !important;
+      color: var(--global-text-color-light) !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      font-size: 0.75rem;
+      box-shadow: none !important;
+
+      &:hover, &:focus {
+        color: var(--global-theme-color) !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        border-color: var(--global-theme-color) !important;
+        text-decoration: none;
+        box-shadow: none !important;
       }
     }
   }

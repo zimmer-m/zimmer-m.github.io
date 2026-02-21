@@ -70,33 +70,25 @@
 
       <d-title>
         <h1>{{ page.title }}</h1>
-        <p style="margin-bottom: 0.1em;">{{ page.description }}</p>
-        <p style="display: flex; gap: 0.15em; align-items: center;">
+        <p>{{ page.description }}</p>
+        <p class="distill-links">
           {% if page.publication_type %}
-          <span style="color: var(--global-text-color); font-size: 1.2em; display: inline-flex; align-items: center; padding: 0.2em;">
-            <i class="fas fa-university"></i>&nbsp;{{ page.publication_type }}
-          </span>
+          <span class="distill-link-pill venue">{{ page.publication_type }}</span>
           {% endif %}
           {% if page.paper_url %}
-          <a class="btn btn-sm z-depth-0" href="{{ page.paper_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--global-theme-color); text-decoration: none; font-size: 1.2em; display: inline-flex; align-items: center; padding: 0.2em;">
-            <i class="fas fa-file-alt"></i>&nbsp;PDF
-          </a>
+          <a class="distill-link-pill" href="{{ page.paper_url }}" target="_blank" rel="noopener noreferrer">pdf</a>
           {% endif %}
           {% if page.code_url %}
-          <a class="btn btn-sm z-depth-0" href="{{ page.code_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--global-theme-color); text-decoration: none; font-size: 1.2em; display: inline-flex; align-items: center; padding: 0.2em;">
-            <i class="fas fa-code"></i>&nbsp;Code
-          </a>
+          <a class="distill-link-pill" href="{{ page.code_url }}" target="_blank" rel="noopener noreferrer">code</a>
           {% endif %}
           {% if page.paper_custom %}
           {% assign custom_parts = page.paper_custom | split: '|' %}
-          <a class="btn btn-sm z-depth-0" href="{{ custom_parts[1] }}" target="_blank" rel="noopener noreferrer" style="color: var(--global-theme-color); text-decoration: none; font-size: 1.2em; display: inline-flex; align-items: center; padding: 0.2em;">
-            <i class="fas fa-link"></i>&nbsp;{{ custom_parts[0] }}
-          </a>
+          <a class="distill-link-pill" href="{{ custom_parts[1] }}" target="_blank" rel="noopener noreferrer">{{ custom_parts[0] }}</a>
           {% endif %}
         </p>
       </d-title>
 
-      <d-byline style="margin-top: 0.2em;"></d-byline>
+      <d-byline></d-byline>
 
       <d-article>
         <d-contents>

@@ -4,23 +4,24 @@ layout: default
 
 <div class="post">
 
-  <header class="post-header">
-    <h1 class="post-title"> <i class="fas fa-tag fa-sm"></i> {{ page.title }} </h1>
-    <p class="post-description"> an archive of posts in this category </p>
-  </header>
+  <div class="header-bar">
+    <h1><i class="fas fa-tag fa-sm"></i> {{ page.title }}</h1>
+    <h2>posts in this category</h2>
+  </div>
 
   <article>
-    <div class="table-responsive">
-      <table class="table table-sm table-borderless">
-        {% for post in page.posts %}
-        <tr>
-          <th scope="row">{{ post.date | date: "%b %-d, %Y" }}</th>
-          <td>
-              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          </td>
-        </tr>
+    <div class="post-list">
+      {% for post in page.posts %}
+      <div class="post-preview">
+        <h3 class="post-title-link">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <p class="post-meta">
+          {{ post.date | date: "%b %-d, %Y" }}
+          {% if post.description %} · {{ post.description }}{% endif %}
+        </p>
+      </div>
       {% endfor %}
-      </table>
     </div>
   </article>
 

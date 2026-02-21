@@ -2,45 +2,32 @@
   margin-bottom: 2rem;
 }
 
-.series-list-container h2 {
-  text-align: left;
-  margin-bottom: 1.5rem;
-  font-size: 1.8em;
-  font-weight: normal;
-}
-
 .series-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, auto);
-  gap: 0.5rem;
-  justify-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
 .series-box {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border: 2px solid var(--global-theme-color);
-  border-radius: 4px;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 3px;
   text-decoration: none;
-  color: var(--global-theme-color);
-  background-color: var(--global-bg-color);
-  transition: color 0.3s ease, background-color 0.3s ease;
-  font-size: 0.875rem;
+  color: var(--global-text-color-light);
+  background-color: transparent;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
   line-height: 1.5;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .series-box:hover {
-  color: var(--global-bg-color);
-  background-color: var(--global-theme-color);
+  color: var(--global-theme-color);
+  background-color: transparent;
+  border-color: var(--global-theme-color);
   transform: none;
   box-shadow: none;
   text-decoration: none;
-}
-
-html[data-theme='dark'] .series-box:hover {
-  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.05);
 }
 
 .series-title {
@@ -53,4 +40,4 @@ html[data-theme='dark'] .series-box:hover {
 .series-start-link {
   font-size: 0.95em;
   opacity: 0.9;
-} 
+}

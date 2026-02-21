@@ -7,17 +7,16 @@ nav_order: 6
 ---
 
 <div class="post">
-  <div class="header-bar" style="padding: 2rem; text-align: center;">
+  <div class="header-bar">
     <h1>{{ site.blog_name }}</h1>
     <h2>{{ site.blog_description }}</h2>
   </div>
-<br>
 </div>
 
 
 {% assign series_posts = site.posts | where_exp: "item", "item.series_title" %}
 {% if series_posts.size > 0 %}
-<h2>Post Series</h2>
+<h2 class="section-header">Post Series</h2>
 <div class="series-list-container">
   <div class="series-list">
     {% for post in series_posts %}
@@ -33,7 +32,7 @@ nav_order: 6
 <hr class="solid">
 
 <div class="posts-container">
-  <h2>Recent Posts</h2>
+  <h2 class="section-header">Recent Posts</h2>
   <div class="post-list">
     {% for post in site.posts %}
     {% if post.hidden != true %}

@@ -1,36 +1,30 @@
           <div class="news">
             {% if page.url != "/news/" %}
-            <h2>latest news <a href="news/">[see all]</a></h2>
+            <h2 class="section-header">latest news <a href="news/" style="font-weight: 400; font-size: 0.8rem;">[see all]</a></h2>
+            {% else %}
+            <h2 class="section-header">all news</h2>
             {% endif %}
             {% if site.news != blank -%}
             {%- assign news_size = site.news | size -%}
-            <div class="table-responsive" {% if site.news_scrollable and news_size > 3 %}style="max-height: 10vw"{% endif %}>
-              <table class="table table-sm table-borderless">
-              {%- assign news = site.news | reverse -%}
-              <!-- Check if it's the news page or not -->
-              {% if page.url == "/news/" %}
-                {% assign news_limit = news_size %}
-              {% else %}
-                {% assign news_limit = 5 %}
-              {% endif %}
+            {%- assign news = site.news | reverse -%}
+            {% if page.url == "/news/" %}
+              {% assign news_limit = news_size %}
+            {% else %}
+              {% assign news_limit = 5 %}
+            {% endif %}
+            <div class="news-list">
               {% for item in news limit: news_limit %}
-                <tr>
-                  {% if page.url != "/news/" %}
-                  <th scope="row" style="padding-top: 0rem; padding-bottom: 0rem;">{{ item.date | date: "%m/%Y" }}</th>
-                  <td style="padding-top: 0rem; padding-bottom: 0rem;">
-                  {% else %}
-                  <th scope="row">{{ item.date | date: "%m/%Y" }}</th>
-                  <td>
-                  {% endif %}
+                <div class="news-entry">
+                  <span class="news-date">{{ item.date | date: "%m/%Y" }}</span>
+                  <span class="news-content">
                     {% if item.inline -%}
                       {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
                     {%- else -%}
                       <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
                     {%- endif %}
-                  </td>
-                </tr>
+                  </span>
+                </div>
               {%- endfor %}
-              </table>
             </div>
           {%- else -%}
             <p>No news so far...</p>

@@ -2,33 +2,82 @@
  * Style overrides for distill blog posts.
  ******************************************************************************/
 
+d-title {
+  padding: 1.5rem 0 0.5rem !important;
+  background: transparent !important;
+
+  h1 {
+    color: var(--global-theme-color) !important;
+    font-size: 1.5rem !important;
+    font-weight: 400 !important;
+    line-height: 1.3em !important;
+  }
+  p {
+    color: var(--global-text-color-light) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5em !important;
+  }
+}
+
 d-byline {
   border-top-color: var(--global-divider-color) !important;
+  font-size: 0.75rem !important;
+  padding: 1rem 0 !important;
 }
 
 d-byline h3 {
+  color: var(--global-text-color-light) !important;
+}
+
+d-byline p {
   color: var(--global-text-color) !important;
 }
 
 d-byline a, d-article d-byline a {
   color: var(--global-text-color) !important;
   &:hover {
-    color: var(--global-hover-color) !important;
+    color: var(--global-theme-color) !important;
   }
 }
 
 d-article {
   border-top-color: var(--global-divider-color) !important;
-  p, h1, h2, h3, h4, h5, h6, li, table {
+  color: var(--global-text-color) !important;
+  p, h1, h4, h5, h6, li, table {
     color: var(--global-text-color) !important;
   }
-  h1, h2, hr, table, table th, table td {
+  h2 {
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: var(--global-theme-color) !important;
+    padding-bottom: 0.3rem !important;
+    border-bottom: 2px solid var(--global-theme-color) !important;
+    margin: 2rem 0 1rem 0 !important;
+    line-height: 1.4em !important;
+  }
+  h3 {
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--global-theme-color) !important;
+    border-bottom: none !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  hr, table, table th, table td {
     border-bottom-color: var(--global-divider-color) !important;
   }
   a {
     color: var(--global-theme-color) !important;
+    border-bottom: none !important;
+    text-decoration: none !important;
     &:hover {
       color: var(--global-theme-color) !important;
+      text-decoration: underline !important;
+      border-bottom: none !important;
     }
   }
   b i {
@@ -163,6 +212,47 @@ d-appendix {
     box-shadow: 0 8px 16px rgba(0,0,0,0.3), 0 0 4px var(--global-theme-color);
     transform: translateY(-2px);
     transition: all 0.3s ease;
+  }
+}
+
+// Distill paper link pills (matching publication link style)
+.distill-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.distill-link-pill {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 3px;
+  color: var(--global-text-color-light) !important;
+  background: transparent !important;
+  font-size: 0.75rem;
+  text-decoration: none !important;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  box-shadow: none !important;
+  transition: color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    color: var(--global-theme-color) !important;
+    border-color: var(--global-theme-color);
+    text-decoration: none !important;
+    background: transparent !important;
+  }
+
+  &.venue {
+    font-weight: 600;
+    color: var(--global-text-color-light) !important;
+    text-transform: none;
+
+    &:hover {
+      color: var(--global-theme-color) !important;
+      border-color: var(--global-theme-color);
+    }
   }
 }
 

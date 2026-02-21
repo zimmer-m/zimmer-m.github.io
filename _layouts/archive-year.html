@@ -4,25 +4,26 @@ layout: default
 
 <div class="post">
 
-  <header class="post-header">
-    <h1 class="post-title"> <i class="fas fa-calendar fa-sm"></i> {{ page.date | date: "%Y" }} </h1>
-    <p class="post-description"> an archive of posts from this year </p>
-  </header>
+  <div class="header-bar">
+    <h1><i class="fas fa-calendar fa-sm"></i> {{ page.date | date: "%Y" }}</h1>
+    <h2>posts from this year</h2>
+  </div>
 
   <article>
-    <div class="table-responsive">
-      <table class="table table-sm table-borderless">
-        {% for post in page.posts %}
-        {% if post.hidden != true %}
-        <tr>
-          <th scope="row">{{ post.date | date: "%b %-d, %Y" }}</th>
-          <td>
-              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          </td>
-        </tr>
-        {% endif %}
+    <div class="post-list">
+      {% for post in page.posts %}
+      {% if post.hidden != true %}
+      <div class="post-preview">
+        <h3 class="post-title-link">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <p class="post-meta">
+          {{ post.date | date: "%b %-d, %Y" }}
+          {% if post.description %} · {{ post.description }}{% endif %}
+        </p>
+      </div>
+      {% endif %}
       {% endfor %}
-      </table>
     </div>
   </article>
 
