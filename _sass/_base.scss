@@ -688,6 +688,10 @@ footer.sticky-bottom {
         flex: 0 0 75px;
         max-width: 75px;
         padding-right: 15px;
+
+        @media (max-width: 575px) {
+          display: none;
+        }
       }
 
       .pub-content-col {
@@ -872,7 +876,11 @@ footer.sticky-bottom {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        
+
+        @media (max-width: 575px) {
+          flex-wrap: nowrap;
+        }
+
         .badge {
           display: inline-flex;
           align-items: center;
@@ -883,7 +891,8 @@ footer.sticky-bottom {
           line-height: 1;
           white-space: nowrap;
           transform: translateY(-0.5px);
-          
+          flex-shrink: 0;
+
           a {
             color: white;
             &:hover {
@@ -891,18 +900,26 @@ footer.sticky-bottom {
             }
           }
         }
-        
+
         .venue-name {
           margin-left: 0.5rem;
           flex: 1;
+          min-width: 0;
+
+          @media (max-width: 575px) {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
         }
-        
+
         .year {
           white-space: nowrap;
           margin-left: auto;
           padding-left: 1rem;
           color: var(--global-theme-color);
           opacity: 0.8;
+          flex-shrink: 0;
         }
       }
     }
