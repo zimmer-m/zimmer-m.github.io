@@ -85,6 +85,10 @@
           {% assign custom_parts = page.paper_custom | split: '|' %}
           <a class="distill-link-pill" href="{{ custom_parts[1] }}" target="_blank" rel="noopener noreferrer">{{ custom_parts[0] }}</a>
           {% endif %}
+          {% if page.paper_custom2 %}
+          {% assign custom_parts2 = page.paper_custom2 | split: '|' %}
+          <a class="distill-link-pill" href="{{ custom_parts2[1] }}" target="_blank" rel="noopener noreferrer">{{ custom_parts2[0] }}</a>
+          {% endif %}
         </p>
       </d-title>
 
