@@ -6,7 +6,7 @@ layout: default
       <div class="post">
         <article>
           {% if page.profile -%}
-          <div class="row">
+          <div class="row profile-row">
             <div class="col-sm-4">
               {%- if page.profile.image %}
                 {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}

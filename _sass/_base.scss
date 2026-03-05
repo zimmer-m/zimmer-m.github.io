@@ -122,6 +122,23 @@ blockquote {
   }
 }
 
+// Mobile profile image sizing and alignment
+@media (max-width: 575.98px) {
+  .profile {
+    img {
+      max-width: 65%;
+      display: block;
+    }
+  }
+  .profile-row {
+    padding: 0;
+    > [class*="col-"] {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+
 .post-description {
   margin-bottom: 2rem;
   font-size: 0.875rem;
