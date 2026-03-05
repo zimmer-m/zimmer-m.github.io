@@ -14,6 +14,10 @@ nav_order: 1
   </div>
 </div>
 
+<div class="publication-search">
+  <input type="text" id="pub-search-input" placeholder="Search publications..." autocomplete="off" />
+</div>
+
 <div class="publication-tags">
   <a href="#" class="btn btn-sm active" role="button" data-tag="all">All</a>
   {% assign tags = site.data.publication_tags %}

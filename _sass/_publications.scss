@@ -1,3 +1,29 @@
+// Publication search bar
+.publication-search {
+  margin-bottom: 0.75rem;
+
+  input {
+    width: 100%;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.85rem;
+    color: var(--global-text-color);
+    background-color: var(--global-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s ease;
+
+    &::placeholder {
+      color: var(--global-text-color-light);
+      opacity: 0.7;
+    }
+
+    &:focus {
+      border-color: var(--global-theme-color);
+    }
+  }
+}
+
 .publication-tags {
   .btn {
     margin: 0 !important;
