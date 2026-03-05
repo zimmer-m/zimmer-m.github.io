@@ -1,0 +1,208 @@
+{% if site.search_enabled %}
+  <script type="module" src="{{ '/assets/js/search/ninja-keys.min.js' | relative_url }}"></script>
+  <ninja-keys hideBreadcrumbs noAutoLoadMdIcons placeholder="Type to start searching"></ninja-keys>
+  <script>
+    // Apply theme to ninja-keys
+    let searchTheme = localStorage.getItem("theme");
+    if (!searchTheme || searchTheme === 'null') {
+      const userPref = window.matchMedia;
+      if (userPref && userPref('(prefers-color-scheme: dark)').matches) {
+        searchTheme = 'dark';
+      } else {
+        searchTheme = 'light';
+      }
+    }
+    const ninjaKeys = document.querySelector('ninja-keys');
+    if (searchTheme === 'dark') {
+      ninjaKeys.classList.add('dark');
+    } else {
+      ninjaKeys.classList.remove('dark');
+    }
+
+    const openSearchModal = () => {
+      // collapse navbarNav if expanded on mobile
+      const $navbarNav = $('#navbarNav');
+      if ($navbarNav.hasClass('show')) {
+        $navbarNav.collapse('hide');
+      }
+      ninjaKeys.open();
+    };
+  </script>
+  <script>
+    const ninja = document.querySelector('ninja-keys');
+
+    ninja.data = [
+      // --- Navigation ---
+      {%- for page in site.pages -%}
+        {%- if page.permalink == '/' -%}{%- assign about_title = page.title | strip -%}{%- endif -%}
+      {%- endfor -%}
+      {
+        id: "nav-{{ about_title | slugify }}",
+        title: "{{ about_title | truncatewords: 13 }}",
+        section: "Navigation",
+        handler: () => {
+          window.location.href = "{{ '/' | relative_url }}";
+        },
+      },
+      {%- assign sorted_pages = site.pages | sort: "nav_order" -%}
+      {%- for p in sorted_pages -%}
+        {%- if p.nav and p.autogen == null -%}
+          {%- if p.dropdown -%}
+            {%- for child in p.children -%}
+              {%- unless child.title == 'divider' -%}
+                {
+                  {%- assign title = child.title | escape | strip -%}
+                  {%- if child.permalink contains "/blog/" -%}{%- assign url = "/blog/" -%}{%- else -%}{%- assign url = child.url -%}{%- endif -%}
+                  id: "dropdown-{{ title | slugify }}",
+                  title: "{{ title | truncatewords: 13 }}",
+                  description: "{{ child.description | strip_html | strip_newlines | escape | strip }}",
+                  section: "Dropdown",
+                  handler: () => {
+                    window.location.href = "{{ url | relative_url }}";
+                  },
+                },
+              {%- endunless -%}
+            {%- endfor -%}
+          {%- else -%}
+            {
+              {%- assign title = p.title | escape | strip -%}
+              {%- if p.permalink contains "/blog/" -%}{%- assign url = "/blog/" -%}{%- else -%}{%- assign url = p.url -%}{%- endif -%}
+              id: "nav-{{ title | slugify }}",
+              title: "{{ title | truncatewords: 13 }}",
+              description: "{{ p.description | strip_html | strip_newlines | escape | strip }}",
+              section: "Navigation",
+              handler: () => {
+                window.location.href = "{{ url | relative_url }}";
+              },
+            },
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      // --- Blog Posts ---
+      {%- for post in site.posts -%}
+        {
+          {%- assign title = post.title | escape | strip -%}
+          id: "post-{{ title | slugify }}",
+          {% if post.redirect == blank %}
+            title: "{{ title | truncatewords: 13 }}",
+          {% elsif post.redirect contains '://' %}
+            title: '{{ title | truncatewords: 13 }} <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+          {% else %}
+            title: "{{ title | truncatewords: 13 }}",
+          {% endif %}
+          description: "{{ post.description | strip_html | strip_newlines | escape | strip }}",
+          section: "Posts",
+          handler: () => {
+            {% if post.redirect == blank %}
+              window.location.href = "{{ post.url | relative_url }}";
+            {% elsif post.redirect contains '://' %}
+              window.open("{{ post.redirect }}", "_blank");
+            {% else %}
+              window.location.href = "{{ post.redirect | relative_url }}";
+            {% endif %}
+          },
+        },
+      {%- endfor -%}
+
+      // --- Collections ---
+      {%- for collection in site.collections -%}
+        {%- if collection.label != 'posts' -%}
+          {%- for item in collection.docs -%}
+            {
+              {%- if item.inline -%}
+                {%- assign title = item.content | newline_to_br | replace: "<br />", " " | replace: "<br/>", " " | strip_html | strip_newlines | escape | strip -%}
+              {%- else -%}
+                {%- assign title = item.title | newline_to_br | replace: "<br />", " " | replace: "<br/>", " " | strip_html | strip_newlines | escape | strip -%}
+              {%- endif -%}
+              id: "{{ collection.label }}-{{ title | slugify }}",
+              title: '{{ title | truncatewords: 13 }}',
+              description: "{{ item.description | strip_html | strip_newlines | escape | strip }}",
+              section: "{{ collection.label | capitalize }}",
+              {%- unless item.inline -%}
+                handler: () => {
+                  window.location.href = "{{ item.url | relative_url }}";
+                },
+              {%- endunless -%}
+            },
+          {%- endfor -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      // --- Socials ---
+      {%- if site.email -%}
+        {
+          id: 'socials-email',
+          title: 'Send email',
+          section: 'Socials',
+          handler: () => {
+            window.open("mailto:{{ site.email | encode_email }}", "_blank");
+          },
+        },
+      {%- endif -%}
+      {%- if site.scholar_userid -%}
+        {
+          id: 'socials-google-scholar',
+          title: 'Google Scholar',
+          section: 'Socials',
+          handler: () => {
+            window.open("https://scholar.google.com/citations?user={{ site.scholar_userid }}", "_blank");
+          },
+        },
+      {%- endif -%}
+      {%- if site.github_username -%}
+        {
+          id: 'socials-github',
+          title: 'GitHub',
+          section: 'Socials',
+          handler: () => {
+            window.open("https://github.com/{{ site.github_username }}", "_blank");
+          },
+        },
+      {%- endif -%}
+      {%- if site.twitter_username -%}
+        {
+          id: 'socials-twitter',
+          title: 'Twitter',
+          section: 'Socials',
+          handler: () => {
+            window.open("https://twitter.com/{{ site.twitter_username }}", "_blank");
+          },
+        },
+      {%- endif -%}
+      {%- if site.linkedin_username -%}
+        {
+          id: 'socials-linkedin',
+          title: 'LinkedIn',
+          section: 'Socials',
+          handler: () => {
+            window.open("https://www.linkedin.com/in/{{ site.linkedin_username }}", "_blank");
+          },
+        },
+      {%- endif -%}
+
+      // --- Theme ---
+      {%- if site.enable_darkmode -%}
+        {
+          id: 'light-theme',
+          title: 'Change theme to light',
+          description: 'Switch to light mode',
+          section: 'Theme',
+          handler: () => {
+            setTheme("light");
+          },
+        },
+        {
+          id: 'dark-theme',
+          title: 'Change theme to dark',
+          description: 'Switch to dark mode',
+          section: 'Theme',
+          handler: () => {
+            setTheme("dark");
+          },
+        },
+      {%- endif -%}
+    ];
+  </script>
+  <script src="{{ '/assets/js/shortcut-key.js' | relative_url }}"></script>
+{% endif %}

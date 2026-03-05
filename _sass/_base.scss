@@ -270,6 +270,37 @@ blockquote {
   }
 }
 
+// Search toggle in navbar
+#search-toggle {
+  .nav-link {
+    font-size: 0.75rem;
+    color: var(--global-text-color-light);
+    cursor: pointer;
+    padding-top: 0.6rem;
+    padding-bottom: 0.5rem;
+    i {
+      margin-left: 0.15rem;
+    }
+    &:hover {
+      color: var(--global-theme-color);
+    }
+  }
+}
+
+// Ninja-keys command palette
+ninja-keys {
+  --ninja-accent-color: var(--global-theme-color);
+  --ninja-z-index: 1050;
+  &.dark {
+    --ninja-overflow-background: rgba(0, 0, 0, 0.5);
+    --ninja-modal-background: #1a1a2e;
+    --ninja-secondary-background-color: #16213e;
+    --ninja-text-color: #e0e0e0;
+    --ninja-secondary-text-color: #a0a0a0;
+    --ninja-footer-background: rgba(22, 33, 62, 0.85);
+  }
+}
+
 // Social (bottom)
 
 .social {
