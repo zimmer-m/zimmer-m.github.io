@@ -124,17 +124,14 @@ blockquote {
 
 // Mobile profile image sizing and alignment
 @media (max-width: 575.98px) {
-  .profile {
-    img {
-      max-width: 65%;
-      display: block;
-    }
-  }
   .profile-row {
-    padding: 0;
-    > [class*="col-"] {
-      padding-left: 15px;
-      padding-right: 15px;
+    .col-sm-4 {
+      display: flex;
+      justify-content: center;
+
+      figure {
+        max-width: 55%;
+      }
     }
   }
 }
