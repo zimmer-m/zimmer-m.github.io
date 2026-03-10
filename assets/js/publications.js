@@ -38,12 +38,55 @@ document.addEventListener('DOMContentLoaded', function() {
         return pub._searchText;
     }
 
+    var HIGHLIGHT_SELS = ['.title', '.author', '.venue-name', '.abstract p'];
+
+    // Store original innerHTML for elements we may highlight
+    function storeOriginals(pub) {
+        if (pub._origStored) return;
+        HIGHLIGHT_SELS.forEach(function(sel) {
+            pub.querySelectorAll(sel).forEach(function(el) {
+                el._origHTML = el.innerHTML;
+            });
+        });
+        pub._origStored = true;
+    }
+
+    // Restore original innerHTML (remove highlights)
+    function clearHighlights(pub) {
+        HIGHLIGHT_SELS.forEach(function(sel) {
+            pub.querySelectorAll(sel).forEach(function(el) {
+                if (el._origHTML !== undefined) el.innerHTML = el._origHTML;
+            });
+        });
+    }
+
+    // Highlight matching terms inside an element (skip HTML tags and entities)
+    function highlightIn(el, terms) {
+        if (!el._origHTML) return;
+        var html = el._origHTML;
+        terms.forEach(function(term) {
+            var escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            var re = new RegExp('(' + escaped + ')', 'gi');
+            html = html.replace(/(>|^)([^<]*)/g, function(m, prefix, text) {
+                // Split on HTML entities so we never match inside &nbsp; etc.
+                var parts = text.split(/(&[a-zA-Z0-9#]+;)/g);
+                for (var i = 0; i < parts.length; i += 2) {
+                    parts[i] = parts[i].replace(re, '<mark>$1</mark>');
+                }
+                return prefix + parts.join('');
+            });
+        });
+        el.innerHTML = html;
+    }
+
     // Unified filter: applies both tag and search filters
     function applyFilters() {
         var query = searchQuery.toLowerCase().trim();
         var terms = query ? query.split(/\s+/) : [];
 
         publications.forEach(function(pub) {
+            storeOriginals(pub);
+
             var tagMatch = true;
             if (activeTag !== 'all') {
                 var pubTags = (pub.getAttribute('data-tags') || '').split(',').map(function(t) { return t.trim(); });
@@ -59,6 +102,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             pub.style.display = (tagMatch && searchMatch) ? '' : 'none';
+
+            // Highlight or clear
+            clearHighlights(pub);
+            if (terms.length > 0 && tagMatch && searchMatch) {
+                HIGHLIGHT_SELS.forEach(function(sel) {
+                    pub.querySelectorAll(sel).forEach(function(el) {
+                        highlightIn(el, terms);
+                    });
+                });
+            }
         });
 
         // Show/hide year headers that have no visible publications

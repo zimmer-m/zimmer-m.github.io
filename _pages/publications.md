@@ -15,7 +15,7 @@ nav_order: 1
 </div>
 
 <div class="publication-search">
-  <input type="text" id="pub-search-input" placeholder="Search publications..." autocomplete="off" />
+  <input type="text" id="pub-search-input" placeholder="Type to filter..." autocomplete="off" />
 </div>
 
 <div class="publication-tags">

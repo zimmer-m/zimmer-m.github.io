@@ -57,6 +57,14 @@
   }
 }
 
+// Search highlight
+.publications mark {
+  background-color: var(--global-theme-color);
+  color: white;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
 .publications {
   .links {
     .btn {
