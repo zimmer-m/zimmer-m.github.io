@@ -235,6 +235,12 @@
             <a href="{{ custom_parts[1] }}" class="btn btn-sm" role="button">{{ custom_parts[0] }}</a>
           {% endif %}
           {%- endif %}
+          {%- if entry.custom2 %}
+          {% assign custom2_parts = entry.custom2 | split: "|" %}
+          {% if custom2_parts.size >= 2 %}
+            <a href="{{ custom2_parts[1] }}" class="btn btn-sm" role="button">{{ custom2_parts[0] }}</a>
+          {% endif %}
+          {%- endif %}
           </div>
           {% if site.badges %}
           <div class="badges">
