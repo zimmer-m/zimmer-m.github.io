@@ -246,13 +246,11 @@ d-appendix {
 
   &.venue {
     font-weight: 600;
-    color: var(--global-text-color-light) !important;
+    color: var(--global-theme-color) !important;
+    border-color: var(--global-theme-color);
     text-transform: none;
-
-    &:hover {
-      color: var(--global-theme-color) !important;
-      border-color: var(--global-theme-color);
-    }
+    cursor: default;
+    pointer-events: none;
   }
 }
 
