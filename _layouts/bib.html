@@ -6,9 +6,9 @@
         {%- if entry.preview -%}
           <div class="preview">
             {% if entry.preview contains '://' -%}
-            <img class="preview rounded" src="{{ entry.preview }}" data-zoomable>
+            <img class="rounded" src="{{ entry.preview }}" data-zoomable>
             {%- else -%}
-            <img class="preview rounded" src="{{ entry.preview | prepend: '/assets/img/publication_preview/' | relative_url }}" data-zoomable>
+            <img class="rounded" src="{{ entry.preview | prepend: '/assets/img/publication_preview/' | relative_url }}" data-zoomable>
             {%- endif -%}
           </div>
         {%- endif -%}
