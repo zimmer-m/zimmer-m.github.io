@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Unified filter: applies both tag and search filters
     function applyFilters() {
         var query = searchQuery.toLowerCase().trim();
-        var terms = query ? query.split(/\s+/) : [];
+        var terms = query ? [query] : [];
 
         publications.forEach(function(pub) {
             storeOriginals(pub);
@@ -94,11 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             var searchMatch = true;
-            if (terms.length > 0) {
+            if (query) {
                 var text = getSearchableText(pub);
-                searchMatch = terms.every(function(term) {
-                    return text.indexOf(term) !== -1;
-                });
+                searchMatch = text.indexOf(query) !== -1;
             }
 
             pub.style.display = (tagMatch && searchMatch) ? '' : 'none';
