@@ -28,7 +28,7 @@ authors:
       name: Zuse Institute Berlin
 ---
 
-## The chromatic number of the plane
+<h2 data-nav="The Chromatic Number">The chromatic number of the plane</h2>
 
 The Hadwiger-Nelson (HN) problem, first posed in 1950, asks a fundamental question at the intersection of geometry and combinatorics: What is the minimum number of colors needed to color the entire Euclidean plane $\mathbb{R}^2$ such that no two points at unit distance share the same color? This minimum number is referred to as the *chromatic number of the plane*, denoted $\chi(\mathbb{R}^2)$, as it is the chromatic number of the infinite graph with vertex set $\mathbb{R}^2$ and edges connecting pairs of points at unit distance. What makes this seemingly simple setup challenging is the combination between discrete choices (the colors) with continuous geometry (the distance on the plane).
 
@@ -36,7 +36,7 @@ Despite over 70 years of research, the exact value of $\chi(\mathbb{R}^2)$ remai
 
 In this work, we focus on improving the upper bounds. We explore how neural networks (NNs) can serve as a tool for mathematical discovery, guiding our intuition towards potential new constructions for this problem and its variants.
 
-## A New Approach: Neural Networks for Mathematical Discovery
+<h2 data-nav="Neural Discovery">A New Approach: Neural Networks for Mathematical Discovery</h2>
 ### Modeling the Coloring Problem
 
 We introduce a new approach to generate colorings which avoid unit distance conflicts using NNs. The core idea is to reframe the combinatorial problem as a continuous optimization task that NNs are well-suited to handle. Instead of assigning a fixed color (a discrete choice) to each point, we relax the constraint by defining a probabilistic coloring. We train the NN to output a *probability distribution* over the available colors for any given point $(x, y) \in \mathbb{R}^2$.
@@ -74,7 +74,7 @@ The NN acts as a powerful function approximator, capable of learning complex spa
     <div class="figure-caption">Left: A probabilistic coloring pattern suggested by the NN after training to minimize conflicts for a $(1,1,1,1,1,d)$ variant (defined later). Right: The formalized mathematical construction derived from the NN's output, published in a specialized venue <d-cite key="2024_SixcoloringsExpansion"></d-cite>. This coloring is valid for a specific range of $d$.</div>
 </div>
 
-## Coloring Variants and Recent Progress
+<h2 data-nav="Coloring Variants">Coloring Variants and Recent Progress</h2>
 
 While finding a 6-coloring for the original problem remains difficult (our NNs consistently find patterns needing seven colors, aligning with the possibility that $\chi(\mathbb{R}^2)=7$), this NN-based optimization approach proved highly successful on related variants of the problem.
 
@@ -126,7 +126,7 @@ The plot below further summarizes these findings by showing the minimum conflict
     <div class="figure-caption">Minimum conflict rate found by NNs across different distances $d$ for the $(1,1,1,1,1,d)$ variant. The orange region shows the previously known range of $d$ for valid 6-colorings, while the blue region shows the significantly expanded range enabled by our new NN-discovered constructions.</div>
 </div>
 
-## Almost Coloring the Plane
+<h2 data-nav="Almost Colorings">Almost Coloring the Plane</h2>
 
 Beyond the distance variant, our framework demonstrated its applicability to other related geometric coloring problems, such as "almost coloring" the plane, arising as a natural extension of the HN problem: what is the minimum fraction of the plane that must be removed such that the remaining points *can* be colored with $c$ colors without monochromatic unit-distance pairs? We introduced an additional $(c+1)$-th color, corresponding to the removed points, and used a Lagrangian relaxation approach. This involves a modified loss function that penalizes conflicts among the first $c$ colors while also penalizing the use of the $(c+1)$-th "uncolored" color via a Lagrange multiplier $\lambda$.
 

@@ -60,7 +60,7 @@ authors:
 </div>
 
 
-## Recap: Learning Forest Height at Scale
+<h2 data-nav="Recap">Recap: Learning Forest Height at Scale</h2>
 
 This is the second part of the series on *Tree Canopy Height Estimation*. In [Part 1](/blog/2025/estimating-canopy-height-at-scale/), we discussed the motivation for using deep 
 learning techniques on satellite data for forest height estimation and the challenges involved. We have seen how our method overcomes key technical challenges to generate accurate, high-resolution canopy height maps, resulting in a global forest height map for the year 2020. This post extends that work in an important new direction: we now track the canopy height over time.

@@ -16,6 +16,40 @@
       {{ page._styles }}
     </style>
     {%- endif %}
+
+    <!-- Section navigation bar -->
+    <style>
+      .blog-section-nav {
+        position: sticky;
+        top: 56px;
+        z-index: 40;
+        background: var(--global-bg-color);
+        border-bottom: 1px solid var(--global-divider-color);
+        display: none; /* shown by JS once headings are found */
+      }
+      .blog-section-nav-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0.6rem 1rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .blog-section-nav-inner::-webkit-scrollbar { display: none; }
+      .blog-section-nav-link {
+        color: var(--global-text-color-light);
+        font-size: 0.8rem;
+        text-decoration: none;
+        margin-right: 1.5rem;
+        transition: color 0.2s;
+      }
+      .blog-section-nav-link:hover,
+      .blog-section-nav-link.active {
+        color: var(--global-theme-color);
+        text-decoration: none;
+      }
+    </style>
   </head>
 
   <d-front-matter>
@@ -65,6 +99,11 @@
     <!-- Header -->
     {%- include header.html %}
 
+    <!-- Section Navigation (auto-generated from h2 headings) -->
+    <nav class="blog-section-nav" id="blog-section-nav">
+      <div class="blog-section-nav-inner" id="blog-section-nav-inner"></div>
+    </nav>
+
     <!-- Content -->
     <div class="post distill">
 
@@ -95,53 +134,6 @@
       <d-byline></d-byline>
 
       <d-article>
-        <d-contents>
-          <nav class="l-text figcaption">
-          <h3>Contents</h3>
-            {% assign h_min = 2 %}
-            {% assign h_max = 3 %}
-            {% assign last_h2 = "" %}
-            {% assign ul_open = false %}
-            
-            {% assign content_markdownify = content | markdownify %}
-            {% assign headings = content_markdownify | split: '<h' %}
-            
-            {% for heading in headings %}
-              {% if forloop.first %}{% continue %}{% endif %}
-              
-              {% assign part = heading | split: '</h' | first %}
-              {% assign level = part | slice: 0, 1 | plus: 0 %}
-              {% if level < h_min or level > h_max %}{% continue %}{% endif %}
-              
-              {% assign title_parts = part | split: '>' %}
-              {% assign title = title_parts[1] | strip %}
-              {% assign id = title | slugify %}
-              
-              {% unless title contains "Series:" %}
-              {% assign next_level = h_min | plus: 1 %}
-              {% if level == h_min %}
-                {% if ul_open %}
-                  </ul>
-                  {% assign ul_open = false %}
-                {% endif %}
-                <div><a href="#{{ id }}">{{ title }}</a></div>
-                {% assign last_h2 = title %}
-              {% elsif level == next_level %}
-                {% unless ul_open %}
-                  <ul>
-                  {% assign ul_open = true %}
-                {% endunless %}
-                <li><a href="#{{ id }}">{{ title }}</a></li>
-              {% endif %}
-              {% endunless %}
-            {% endfor %}
-            
-            {% if ul_open %}
-              </ul>
-            {% endif %}
-          </nav>
-        </d-contents>
-
         {{ content }}
       </d-article>
 
@@ -168,5 +160,62 @@
     {% include scripts/analytics.html %}
     {% include scripts/progressBar.html %}
     {% include scripts/misc.html %}
+
+    <!-- Blog section nav: auto-generate from h2 headings -->
+    <script>
+    (function() {
+      var nav = document.getElementById('blog-section-nav');
+      var inner = document.getElementById('blog-section-nav-inner');
+      var headings = document.querySelectorAll('d-article h2');
+      if (headings.length < 2) return;
+
+      // "Start" link to jump to top
+      var startLink = document.createElement('a');
+      startLink.href = '#';
+      startLink.className = 'blog-section-nav-link active';
+      startLink.textContent = 'Start';
+      startLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      inner.appendChild(startLink);
+
+      headings.forEach(function(h) {
+        if (!h.id) h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.className = 'blog-section-nav-link';
+        a.textContent = h.getAttribute('data-nav') || h.textContent.trim();
+        inner.appendChild(a);
+      });
+
+      nav.style.display = 'block';
+
+      var links = inner.querySelectorAll('.blog-section-nav-link');
+
+      window.addEventListener('scroll', function() {
+        var scrollPos = window.scrollY + 160;
+        var active = -1; // -1 = Start
+        headings.forEach(function(h, i) {
+          if (h.getBoundingClientRect().top + window.pageYOffset <= scrollPos) active = i;
+        });
+        links.forEach(function(l, i) {
+          // index 0 is Start, headings start at index 1
+          l.classList.toggle('active', i === active + 1);
+        });
+      });
+
+      links.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = document.querySelector(link.getAttribute('href'));
+          if (target) {
+            var pos = target.getBoundingClientRect().top + window.pageYOffset - 120;
+            window.scrollTo({ top: pos, behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+    </script>
   </body>
 </html>

@@ -77,7 +77,7 @@ Imagine having to measure every tree on Earth. It seems impossible, yet knowing 
 
 Accurate forest height maps allow scientist to understand how much carbon our forests store and how it is distributed, to better identify and hence protect old-growth forests, as well as monitoring forest health and finally making informed decisions about forest conservation. Our new method provides more precise height estimates than previous maps, especially for short vegetation and complex forest areas. This enhances the ability of scientists and policymakers to understand and protect our forests resources.
 
-## The Challenge of Global Forest Monitoring
+<h2 data-nav="The Challenge">The Challenge of Global Forest Monitoring</h2>
 
 Traditional forest monitoring relies on field workers manually measuring individual trees. While this approach provides highly accurate data, it becomes impractical when trying to assess forests at a large scale. Furthermore, there's a stark divide in monitoring capabilities: while industrialized nations have sufficient resources to conduct comprehensive forest surveys, many countries - particularly those home to crucial ecosystems like the Amazon rainforest and Congo Basin - lack the necessary resources to perform extensive monitoring of their forest landscapes.
 
@@ -117,7 +117,7 @@ Mountainous terrain poses unique measurement challenges. GEDI's laser technology
 
 Even with accurate height measurements, GPS and satellite positioning errors can cause misalignment between the reported and actual measurement locations. This spatial offset presents a critical challenge: How can we train a reliable model when our ground-truth training data may be shifted from its true position?
 
-## Our Approach to Forest Height Estimation
+<h2 data-nav="Our Approach">Our Approach to Forest Height Estimation</h2>
 <div class="figure-container">
     <img src="/assets/img/blog_img/estimating-canopy-height-at-scale/pipeline.png" alt="Our processing pipeline" style="max-width: 100%;" class="zoomable" data-zoomable>
     <div class="figure-caption">Overview of our approach: from satellite data to the global height map.</div>
