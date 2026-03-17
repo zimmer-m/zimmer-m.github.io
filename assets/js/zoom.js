@@ -6,6 +6,35 @@ $(document).ready(function() {
   document.querySelectorAll('.preview img[data-zoomable]').forEach(function(img) {
     img.removeAttribute('data-zoomable');
     img.style.cursor = 'zoom-in';
+
+    // Hover preview: overlay a full-res image on top of the thumbnail and
+    // scale it up in-place, replicating the old CSS transform effect but crisp.
+    var hoverImg = null;
+    var scaleFactor = 2.5;
+    img.addEventListener('mouseenter', function() {
+      var rect = img.getBoundingClientRect();
+      var targetW = rect.width * scaleFactor;
+      hoverImg = document.createElement('img');
+      hoverImg.src = img.src;
+      // Render at target (large) size, but start scaled down to thumbnail size
+      var initialScale = 1 / scaleFactor;
+      hoverImg.style.cssText =
+        'position:fixed;pointer-events:none;border-radius:4px;' +
+        'box-shadow:0 4px 15px rgba(0,0,0,0.15);z-index:10;' +
+        'transform-origin:top left;' +
+        'transform:scale(' + initialScale + ');' +
+        'transition:transform 0.25s ease;' +
+        'top:' + rect.top + 'px;left:' + rect.left + 'px;' +
+        'width:' + targetW + 'px;height:auto;';
+      document.body.appendChild(hoverImg);
+      requestAnimationFrame(function() {
+        if (hoverImg) hoverImg.style.transform = 'scale(1)';
+      });
+    });
+    img.addEventListener('mouseleave', function() {
+      if (hoverImg) { hoverImg.remove(); hoverImg = null; }
+    });
+
     img.addEventListener('click', function(e) {
       e.stopPropagation();
       var bgColor = getComputedStyle(document.documentElement)

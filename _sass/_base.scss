@@ -733,16 +733,6 @@ footer.sticky-bottom {
           border-radius: 4px;
           box-shadow: none !important;
           cursor: zoom-in;
-          transition: transform 0.25s ease;
-
-          &:hover {
-            transform: scale(2.5);
-            transform-origin: top left;
-            z-index: 10;
-            position: relative;
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15) !important;
-          }
         }
       }
       
