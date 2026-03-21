@@ -92,3 +92,13 @@
   presentation_type: poster
   poster: /assets/pdf/OBBA-poster-NeurIPS.pdf
   location: San Diego, US
+- date: 2026-03-19
+  venue: SIERRA Seminar at INRIA Paris, hosted by Alexandre d'Aspremont
+  description: 'Combinatorial and Convex Optimization for LLM Pruning'
+  presentation_type: talk
+  location: Paris, FR
+- date: 2026-03-19
+  venue: HPC for Learning Seminar at Sorbonne Université, hosted by Edouard Oyallon
+  description: 'Local Pruning: Efficient Post-Training Compression at Scale'
+  presentation_type: talk
+  location: Paris, FR
