@@ -97,8 +97,16 @@
   description: 'Combinatorial and Convex Optimization for LLM Pruning'
   presentation_type: talk
   location: Paris, FR
+  link: https://sierra-mlopt.github.io
 - date: 2026-03-19
   venue: HPC for Learning Seminar at Sorbonne Université, hosted by Edouard Oyallon
   description: 'Local Pruning: Efficient Post-Training Compression at Scale'
   presentation_type: talk
   location: Paris, FR
+  link: https://gdr-hpc4learning.github.io
+- date: 2026-03-23
+  venue: CERMICS, hosted by Axel Parmentier
+  description: 'Continuous Optimization for Discrete Problems: Two Stories from LLM Pruning and Discrete Geometry'
+  presentation_type: talk
+  location: Paris, FR
+  link: https://cermics-lab.enpc.fr
