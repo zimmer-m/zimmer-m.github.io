@@ -26,9 +26,17 @@
   category: math & ml
   description: "Money Quote: 'higher likelihood doesn't always mean <i>better</i> in a way that we actually care about' - probability distributions behave counterintuitively in high dimensions."
 
+
 - title: Making Deep Learning Go Brrrr From First Principles
   url: https://horace.io/brrr_intro.html
   author: Horace He
   year: 2022
   category: math & ml
+  description: 
+
+- title: "The machines are fine. I'm worried about us."
+  url: https://ergosphere.blog/posts/the-machines-are-fine/
+  author: Minas Karamanis
+  year: 2026
+  category: essays
   description: 
