@@ -27,20 +27,49 @@ social: true  # includes social icons at the bottom of the page
 My research focuses on the <a href="/#efficiency" class="tag-link">Efficiency</a> of neural networks — from weight sparsity and quantization to KV cache compression and speculative decoding — on <a href="/#ai4math" class="tag-link">AI4Math</a>, and on <a href="/#agentic-ai" class="tag-link">Agentic AI</a>. I also work on <a href="/#optimization" class="tag-link">Optimization</a>, applying Deep Learning to <a href="/#sustainability" class="tag-link">sustainability challenges</a> (e.g., forest monitoring), and more recently the post-training paradigm. At ZIB, I lead the [iol.LEARN](https://iol.zib.de/research/iol-learn.html) Deep Learning group. Please take a look at my <a href="/#all" class="tag-link">list of publications</a> and feel free to reach out for questions or potential collaborations! You can find TLDRs of some of my papers on my [blog](/blog) and a collection of interesting links and AI news [here](/ai_news).
 
 <style>
-.highlighted-pubs-wrap { margin: 0.6rem 0 1.2rem 1.1rem; border-left: 2px solid var(--global-divider-color); padding-left: 1rem; }
-.highlighted-pubs-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--global-text-color-light); margin-bottom: 0.4rem; }
-.highlighted-pubs { list-style: none; padding: 0; margin: 0; }
-.highlighted-pubs li { padding: 0.2rem 0; font-size: 0.9rem; color: var(--global-text-color-light); }
+.pub-tiles-wrap { margin: 0.8rem 0 1.4rem 0; }
+.pub-tiles-header { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 0.6rem; }
+.pub-tiles-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--global-text-color-light); }
+.pub-tiles-all { font-size: 0.78rem; color: var(--global-theme-color); text-decoration: none; }
+.pub-tiles-all:hover { text-decoration: underline; }
+.pub-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
+@media (max-width: 480px) { .pub-tiles { grid-template-columns: 1fr; } }
+.pub-tile { border: 1px solid var(--global-divider-color); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.15s ease; }
+.pub-tile:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.pub-tile-img { width: 100%; height: 150px; object-fit: cover; display: block; background: var(--global-bg-color); }
+.pub-tile-body { padding: 0.5rem 0.6rem 0.55rem; display: grid; grid-template-rows: auto 1fr auto auto; gap: 0.25rem; flex: 1; }
+.pub-tile-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: var(--global-theme-color); }
+.pub-tile-title { font-size: 0.82rem; line-height: 1.35; font-weight: 500; align-self: start; }
+.pub-tile-title a { color: var(--global-text-color); text-decoration: none; }
+.pub-tile-title a:hover { color: var(--global-theme-color); }
+.pub-tile-venue { font-size: 0.75rem; color: var(--global-text-color-light); }
+.pub-tile-buttons { display: flex; flex-wrap: wrap; gap: 0.3rem; padding-top: 0.15rem; }
+.pub-tile-btn { font-size: 0.7rem; font-weight: 500; padding: 0.15rem 0.45rem; border: 1px solid var(--global-divider-color); border-radius: 3px; color: var(--global-text-color-light); text-decoration: none; transition: border-color 0.15s, color 0.15s; }
+.pub-tile-btn:hover { border-color: var(--global-theme-color); color: var(--global-theme-color); text-decoration: none; }
 </style>
 
-<div class="highlighted-pubs-wrap">
-  <div class="highlighted-pubs-label">Selected work</div>
-  <ul class="highlighted-pubs">
-    <li><a href="https://arxiv.org/abs/2603.15914">The Agentic Researcher</a> — Zimmer et al., 2026</li>
-    <li><a href="https://arxiv.org/abs/2510.13444">Neural Sum-of-Squares</a> — Pelleriti, …, Zimmer, Pokutta · ICLR 2026</li>
-    <li><a href="https://arxiv.org/abs/2510.13713">Don't Be Greedy, Just Relax! Pruning LLMs via Frank-Wolfe</a> — Roux, Zimmer, d'Aspremont, Pokutta · 2025</li>
-    <li><a href="https://arxiv.org/abs/2406.01076">Estimating Canopy Height at Scale</a> — Pauls, Zimmer et al. · ICML 2024</li>
-  </ul>
+<div class="pub-tiles-wrap">
+  <div class="pub-tiles-header">
+    <span class="pub-tiles-label">Highlighted recent publications</span>
+    <a class="pub-tiles-all" href="/#all">view all →</a>
+  </div>
+  <div class="pub-tiles">
+    {%- for paper in site.data.highlighted_papers %}
+    <div class="pub-tile">
+      <img class="pub-tile-img" src="/assets/img/publication_preview/{{ paper.preview }}" alt="{{ paper.title }}">
+      <div class="pub-tile-body">
+        <div class="pub-tile-tag"><a href="/#{{ paper.tag_id }}" class="tag-link" style="font-size:inherit;padding:0;">{{ paper.tag }}</a></div>
+        <div class="pub-tile-title"><a href="{{ paper.pdf }}">{{ paper.title }}</a></div>
+        <div class="pub-tile-venue">{{ paper.venue }}</div>
+        <div class="pub-tile-buttons">
+          {%- if paper.pdf %}<a class="pub-tile-btn" href="{{ paper.pdf }}">PDF</a>{%- endif %}
+          {%- if paper.code %}<a class="pub-tile-btn" href="{{ paper.code }}">Code</a>{%- endif %}
+          {%- if paper.blog %}<a class="pub-tile-btn" href="{{ paper.blog }}">Blog</a>{%- endif %}
+        </div>
+      </div>
+    </div>
+    {%- endfor %}
+  </div>
 </div>
 
 <h3 class="section-header">Previously</h3>
