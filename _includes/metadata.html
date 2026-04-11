@@ -180,21 +180,62 @@
     {%- endif -%}
 
     <script type="application/ld+json">
-      {
-        "author":
+      [
         {
+          "@context": "https://schema.org",
           "@type": "Person",
-          "name": "{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}"
+          "name": "{{ site.first_name }} {{ site.last_name }}",
+          "givenName": "{{ site.first_name }}",
+          "familyName": "{{ site.last_name }}",
+          "url": "{{ site.url }}{{ site.baseurl }}/",
+          "image": "{{ site.url }}{{ site.baseurl }}/assets/img/prof_pic.png",
+          "description": "{{ site.description | strip_newlines | strip }}",
+          "jobTitle": "Deep Learning Research Lead",
+          "worksFor": [
+            {
+              "@type": "Organization",
+              "name": "Zuse Institute Berlin",
+              "url": "https://www.zib.de/"
+            },
+            {
+              "@type": "Organization",
+              "name": "IOL Lab",
+              "url": "https://iol.zib.de/"
+            }
+          ],
+          "affiliation": {
+            "@type": "EducationalOrganization",
+            "name": "Technische Universität Berlin",
+            "url": "https://www.tu.berlin/"
+          },
+          "alumniOf": [
+            {
+              "@type": "EducationalOrganization",
+              "name": "Technische Universität Berlin",
+              "url": "https://www.tu.berlin/"
+            },
+            {
+              "@type": "EducationalOrganization",
+              "name": "Università di Bologna",
+              "url": "https://www.unibo.it/"
+            }
+          ],
+          "knowsAbout": ["deep learning", "machine learning", "neural network pruning", "sparsity", "quantization", "optimization", "AI4Science", "mathematics"]
+          {%- if sameaslinks != blank %},
+          "sameAs": {{ sameaslinks }}
+          {%- endif %}
         },
-        "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
-        "@type": "WebSite",
-        "description": "{%- if page.description -%}{{ page.description }}{%- else if site.description -%}{{ site.description }}{%- endif -%}",
-        "headline": "{%- if page.title -%}{{ page.title }}{%- else -%}{{ site.title }}{%- endif -%}",
-        {% if sameaslinks != blank -%}
-        "sameAs": {{ sameaslinks }},
-        {%- endif %}
-        "name": "{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}",
-        "@context": "https://schema.org"
-      }
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "{{ site.first_name }} {{ site.last_name }}",
+          "url": "{{ site.url }}{{ site.baseurl }}/",
+          "description": "{{ site.description | strip_newlines | strip }}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ site.first_name }} {{ site.last_name }}"
+          }
+        }
+      ]
     </script>
 {%- endif %}
