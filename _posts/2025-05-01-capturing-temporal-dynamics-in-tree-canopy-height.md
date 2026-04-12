@@ -11,6 +11,7 @@ code_url: "https://github.com/AI4Forest/Europe-Temporal-Canopy-Height"
 paper_custom: "Map|https://europetreemap.projects.earthengine.app/view/temporalcanopyheight"
 giscus_comments: false
 related_posts: false
+series_title: "Tree Canopy Height Estimation"
 authors:
   - name: Jan Pauls
     affiliations:
@@ -199,15 +200,19 @@ Our approach to large-scale temporal forest height estimation surpasses all prev
 A central limitation of our work is that, due to the huge dataset size, we only applied our model to the European continent. We plan to extend our work to the entire world in the future.
 
 
-To reference this work in your research, please use the following citation:
+If you find this work useful, please consider citing our paper:
 
-```bibtex
-@inproceedings{pauls2025capturing,
+<div class="citation-box">
+  <div class="citation-header">
+    <span>BibTeX</span>
+    <button class="bibtex-copy-btn" onclick="copyBibtex()"><span id="copy-text">Copy</span></button>
+  </div>
+  <pre id="bibtex-content">@inproceedings{pauls2025capturing,
   title={Capturing Temporal Dynamics in Large-Scale Canopy Tree Height Estimation},
   author={Pauls, Jan and Zimmer, Max and Turan, Berkant and Saatchi, Sassan and Ciais, Philippe and Pokutta, Sebastian and Gieseke, Fabian},
   booktitle={Forty-second International Conference on Machine Learning},
   year={2025},
   url={https://openreview.net/forum?id=ri1cs3vtXX}
-}
-```
+}</pre>
+</div>
 

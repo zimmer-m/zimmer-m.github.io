@@ -1117,3 +1117,155 @@ progress {
   flex-wrap: wrap;
   gap: 0.3rem;
 }
+
+
+// Project-distill components
+
+.project-content {
+  .project-subtitle {
+    font-size: 1.15rem;
+    color: var(--global-text-color-light);
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+}
+
+.project-btn-primary {
+  background: var(--global-theme-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  &:hover {
+    filter: brightness(0.85);
+    transform: translateY(-1px);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.project-btn-secondary {
+  background: var(--global-card-bg-color);
+  color: var(--global-text-color);
+  border: 1px solid var(--global-divider-color);
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  &:hover {
+    border-color: var(--global-theme-color);
+    color: var(--global-theme-color);
+    text-decoration: none;
+  }
+}
+
+.project-card {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--global-theme-color);
+  }
+  // Override distill's aggressive heading styles inside cards
+  h4 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    border-bottom: none !important;
+    margin: 0 0 0.5rem 0 !important;
+    color: var(--global-text-color) !important;
+    &.highlight-text {
+      color: var(--global-theme-color) !important;
+    }
+  }
+  p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+}
+
+.project-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  &.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 768px) { grid-template-columns: 1fr; }
+  }
+  &.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+    @media (max-width: 768px) { grid-template-columns: 1fr; }
+  }
+  &.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+    @media (max-width: 992px) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 768px) { grid-template-columns: 1fr; }
+  }
+}
+
+.insight-box {
+  background: var(--global-code-bg-color);
+  border-left: 4px solid var(--global-theme-color);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem 0;
+  strong {
+    color: var(--global-theme-color) !important;
+  }
+}
+
+.highlight-text {
+  color: var(--global-theme-color);
+  font-weight: 600;
+}
+
+.project-section-alt {
+  background: var(--global-code-bg-color);
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+}
+
+.bibtex-copy-btn {
+  background: var(--global-card-bg-color);
+  color: var(--global-text-color-light);
+  border: 1px solid var(--global-divider-color);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    border-color: var(--global-theme-color);
+    color: var(--global-theme-color);
+  }
+  &.copied {
+    background: var(--global-theme-color);
+    color: white;
+    border-color: var(--global-theme-color);
+  }
+}
