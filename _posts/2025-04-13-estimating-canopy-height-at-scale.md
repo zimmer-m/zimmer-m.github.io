@@ -46,6 +46,7 @@ authors:
   <div class="series-header">
     <div class="title-row">
       <span class="part-badge">Part 1 of 2</span>
+      <!-- <span class="part-badge">Part 1 of 3</span> -->
       <h3>Series: Tree Canopy Height Estimation</h3>
     </div>
     <p>This post is part of a series of posts on tree canopy height estimation using deep learning and satellite data.</p>
@@ -63,32 +64,40 @@ authors:
         <span class="post-description">Part 2 reveals how we moved beyond a single-year map to track changes in canopy height over time, as detailed in our ICML25 paper.</span>
       </div>
     </a>
+    <!-- Part 3: uncomment when ECHOSAT post is published
+    <a href="/blog/2026/echosat/" class="post inactive">
+      <div class="post-content">
+        <span class="post-title">Part 3. ECHOSAT: Estimating Canopy Height Over Space And Time</span>
+        <span class="post-description">Part 3 combines global coverage with temporal dynamics, producing the first 10m-resolution tree height map spanning seven years.</span>
+      </div>
+    </a>
+    -->
   </div>
 </div>
 
 ## Intro: Why Forest Monitoring Matters
 
-Imagine having to measure every tree on Earth. It seems impossible, yet knowing the health and structure of our forests is a very important part of battling climate change. Forests not only act as a natural carbon sink, absorbing around half of the $CO_2$ from human activities, but they also provide habitat for countless species and are a crucial source of biodiversity. But how can we monitor these massive ecosystems that cover nearly one-third of the Earth's land?
+Knowing the health and structure of forests is essential for combating climate change. Forests act as a natural carbon sink, absorbing around half of the $CO_2$ from human activities, while also providing habitat for countless species. Yet traditional forest monitoring relies on field workers manually measuring individual trees, an approach that is highly accurate but impractical at global scale. How can we monitor ecosystems that cover nearly one-third of the Earth's land?
 
 <div class="figure-container">
     <img src="/assets/img/blog_img/estimating-canopy-height-at-scale/global_big.png" alt="Global canopy height map showing forest heights across the world" style="max-width: 100%;" class="zoomable" data-zoomable>
     <div class="figure-caption">Our new global canopy height map shows forest heights across the world, with colors indicating tree heights from 0m (black/purple) to 35m+ (yellow).</div>
 </div>
 
-Accurate forest height maps allow scientist to understand how much carbon our forests store and how it is distributed, to better identify and hence protect old-growth forests, as well as monitoring forest health and finally making informed decisions about forest conservation. Our new method provides more precise height estimates than previous maps, especially for short vegetation and complex forest areas. This enhances the ability of scientists and policymakers to understand and protect our forests resources.
+Accurate forest height maps allow scientists to understand how much carbon forests store and how it is distributed, to identify and protect old-growth forests, and to make informed decisions about conservation. The method presented here provides more precise height estimates than previous maps, especially for short vegetation and complex forest areas, enhancing the ability of scientists and policymakers to understand and protect forest resources.
 
 <h2 data-nav="The Challenge">The Challenge of Global Forest Monitoring</h2>
 
-Traditional forest monitoring relies on field workers manually measuring individual trees. While this approach provides highly accurate data, it becomes impractical when trying to assess forests at a large scale. Furthermore, there's a stark divide in monitoring capabilities: while industrialized nations have sufficient resources to conduct comprehensive forest surveys, many countries - particularly those home to crucial ecosystems like the Amazon rainforest and Congo Basin - lack the necessary resources to perform extensive monitoring of their forest landscapes.
+Traditional forest monitoring through manual measurement of individual trees provides highly accurate data, but it clearly becomes impractical when trying to assess forests at a large scale. Furthermore, there's a stark divide in monitoring capabilities: industrialized nations often have sufficient resources to conduct comprehensive forest surveys, while many others lack the necessary resources to perform extensive monitoring of their forest landscapes.
 
-Satellite technology offers a solution. Modern satellites can regularly observe the entire Earth, offering a consistent way to monitor forests and general vegetation ecosystems worldwide. In particular, the GEDI mission, which is a full-waveform laser system on the International Space Station, can measure the height of every tree on the surface of the Earth. In practice however, the GEDI measurements are sparsely-distributed, taking up only a tiny fraction of the Earth's total surface area. This is visible in the image below, where the GEDI measurements are shown in red/yellow dots.
+Satellite technology offers a way forward. Modern satellites can regularly observe the entire Earth, offering a consistent way to monitor forests and general vegetation ecosystems worldwide. In particular, the GEDI mission, which is a full-waveform laser system on the International Space Station, can measure the height of every tree on the surface of the Earth. In practice however, the GEDI measurements are sparsely-distributed, taking up only a tiny fraction of the Earth's total surface area. This is visible in the image below, where the GEDI measurements are shown in red/yellow dots.
 
 <div class="figure-container">
     <img src="/assets/img/blog_img/estimating-canopy-height-at-scale/Sentinel_GEDI.jpg" alt="Satellite imagery with height measurements" style="max-width: 100%;" class="zoomable" data-zoomable>
     <div class="figure-caption">Satellite image overlaid with actual tree height measurements (red/yellow dots) from NASA's GEDI laser system. As the GEDI system is onboard the ISS, you can clearly see the ISS flight paths in the image.</div>
 </div>
 
-The sparse distribution of GEDI measurements poses a challenge for creating a global map of forest heights. This is where deep learning, and in particular our research, comes into play. We introduce a new methodology to create a **detailed, global-scale map of forest heights** using supervised deep learning on satellite data. In particular, we combine:
+The sparse distribution of GEDI measurements poses a fundamental challenge for creating a global map of forest heights. This is where deep learning comes into play. We introduce a methodology to create a **detailed, global-scale map of forest heights** using supervised deep learning on satellite data, combining:
 - Radar images that can see through clouds (Sentinel-1) as input
 - Optical images that show forest detail (Sentinel-2) as input
 - Height measurements from NASA's GEDI laser system as ground truth labels
@@ -103,7 +112,7 @@ Satellites follow fixed orbits and capture images on a regular schedule, regardl
 
 <div class="figure-container">
     <img src="/assets/img/blog_img/estimating-canopy-height-at-scale/CanopyProblem.png" alt="The challenge of measuring trees on slopes" style="max-width: 100%;" class="zoomable" data-zoomable>
-    <div class="figure-caption">How slopes can trick our measurements: The same tree might appear taller when measured on a slope, and even in the absence of trees, GEDI records a height measurement.</div>
+    <div class="figure-caption">How slopes affect height measurements: the same tree might appear taller when measured on a slope, and even in the absence of trees, GEDI records a height measurement due to the elevation change within its footprint.</div>
 </div>
 
 Mountainous terrain poses unique measurement challenges. GEDI's laser technology measures the height difference between the highest and lowest points within a 25-meter diameter circle. On steep slopes, this can distort measurements in two ways: trees may appear artificially taller than their true height, and even bare slopes register as having "height" due to the elevation change within the measurement circle.
@@ -112,10 +121,10 @@ Mountainous terrain poses unique measurement challenges. GEDI's laser technology
 
 <div class="figure-container">
     <img src="/assets/img/blog_img/estimating-canopy-height-at-scale/gedi_shift.png" alt="Shifted measurements example" style="max-width: 100%;" class="zoomable" data-zoomable>
-    <div class="figure-caption">Sometimes our measurements are slightly offset from their true location (each circle shows a height measurement).</div>
+    <div class="figure-caption">GEDI measurements can be slightly offset from their true location due to GPS and positioning errors (each circle shows a height measurement).</div>
 </div>
 
-Even with accurate height measurements, GPS and satellite positioning errors can cause misalignment between the reported and actual measurement locations. This spatial offset presents a critical challenge: How can we train a reliable model when our ground-truth training data may be shifted from its true position?
+Even with accurate height measurements, GPS and satellite positioning errors can cause misalignment between reported and actual measurement locations. This spatial offset presents a critical challenge: how can we train a reliable model when the ground-truth data may be shifted from its true position?
 
 <h2 data-nav="Our Approach">Our Approach to Forest Height Estimation</h2>
 <div class="figure-container">
@@ -123,7 +132,7 @@ Even with accurate height measurements, GPS and satellite positioning errors can
     <div class="figure-caption">Overview of our approach: from satellite data to the global height map.</div>
 </div>
 
-Our solution involves three main components, which we will explain below:
+The solution involves three main components:
 
 (1) **Multiple Types of Satellite Data**
 

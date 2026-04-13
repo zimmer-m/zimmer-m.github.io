@@ -40,6 +40,7 @@ authors:
   <div class="series-header">
     <div class="title-row">
       <span class="part-badge">Part 2 of 2</span>
+      <!-- <span class="part-badge">Part 2 of 3</span> -->
       <h3>Series: Tree Canopy Height Estimation</h3>
     </div>
     <p>This post is part of a series of posts on tree canopy height estimation using deep learning and satellite data.</p>
@@ -57,6 +58,14 @@ authors:
         <span class="post-description">Part 2 reveals how we moved beyond a single-year map to track changes in canopy height over time, as detailed in our ICML25 paper.</span>
       </div>
     </div>
+    <!-- Part 3: uncomment when ECHOSAT post is published
+    <a href="/blog/2026/echosat/" class="post inactive">
+      <div class="post-content">
+        <span class="post-title">Part 3. ECHOSAT: Estimating Canopy Height Over Space And Time</span>
+        <span class="post-description">Part 3 combines global coverage with temporal dynamics, producing the first 10m-resolution tree height map spanning seven years.</span>
+      </div>
+    </a>
+    -->
   </div>
 </div>
 
@@ -68,7 +77,7 @@ learning techniques on satellite data for forest height estimation and the chall
 
 ## What Are We Missing?
 
-While having a global forest height map might suggest that no more work is to be done, we are in fact missing out on a lot of information. In this post, we will explore some of the limitations of our current approach and discuss directions for improvements (and, non surprisingly, how we successfully address them). Two significant issues become apparent:
+While having a global forest height map might suggest that no more work is to be done, we are in fact missing out on a lot of information. In this post, we will explore some of the limitations of our current approach and discuss directions for improvements (and, unsurprisingly, how we successfully address them). Two significant issues become apparent:
 
 ### 1. Tall trees are underpredicted.
 Current models often struggle to accurately predict the height of tall trees. There's a consistent underestimation that worsens as the trees get taller. This is a big issue because large trees store most of the carbon, making their accurate prediction crucial for climate analysis.
@@ -173,7 +182,7 @@ Our model predicts the height of large trees more accurately and is also able to
 
 <div class="figure-container">
     <img src="/assets/img/blog_img/capturing-temporal-dynamics-in-tree-canopy-height/error_height_distribution.jpeg" alt="Canopy Height Error Distribution" style="max-width: 100%;" class="zoomable" data-zoomable>
-    <div class="figure-caption"> Boxplots for each model showing the 2020 mean error in every 5m bin between 10m and 40m. Although Liu et al. (2023), Pauls et al. (2024) and Lang et al. (2023) perform well on smaller trees, our models performs especially well for taller trees.</div>
+    <div class="figure-caption"> Boxplots for each model showing the 2020 mean error in every 5m bin between 10m and 40m. Although Liu et al. (2023), Pauls et al. (2024) and Lang et al. (2023) perform well on smaller trees, our model performs especially well for taller trees.</div>
 </div>
 
 <div class="figure-container">

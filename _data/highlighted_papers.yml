@@ -2,13 +2,14 @@
 # To add/remove a paper: edit this file AND set highlight_box={true} in papers.bib.
 # Fields: title, tag (display), tag_id (for /#tag-id anchor), venue, preview, pdf, code (optional), blog (optional)
 
-- title: "The Agentic Researcher: A Practical Guide to AI-Assisted Research in Mathematics and Machine Learning"
+- title: "The Agentic Researcher: A Practical Guide to AI-Assisted Research"
   tag: Agentic AI
   tag_id: agentic-ai
   venue: "2026"
   preview: agentic_researcher.png
   pdf: https://arxiv.org/abs/2603.15914
   code: https://github.com/ZIB-IOL/The-Agentic-Researcher
+  blog: /the-agentic-researcher
 
 - title: "Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?"
   tag: AI4Math
@@ -34,3 +35,4 @@
   preview: echosat.png
   pdf: https://arxiv.org/abs/2602.21421
   code: https://github.com/ai4forest/echosat
+  blog: /blog/2026/echosat
