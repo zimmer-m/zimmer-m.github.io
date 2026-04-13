@@ -161,14 +161,18 @@ VI-Nets can be significantly more parameter-efficient and exhibit higher through
 
 This research creates a practical connection between manifold learning in neural networks and computational algebra. By adapting vanishing ideal algorithms, we effectively characterize the algebraic structure of class-specific manifolds within deep network latent spaces. The proposed VI-Net architecture demonstrates that these algebraic characterizations can construct polynomial layers to replace standard network components. This in turn yields models that are more parameter-efficient and can achieve faster inference while maintaining competitive accuracy.
 
-To reference this work in your research, please use the following citation:
+If you find this work useful, please consider citing our paper:
 
-```bibtex
-@inproceedings{pelleriti2025approximatinglatentmanifoldsneural,
+<div class="citation-box">
+  <div class="citation-header">
+    <span>BibTeX</span>
+    <button class="bibtex-copy-btn" onclick="copyBibtex()"><span id="copy-text">Copy</span></button>
+  </div>
+  <pre id="bibtex-content">@inproceedings{pelleriti2025approximatinglatentmanifoldsneural,
   title = {Approximating Latent Manifolds in Neural Networks via Vanishing Ideals},
   author = {Pelleriti, Nico and Zimmer, Max and Wirth, Elias and Pokutta, Sebastian},
   booktitle = {Forty-second International Conference on Machine Learning},
   year = {2025},
   url = {https://openreview.net/forum?id=WYlerYGDPL},
-}
-```
+}</pre>
+</div>

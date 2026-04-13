@@ -50,6 +50,66 @@
         text-decoration: none;
       }
     </style>
+
+    <!-- Citation box -->
+    <style>
+      .citation-box {
+        background: var(--global-code-bg-color);
+        border: 1px solid var(--global-divider-color);
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 1.5rem 0;
+      }
+      .citation-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid var(--global-divider-color);
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--global-text-color-light);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .citation-box pre {
+        margin: 0 !important;
+        padding: 1rem 1.25rem !important;
+        border-radius: 0 !important;
+        border: none !important;
+        background: transparent !important;
+        font-size: 0.8rem !important;
+        line-height: 1.5 !important;
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .citation-box {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      .bibtex-copy-btn {
+        background: var(--global-card-bg-color);
+        color: var(--global-text-color-light);
+        border: 1px solid var(--global-divider-color);
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .bibtex-copy-btn:hover {
+        border-color: var(--global-theme-color);
+        color: var(--global-theme-color);
+      }
+      .bibtex-copy-btn.copied {
+        background: var(--global-theme-color);
+        color: white;
+        border-color: var(--global-theme-color);
+      }
+    </style>
   </head>
 
   <d-front-matter>
@@ -160,6 +220,23 @@
     {% include scripts/analytics.html %}
     {% include scripts/progressBar.html %}
     {% include scripts/misc.html %}
+
+    <!-- Copy BibTeX -->
+    <script>
+    function copyBibtex() {
+        var content = document.getElementById('bibtex-content').textContent;
+        var btn = document.querySelector('.bibtex-copy-btn');
+        var text = document.getElementById('copy-text');
+        navigator.clipboard.writeText(content).then(function() {
+            btn.classList.add('copied');
+            text.textContent = 'Copied!';
+            setTimeout(function() {
+                btn.classList.remove('copied');
+                text.textContent = 'Copy';
+            }, 2000);
+        });
+    }
+    </script>
 
     <!-- Blog section nav: auto-generate from h2 headings -->
     <script>

@@ -10,6 +10,7 @@ paper_url: "https://arxiv.org/abs/2501.18527"
 code_url: "https://github.com/ZIB-IOL/neural-discovery-icml25"
 giscus_comments: false
 related_posts: false
+series_title: "AI for Mathematical Discovery"
 authors:
   - name: Konrad Mundinger
     affiliations:
@@ -178,15 +179,19 @@ Our work highlights the potential of NNs as tools for mathematical exploration. 
 
 The discovery of two novel 6-colorings for the $(1,1,1,1,1,d)$ distance variant, significantly extending the known range of valid distances $d$ and marking the first progress in three decades, serves as a strong testament to this approach's potential. It demonstrates how gradient-based optimization on continuous relaxations in combination with the powerful approximation capabilities of NNs can uncover combinatorial structures that have long eluded traditional methods, offering a promising new paradigm for tackling longstanding open problems in discrete mathematics and theoretical computer science.
 
-If you find this interesting and if this work is helpful for your research, please consider citing our paper:
+If you find this work useful, please consider citing our paper:
 
-```bibtex
-@inproceedings{mundinger2025neural,
+<div class="citation-box">
+  <div class="citation-header">
+    <span>BibTeX</span>
+    <button class="bibtex-copy-btn" onclick="copyBibtex()"><span id="copy-text">Copy</span></button>
+  </div>
+  <pre id="bibtex-content">@inproceedings{mundinger2025neural,
   title={Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?},
   author={Mundinger, Konrad and Zimmer, Max and Kiem, Aldo and Spiegel, Christoph and Pokutta, Sebastian},
   booktitle={Forty-second International Conference on Machine Learning},
   year={2025},
   url={https://openreview.net/forum?id=7Tp9zjP9At},
-}
-```
+}</pre>
+</div>
 

@@ -14,15 +14,23 @@ nav_order: 6
 </div>
 
 
-{% assign series_posts = site.posts | where_exp: "item", "item.series_title" %}
+{% assign series_posts = site.posts | where_exp: "item", "item.series_title" | sort: "date" %}
 {% if series_posts.size > 0 %}
 <h2 class="section-header">Post Series</h2>
 <div class="series-list-container">
   <div class="series-list">
+    {% assign seen_series = "" %}
     {% for post in series_posts %}
-      <a href="{{ post.url | prepend: site.baseurl }}" class="series-box">
-        <div class="series-title">{{ post.series_title }}</div>
-      </a>
+      {% unless seen_series contains post.series_title %}
+        <a href="{{ post.url | prepend: site.baseurl }}" class="series-box">
+          <div class="series-title">{{ post.series_title }}</div>
+        </a>
+        {% if seen_series == "" %}
+          {% assign seen_series = post.series_title %}
+        {% else %}
+          {% assign seen_series = seen_series | append: "|" | append: post.series_title %}
+        {% endif %}
+      {% endunless %}
     {% endfor %}
   </div>
 </div>
