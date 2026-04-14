@@ -1,0 +1,132 @@
+/* ===================================================================
+   Max Zimmer — Intro Page Animations
+   Scroll-triggered reveals + hero entrance sequence
+   =================================================================== */
+
+/* ---------- Keyframes ---------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseDown {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
+}
+
+/* ---------- Hero Entrance Sequence ---------- */
+.hero__name {
+  opacity: 0;
+  animation: scaleIn 0.7s ease-out 0.3s forwards;
+}
+
+.hero__subtitle {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out 0.7s forwards;
+}
+
+.hero__tagline {
+  opacity: 0;
+  animation: fadeInUp 0.7s ease-out 1.3s forwards;
+}
+
+.hero__logos {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out 1.7s forwards;
+}
+
+.hero__website {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out 2.1s forwards;
+}
+
+.hero__scroll-hint {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out 2.6s forwards,
+             pulseDown 2.5s ease-in-out 3s infinite;
+}
+
+/* ---------- Scroll-Triggered Base ---------- */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Stagger: Role List (4 items) ---------- */
+.role-list__item.animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
+.role-list__item.animate-on-scroll:nth-child(2) { transition-delay: 100ms; }
+.role-list__item.animate-on-scroll:nth-child(3) { transition-delay: 200ms; }
+.role-list__item.animate-on-scroll:nth-child(4) { transition-delay: 300ms; }
+
+/* ---------- Stagger: Research Cards (5 cards) ---------- */
+.research-card.animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
+.research-card.animate-on-scroll:nth-child(2) { transition-delay: 70ms; }
+.research-card.animate-on-scroll:nth-child(3) { transition-delay: 140ms; }
+.research-card.animate-on-scroll:nth-child(4) { transition-delay: 210ms; }
+.research-card.animate-on-scroll:nth-child(5) { transition-delay: 280ms; }
+
+/* ---------- Stagger: Highlight Items (4 items) ---------- */
+.highlight-item.animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
+.highlight-item.animate-on-scroll:nth-child(2) { transition-delay: 120ms; }
+.highlight-item.animate-on-scroll:nth-child(3) { transition-delay: 240ms; }
+.highlight-item.animate-on-scroll:nth-child(4) { transition-delay: 360ms; }
+
+/* ---------- Stagger: Project Cards (4 cards) ---------- */
+.project-card.animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
+.project-card.animate-on-scroll:nth-child(2) { transition-delay: 150ms; }
+.project-card.animate-on-scroll:nth-child(3) { transition-delay: 300ms; }
+.project-card.animate-on-scroll:nth-child(4) { transition-delay: 450ms; }
+
+/* ---------- Stagger: Blog Items (6 items) ---------- */
+.blog-item.animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
+.blog-item.animate-on-scroll:nth-child(2) { transition-delay: 70ms; }
+.blog-item.animate-on-scroll:nth-child(3) { transition-delay: 140ms; }
+.blog-item.animate-on-scroll:nth-child(4) { transition-delay: 210ms; }
+.blog-item.animate-on-scroll:nth-child(5) { transition-delay: 280ms; }
+.blog-item.animate-on-scroll:nth-child(6) { transition-delay: 350ms; }
+
+/* ---------- Stagger: Background Items ---------- */
+.who__bg-item.animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
+.who__bg-item.animate-on-scroll:nth-child(2) { transition-delay: 80ms; }
+.who__bg-item.animate-on-scroll:nth-child(3) { transition-delay: 160ms; }
+.who__bg-item.animate-on-scroll:nth-child(4) { transition-delay: 240ms; }
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero__name,
+  .hero__tagline,
+  .hero__subtitle,
+  .hero__logos,
+  .hero__website,
+  .hero__scroll-hint {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  .highlight-item::before {
+    width: 14px !important;
+    transition: none !important;
+  }
+}
