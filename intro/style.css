@@ -293,11 +293,8 @@ h1, h2, h3, h4 {
 }
 
 .research-card {
-  flex: 0 1 calc((var(--container) - 2 * 40px - 2 * 1.2rem) / 3);
-  min-width: 260px;
-}
-
-.research-card {
+  flex: 1 1 280px;
+  max-width: 320px;
   border: 1px solid var(--color-border);
   border-top: 2px solid var(--color-brand);
   border-radius: 6px;
@@ -305,7 +302,6 @@ h1, h2, h3, h4 {
   transition: border-color 0.2s;
   background: var(--color-bg);
   text-decoration: none;
-  display: block;
   color: inherit;
 }
 
