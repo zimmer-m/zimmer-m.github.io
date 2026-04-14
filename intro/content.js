@@ -25,10 +25,10 @@ const defined = {
     education: [
       { degree: "PhD in Mathematics", inst: "TU Berlin", year: "2021–present", detail: "Advisor: Prof. Dr. Sebastian Pokutta" },
       { degree: "MSc in Mathematics", inst: "TU Berlin", year: "2018–2021", detail: null },
-      { degree: "Semester abroad", inst: "Università di Bologna", year: "2016–2017", detail: null },
       { degree: "BSc in Mathematics", inst: "TU Berlin", year: "2013–2017", detail: null }
     ],
     experience: [
+      { role: "Student Research Assistant", inst: "IOL Lab, Zuse Institute Berlin", year: "2020–2021", detail: null },
       { role: "Research Intern", inst: "IST Austria", year: "2020", detail: "Hosted by Prof. Marco Mondelli" },
       { role: "Student Research Assistant", inst: "COGA Group, TU Berlin", year: "2018–2020", detail: null },
       { role: "Research Intern", inst: "Univ. Naples Federico II", year: "2018", detail: "Hosted by Prof. Sergio De Rosa" }
@@ -40,31 +40,36 @@ const defined = {
       id: "efficiency",
       name: "Efficiency",
       desc: "Neural network pruning, weight sparsity, quantization, KV cache compression, and speculative decoding — making models smaller and faster without losing what matters.",
-      icon: "fa-solid fa-bolt"
+      icon: "fa-solid fa-bolt",
+      url: "https://maxzimmer.org/publications/#efficiency"
     },
     {
       id: "ai4math",
       name: "AI4Math",
       desc: "Using deep learning to tackle open problems in mathematics — from classifying real algebraic curves to computer-assisted proofs and neural discovery.",
-      icon: "fa-solid fa-square-root-variable"
+      icon: "fa-solid fa-square-root-variable",
+      url: "https://maxzimmer.org/publications/#ai4math"
     },
     {
       id: "agentic-ai",
       name: "Agentic AI",
       desc: "Building autonomous multi-agent systems that can design experiments, write code, and conduct scientific research with minimal human oversight.",
-      icon: "fa-solid fa-robot"
+      icon: "fa-solid fa-robot",
+      url: "https://maxzimmer.org/publications/#agentic-ai"
     },
     {
       id: "sustainability",
       name: "Sustainability",
       desc: "Applying deep learning to environmental monitoring — global canopy height estimation from satellite imagery for forest conservation and climate science.",
-      icon: "fa-solid fa-leaf"
+      icon: "fa-solid fa-leaf",
+      url: "https://maxzimmer.org/publications/#sustainability"
     },
     {
       id: "optimization",
       name: "Optimization",
       desc: "First-order methods, Frank-Wolfe algorithms, and the mathematical foundations that connect optimization theory to deep learning practice.",
-      icon: "fa-solid fa-chart-line"
+      icon: "fa-solid fa-chart-line",
+      url: "https://maxzimmer.org/publications/#optimization"
     }
   ],
 

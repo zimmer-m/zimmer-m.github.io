@@ -1,23 +1,23 @@
 /* ===================================================================
    Max Zimmer — Intro Page Styles
-   Adapted from pokutta.com/intro/ design language
    =================================================================== */
 
 /* ---------- Design Tokens ---------- */
 :root {
-  --color-brand: #013858;
-  --color-brand-light: #3a6f8f;
-  --color-brand-dark: #012a42;
-  --color-hero-bg: #011e2e;
-  --color-hero-text: #e8eef2;
-  --color-text: #555555;
-  --color-heading: #013858;
-  --color-bg: #fdfdfd;
-  --color-bg-alt: #f4f6f8;
-  --color-meta: #999999;
-  --color-border: #e0e0e0;
-  --color-link: #013858;
-  --font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --color-brand: #2698BA;
+  --color-brand-light: #4db8d1;
+  --color-brand-dark: #1e7a99;
+  --color-hero-bg: #1a2634;
+  --color-hero-text: #e0e0e0;
+  --color-text: #2c3e50;
+  --color-heading: #2c3e50;
+  --color-bg: #f5fbfd;
+  --color-bg-alt: #edf6f9;
+  --color-meta: #828282;
+  --color-border: rgba(0,0,0,0.1);
+  --color-link: #2698BA;
+  --font: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-heading: 'Roboto Slab', Georgia, serif;
   --container: 1000px;
   --section-pad: 100px 0;
   --section-pad-m: 60px 0;
@@ -34,7 +34,7 @@ html {
 
 body {
   font-family: var(--font);
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   line-height: 1.7;
   color: var(--color-text);
   background: var(--color-bg);
@@ -49,10 +49,10 @@ a {
   text-decoration: none;
   transition: color 0.2s;
 }
-a:hover { color: var(--color-brand-light); }
+a:hover { color: var(--color-brand-light); text-decoration: underline; }
 
 h1, h2, h3, h4 {
-  font-family: var(--font);
+  font-family: var(--font-heading);
   color: var(--color-heading);
   font-weight: 700;
   line-height: 1.3;
@@ -76,8 +76,16 @@ h1, h2, h3, h4 {
 }
 
 .section__heading {
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
-  margin-bottom: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-brand);
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--color-brand);
+  margin-bottom: 1.2rem;
+  display: inline-block;
 }
 
 .section__tldr {
@@ -99,6 +107,7 @@ h1, h2, h3, h4 {
 }
 
 .hero__name {
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3.2rem);
   color: #ffffff;
   font-weight: 700;
@@ -107,17 +116,18 @@ h1, h2, h3, h4 {
 }
 
 .hero__subtitle {
-  font-size: clamp(0.8rem, 1.4vw, 0.92rem);
-  color: #7ab8d9;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-size: clamp(0.72rem, 1.2vw, 0.82rem);
+  color: var(--color-brand-light);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
   margin-bottom: 2.2rem;
 }
 
 .hero__tagline {
   font-size: clamp(1.05rem, 2.2vw, 1.45rem);
   color: #ffffff;
-  font-weight: 400;
+  font-weight: 300;
   max-width: 750px;
   margin: 0 auto 2rem auto;
   line-height: 1.7;
@@ -151,6 +161,7 @@ h1, h2, h3, h4 {
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.06);
+  text-decoration: none;
 }
 
 .hero__website {
@@ -166,6 +177,7 @@ h1, h2, h3, h4 {
 
 .hero__website:hover {
   color: #ffffff;
+  text-decoration: none;
 }
 
 .hero__scroll-hint {
@@ -274,23 +286,33 @@ h1, h2, h3, h4 {
 
 /* ---------- Research Cards ---------- */
 .research-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.2rem;
 }
 
 .research-card {
+  flex: 0 1 calc((var(--container) - 2 * 40px - 2 * 1.2rem) / 3);
+  min-width: 260px;
+}
+
+.research-card {
   border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-brand);
+  border-top: 2px solid var(--color-brand);
   border-radius: 6px;
   padding: 1.4rem 1.5rem;
-  transition: box-shadow 0.2s, transform 0.2s;
-  background: #ffffff;
+  transition: border-color 0.2s;
+  background: var(--color-bg);
+  text-decoration: none;
+  display: block;
+  color: inherit;
 }
 
 .research-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
+  border-color: var(--color-brand);
+  text-decoration: none;
+  color: inherit;
 }
 
 .research-card__icon {
@@ -301,6 +323,7 @@ h1, h2, h3, h4 {
 }
 
 .research-card__name {
+  font-family: var(--font-heading);
   font-size: 0.92rem;
   font-weight: 700;
   color: var(--color-heading);
@@ -452,6 +475,7 @@ h1, h2, h3, h4 {
 .project-card__link:hover {
   border-color: var(--color-brand);
   color: var(--color-brand);
+  text-decoration: none;
 }
 
 /* ---------- Blog ---------- */
@@ -465,17 +489,17 @@ h1, h2, h3, h4 {
   border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 1.3rem 1.4rem;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: border-color 0.2s;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  background: #ffffff;
+  background: var(--color-bg);
 }
 
 .blog-item:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
+  border-color: var(--color-brand);
+  text-decoration: none;
 }
 
 .blog-item__tag {
@@ -515,6 +539,7 @@ h1, h2, h3, h4 {
 
 .section--contact .section__heading {
   color: #ffffff;
+  border-bottom-color: rgba(255,255,255,0.3);
 }
 
 .contact__subtext {
@@ -549,6 +574,7 @@ h1, h2, h3, h4 {
   border-color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
+  text-decoration: none;
 }
 
 .social-row {
@@ -575,67 +601,7 @@ h1, h2, h3, h4 {
   border-color: #ffffff;
   color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
-}
-
-/* ---------- Dot Navigation ---------- */
-.slide-nav {
-  position: fixed;
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-}
-
-.slide-nav ol {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.nav-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-brand-light);
-  background: transparent;
-  cursor: pointer;
-  transition: background 0.25s, border-color 0.25s, transform 0.25s;
-  padding: 0;
-  position: relative;
-}
-
-.nav-dot:hover {
-  border-color: var(--color-brand);
-  transform: scale(1.3);
-}
-
-.nav-dot[aria-current="true"] {
-  background: var(--color-brand);
-  border-color: var(--color-brand);
-}
-
-.nav-dot::after {
-  content: attr(title);
-  position: absolute;
-  right: 22px;
-  top: 50%;
-  transform: translateY(-50%);
-  white-space: nowrap;
-  font-family: var(--font);
-  font-size: 0.7rem;
-  color: var(--color-brand);
-  background: #ffffff;
-  padding: 3px 10px;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
-}
-
-.nav-dot:hover::after {
-  opacity: 1;
+  text-decoration: none;
 }
 
 /* ---------- Footer ---------- */
@@ -644,7 +610,7 @@ h1, h2, h3, h4 {
   padding: 1.5rem 0;
   font-size: 0.75rem;
   color: var(--color-meta);
-  background: var(--color-hero-bg);
+  background: #1C1C1D;
   border-top: 1px solid rgba(232, 238, 242, 0.08);
 }
 
@@ -656,6 +622,7 @@ h1, h2, h3, h4 {
 
 .intro-footer a:hover {
   color: #ffffff;
+  text-decoration: none;
 }
 
 /* ---------- Responsive ---------- */
@@ -723,8 +690,8 @@ h1, h2, h3, h4 {
     padding: 0.35rem 0.8rem;
   }
 
-  .research-grid {
-    grid-template-columns: 1fr;
+  .research-card {
+    flex: 1 1 100%;
   }
 
   .blog-grid {
@@ -735,8 +702,6 @@ h1, h2, h3, h4 {
     flex-direction: column;
     align-items: center;
   }
-
-  .slide-nav { display: none; }
 
   .social-row { gap: 0.5rem; }
 
@@ -749,7 +714,6 @@ h1, h2, h3, h4 {
 
 /* ---------- Print ---------- */
 @media print {
-  .slide-nav,
   .hero__scroll-hint { display: none; }
 
   .section--hero {
