@@ -66,7 +66,7 @@
           <p class="hero__subtitle">${d.subtitle}</p>
           <p class="hero__tagline">${d.tagline}</p>
           <div class="hero__logos">
-            ${d.affiliations.map(a => `<a class="hero__logo" href="${a.url}" target="_blank" rel="noopener">${a.abbr}</a>`).join('')}
+            ${d.affiliations.map(a => a.url ? `<a class="hero__logo" href="${a.url}" target="_blank" rel="noopener">${a.abbr}</a>` : `<span class="hero__logo">${a.abbr}</span>`).join('')}
           </div>
           <a class="hero__website" href="https://maxzimmer.org" target="_blank" rel="noopener">maxzimmer.org &rarr;</a>
           <div class="hero__scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>

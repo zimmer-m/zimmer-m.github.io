@@ -5,9 +5,9 @@ const defined = {
     tagline: "I study how to make deep learning efficient — and what we can discover when it is.",
     subtitle: "Deep Learning Research Lead · PhD Candidate in Mathematics",
     affiliations: [
-      { label: "Zuse Institute Berlin", url: "https://www.zib.de/", abbr: "ZIB" },
-      { label: "TU Berlin", url: "https://www.tu.berlin/", abbr: "TU Berlin" },
-      { label: "MATH+", url: "https://mathplus.de/", abbr: "MATH+" }
+      { label: "Zuse Institute Berlin", abbr: "ZIB" },
+      { label: "TU Berlin", abbr: "TU Berlin" },
+      { label: "MATH+", abbr: "MATH+" }
     ]
   },
 
