@@ -76,7 +76,7 @@ const defined = {
   highlights: [
     {
       text: "ICML 2025 — Oral Presentation",
-      detail: "\"Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?\" — one of approximately 1.5% of submissions selected for oral presentation."
+      detail: "\"Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?\" — one of the top 1% of submissions selected for oral presentation."
     },
     {
       text: "Deep Learning Research Lead",
