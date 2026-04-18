@@ -65,6 +65,19 @@
   border-radius: 2px;
 }
 
+// Equal contribution
+.equal-contrib {
+  font-size: 0.7em;
+  vertical-align: super;
+  color: var(--global-text-color-light);
+}
+
+.equal-contrib-note {
+  font-size: 0.75rem;
+  color: var(--global-text-color-light);
+  margin-top: 0.1rem;
+}
+
 .publications {
   .links {
     .btn {
