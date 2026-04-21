@@ -16,8 +16,5 @@
 - tag: federated-learning
   name: Federated Learning
 
-- tag: xai
-  name: XAI
-
-- tag: nlp
-  name: NLP
+- tag: model-internals
+  name: Model Internals
