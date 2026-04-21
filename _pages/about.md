@@ -6,7 +6,7 @@ subtitle: |+
   <div class="about-callout about-callout-role">
   <b>DL Research Lead</b> at the <a href="https://iol.zib.de/learn">IOL Lab</a> of <a href="https://www.zib.de/">Zuse Institute Berlin</a><br>
   <b>PhD candidate in Mathematics</b> at <a href="https://www.tu.berlin/en/math">TU Berlin</a><br>
-  <b>Advisor:</b> <a href="http://www.pokutta.com/">Prof. Dr. Sebastian Pokutta</a>
+  Advisor: <a href="http://www.pokutta.com/">Prof. Dr. Sebastian Pokutta</a>
   </div>
   <div class="about-callout about-callout-hiring"><b>We are hiring!</b> We are seeking motivated PhD students to work on Deep Learning. Reach out or directly apply <a href="http://iol.zib.de/openings">here</a>.</div>
 
@@ -27,11 +27,16 @@ social: true  # includes social icons at the bottom of the page
 My research focuses on the <a href="/#efficiency" class="tag-link">Efficiency</a> of neural networks — from weight sparsity and quantization to KV cache compression and speculative decoding — on <a href="/#ai4math" class="tag-link">AI4Math</a>, and on <a href="/#agentic-ai" class="tag-link">Agentic AI</a>. I also work on <a href="/#optimization" class="tag-link">Optimization</a>, applying Deep Learning to <a href="/#sustainability" class="tag-link">sustainability challenges</a> (e.g., forest monitoring), and more recently the post-training paradigm. At ZIB, I lead the [iol.LEARN](https://iol.zib.de/research/iol-learn.html) Deep Learning group. Please take a look at my <a href="/#all" class="tag-link">list of publications</a> and feel free to reach out for questions or potential collaborations! You can find TLDRs of some of my papers on my [blog](/blog) and a collection of interesting links and AI news [here](/ai_news).
 
 <style>
-.pub-tiles-wrap { margin: 0.8rem 0 1.4rem 0; }
-.pub-tiles-header { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 0.6rem; }
-.pub-tiles-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--global-text-color-light); }
-.pub-tiles-all { font-size: 0.78rem; color: var(--global-theme-color); text-decoration: none; }
-.pub-tiles-all:hover { text-decoration: underline; }
+.pub-tiles-wrap { margin: 1rem 0 1.4rem 0; }
+/* Sub-element header inside Research — small muted label with inline "view all" next to it. */
+.pub-tiles-header {
+  margin: 0.6rem 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--global-divider-color);
+  line-height: 1.3;
+}
+.pub-tiles-header .pub-tiles-label { margin-right: 0.6rem; }
+/* .pub-tiles-label and .pub-tiles-all styles live in _sass/_base.scss */
 .pub-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
 @media (max-width: 480px) { .pub-tiles { grid-template-columns: 1fr; } }
 .pub-tile { border: 1px solid var(--global-divider-color); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.15s ease; }

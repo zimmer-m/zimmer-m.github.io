@@ -162,25 +162,27 @@ blockquote {
   }
 }
 
-// Blog post tags
+// Blog post tags — slim outlined chip matching the universal pill geometry.
 .tag {
-  background-color: transparent;
+  background-color: transparent !important;
   color: var(--global-text-color-light) !important;
-  padding: 0.15rem 0.5rem;
+  padding: 0.05rem 0.4rem;
   border: 1px solid var(--global-divider-color);
   border-radius: 3px;
-  font-size: 0.7rem;
-  text-decoration: none;
+  font-family: var(--global-font-sans);
+  font-size: 0.66rem;
+  font-weight: 500;
+  text-decoration: none !important;
   display: inline-block;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  transition: all 0.2s ease;
+  letter-spacing: 0.05em;
+  line-height: 1.55;
+  transition: color 0.2s ease, border-color 0.2s ease;
 
   &:hover {
-    background-color: transparent;
     color: var(--global-theme-color) !important;
     border-color: var(--global-theme-color);
-    text-decoration: none;
+    text-decoration: none !important;
   }
 }
 
@@ -1283,3 +1285,485 @@ progress {
     border-color: var(--global-theme-color);
   }
 }
+
+
+/*******************************************************************************
+ * Typography & hierarchy refinements
+ * Inspired by federicobianchi.io and stevenabreu.com:
+ * serif body, quiet sans labels, gentle link underlines, less chrome.
+ ******************************************************************************/
+
+body {
+  font-family: var(--global-font-serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern", "liga", "onum";
+  // Pin Newsreader's optical-size axis so all sizes render with the same letterforms
+  // (instead of switching between "text" and "display" shapes at different sizes).
+  font-variation-settings: "opsz" 18;
+}
+
+// Headings: sans for structural labels (h2–h6), serif for page titles (h1)
+h1 {
+  font-family: var(--global-font-serif);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+h2, h3, h4, h5, h6 {
+  font-family: var(--global-font-sans);
+  letter-spacing: 0.01em;
+}
+
+// Gentle link underlines (decoration-color fades in, text color on hover)
+a, table.table a {
+  color: var(--global-text-color);
+  text-decoration: underline;
+  text-decoration-color: var(--global-divider-color);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+
+  &:hover {
+    color: var(--global-theme-color);
+    text-decoration: underline;
+    text-decoration-color: var(--global-theme-color);
+  }
+}
+
+// Navbar: flatter, quieter, sans; thin divider separates it from page content.
+.navbar {
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--global-divider-color) !important;
+  background-color: var(--global-bg-color) !important;
+  opacity: 1 !important;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+// Tighten the gap between navbar and page content (Bootstrap's mt-5 = 3rem is too much)
+body > .container.mt-5 { margin-top: 1rem !important; }
+.navbar.navbar-light {
+  .navbar-brand {
+    font-family: var(--global-font-sans);
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--global-text-color) !important;
+    text-decoration: none;
+    &:hover { color: var(--global-theme-color) !important; text-decoration: none; }
+  }
+  .navbar-nav .nav-item .nav-link {
+    font-family: var(--global-font-sans);
+    font-size: 0.88rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: var(--global-text-color-light) !important;
+    &:hover { color: var(--global-text-color) !important; }
+  }
+  .navbar-nav .nav-item.active > .nav-link {
+    color: var(--global-text-color) !important;
+    font-weight: 500;
+    background-color: inherit;
+  }
+}
+
+// Section headers: dark sans label + thin theme-color separator line.
+// Clear separation without the heavy uppercase bar. Used by CV, about, blog, talks.
+.section-header {
+  font-family: var(--global-font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.005em;
+  color: var(--global-text-color);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--global-theme-color);
+  margin-top: 1.8rem;
+  margin-bottom: 0.9rem;
+  line-height: 1.3;
+
+  a {
+    color: var(--global-text-color-light);
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-transform: none;
+    letter-spacing: 0;
+    text-decoration: none;
+    &:hover { color: var(--global-theme-color); text-decoration: none; }
+  }
+}
+
+// "view all →" suffix style — shared by news / selected-papers / pub-tiles headers.
+.section-header-link,
+.pub-tiles-all {
+  font-family: var(--global-font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--global-text-color-light) !important;
+  text-decoration: none !important;
+  &:hover { color: var(--global-theme-color) !important; text-decoration: none !important; }
+}
+
+// Talks section headers match the main .section-header look.
+.talks-section-header {
+  font-family: var(--global-font-sans) !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0.005em !important;
+  color: var(--global-text-color) !important;
+  padding-bottom: 0.4rem !important;
+  border-bottom: 1px solid var(--global-theme-color) !important;
+  margin-top: 1.8rem !important;
+  margin-bottom: 0.9rem !important;
+  line-height: 1.3 !important;
+  display: block !important;
+}
+
+// Pub-tiles label is a SUB-element (inside the about page's "Research" section),
+// so render it quieter than .section-header — small muted uppercase label.
+.pub-tiles-label {
+  font-family: var(--global-font-sans) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--global-text-color-light) !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+}
+
+// Post-content and page-content headings — matching the .section-header rhythm
+// (dark sans, non-uppercase, thin theme-color separator line underneath).
+.post .post-content,
+.post .page-content {
+  h2 {
+    font-family: var(--global-font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0.005em;
+    color: var(--global-text-color);
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--global-theme-color);
+    margin-top: 2rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.3;
+  }
+  h3 {
+    font-family: var(--global-font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0.005em;
+    color: var(--global-text-color);
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--global-divider-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.7rem;
+  }
+  h4 {
+    font-family: var(--global-font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    color: var(--global-text-color);
+    margin-top: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Page titles: blog-post header, header-bar (cv/publications/blog/talks/legal),
+// and about-page title (which lives in .profile-row, not .post-header).
+.post .post-header .post-title,
+.profile-row h1.post-title,
+.header-bar h1 {
+  font-family: var(--global-font-serif);
+  color: var(--global-text-color);
+  font-weight: 500;
+  font-size: 2.1rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.post .post-header {
+  border-bottom: 1px solid var(--global-divider-color);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.5rem;
+
+  .post-meta {
+    font-family: var(--global-font-sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+.header-bar {
+  border-bottom: 1px solid var(--global-divider-color);
+  text-align: left;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.75rem;
+
+  h2 {
+    font-family: var(--global-font-sans);
+    font-size: 0.88rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: var(--global-text-color-light);
+    margin-top: 0.3rem;
+  }
+}
+
+// About page callouts: subtle highlighted blocks — role card + hiring rule.
+// Declare the serif stack explicitly so we're not relying on inherited `.desc`
+// styles (the subtitle's <p class="desc"> auto-closes when it hits these <div>s).
+.about-callout {
+  font-family: var(--global-font-serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+
+  &.about-callout-role {
+    border-left: 3px solid var(--global-theme-color);
+    background: var(--global-code-bg-color);
+    padding: 0.7rem 0.95rem;
+    line-height: 1.6;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    // Emphasize role titles ("DL Research Lead", "PhD candidate ..."): bold only
+    // (not colored — a colored phrase reads like a link).
+    b, strong { font-weight: 700; color: inherit; }
+  }
+  &.about-callout-hiring {
+    margin-top: 0.7rem;
+    padding: 0.55rem 0.85rem;
+    border-left: 3px solid var(--global-theme-color);
+    font-size: 0.95rem;
+    color: var(--global-text-color);
+    background: var(--global-code-bg-color);
+    border-radius: 0 4px 4px 0;
+
+    b, strong { font-weight: 700; color: inherit; }
+  }
+}
+
+// Profile-row: align content to top so the image and title share a baseline.
+// Image uses the default Bootstrap col-sm-4 sizing (no artificial cap).
+.profile-row { align-items: flex-start; }
+.profile-row > .col-sm-4 figure,
+.profile-row > .col-sm-4 picture,
+.profile-row > .col-sm-4 img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  display: block;
+}
+
+// About page: desc/subtitle area — looser, no italic override
+.post-description, .desc {
+  font-family: var(--global-font-serif);
+}
+
+// Code/mono: use stack variable consistently
+code, pre, pre code {
+  font-family: var(--global-font-mono);
+}
+code {
+  font-size: 0.88em;
+}
+
+// News list: tighten and use sans for the date
+.news-list {
+  .news-entry {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+  .news-date {
+    font-family: var(--global-font-sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--global-text-color-light);
+    min-width: 60px;
+    padding-top: 0.15rem;
+  }
+  .news-content {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+}
+
+// CV table: sans for years, serif for content
+.cv .cv-time-table {
+  .cv-year {
+    font-family: var(--global-font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--global-text-color-light);
+  }
+  .cv-title {
+    font-family: var(--global-font-serif);
+    font-weight: 600;
+  }
+}
+
+// Publications: demote chunky colored badges to outlined chips, keep awards visible
+.publications {
+  ol.bibliography li {
+    .title {
+      font-family: var(--global-font-serif);
+      font-weight: 600;
+      font-size: 1.05rem;
+      line-height: 1.35;
+    }
+    .author {
+      font-family: var(--global-font-serif);
+      font-size: 0.95rem;
+    }
+    .periodical {
+      font-family: var(--global-font-sans);
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+
+      .venue-name {
+        font-style: italic;
+        color: var(--global-text-color-light);
+      }
+      .year { color: var(--global-text-color-light); opacity: 1; }
+    }
+    // Venue badges (PREPRINT, ICLR, ...) — slim outlined chips in theme color.
+    .periodical .badge,
+    .abbr .badge,
+    .abbr-tag .badge {
+      display: inline-block;
+      background: transparent !important;
+      background-color: transparent !important;
+      color: var(--global-theme-color) !important;
+      border: 1px solid var(--global-theme-color) !important;
+      padding: 0.02rem 0.4rem !important;
+      font-family: var(--global-font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.55;
+      border-radius: 3px;
+      box-shadow: none !important;
+      transform: none;
+      vertical-align: baseline;
+
+      a {
+        color: var(--global-theme-color) !important;
+        text-decoration: none !important;
+        &:hover { text-decoration: none !important; }
+      }
+    }
+    // Size the abbr wrapper so the badge sits cleanly above authors.
+    .abbr { height: auto; margin-bottom: 0.25rem; }
+    .award {
+      color: var(--global-theme-color) !important;
+      border: 1px solid var(--global-theme-color);
+    }
+    .links a.btn {
+      font-family: var(--global-font-sans);
+    }
+  }
+}
+
+// Button-like links must never be underlined (publications filter chips, pub-tile
+// buttons, series boxes, talk links, news titles).
+// NOTE: .tag-link is intentionally EXCLUDED — those render as normal inline text links.
+a.btn, .btn,
+a.pub-tile-btn, .pub-tile-btn,
+a.series-box, .series-box,
+.talk-links a,
+.publication-tags a,
+.news-list .news-title {
+  text-decoration: none !important;
+  &:hover { text-decoration: none !important; }
+}
+
+// Footer: sans, muted. Link colors depend on which footer variant renders:
+// fixed-bottom (default) sits on a dark bar; sticky-bottom sits on page bg.
+footer.fixed-bottom,
+footer.sticky-bottom {
+  font-family: var(--global-font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration-color: var(--global-theme-color);
+    }
+  }
+}
+footer.fixed-bottom a {
+  color: var(--global-footer-link-color);
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+footer.sticky-bottom a {
+  color: var(--global-text-color);
+  text-decoration-color: var(--global-divider-color);
+}
+
+// Dark-mode contrast: lift chip/tag borders and fill slightly so they separate
+// cleanly from the navy background (plain transparent borders go invisible).
+html[data-theme='dark'] {
+  .tag,
+  .tag-link,
+  .links a.btn,
+  .publication-tags .btn,
+  .pub-tile-btn,
+  .distill-link-pill {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    color: var(--global-text-color) !important;
+    &:hover {
+      background-color: rgba(77, 184, 209, 0.12) !important;
+      border-color: var(--global-theme-color) !important;
+      color: var(--global-theme-color) !important;
+    }
+  }
+  .post-list .post-preview,
+  .news-list .news-entry,
+  .talks-list li,
+  .cv .cv-time-table .cv-entry,
+  .publications ol.bibliography li .row.entry {
+    border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  // Venue badges keep theme color; just strengthen the border
+  .publications ol.bibliography li {
+    .periodical .badge,
+    .abbr .badge,
+    .abbr-tag .badge {
+      background-color: rgba(77, 184, 209, 0.08) !important;
+    }
+  }
+  // About-callout background slightly lighter than body for separation
+  .about-callout.about-callout-role,
+  .about-callout.about-callout-hiring {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  // Blog list: descriptions in muted gray (ink-white felt too heavy)
+  .post-list .post-preview .post-description,
+  .post-list .post-preview p.post-description {
+    color: var(--global-text-color-light) !important;
+  }
+}
+

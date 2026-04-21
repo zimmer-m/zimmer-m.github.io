@@ -69,11 +69,10 @@ let transTheme = () => {
 
 
 let initTheme = (theme) => {
+  // Default to light mode for first-time visitors (ignore prefers-color-scheme).
+  // Returning visitors keep their last saved preference via localStorage.
   if (theme == null || theme == 'null') {
-    const userPref = window.matchMedia;
-    if (userPref && userPref('(prefers-color-scheme: dark)').matches) {
-        theme = 'dark';
-    }
+    theme = 'light';
   }
 
   setTheme(theme);

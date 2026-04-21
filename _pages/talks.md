@@ -18,16 +18,8 @@ nav_order: 5
 .talks-section {
   margin-bottom: 2rem;
 }
-.talks-section-header {
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--global-theme-color);
-  padding-bottom: 0.3rem;
-  border-bottom: 2px solid var(--global-theme-color);
-  margin-bottom: 0.75rem;
-}
+/* Kept as a style hook; appearance inherited from global `.section-header` rule. */
+.talks-section-header { /* see _sass/_base.scss */ }
 .talks-list {
   list-style: none;
   padding: 0;

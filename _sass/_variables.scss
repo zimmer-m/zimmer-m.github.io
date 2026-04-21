@@ -48,5 +48,10 @@ $text-color-dark:     #e0e0e0 !default;  // Light grey for dark mode
 $text-color-dark-muted: #8a9bae !default;  // Blue-grey muted text for dark mode
 
 // Dark mode supplementary
-$code-bg-color-dark:      #1f2f3f !default;  // Slightly lighter than bg
-$divider-color-dark:      #2d3d4d;           // Blue-tinted divider
+$code-bg-color-dark:      #243548 !default;  // Slightly lighter than bg
+$divider-color-dark:      rgba(255, 255, 255, 0.14);  // Translucent — stays visible on any dark bg
+
+// Typography
+$font-serif: "Newsreader", Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif !default;
+$font-sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-mono:  "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace !default;
