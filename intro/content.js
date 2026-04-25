@@ -85,10 +85,6 @@ const defined = {
     {
       text: "Visiting Researcher — INRIA Paris",
       detail: "Research visit hosted by Alexandre d'Aspremont at INRIA, Feb–Apr 2026."
-    },
-    {
-      text: "MATH+ & Berlin Mathematical School",
-      detail: "Member of two of Berlin's leading mathematical research programs: the MATH+ Cluster of Excellence and the Berlin Mathematical School graduate school."
     }
   ],
 

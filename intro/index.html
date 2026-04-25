@@ -15,18 +15,6 @@
   <meta property="og:url" content="https://maxzimmer.org/intro/">
   <meta property="og:image" content="https://maxzimmer.org/assets/img/prof_pic.png">
 
-  <!-- Fonts -->
-  <style>
-    @font-face { font-family: 'Roboto'; font-style: normal; font-weight: 300; src: url('/assets/fonts/roboto-300.ttf') format('truetype'); }
-    @font-face { font-family: 'Roboto'; font-style: normal; font-weight: 400; src: url('/assets/fonts/roboto-400.ttf') format('truetype'); }
-    @font-face { font-family: 'Roboto'; font-style: normal; font-weight: 500; src: url('/assets/fonts/roboto-500.ttf') format('truetype'); }
-    @font-face { font-family: 'Roboto'; font-style: normal; font-weight: 700; src: url('/assets/fonts/roboto-700.ttf') format('truetype'); }
-    @font-face { font-family: 'Roboto Slab'; font-style: normal; font-weight: 300; src: url('/assets/fonts/roboto-slab-300.ttf') format('truetype'); }
-    @font-face { font-family: 'Roboto Slab'; font-style: normal; font-weight: 400; src: url('/assets/fonts/roboto-slab-400.ttf') format('truetype'); }
-    @font-face { font-family: 'Roboto Slab'; font-style: normal; font-weight: 500; src: url('/assets/fonts/roboto-slab-500.ttf') format('truetype'); }
-    @font-face { font-family: 'Roboto Slab'; font-style: normal; font-weight: 700; src: url('/assets/fonts/roboto-slab-700.ttf') format('truetype'); }
-  </style>
-
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
@@ -157,7 +145,7 @@
       document.getElementById('selected-work').innerHTML = `
         <div class="container">
           <h2 class="section__heading animate-on-scroll">Selected Work</h2>
-          <p class="section__tldr animate-on-scroll">Recent publications across my research areas. <a href="https://maxzimmer.org/publications/" style="color:var(--color-brand)">View all &rarr;</a></p>
+          <p class="section__tldr animate-on-scroll">Recent publications across research areas. <a class="view-all-link" href="https://maxzimmer.org/publications/">View all &rarr;</a></p>
           <div class="projects-list">
             ${d.map(p => `
               <div class="project-card animate-on-scroll">
@@ -183,7 +171,7 @@
       document.getElementById('blog').innerHTML = `
         <div class="container">
           <h2 class="section__heading animate-on-scroll">Blog</h2>
-          <p class="section__tldr animate-on-scroll">Paper TLDRs in deep learning, mathematics, and more. <a href="https://maxzimmer.org/blog/" style="color:var(--color-brand)">View all &rarr;</a></p>
+          <p class="section__tldr animate-on-scroll">Paper TLDRs in deep learning, mathematics, and more. <a class="view-all-link" href="https://maxzimmer.org/blog/">View all &rarr;</a></p>
           <div class="blog-grid">
             ${d.map(b => `
               <a class="blog-item animate-on-scroll" href="${b.url}" target="_blank" rel="noopener">
