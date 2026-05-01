@@ -1,4 +1,46 @@
+@inproceedings{muhtar2026when,
+  title={When Does Sparsity Mitigate the Curse of Depth in {LLM}s},
+  author={Dilxat Muhtar and Xinyuan Song and Sebastian Pokutta and Max Zimmer and Nico Pelleriti and Thomas Hofmann and Shiwei Liu},
+  booktitle={Forty-third International Conference on Machine Learning},
+  abstract={Recent work has demonstrated the curse of depth in large language models (LLMs), where later layers contribute less to learning and representation than earlier layers. Such under-utilization is linked to the accumulated growth of variance in Pre-Layer Normalization, which can push deep blocks toward near-identity behavior. In this paper, we demonstrate that, sparsity, beyond enabling efficiency, acts as a regulator of variance propagation and thereby improves depth utilization. Our investigation covers two sources of sparsity: (i) implicit sparsity, which emerges from training and data conditions, including weight sparsity induced by weight decay and attention sparsity induced by long-context inputs; and (ii) explicit sparsity, which is enforced by architectural design, including key/value-sharing sparsity in Grouped-Query Attention and expert-activation sparsity in Mixture-of-Experts. Our claim is thoroughly supported by controlled depth-scaling experiments and targeted layer effectiveness interventions. Across settings, we observe a consistent relationship: sparsity improves layer utilization by reducing output variance and promoting functional differentiation. We eventually distill our findings into a practical rule-of-thumb recipe for training depth-effective LLMs, yielding a notable 4.6% accuracy improvement on downstream tasks. Our results reveal sparsity, arising naturally from standard design choices, as a key yet previously overlooked mechanism for effective depth scaling in LLMs.},
+  year={2026},
+  abbr={ICML26},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2603.15389},
+  code={https://github.com/pUmpKin-Co/SparsityAndCoD},
+  selected={true},
+  tags={efficiency, model-internals},
+  preview={sparsity_curse_of_depth.png},
+  blog={https://pumpkin-co.github.io/SparsityAndCoD/}
+}
 
+@inproceedings{schiekiera2026associations,
+  title={From Associations to Activations: Comparing Behavioral and Hidden-State Semantic Geometry in LLMs},
+  author={Schiekiera, Louis and Zimmer, Max and Roux, Christophe and Pokutta, Sebastian and G{\"u}nther, Fritz},
+  booktitle={Forty-third International Conference on Machine Learning},
+  year={2026},
+  abstract={We investigate the extent to which an LLM's hidden-state geometry can be recovered from its behavior in psycholinguistic experiments. Across eight instruction-tuned transformer models, we run two experimental paradigms -- similarity-based forced choice and free association -- over a shared 5,000-word vocabulary, collecting 17.5M+ trials to build behavior-based similarity matrices. Using representational similarity analysis, we compare behavioral geometries to layerwise hidden-state similarity and benchmark against FastText, BERT, and cross-model consensus. We find that forced-choice behavior aligns substantially more with hidden-state geometry than free association. In a held-out-words regression, behavioral similarity (especially forced choice) predicts unseen hidden-state similarities beyond lexical baselines and cross-model consensus, indicating that behavior-only measurements retain recoverable information about internal semantic geometry. Finally, we discuss implications for the ability of behavioral tasks to uncover hidden cognitive states.},
+  abbr={ICML26},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2602.00628},
+  preview={semantic_geometry.png},
+  selected={true},
+  tags={model-internals}
+}
+
+@inproceedings{halbey2026lower,
+  title={Lower Bounds for Frank-Wolfe on Strongly Convex Sets},
+  author={Halbey, Jannis and Deza, Daniel and Zimmer, Max and Roux, Christophe and Stellato, Bartolomeo and Pokutta, Sebastian},
+  booktitle={Forty-third International Conference on Machine Learning},
+  year={2026},
+  abstract={We present a constructive lower bound demonstrating that Frank-Wolfe optimization requires Ω(1/√ε) iterations when both the objective function and constraint set possess smoothness and strong convexity. This result confirms that existing convergence guarantees of O(1/√ε) are optimal. We focus on a representative problem: minimizing a strongly convex quadratic over a Euclidean unit ball with the optimizer positioned at the boundary. We introduce a novel computational method for constructing worst-case trajectories and provide an analytical proof establishing our theoretical bound.},
+  abbr={ICML26},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2602.04378},
+  preview={frankwolfe_lower_bounds.png},
+  selected={true},
+  tags={optimization}
+}
 @article{geiselmann2026fast,
   title={Fast Isotopy Computation for {T}-Curves},
   author={Geiselmann, Zoe and Joswig, Michael and Kastner, Lars and Mundinger, Konrad and Pokutta, Sebastian and Spiegel, Christoph and Wack, Marcel and Zimmer, Max},
@@ -29,21 +71,7 @@
   blog={the-agentic-researcher}
 }
 
-@article{muhtar2026when,
-  title={When Does Sparsity Mitigate the Curse of Depth in {LLM}s},
-  author={Dilxat Muhtar and Xinyuan Song and Sebastian Pokutta and Max Zimmer and Nico Pelleriti and Thomas Hofmann and Shiwei Liu},
-  journal={arXiv preprint arXiv:2603.15389},
-  abstract={Recent work has demonstrated the curse of depth in large language models (LLMs), where later layers contribute less to learning and representation than earlier layers. Such under-utilization is linked to the accumulated growth of variance in Pre-Layer Normalization, which can push deep blocks toward near-identity behavior. In this paper, we demonstrate that, sparsity, beyond enabling efficiency, acts as a regulator of variance propagation and thereby improves depth utilization. Our investigation covers two sources of sparsity: (i) implicit sparsity, which emerges from training and data conditions, including weight sparsity induced by weight decay and attention sparsity induced by long-context inputs; and (ii) explicit sparsity, which is enforced by architectural design, including key/value-sharing sparsity in Grouped-Query Attention and expert-activation sparsity in Mixture-of-Experts. Our claim is thoroughly supported by controlled depth-scaling experiments and targeted layer effectiveness interventions. Across settings, we observe a consistent relationship: sparsity improves layer utilization by reducing output variance and promoting functional differentiation. We eventually distill our findings into a practical rule-of-thumb recipe for training depth-effective LLMs, yielding a notable 4.6% accuracy improvement on downstream tasks. Our results reveal sparsity, arising naturally from standard design choices, as a key yet previously overlooked mechanism for effective depth scaling in LLMs.},
-  year={2026},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2603.15389},
-  code={https://github.com/pUmpKin-Co/SparsityAndCoD},
-  selected={true},
-  tags={efficiency, model-internals},
-  preview={sparsity_curse_of_depth.png},
-  blog={https://pumpkin-co.github.io/SparsityAndCoD/}
-}
+
 
 @article{pauls2026echosat,
   title={ECHOSAT: Estimating Canopy Height Over Space And Time},
@@ -77,33 +105,7 @@
   tags={ai4math}
 }
 
-@article{schiekiera2026associations,
-  title={From Associations to Activations: Comparing Behavioral and Hidden-State Semantic Geometry in LLMs},
-  author={Schiekiera, Louis and Zimmer, Max and Roux, Christophe and Pokutta, Sebastian and G{\"u}nther, Fritz},
-  journal={arXiv preprint arXiv:2602.00628},
-  year={2026},
-  abstract={We investigate the extent to which an LLM's hidden-state geometry can be recovered from its behavior in psycholinguistic experiments. Across eight instruction-tuned transformer models, we run two experimental paradigms -- similarity-based forced choice and free association -- over a shared 5,000-word vocabulary, collecting 17.5M+ trials to build behavior-based similarity matrices. Using representational similarity analysis, we compare behavioral geometries to layerwise hidden-state similarity and benchmark against FastText, BERT, and cross-model consensus. We find that forced-choice behavior aligns substantially more with hidden-state geometry than free association. In a held-out-words regression, behavioral similarity (especially forced choice) predicts unseen hidden-state similarities beyond lexical baselines and cross-model consensus, indicating that behavior-only measurements retain recoverable information about internal semantic geometry. Finally, we discuss implications for the ability of behavioral tasks to uncover hidden cognitive states.},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2602.00628},
-  preview={semantic_geometry.png},
-  selected={true},
-  tags={model-internals}
-}
 
-@article{halbey2026lower,
-  title={Lower Bounds for Frank-Wolfe on Strongly Convex Sets},
-  author={Halbey, Jannis and Deza, Daniel and Zimmer, Max and Roux, Christophe and Stellato, Bartolomeo and Pokutta, Sebastian},
-  journal={arXiv preprint arXiv:2602.04378},
-  year={2026},
-  abstract={We present a constructive lower bound demonstrating that Frank-Wolfe optimization requires Ω(1/√ε) iterations when both the objective function and constraint set possess smoothness and strong convexity. This result confirms that existing convergence guarantees of O(1/√ε) are optimal. We focus on a representative problem: minimizing a strongly convex quadratic over a Euclidean unit ball with the optimizer positioned at the boundary. We introduce a novel computational method for constructing worst-case trajectories and provide an analytical proof establishing our theoretical bound.},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2602.04378},
-  preview={frankwolfe_lower_bounds.png},
-  selected={true},
-  tags={optimization}
-}
 
 @inproceedings{urbano2025recon,
   title={RECON: Robust symmetry discovery via Explicit Canonical Orientation Normalization},
