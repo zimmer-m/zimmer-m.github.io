@@ -12,51 +12,86 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
+    {%- comment -%} Brand name (handles empty middle_name without inserting double spaces) {%- endcomment -%}
     {%- if site.title == "blank" -%}
-        {%- capture title -%}{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}{%- endcapture -%}
-    {%- else -%}
-        {%- capture title -%}{{ site.title }}{%- endcapture -%}
-    {%- endif -%}
-    {% if page.url == '/blog/index.html' %}
-        {{ site.blog_nav_title }} | {{ title }}
-    {%- elsif page.title != "blank" and page.url != "/" -%}
-        {%- if page.title == nil or page.title == "" -%}
-            {{ page.date | date: "%Y" }} | {{ title }}
+        {%- if site.middle_name and site.middle_name != "" -%}
+            {%- assign site_name = site.first_name | append: ' ' | append: site.middle_name | append: ' ' | append: site.last_name -%}
         {%- else -%}
-            {{ page.title }} | {{ title }}
+            {%- assign site_name = site.first_name | append: ' ' | append: site.last_name -%}
         {%- endif -%}
     {%- else -%}
-        {{ title }}
+        {%- assign site_name = site.title -%}
     {%- endif -%}
-    </title>
-    <meta name="author" content="{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}" />
-    <meta name="description" content="{%- if page.description -%}{{ page.description }}{%- else -%}{{ site.description }}{%- endif -%}" />
+    {%- comment -%} Plain-text description, no HTML, normalized whitespace {%- endcomment -%}
+    {%- if page.description -%}
+        {%- assign clean_desc = page.description | strip_html | strip_newlines | normalize_whitespace | strip -%}
+    {%- else -%}
+        {%- assign clean_desc = site.description | strip_html | strip_newlines | normalize_whitespace | strip -%}
+    {%- endif -%}
+    {%- comment -%} Detect blog post (Jekyll's _posts collection) for article-specific markup {%- endcomment -%}
+    {%- assign is_post = false -%}
+    {%- if page.path contains '_posts' -%}
+        {%- assign is_post = true -%}
+    {%- endif -%}
+    {%- comment -%} Page title used identically in <title> and og:title for consistency {%- endcomment -%}
+    {%- if page.url == '/' -%}
+        {%- assign page_title = site_name -%}
+    {%- elsif page.url == '/blog/index.html' or page.url == '/blog/' -%}
+        {%- assign page_title = site.blog_nav_title | append: ' – ' | append: site_name -%}
+    {%- elsif page.title and page.title != "blank" and page.title != "" -%}
+        {%- assign page_title = page.title | append: ' – ' | append: site_name -%}
+    {%- elsif page.date -%}
+        {%- capture _yr -%}{{ page.date | date: "%Y" }}{%- endcapture -%}
+        {%- assign page_title = _yr | append: ' – ' | append: site_name -%}
+    {%- else -%}
+        {%- assign page_title = site_name -%}
+    {%- endif -%}
+    <title>{{ page_title }}</title>
+    <meta name="author" content="{{ site_name }}" />
+    <meta name="description" content="{{ clean_desc }}" />
 {%- if page.keywords or site.keywords %}
     <meta name="keywords" content="{%- if page.keywords -%}{{ page.keywords }}{%- else -%}{{ site.keywords }}{%- endif -%}" />
 {%- endif %}
 
 {%- if site.serve_og_meta %}
+    {%- comment -%} Resolve og:image once, with absolute URL (works for relative or full-URL inputs) {%- endcomment -%}
+    {%- if page.og_image -%}
+        {%- assign og_image_url = page.og_image | absolute_url -%}
+    {%- elsif site.og_image -%}
+        {%- assign og_image_url = site.og_image | absolute_url -%}
+    {%- endif -%}
 
     <!-- OpenGraph -->
-    <meta property="og:site_name" content="{{ title }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="{%- if page.title -%}{{ title }} | {{ page.title }}{%- else -%}{{ title }}{%- endif -%}" />
+    <meta property="og:site_name" content="{{ site_name }}" />
+    <meta property="og:type" content="{% if is_post %}article{% else %}website{% endif %}" />
+    <meta property="og:title" content="{{ page_title }}" />
     <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url | remove_first: 'index.html' }}" />
-    <meta property="og:description" content="{%- if page.description -%}{{ page.description }}{%- else -%}{{ site.description }}{%- endif -%}" />
-    {% if page.og_image or site.og_image -%}
-    <meta property="og:image" content="{%- if page.og_image -%}{{ page.og_image }}{%- else -%}{{ site.og_image }}{%- endif -%}" />
+    <meta property="og:description" content="{{ clean_desc }}" />
+    {%- if og_image_url %}
+    <meta property="og:image" content="{{ og_image_url }}" />
     {%- endif %}
     <meta property="og:locale" content="{{ site.lang }}" />
+    {%- if is_post %}
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+    {%- if page.last_modified_at %}
+    <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}" />
+    {%- endif %}
+    <meta property="article:author" content="{{ site_name }}" />
+    {%- if page.tags %}
+        {%- for tag in page.tags %}
+    <meta property="article:tag" content="{{ tag }}" />
+        {%- endfor %}
+    {%- endif %}
+    {%- endif %}
 
     <!-- Twitter card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="{%- if page.title -%}{{ page.title }}{%- else -%}{{ title }}{%- endif -%}" />
-    <meta name="twitter:description" content="{%- if page.description -%}{{ page.description }}{%- else -%}{{ site.description }}{%- endif -%}" />
-    {% if page.og_image or site.og_image -%}
-    <meta name="twitter:image" content="{%- if page.og_image -%}{{ page.og_image }}{%- else -%}{{ site.og_image }}{%- endif -%}" />
+    <meta name="twitter:card" content="{% if is_post and og_image_url %}summary_large_image{% else %}summary{% endif %}" />
+    <meta name="twitter:title" content="{{ page_title }}" />
+    <meta name="twitter:description" content="{{ clean_desc }}" />
+    {%- if og_image_url %}
+    <meta name="twitter:image" content="{{ og_image_url }}" />
     {%- endif %}
-    {% if site.twitter_username -%}
+    {%- if site.twitter_username %}
     <meta name="twitter:site" content="@{{ site.twitter_username }}" />
     <meta name="twitter:creator" content="@{{ site.twitter_username }}" />
     {%- endif %}
@@ -236,6 +271,36 @@
             "name": "{{ site.first_name }} {{ site.last_name }}"
           }
         }
+        {%- if is_post -%},
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ page.url | absolute_url }}"
+          },
+          "headline": {{ page.title | jsonify }},
+          "description": {{ clean_desc | jsonify }},
+          {%- if og_image_url %}
+          "image": "{{ og_image_url }}",
+          {%- endif %}
+          "datePublished": "{{ page.date | date_to_xmlschema }}",
+          "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}",
+          "author": {
+            "@type": "Person",
+            "name": "{{ site.first_name }} {{ site.last_name }}",
+            "url": "{{ site.url }}{{ site.baseurl }}/"
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "{{ site.first_name }} {{ site.last_name }}",
+            "url": "{{ site.url }}{{ site.baseurl }}/"
+          }
+          {%- if page.tags %},
+          "keywords": {{ page.tags | join: ', ' | jsonify }}
+          {%- endif %}
+        }
+        {%- endif %}
       ]
     </script>
 {%- endif %}
