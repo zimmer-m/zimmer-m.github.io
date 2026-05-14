@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2026-05-14 12:00:00+0200
-inline: false
+inline: true
 related_posts: false
 title: "PhD Defense with Distinction"
 ---
