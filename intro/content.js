@@ -3,7 +3,7 @@ const defined = {
   hero: {
     name: "Max Zimmer",
     tagline: "I study how to make deep learning efficient — and what we can discover when it is.",
-    subtitle: "Deep Learning Research Lead · PhD Candidate in Mathematics",
+    subtitle: "Deep Learning Research Lead · Postdoctoral Researcher",
     affiliations: [
       { label: "Zuse Institute Berlin", abbr: "ZIB" },
       { label: "TU Berlin", abbr: "TU Berlin" },
@@ -15,19 +15,19 @@ const defined = {
     name: "Max Zimmer",
     photo: "/assets/img/prof_pic.png",
     photoAlt: "Max Zimmer",
-    bio: "I lead the iol.LEARN deep learning research group at Zuse Institute Berlin and am a PhD candidate in Mathematics at TU Berlin, advised by Sebastian Pokutta. My research sits at the intersection of efficient deep learning, AI-driven mathematical discovery, and the development of agentic research tools.",
+    bio: "I lead the iol.LEARN deep learning research group at Zuse Institute Berlin, where I am a postdoctoral researcher. I received my PhD in Mathematics from TU Berlin under the supervision of Prof. Dr. Sebastian Pokutta. My research sits at the intersection of efficient deep learning, AI-driven mathematical discovery, and the development of agentic research tools.",
     roles: [
       { title: "Deep Learning Research Lead", org: "iol.LEARN group, Zuse Institute Berlin", url: "https://iol.zib.de/research/iol-learn.html" },
-      { title: "PhD Candidate in Mathematics", org: "Technische Universität Berlin", url: "https://www.tu.berlin/en/math" },
-      { title: "Visiting Researcher", org: "INRIA Paris (hosted by Alexandre d'Aspremont), Feb–Apr 2026", url: "https://www.di.ens.fr/~aspremon/" },
+      { title: "Postdoctoral Researcher", org: "Interactive Optimization and Learning Lab, Zuse Institute Berlin", url: "https://iol.zib.de/" },
       { title: "Member", org: "Berlin Mathematical School & MATH+ Cluster of Excellence", url: "https://mathplus.de/" }
     ],
     education: [
-      { degree: "PhD in Mathematics", inst: "TU Berlin", year: "2021–present", detail: "Advisor: Prof. Dr. Sebastian Pokutta" },
+      { degree: "PhD in Mathematics", inst: "TU Berlin", year: "2021-2026", detail: "Advisor: Prof. Dr. Sebastian Pokutta" },
       { degree: "MSc in Mathematics", inst: "TU Berlin", year: "2018–2021", detail: null },
       { degree: "BSc in Mathematics", inst: "TU Berlin", year: "2013–2017", detail: null }
     ],
     experience: [
+      { role: "Doctoral Researcher", inst: "IOL Lab, Zuse Institute Berlin", year: "2021–2026", detail: null },
       { role: "Student Research Assistant", inst: "IOL Lab, Zuse Institute Berlin", year: "2020–2021", detail: null },
       { role: "Research Intern", inst: "IST Austria", year: "2020", detail: "Hosted by Prof. Marco Mondelli" },
       { role: "Student Research Assistant", inst: "COGA Group, TU Berlin", year: "2018–2020", detail: null },
@@ -75,8 +75,8 @@ const defined = {
 
   highlights: [
     {
-      text: "ICML 2025 — Oral Presentation",
-      detail: "\"Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?\" — one of the top 1% of submissions selected for oral presentation."
+      text: "PhD Defense with Distinction",
+      detail: "\"Effective and Efficient Prune-Retrain Pipelines for Neural Network Compression\" defended at TU Berlin in 2026."
     },
     {
       text: "Deep Learning Research Lead",

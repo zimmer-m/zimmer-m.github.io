@@ -8,7 +8,7 @@ middle_name:
 last_name: Zimmer
 email: zimmer[at]zib.de
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Academic website of Max Zimmer. Deep Learning Research Lead at the IOL Lab of ZIB.
+  Academic website of Max Zimmer. Deep Learning Research Lead and Postdoctoral Researcher at the IOL Lab of ZIB.
 footer_text:
 keywords: Max Zimmer, mathematics, machine learning, deep learning, optimization, neural network pruning, sparsity, quantization, AI4Science, sustainability, TU Berlin, Zuse Institute Berlin
 
