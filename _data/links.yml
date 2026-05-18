@@ -40,3 +40,10 @@
   year: 2026
   category: essays
   description: 
+
+- title: An Intuitive Introduction to Flow-Based Language Generation
+  url: https://flow-based-llms.github.io/
+  author: Floor Eijkelboom
+  year: 2026
+  category: math & ml
+  description: "Good introduction to flow matching for language models."
