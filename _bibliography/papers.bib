@@ -55,13 +55,15 @@
   selected={true},
   tags={optimization}
 }
-@article{geiselmann2026fast,
+@inproceedings{geiselmann2026fast,
   title={Fast Isotopy Computation for {T}-Curves},
   author={Geiselmann, Zoe and Joswig, Michael and Kastner, Lars and Mundinger, Konrad and Pokutta, Sebastian and Spiegel, Christoph and Wack, Marcel and Zimmer, Max},
-  journal={arXiv preprint arXiv:2604.09221},
+  booktitle={Mathematical Software - {ICMS} 2026 - 9th International Conference, Waterloo, Canada, July 20-23, 2026, Proceedings},
+  series={Lecture Notes in Computer Science},
+  publisher={Springer},
   year={2026},
   abstract={A T-curve of degree $d$ is given by a regular unimodular triangulation of $d \cdot \Delta_2$ together with a sign distribution on its lattice points. By Viro's Patchworking Theorem, this determines the ambient isotopy type (a.k.a. real scheme) of a smooth real plane projective algebraic curve of the same degree. We present a near-quadratic time algorithm for extracting that isotopy type from the triangulation and the signs. Through a GPU-accelerated implementation, this allows one to compute billions of real schemes per second, enabling exhaustive enumeration at scale. This algorithm was essential for our recent construction of all 121 real schemes of degree seven by T-curves.},
-  abbr={Preprint},
+  abbr={ICMS26},
   bibtex_show={true},
   pdf={https://arxiv.org/abs/2604.09221},
   preview={fast_isotopy.png},
@@ -69,13 +71,15 @@
   tags={ai4math}
 }
 
-@article{zimmer2026agentic,
+@inproceedings{zimmer2026agentic,
   title={The Agentic Researcher: A Practical Guide to {AI}-Assisted Research in Mathematics and Machine Learning},
   author={Max Zimmer and Nico Pelleriti and Christophe Roux and Sebastian Pokutta},
-  journal={arXiv preprint arXiv:2603.15914},
+  booktitle={ICML 2026 Workshop: AI as a Tool for Mathematics, Computer Science, and Machine Learning},
   abstract={AI tools and agents are reshaping how researchers work, from proving theorems to training neural networks. Yet for many, it remains unclear how these tools fit into everyday research practice. This paper is a practical guide to AI-assisted research in mathematics and machine learning: We discuss how researchers can use modern AI systems productively, where these systems help most, and what kinds of guardrails are needed to use them responsibly. It is organized into three parts: (I) a five-level taxonomy of AI integration, (II) an open-source framework that, through a set of methodological rules formulated as agent prompts, turns CLI coding agents (e.g., Claude Code, Codex CLI, OpenCode) into autonomous research assistants, and (III) case studies from deep learning and mathematics. The framework runs inside a sandboxed container, works with any frontier LLM through existing CLI agents, is simple enough to install and use within minutes, and scales from personal-laptop prototyping to multi-node, multi-GPU experimentation across compute clusters. In practice, our longest autonomous session ran for over 20 hours, dispatching independent experiments across multiple nodes without human intervention. We stress that our framework is not intended to replace the researcher in the loop, but to augment them. Our code is publicly available at https://github.com/ZIB-IOL/The-Agentic-Researcher.},
   year={2026},
-  abbr={Preprint},
+  url={https://openreview.net/forum?id=vpcw03stJR},
+  abbr={Workshop @ ICML},
+  award={Oral presentation},
   bibtex_show={true},
   pdf={https://arxiv.org/abs/2603.15914},
   code={https://github.com/ZIB-IOL/The-Agentic-Researcher},
@@ -86,6 +90,20 @@
 }
 
 
+
+@inproceedings{zhou2026reasoning,
+  title={Reasoning Is More Than the Model: Harness-Aware Evaluation of Agents on Verifiable Reasoning Tasks},
+  author={Zhanke Zhou and Zongze Li and Weikai Huang and Xuan Li and Chentao Cao and Xiao Feng and Xiangyu Lu and Jinbo Hu and Menghan Lu and Yi Xie and Nico Pelleriti and Shiyang Liu and Max Zimmer and Brando Miranda and Jiangchao Yao and Bo Liu and Sanmi Koyejo and Sebastian Pokutta and Bo Han},
+  booktitle={ICML 2026 Workshop: AI as a Tool for Mathematics, Computer Science, and Machine Learning},
+  year={2026},
+  abstract={Open agents are no longer just models: they are model-harness systems whose behavior depends on tool access, control loops, execution feedback, memory, etc. Yet existing evaluations either test models without a harness or fix a single harness to compare models within a domain, obscuring how harness design shapes reasoning capability. To fill this gap, we introduce AlphaDiana, a unified system for harness-aware evaluation of open agents on verifiable reasoning tasks. AlphaDiana standardizes models, harnesses, benchmarks, execution environments, scorers, budgets, and trajectory logging, enabling controlled comparisons across both models and harnesses. We use AlphaDiana to evaluate open agents across mathematical, scientific, coding, terminal, and multimodal reasoning tasks, combining macro-level comparisons of direct inference and agentic execution with micro-level ablations of core harness capabilities. Trajectory-level analysis attributes successes and failures to reasoning, tool use, execution, state, budget, recovery, and verification, revealing that harnesses can both enable iterative problem-solving and introduce systematic errors. AlphaDiana moves agent evaluation beyond asking whether a system succeeds toward explaining why a model-harness system succeeds or fails.},
+  url={https://openreview.net/forum?id=fnHhEf0cSE},
+  abbr={Workshop @ ICML},
+  bibtex_show={true},
+  preview={alphadiana.png},
+  selected={true},
+  tags={agentic-ai}
+}
 
 @article{pauls2026echosat,
   title={ECHOSAT: Estimating Canopy Height Over Space And Time},
