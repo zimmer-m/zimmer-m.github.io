@@ -22,26 +22,26 @@
   venue: 41st International Conference on Machine Learning (ICML)
   location: Vienna, AT
   link: https://icml.cc/Conferences/2024
-- date: 2024-10-16
-  venue: Google AI Connect Conference
-  location: Berlin, DE
-  link: https://rsvp.withgoogle.com/events/google-ai-connect-berlin
 - date: 2024-10-01
   venue: Google Responsible AI Summit
   location: Paris, FR
   link: https://rsvp.withgoogle.com/events/responsible_ai_summit_084fe4_a9b712_2d7fc8_2f7660/accueil
+- date: 2024-10-16
+  venue: Google AI Connect Conference
+  location: Berlin, DE
+  link: https://rsvp.withgoogle.com/events/google-ai-connect-berlin
 - date: 2025-04-26
   venue: 13th International Conference on Learning Representations (ICLR)
   location: Singapore
   link: https://iclr.cc/Conferences/2025
-- date: 2025-05-03
-  venue: 28th International Conference on Artificial Intelligence and Statistics (AISTATS)
-  location: Phuket, TH
-  link: https://aistats.org/aistats2025/
 - date: 2025-05-01
   venue: 7th DOxML Conference
   location: Kyoto, JP
   link: https://doml.zib.de/previous/doml2025.html
+- date: 2025-05-03
+  venue: 28th International Conference on Artificial Intelligence and Statistics (AISTATS)
+  location: Phuket, TH
+  link: https://aistats.org/aistats2025/
 - date: 2025-07-13
   venue: 42nd International Conference on Machine Learning (ICML)
   location: Vancouver, CA
@@ -62,3 +62,7 @@
   venue: Conference on Parsimony and Learning
   location: Tübingen, DE
   link: https://cpal.cc
+- date: 2026-07-28
+  venue: ai4math Workshop 2026
+  location: Potsdam, DE
+  link: https://www.ai4math.de/events/other/ai-workshop-ai4math-2026-07/

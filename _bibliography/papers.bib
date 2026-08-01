@@ -13,6 +13,54 @@
   tags={efficiency}
 }
 
+@inproceedings{geiselmann2026fast,
+  title={Fast Isotopy Computation for {T}-Curves},
+  author={Geiselmann, Zoe and Joswig, Michael and Kastner, Lars and Mundinger, Konrad and Pokutta, Sebastian and Spiegel, Christoph and Wack, Marcel and Zimmer, Max},
+  booktitle={Mathematical Software - {ICMS} 2026 - 9th International Conference, Waterloo, Canada, July 20-23, 2026, Proceedings},
+  series={Lecture Notes in Computer Science},
+  publisher={Springer},
+  year={2026},
+  abstract={A T-curve of degree $d$ is given by a regular unimodular triangulation of $d \cdot \Delta_2$ together with a sign distribution on its lattice points. By Viro's Patchworking Theorem, this determines the ambient isotopy type (a.k.a. real scheme) of a smooth real plane projective algebraic curve of the same degree. We present a near-quadratic time algorithm for extracting that isotopy type from the triangulation and the signs. Through a GPU-accelerated implementation, this allows one to compute billions of real schemes per second, enabling exhaustive enumeration at scale. This algorithm was essential for our recent construction of all 121 real schemes of degree seven by T-curves.},
+  abbr={ICMS26},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2604.09221},
+  preview={fast_isotopy.png},
+  selected={true},
+  tags={ai4math}
+}
+
+@inproceedings{zhou2026reasoning,
+  title={Reasoning Is More Than the Model: Harness-Aware Evaluation of Agents on Verifiable Reasoning Tasks},
+  author={Zhanke Zhou and Zongze Li and Weikai Huang and Xuan Li and Chentao Cao and Xiao Feng and Xiangyu Lu and Jinbo Hu and Menghan Lu and Yi Xie and Nico Pelleriti and Shiyang Liu and Max Zimmer and Brando Miranda and Jiangchao Yao and Bo Liu and Sanmi Koyejo and Sebastian Pokutta and Bo Han},
+  booktitle={3rd AI for Math Workshop: Toward Self-Evolving Scientific Agents},
+  year={2026},
+  abstract={Open agents are no longer just models: they are model-harness systems whose behavior depends on tool access, control loops, execution feedback, memory, etc. Yet existing evaluations either test models without a harness or fix a single harness to compare models within a domain, obscuring how harness design shapes reasoning capability. To fill this gap, we introduce AlphaDiana, a unified system for harness-aware evaluation of open agents on verifiable reasoning tasks. AlphaDiana standardizes models, harnesses, benchmarks, execution environments, scorers, budgets, and trajectory logging, enabling controlled comparisons across both models and harnesses. We use AlphaDiana to evaluate open agents across mathematical, scientific, coding, terminal, and multimodal reasoning tasks, combining macro-level comparisons of direct inference and agentic execution with micro-level ablations of core harness capabilities. Trajectory-level analysis attributes successes and failures to reasoning, tool use, execution, state, budget, recovery, and verification, revealing that harnesses can both enable iterative problem-solving and introduce systematic errors. AlphaDiana moves agent evaluation beyond asking whether a system succeeds toward explaining why a model-harness system succeeds or fails.},
+  url={https://openreview.net/forum?id=4vARlk9o95},
+  abbr={Workshop @ ICML},
+  bibtex_show={true},
+  preview={alphadiana.png},
+  selected={true},
+  tags={agentic-ai}
+}
+
+@inproceedings{zimmer2026agentic,
+  title={The Agentic Researcher: A Practical Guide to {AI}-Assisted Research in Mathematics and Machine Learning},
+  author={Max Zimmer and Nico Pelleriti and Christophe Roux and Sebastian Pokutta},
+  booktitle={ICML 2026 Workshop: AI as a Tool for Mathematics, Computer Science, and Machine Learning},
+  abstract={AI tools and agents are reshaping how researchers work, from proving theorems to training neural networks. Yet for many, it remains unclear how these tools fit into everyday research practice. This paper is a practical guide to AI-assisted research in mathematics and machine learning: We discuss how researchers can use modern AI systems productively, where these systems help most, and what kinds of guardrails are needed to use them responsibly. It is organized into three parts: (I) a five-level taxonomy of AI integration, (II) an open-source framework that, through a set of methodological rules formulated as agent prompts, turns CLI coding agents (e.g., Claude Code, Codex CLI, OpenCode) into autonomous research assistants, and (III) case studies from deep learning and mathematics. The framework runs inside a sandboxed container, works with any frontier LLM through existing CLI agents, is simple enough to install and use within minutes, and scales from personal-laptop prototyping to multi-node, multi-GPU experimentation across compute clusters. In practice, our longest autonomous session ran for over 20 hours, dispatching independent experiments across multiple nodes without human intervention. We stress that our framework is not intended to replace the researcher in the loop, but to augment them. Our code is publicly available at https://github.com/ZIB-IOL/The-Agentic-Researcher.},
+  year={2026},
+  url={https://openreview.net/forum?id=vpcw03stJR},
+  abbr={Workshop @ ICML},
+  award={Oral presentation},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2603.15914},
+  code={https://github.com/ZIB-IOL/The-Agentic-Researcher},
+  selected={true},
+  preview={agentic_researcher.png},
+  tags={agentic-ai},
+  blog={the-agentic-researcher}
+}
+
 @article{pelleriti2026what,
   title={What Do Evolutionary Coding Agents Evolve?},
   author={Nico Pelleriti and Sree Harsha Nelaturu and Zhanke Zhou and Zongze Li and Max Zimmer and Bo Han and Sebastian Pokutta},
@@ -28,22 +76,6 @@
   selected={true},
   tags={agentic-ai},
   blog={/what-do-evolutionary-coding-agents-evolve/}
-}
-
-@inproceedings{muhtar2026when,
-  title={When Does Sparsity Mitigate the Curse of Depth in {LLM}s},
-  author={Dilxat Muhtar and Xinyuan Song and Sebastian Pokutta and Max Zimmer and Nico Pelleriti and Thomas Hofmann and Shiwei Liu},
-  booktitle={Forty-third International Conference on Machine Learning},
-  abstract={Recent work has demonstrated the curse of depth in large language models (LLMs), where later layers contribute less to learning and representation than earlier layers. Such under-utilization is linked to the accumulated growth of variance in Pre-Layer Normalization, which can push deep blocks toward near-identity behavior. In this paper, we demonstrate that, sparsity, beyond enabling efficiency, acts as a regulator of variance propagation and thereby improves depth utilization. Our investigation covers two sources of sparsity: (i) implicit sparsity, which emerges from training and data conditions, including weight sparsity induced by weight decay and attention sparsity induced by long-context inputs; and (ii) explicit sparsity, which is enforced by architectural design, including key/value-sharing sparsity in Grouped-Query Attention and expert-activation sparsity in Mixture-of-Experts. Our claim is thoroughly supported by controlled depth-scaling experiments and targeted layer effectiveness interventions. Across settings, we observe a consistent relationship: sparsity improves layer utilization by reducing output variance and promoting functional differentiation. We eventually distill our findings into a practical rule-of-thumb recipe for training depth-effective LLMs, yielding a notable 4.6% accuracy improvement on downstream tasks. Our results reveal sparsity, arising naturally from standard design choices, as a key yet previously overlooked mechanism for effective depth scaling in LLMs.},
-  year={2026},
-  abbr={ICML26},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2603.15389},
-  code={https://github.com/pUmpKin-Co/SparsityAndCoD},
-  selected={true},
-  tags={efficiency, model-internals},
-  preview={sparsity_curse_of_depth.png},
-  blog={https://pumpkin-co.github.io/SparsityAndCoD/}
 }
 
 @inproceedings{schiekiera2026associations,
@@ -73,54 +105,21 @@
   selected={true},
   tags={optimization}
 }
-@inproceedings{geiselmann2026fast,
-  title={Fast Isotopy Computation for {T}-Curves},
-  author={Geiselmann, Zoe and Joswig, Michael and Kastner, Lars and Mundinger, Konrad and Pokutta, Sebastian and Spiegel, Christoph and Wack, Marcel and Zimmer, Max},
-  booktitle={Mathematical Software - {ICMS} 2026 - 9th International Conference, Waterloo, Canada, July 20-23, 2026, Proceedings},
-  series={Lecture Notes in Computer Science},
-  publisher={Springer},
+
+@inproceedings{muhtar2026when,
+  title={When Does Sparsity Mitigate the Curse of Depth in {LLM}s},
+  author={Dilxat Muhtar and Xinyuan Song and Sebastian Pokutta and Max Zimmer and Nico Pelleriti and Thomas Hofmann and Shiwei Liu},
+  booktitle={Forty-third International Conference on Machine Learning},
+  abstract={Recent work has demonstrated the curse of depth in large language models (LLMs), where later layers contribute less to learning and representation than earlier layers. Such under-utilization is linked to the accumulated growth of variance in Pre-Layer Normalization, which can push deep blocks toward near-identity behavior. In this paper, we demonstrate that, sparsity, beyond enabling efficiency, acts as a regulator of variance propagation and thereby improves depth utilization. Our investigation covers two sources of sparsity: (i) implicit sparsity, which emerges from training and data conditions, including weight sparsity induced by weight decay and attention sparsity induced by long-context inputs; and (ii) explicit sparsity, which is enforced by architectural design, including key/value-sharing sparsity in Grouped-Query Attention and expert-activation sparsity in Mixture-of-Experts. Our claim is thoroughly supported by controlled depth-scaling experiments and targeted layer effectiveness interventions. Across settings, we observe a consistent relationship: sparsity improves layer utilization by reducing output variance and promoting functional differentiation. We eventually distill our findings into a practical rule-of-thumb recipe for training depth-effective LLMs, yielding a notable 4.6% accuracy improvement on downstream tasks. Our results reveal sparsity, arising naturally from standard design choices, as a key yet previously overlooked mechanism for effective depth scaling in LLMs.},
   year={2026},
-  abstract={A T-curve of degree $d$ is given by a regular unimodular triangulation of $d \cdot \Delta_2$ together with a sign distribution on its lattice points. By Viro's Patchworking Theorem, this determines the ambient isotopy type (a.k.a. real scheme) of a smooth real plane projective algebraic curve of the same degree. We present a near-quadratic time algorithm for extracting that isotopy type from the triangulation and the signs. Through a GPU-accelerated implementation, this allows one to compute billions of real schemes per second, enabling exhaustive enumeration at scale. This algorithm was essential for our recent construction of all 121 real schemes of degree seven by T-curves.},
-  abbr={ICMS26},
+  abbr={ICML26},
   bibtex_show={true},
-  pdf={https://arxiv.org/abs/2604.09221},
-  preview={fast_isotopy.png},
+  pdf={https://arxiv.org/abs/2603.15389},
+  code={https://github.com/pUmpKin-Co/SparsityAndCoD},
   selected={true},
-  tags={ai4math}
-}
-
-@inproceedings{zimmer2026agentic,
-  title={The Agentic Researcher: A Practical Guide to {AI}-Assisted Research in Mathematics and Machine Learning},
-  author={Max Zimmer and Nico Pelleriti and Christophe Roux and Sebastian Pokutta},
-  booktitle={ICML 2026 Workshop: AI as a Tool for Mathematics, Computer Science, and Machine Learning},
-  abstract={AI tools and agents are reshaping how researchers work, from proving theorems to training neural networks. Yet for many, it remains unclear how these tools fit into everyday research practice. This paper is a practical guide to AI-assisted research in mathematics and machine learning: We discuss how researchers can use modern AI systems productively, where these systems help most, and what kinds of guardrails are needed to use them responsibly. It is organized into three parts: (I) a five-level taxonomy of AI integration, (II) an open-source framework that, through a set of methodological rules formulated as agent prompts, turns CLI coding agents (e.g., Claude Code, Codex CLI, OpenCode) into autonomous research assistants, and (III) case studies from deep learning and mathematics. The framework runs inside a sandboxed container, works with any frontier LLM through existing CLI agents, is simple enough to install and use within minutes, and scales from personal-laptop prototyping to multi-node, multi-GPU experimentation across compute clusters. In practice, our longest autonomous session ran for over 20 hours, dispatching independent experiments across multiple nodes without human intervention. We stress that our framework is not intended to replace the researcher in the loop, but to augment them. Our code is publicly available at https://github.com/ZIB-IOL/The-Agentic-Researcher.},
-  year={2026},
-  url={https://openreview.net/forum?id=vpcw03stJR},
-  abbr={Workshop @ ICML},
-  award={Oral presentation},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2603.15914},
-  code={https://github.com/ZIB-IOL/The-Agentic-Researcher},
-  selected={true},
-  preview={agentic_researcher.png},
-  tags={agentic-ai},
-  blog={the-agentic-researcher}
-}
-
-
-
-@inproceedings{zhou2026reasoning,
-  title={Reasoning Is More Than the Model: Harness-Aware Evaluation of Agents on Verifiable Reasoning Tasks},
-  author={Zhanke Zhou and Zongze Li and Weikai Huang and Xuan Li and Chentao Cao and Xiao Feng and Xiangyu Lu and Jinbo Hu and Menghan Lu and Yi Xie and Nico Pelleriti and Shiyang Liu and Max Zimmer and Brando Miranda and Jiangchao Yao and Bo Liu and Sanmi Koyejo and Sebastian Pokutta and Bo Han},
-  booktitle={3rd AI for Math Workshop: Toward Self-Evolving Scientific Agents},
-  year={2026},
-  abstract={Open agents are no longer just models: they are model-harness systems whose behavior depends on tool access, control loops, execution feedback, memory, etc. Yet existing evaluations either test models without a harness or fix a single harness to compare models within a domain, obscuring how harness design shapes reasoning capability. To fill this gap, we introduce AlphaDiana, a unified system for harness-aware evaluation of open agents on verifiable reasoning tasks. AlphaDiana standardizes models, harnesses, benchmarks, execution environments, scorers, budgets, and trajectory logging, enabling controlled comparisons across both models and harnesses. We use AlphaDiana to evaluate open agents across mathematical, scientific, coding, terminal, and multimodal reasoning tasks, combining macro-level comparisons of direct inference and agentic execution with micro-level ablations of core harness capabilities. Trajectory-level analysis attributes successes and failures to reasoning, tool use, execution, state, budget, recovery, and verification, revealing that harnesses can both enable iterative problem-solving and introduce systematic errors. AlphaDiana moves agent evaluation beyond asking whether a system succeeds toward explaining why a model-harness system succeeds or fails.},
-  url={https://openreview.net/forum?id=4vARlk9o95},
-  abbr={Workshop @ ICML},
-  bibtex_show={true},
-  preview={alphadiana.png},
-  selected={true},
-  tags={agentic-ai}
+  tags={efficiency, model-internals},
+  preview={sparsity_curse_of_depth.png},
+  blog={https://pumpkin-co.github.io/SparsityAndCoD/}
 }
 
 @article{pauls2026echosat,
@@ -155,21 +154,6 @@
   tags={ai4math}
 }
 
-
-
-@inproceedings{urbano2025recon,
-  title={RECON: Robust symmetry discovery via Explicit Canonical Orientation Normalization},
-  author={Urbano, Alonso and Romero, David W and Zimmer, Max and Pokutta, Sebastian},
-  booktitle={The Fourteenth International Conference on Learning Representations},
-  year={2026},
-  abstract      = {Real-world data often exhibits unknown or approximate symmetries, yet existing equivariant networks must commit to a fixed transformation group prior to training, e.g., continuous SO(2) rotations. This mismatch degrades performance when the actual data symmetries differ from those in the transformation group. We introduce RECON, a framework to discover each input's intrinsic symmetry distribution from unlabeled data. RECON leverages class-pose decompositions and applies a data-driven normalization to align arbitrary reference frames into a common natural pose, yielding directly comparable and interpretable symmetry descriptors. We demonstrate effective symmetry discovery on 2D image benchmarks and -- for the first time -- extend it to 3D transformation groups, paving the way towards more flexible equivariant modeling.},
-  abbr={ICLR26},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2505.13289},
-  preview={recon.png},
-  selected={true},
-  tags={efficiency}
-}
 @inproceedings{pelleriti2025neural,
   title={Neural Sum-of-Squares: Certifying the Nonnegativity of Polynomials with Transformers},
   author={Nico Pelleriti and Christoph Spiegel and Shiwei Liu and David Mart{\'i}nez-Rubio and Max Zimmer and Sebastian Pokutta},
@@ -185,21 +169,18 @@
   code={https://github.com/ZIB-IOL/Neural-Sum-of-Squares},
 }
 
-
-
-@article{zimmer2025sparseswaps,
-  title={SparseSwaps: Tractable LLM Pruning Mask Refinement at Scale},
-  author={Max Zimmer and Christophe Roux and Moritz Wagner and Deborah Hendrych and Sebastian Pokutta},
-  journal={arXiv preprint arXiv:2512.10922},
-  year={2025},
-  abstract      = {The resource requirements of Neural Networks can be significantly reduced through pruning -- the removal of seemingly less important parameters. However, with the rise of Large Language Models (LLMs), full retraining to recover pruning-induced performance degradation is often prohibitive and classical approaches such as global magnitude pruning are suboptimal on Transformer architectures. State-of-the-art methods hence solve a layer-wise mask selection problem, the problem of finding a pruning mask which minimizes the per-layer pruning error on a small set of calibration data. Exactly solving this problem to optimality using Integer Programming (IP) solvers is computationally infeasible due to its combinatorial nature and the size of the search space, and existing approaches therefore rely on approximations or heuristics. In this work, we demonstrate that the mask selection problem can be made drastically more tractable at LLM scale. To that end, we decouple the rows by enforcing equal sparsity levels per row. This allows us to derive optimal 1-swaps (exchanging one kept and one pruned weight) that can be computed efficiently using the Gram matrix of the calibration data. Using these observations, we propose a tractable and simple 1-swap algorithm that warm starts from any pruning mask, runs efficiently on GPUs at LLM scale, and is essentially hyperparameter-free. We demonstrate that our approach reduces per-layer pruning error by up to 60% over Wanda (Sun et al., 2023) and consistently improves perplexity and zero-shot accuracy across state-of-the-art GPT architectures.},
-  abbr={Preprint},
+@inproceedings{urbano2025recon,
+  title={RECON: Robust symmetry discovery via Explicit Canonical Orientation Normalization},
+  author={Urbano, Alonso and Romero, David W and Zimmer, Max and Pokutta, Sebastian},
+  booktitle={The Fourteenth International Conference on Learning Representations},
+  year={2026},
+  abstract      = {Real-world data often exhibits unknown or approximate symmetries, yet existing equivariant networks must commit to a fixed transformation group prior to training, e.g., continuous SO(2) rotations. This mismatch degrades performance when the actual data symmetries differ from those in the transformation group. We introduce RECON, a framework to discover each input's intrinsic symmetry distribution from unlabeled data. RECON leverages class-pose decompositions and applies a data-driven normalization to align arbitrary reference frames into a common natural pose, yielding directly comparable and interpretable symmetry descriptors. We demonstrate effective symmetry discovery on 2D image benchmarks and -- for the first time -- extend it to 3D transformation groups, paving the way towards more flexible equivariant modeling.},
+  abbr={ICLR26},
   bibtex_show={true},
-  pdf={https://arxiv.org/abs/2512.10922},
-  preview={sparseswaps.png},
+  pdf={https://arxiv.org/abs/2505.13289},
+  preview={recon.png},
   selected={true},
-  tags={efficiency},
-  code={https://github.com/ZIB-IOL/SparseSwaps}
+  tags={efficiency}
 }
 
 @article{kuzinowicz2025objective,
@@ -215,6 +196,21 @@
   selected={true},
   tags={optimization},
   code={https://github.com/ZIB-IOL/BitRoundingAlmostSymmetries}
+}
+
+@article{zimmer2025sparseswaps,
+  title={SparseSwaps: Tractable LLM Pruning Mask Refinement at Scale},
+  author={Max Zimmer and Christophe Roux and Moritz Wagner and Deborah Hendrych and Sebastian Pokutta},
+  journal={arXiv preprint arXiv:2512.10922},
+  year={2025},
+  abstract      = {The resource requirements of Neural Networks can be significantly reduced through pruning -- the removal of seemingly less important parameters. However, with the rise of Large Language Models (LLMs), full retraining to recover pruning-induced performance degradation is often prohibitive and classical approaches such as global magnitude pruning are suboptimal on Transformer architectures. State-of-the-art methods hence solve a layer-wise mask selection problem, the problem of finding a pruning mask which minimizes the per-layer pruning error on a small set of calibration data. Exactly solving this problem to optimality using Integer Programming (IP) solvers is computationally infeasible due to its combinatorial nature and the size of the search space, and existing approaches therefore rely on approximations or heuristics. In this work, we demonstrate that the mask selection problem can be made drastically more tractable at LLM scale. To that end, we decouple the rows by enforcing equal sparsity levels per row. This allows us to derive optimal 1-swaps (exchanging one kept and one pruned weight) that can be computed efficiently using the Gram matrix of the calibration data. Using these observations, we propose a tractable and simple 1-swap algorithm that warm starts from any pruning mask, runs efficiently on GPUs at LLM scale, and is essentially hyperparameter-free. We demonstrate that our approach reduces per-layer pruning error by up to 60% over Wanda (Sun et al., 2023) and consistently improves perplexity and zero-shot accuracy across state-of-the-art GPT architectures.},
+  abbr={Preprint},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2512.10922},
+  preview={sparseswaps.png},
+  selected={true},
+  tags={efficiency},
+  code={https://github.com/ZIB-IOL/SparseSwaps}
 }
 
 @article{wagner2025freelunchllmcompression,
@@ -247,8 +243,6 @@
   equal_contribution={2}
 }
 
-
-
 @inproceedings{kera2025computationalalgebraattentiontransformer,
   title={Computational Algebra with Attention: Transformer Oracles for Border Basis Algorithms},
   author={Hiroshi Kera and Nico Pelleriti and Yuki Ishihara and Max Zimmer and Sebastian Pokutta},
@@ -264,44 +258,6 @@
   tags={ai4math},
   code={https://github.com/HiroshiKERA/OracleBorderBasis},
   poster={OBBA-poster-NeurIPS.pdf}
-}
-
-
-
-@inproceedings{mundinger2025neural,
-  title={Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?},
-  author={Mundinger, Konrad and Zimmer, Max and Kiem, Aldo and Spiegel, Christoph and Pokutta, Sebastian},
-  booktitle={Forty-second International Conference on Machine Learning},
-  year={2025},
-  url={https://openreview.net/forum?id=7Tp9zjP9At},
-  abstract      = {We demonstrate how neural networks can drive mathematical discovery through a case study of the Hadwiger-Nelson problem, a long-standing open problem from discrete geometry and combinatorics about coloring the plane avoiding monochromatic unit-distance pairs. Using neural networks as approximators, we reformulate this mixed discrete-continuous geometric coloring problem as an optimization task with a probabilistic, differentiable loss function. This enables gradient-based exploration of admissible configurations that most significantly led to the discovery of two novel six-colorings, providing the first improvements in thirty years to the off-diagonal variant of the original problem (Mundinger et al., 2024a). Here, we establish the underlying machine learning approach used to obtain these results and demonstrate its broader applicability through additional results and numerical insights.},
-  abbr={ICML25},
-  award={Oral presentation, top 1%},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2501.18527},
-  preview={colordreaming.png},
-  selected={true},
-  tags={ai4math},
-  blog={blog/2025/neural-discovery-in-mathematics-do-machines-dream-of-colored-planes},
-  code={https://github.com/ZIB-IOL/neural-discovery-icml25},
-  poster={NeuralDiscovery-poster-ICML.pdf}
-}
-
-@inproceedings{fayad2025dunia,
-  title={DUNIA: Pixel-Sized Embeddings via Cross-Modal Alignment for Earth Observation Applications},
-  author={Fayad, Ibrahim and Zimmer, Max and Schwartz, Martin and Ciais, Philippe and Gieseke, Fabian and Belouze, Gabriel and Brood, Sarah and De Truchis, Aurelien and d'Aspremont, Alexandre},
-  booktitle={Forty-second International Conference on Machine Learning},
-  year={2025},
-  url={https://openreview.net/forum?id=JXCiQteuOv},
-  abstract      = {Significant efforts have been directed towards adapting self-supervised multimodal learning for Earth observation applications. However, existing methods produce coarse patch-sized embeddings, limiting their effectiveness and integration with other modalities like LiDAR. To close this gap, we present DUNIA, an approach to learn pixel-sized embeddings through cross-modal alignment between images and full-waveform LiDAR data. As the model is trained in a contrastive manner, the embeddings can be directly leveraged in the context of a variety of environmental monitoring tasks in a zero-shot setting. In our experiments, we demonstrate the effectiveness of the embeddings for seven such tasks (canopy height mapping, fractional canopy cover, land cover mapping, tree species identification, plant area index, crop type classification, and per-pixel waveform-based vertical structure mapping). The results show that the embeddings, along with zero-shot classifiers, often outperform specialized supervised models, even in low data regimes. In the fine-tuning setting, we show strong low-shot capabilities with performances near or better than state-of-the-art on five out of six tasks.},
-  abbr={ICML25},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2502.17066},
-  preview={dunia.png},
-  selected={true},
-  tags={sustainability},
-  code={https://github.com/AI4Forest/DUNIA},
-  poster={DUNIA-poster-ICML.pdf}
 }
 
 @inproceedings{pelleriti2025approximatinglatentmanifoldsneural,
@@ -340,6 +296,42 @@
   code={https://github.com/AI4Forest/Europe-Temporal-Canopy-Height},
   poster={TemporalCanopy-poster-ICML.pdf},
   equal_contribution={3}
+}
+
+@inproceedings{fayad2025dunia,
+  title={DUNIA: Pixel-Sized Embeddings via Cross-Modal Alignment for Earth Observation Applications},
+  author={Fayad, Ibrahim and Zimmer, Max and Schwartz, Martin and Ciais, Philippe and Gieseke, Fabian and Belouze, Gabriel and Brood, Sarah and De Truchis, Aurelien and d'Aspremont, Alexandre},
+  booktitle={Forty-second International Conference on Machine Learning},
+  year={2025},
+  url={https://openreview.net/forum?id=JXCiQteuOv},
+  abstract      = {Significant efforts have been directed towards adapting self-supervised multimodal learning for Earth observation applications. However, existing methods produce coarse patch-sized embeddings, limiting their effectiveness and integration with other modalities like LiDAR. To close this gap, we present DUNIA, an approach to learn pixel-sized embeddings through cross-modal alignment between images and full-waveform LiDAR data. As the model is trained in a contrastive manner, the embeddings can be directly leveraged in the context of a variety of environmental monitoring tasks in a zero-shot setting. In our experiments, we demonstrate the effectiveness of the embeddings for seven such tasks (canopy height mapping, fractional canopy cover, land cover mapping, tree species identification, plant area index, crop type classification, and per-pixel waveform-based vertical structure mapping). The results show that the embeddings, along with zero-shot classifiers, often outperform specialized supervised models, even in low data regimes. In the fine-tuning setting, we show strong low-shot capabilities with performances near or better than state-of-the-art on five out of six tasks.},
+  abbr={ICML25},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2502.17066},
+  preview={dunia.png},
+  selected={true},
+  tags={sustainability},
+  code={https://github.com/AI4Forest/DUNIA},
+  poster={DUNIA-poster-ICML.pdf}
+}
+
+@inproceedings{mundinger2025neural,
+  title={Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?},
+  author={Mundinger, Konrad and Zimmer, Max and Kiem, Aldo and Spiegel, Christoph and Pokutta, Sebastian},
+  booktitle={Forty-second International Conference on Machine Learning},
+  year={2025},
+  url={https://openreview.net/forum?id=7Tp9zjP9At},
+  abstract      = {We demonstrate how neural networks can drive mathematical discovery through a case study of the Hadwiger-Nelson problem, a long-standing open problem from discrete geometry and combinatorics about coloring the plane avoiding monochromatic unit-distance pairs. Using neural networks as approximators, we reformulate this mixed discrete-continuous geometric coloring problem as an optimization task with a probabilistic, differentiable loss function. This enables gradient-based exploration of admissible configurations that most significantly led to the discovery of two novel six-colorings, providing the first improvements in thirty years to the off-diagonal variant of the original problem (Mundinger et al., 2024a). Here, we establish the underlying machine learning approach used to obtain these results and demonstrate its broader applicability through additional results and numerical insights.},
+  abbr={ICML25},
+  award={Oral presentation, top 1%},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2501.18527},
+  preview={colordreaming.png},
+  selected={true},
+  tags={ai4math},
+  blog={blog/2025/neural-discovery-in-mathematics-do-machines-dream-of-colored-planes},
+  code={https://github.com/ZIB-IOL/neural-discovery-icml25},
+  poster={NeuralDiscovery-poster-ICML.pdf}
 }
 
 @inbook{ZimmerSpiegelPokutta+2025+137+168,
@@ -381,7 +373,6 @@ url={https://openreview.net/forum?id=iso0KV2HVq},
   tags={efficiency}
 }
 
-
 @InProceedings{roux2024byzantine,
   author        = {Christophe Roux and Max Zimmer and Sebastian Pokutta},
   title         = {On the Byzantine-Resilience of Distillation-Based Federated Learning},
@@ -400,29 +391,6 @@ url={https://openreview.net/forum?id=iso0KV2HVq},
   poster={FedDistill-poster-ICLR.pdf},
   equal_contribution={2}
 }
-
-
-
-@InProceedings{pauls2024estimating,
-title={Estimating Canopy Height at Scale},
-author={Jan Pauls and Max Zimmer and Una M. Kelly and Martin Schwartz and Sassan Saatchi and Philippe Ciais and Sebastian Pokutta and Martin Brandt and Fabian Gieseke},
-booktitle={Forty-first International Conference on Machine Learning},
-year={2024},
-url={https://openreview.net/forum?id=ZzCY0fRver},
-abstract      = {We propose a framework for global-scale canopy height estimation based on satellite data. Our model leverages advanced data preprocessing techniques, resorts to a novel loss function designed to counter geolocation inaccuracies inherent in the ground-truth height measurements, and employs data from the Shuttle Radar Topography Mission to effectively filter out erroneous labels in mountainous regions, enhancing the reliability of our predictions in those areas. A comparison between predictions and ground-truth labels yields an MAE / RMSE of 2.43 / 4.73 (meters) overall and 4.45 / 6.72 (meters) for trees taller than five meters, which depicts a substantial improvement compared to existing global-scale maps. The resulting height map as well as the underlying framework will facilitate and enhance ecological analyses at a global scale, including, but not limited to, large-scale forest and biomass monitoring.},
-abbr={ICML24},
-bibtex_show={true},
-pdf={https://arxiv.org/abs/2406.01076},
-code={https://github.com/AI4Forest/Global-Canopy-Height-Map},
-preview={canopy_height.png},
-poster={Canopy-poster-ICML.pdf},
-selected={true},
-custom={Earth Engine|https://worldwidemap.projects.earthengine.app/view/canopy-height-2020},
-tags={sustainability},
-blog={blog/2025/estimating-canopy-height-at-scale/}
-}
-
-
 
 @Article{mundinger2024extending,
   author        = {Konrad Mundinger and Sebastian Pokutta and Christoph Spiegel and Max Zimmer},
@@ -443,7 +411,24 @@ blog={blog/2025/estimating-canopy-height-at-scale/}
   tags={ai4math}
 }
 
-
+@InProceedings{pauls2024estimating,
+title={Estimating Canopy Height at Scale},
+author={Jan Pauls and Max Zimmer and Una M. Kelly and Martin Schwartz and Sassan Saatchi and Philippe Ciais and Sebastian Pokutta and Martin Brandt and Fabian Gieseke},
+booktitle={Forty-first International Conference on Machine Learning},
+year={2024},
+url={https://openreview.net/forum?id=ZzCY0fRver},
+abstract      = {We propose a framework for global-scale canopy height estimation based on satellite data. Our model leverages advanced data preprocessing techniques, resorts to a novel loss function designed to counter geolocation inaccuracies inherent in the ground-truth height measurements, and employs data from the Shuttle Radar Topography Mission to effectively filter out erroneous labels in mountainous regions, enhancing the reliability of our predictions in those areas. A comparison between predictions and ground-truth labels yields an MAE / RMSE of 2.43 / 4.73 (meters) overall and 4.45 / 6.72 (meters) for trees taller than five meters, which depicts a substantial improvement compared to existing global-scale maps. The resulting height map as well as the underlying framework will facilitate and enhance ecological analyses at a global scale, including, but not limited to, large-scale forest and biomass monitoring.},
+abbr={ICML24},
+bibtex_show={true},
+pdf={https://arxiv.org/abs/2406.01076},
+code={https://github.com/AI4Forest/Global-Canopy-Height-Map},
+preview={canopy_height.png},
+poster={Canopy-poster-ICML.pdf},
+selected={true},
+custom={Earth Engine|https://worldwidemap.projects.earthengine.app/view/canopy-height-2020},
+tags={sustainability},
+blog={blog/2025/estimating-canopy-height-at-scale/}
+}
 
 @inproceedings{mundinger2024neural,
   author        = {Mundinger, Konrad and Zimmer, Max and Pokutta, Sebastian},
@@ -462,9 +447,6 @@ blog={blog/2025/estimating-canopy-height-at-scale/}
   tags={ai4math}
 }
 
-
-
-
 @InProceedings{zimmer2023sparse,
   title={Sparse Model Soups: A Recipe for Improved Pruning via Model Averaging},
   author={Zimmer, Max and Spiegel, Christoph and Pokutta, Sebastian},
@@ -482,21 +464,6 @@ blog={blog/2025/estimating-canopy-height-at-scale/}
   tags={efficiency}
 }
 
-@InProceedings{waldchen2024interpretability,
-  title={Interpretability Guarantees with Merlin-Arthur Classifiers},
-  author={W{\"a}ldchen, Stephan and Sharma, Kartikey and Turan, Berkant and Zimmer, Max and Pokutta, Sebastian},
-  booktitle={International Conference on Artificial Intelligence and Statistics},
-  year={2024},
-  abstract={We propose an interactive multi-agent classifier that provides provable interpretability guarantees even for complex agents such as neural networks. These guarantees consist of lower bounds on the mutual information between selected features and the classification decision. Our results are inspired by the Merlin-Arthur protocol from Interactive Proof Systems and express these bounds in terms of measurable metrics such as soundness and completeness. Compared to existing interactive setups, we rely neither on optimal agents nor on the assumption that features are distributed independently. Instead, we use the relative strength of the agents as well as the new concept of Asymmetric Feature Correlation which captures the precise kind of correlations that make interpretability guarantees difficult. We evaluate our results on two small-scale datasets where high mutual information can be verified explicitly. },
-  bibtex_show={true},
-  abbr={AISTATS24},
-  pdf={https://arxiv.org/abs/2206.00759},
-  preview={arthurmerlin.png},
-  selected={true},
-  poster={AM-poster-AISTATS.pdf},
-  tags={model-internals}
-}
-
 @article{zimmer2023perp,
   author        = {Max Zimmer and Megi Andoni and Christoph Spiegel and Sebastian Pokutta},
   title         = {PERP: Rethinking the Prune-Retrain Paradigm in the Era of LLMs},
@@ -510,6 +477,21 @@ blog={blog/2025/estimating-canopy-height-at-scale/}
   preview={perp_dog.png},
   selected={true},
   tags={efficiency}
+}
+
+@InProceedings{waldchen2024interpretability,
+  title={Interpretability Guarantees with Merlin-Arthur Classifiers},
+  author={W{\"a}ldchen, Stephan and Sharma, Kartikey and Turan, Berkant and Zimmer, Max and Pokutta, Sebastian},
+  booktitle={International Conference on Artificial Intelligence and Statistics},
+  year={2024},
+  abstract={We propose an interactive multi-agent classifier that provides provable interpretability guarantees even for complex agents such as neural networks. These guarantees consist of lower bounds on the mutual information between selected features and the classification decision. Our results are inspired by the Merlin-Arthur protocol from Interactive Proof Systems and express these bounds in terms of measurable metrics such as soundness and completeness. Compared to existing interactive setups, we rely neither on optimal agents nor on the assumption that features are distributed independently. Instead, we use the relative strength of the agents as well as the new concept of Asymmetric Feature Correlation which captures the precise kind of correlations that make interpretability guarantees difficult. We evaluate our results on two small-scale datasets where high mutual information can be verified explicitly. },
+  bibtex_show={true},
+  abbr={AISTATS24},
+  pdf={https://arxiv.org/abs/2206.00759},
+  preview={arthurmerlin.png},
+  selected={true},
+  poster={AM-poster-AISTATS.pdf},
+  tags={model-internals}
 }
 
 @InProceedings{Zimmer2023,
@@ -530,11 +512,6 @@ blog={blog/2025/estimating-canopy-height-at-scale/}
   tags={efficiency}
 }
 
-
-
-
-
-
 @article{ziemke2021flows,
   title={Flows over time as continuous limits of packet-based network simulations},
   author={Ziemke, Theresa and Sering, Leon and Koch, Laura Vargas and Zimmer, Max and Nagel, Kai and Skutella, Martin},
@@ -550,7 +527,6 @@ blog={blog/2025/estimating-canopy-height-at-scale/}
   preview={nashflow.png},
   tags={optimization}
 }
-
 
 @article{pokutta2020deep,
   title={Deep Neural Network training with Frank-Wolfe},
