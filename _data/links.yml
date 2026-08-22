@@ -47,3 +47,10 @@
   year: 2026
   category: math & ml
   description: "Good introduction to flow matching for language models."
+
+- title: Why Lean is faster than Rust
+  url: https://kim-em.github.io/blog/2026-7-24-why-lean-is-faster-than-rust/
+  author: Kim Morrison
+  year: 2026
+  category: math & ml
+  description:
