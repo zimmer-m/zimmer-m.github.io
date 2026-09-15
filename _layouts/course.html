@@ -1,0 +1,92 @@
+---
+layout: default
+---
+{% assign has_resources = false %}
+{% for resource in page.resources %}
+  {% if resource.url != blank and resource.label != blank %}{% assign has_resources = true %}{% endif %}
+{% endfor %}
+{% assign lectures = page.lectures | where: "published", true | sort: "number" %}
+<article class="course-page">
+  <a class="course-back" href="{{ '/teaching/' | relative_url }}"><span aria-hidden="true">←</span> All courses</a>
+
+  <header class="course-hero">
+    <div class="course-eyebrow">
+      <span>{{ page.institution | escape }}</span>
+      <span>{{ page.semester | default: page.year | escape }}</span>
+    </div>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.moodle_url != blank %}
+    <a class="course-moodle" href="{{ page.moodle_url | escape }}">ISIS / Moodle <span aria-hidden="true">↗</span></a>
+    {% endif %}
+    {% if page.banner != blank %}
+    {% include figure.html path=page.banner class="course-banner" alt=page.banner_alt width=page.banner_width height=page.banner_height fetchpriority="high" %}
+    {% endif %}
+  </header>
+
+  <div class="course-body">
+    <aside class="course-sidebar">
+      <nav aria-label="Course sections">
+        <a href="#information">Course information</a>
+        {% for lecture in lectures %}
+        <a href="#lecture-{{ lecture.number }}">Lecture {{ lecture.number }}{% if lecture.title != blank %}<span class="course-nav-topic">{{ lecture.title | escape }}</span>{% endif %}</a>
+        {% endfor %}
+        {% if has_resources %}<a href="#resources">Additional resources</a>{% endif %}
+      </nav>
+    </aside>
+
+    <div class="course-main">
+      <section id="information" class="course-section" aria-labelledby="information-heading">
+        <h2 id="information-heading">Course information</h2>
+        {% assign has_details = false %}
+        {% for detail in page.details %}
+          {% if detail.value != blank %}{% assign has_details = true %}{% endif %}
+        {% endfor %}
+        {% if has_details %}
+        <dl class="course-details">
+          {% for detail in page.details %}
+            {% if detail.value != blank %}
+            <div>
+              <dt>{{ detail.label | escape }}</dt>
+              <dd>{% if detail.url != blank %}<a href="{{ detail.url | escape }}">{{ detail.value | escape }}</a>{% else %}{{ detail.value | escape }}{% endif %}</dd>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </dl>
+        {% endif %}
+        <div class="course-description">{{ content }}</div>
+        {% assign description_text = content | strip_html | strip %}
+        {% if has_details == false and description_text == empty %}
+        <p class="course-muted">Course details will be announced here.</p>
+        {% endif %}
+      </section>
+
+      {% for lecture in lectures %}
+      <section id="lecture-{{ lecture.number }}" class="course-section course-lecture" aria-labelledby="lecture-{{ lecture.number }}-heading">
+        <h2 id="lecture-{{ lecture.number }}-heading">Lecture {{ lecture.number }}{% if lecture.title != blank %}: {{ lecture.title | escape }}{% endif %}</h2>
+        {% if lecture.date != blank %}<time class="course-date" datetime="{{ lecture.date | escape }}">{{ lecture.date | date: "%d %B %Y" }}</time>{% endif %}
+        {% if lecture.summary != blank %}<div class="course-lecture-content">{{ lecture.summary | markdownify }}</div>{% endif %}
+        {% include course-links.html links=lecture.materials %}
+        {% assign has_homework = false %}
+        {% for resource in lecture.homework.materials %}
+          {% if resource.url != blank and resource.label != blank %}{% assign has_homework = true %}{% endif %}
+        {% endfor %}
+        {% if lecture.homework.description != blank or lecture.homework.due_date != blank or has_homework %}
+        <div class="course-homework">
+          <h3>Homework</h3>
+          {% if lecture.homework.due_date != blank %}<p class="course-date">Due <time datetime="{{ lecture.homework.due_date | escape }}">{{ lecture.homework.due_date | date: "%d %B %Y" }}</time></p>{% endif %}
+          {% if lecture.homework.description != blank %}{{ lecture.homework.description | markdownify }}{% endif %}
+          {% include course-links.html links=lecture.homework.materials %}
+        </div>
+        {% endif %}
+      </section>
+      {% endfor %}
+
+      {% if has_resources %}
+      <section id="resources" class="course-section" aria-labelledby="resources-heading">
+        <h2 id="resources-heading">Additional resources</h2>
+        {% include course-links.html links=page.resources %}
+      </section>
+      {% endif %}
+    </div>
+  </div>
+</article>
