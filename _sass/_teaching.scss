@@ -38,6 +38,39 @@
 .course-page .course-banner { display: block; width: 100%; height: auto; border-radius: 4px; }
 .course-page .course-banner { margin-top: 1.5rem; }
 
+.post .page-content .teaching-index .teaching-experience h2 {
+  font-family: var(--global-font-sans);
+  font-size: 1.15rem;
+  font-weight: 500;
+  border: 0;
+  padding: 0;
+  margin: 2rem 0 1rem;
+}
+.teaching-index .teaching-experience ul { list-style: none; padding: 0; margin: 0; }
+.teaching-index .teaching-experience li {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.75rem 0;
+}
+.post .page-content .teaching-index .teaching-experience h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.teaching-index .teaching-experience p,
+.teaching-index .teaching-experience-date {
+  font-family: var(--global-font-sans);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--global-text-color-light);
+}
+.teaching-index .teaching-experience p { margin: 0.25rem 0 0; }
+.teaching-index .teaching-experience-date { padding-top: 0.15rem; }
+
 .course-page { padding-bottom: 2rem; overflow-wrap: anywhere; }
 .course-page .course-back,
 .course-page .course-eyebrow,
@@ -134,6 +167,7 @@
 
 @media (max-width: 700px) {
   .post .page-content .teaching-index .teaching-course h2 { font-size: 1.5rem; }
+  .teaching-index .teaching-experience li { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
   .course-page .course-body { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
   .course-page .course-sidebar { position: static; max-height: none; }
   .course-page .course-sidebar nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
