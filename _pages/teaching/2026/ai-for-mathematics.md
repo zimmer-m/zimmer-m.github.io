@@ -2,7 +2,7 @@
 layout: course
 title: "Advanced Topics in Deep Learning: AI for Mathematics"
 description: Course information, weekly lectures, and materials for AI for Mathematics at TU Berlin.
-permalink: /teaching/ai-for-mathematics/2026/
+permalink: /teaching/2026/ai-for-mathematics/
 year: 2026
 institution: TU Berlin
 banner: /assets/img/teaching/ai-for-mathematics-2026.png
