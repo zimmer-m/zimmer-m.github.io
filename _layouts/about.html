@@ -10,17 +10,27 @@ layout: default
             <div class="col-sm-4">
               {%- if page.profile.image %}
                 {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
+                {%- assign profile_image_hover = page.profile.hover_image | default: 'assets/img/transformer.png' -%}
 
                 {% if page.profile.image_cicular %}
                   {%- assign profile_image_class = "img-fluid rounded-circle" -%}
+                  {%- assign profile_hover_class = "profile-hover-img rounded-circle" -%}
                 {% else %}
                   {%- assign profile_image_class = "img-fluid rounded" -%}
+                  {%- assign profile_hover_class = "profile-hover-img rounded" -%}
                 {% endif %}
 
-                {% include figure.html
-                path=profile_image_path
-                class=profile_image_class
-                alt=page.profile.image -%}
+                <div class="profile-hover">
+                  {% include figure.html
+                  path=profile_image_path
+                  class=profile_image_class
+                  alt=page.profile.image -%}
+                  {% include figure.html
+                  path=profile_image_hover
+                  class=profile_hover_class
+                  alt="the transformer"
+                  loading="lazy" -%}
+                </div>
               {% endif -%}
             </div>
             <div class="col-sm-8 mt-4 mt-sm-0">
