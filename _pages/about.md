@@ -4,6 +4,7 @@ title: about
 permalink: /
 subtitle: |+
   <div class="about-callout about-callout-role">
+  <b>Upcoming: Anthropic Safety Fellow</b> with <a href="https://www.anthropic.com/">Anthropic</a><br>
   <b>DL Research Lead</b> at the <a href="https://iol.zib.de/learn">IOL Lab</a><br>
   <b>Postdoctoral Researcher</b> at the <a href="https://www.zib.de/">Zuse Institute Berlin</a><br>
   PhD in Mathematics, <a href="https://www.tu.berlin/en/math">TU Berlin</a> (2026)

@@ -10,7 +10,7 @@ email: zimmer[at]zib.de
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Academic website of Max Zimmer. Deep Learning Research Lead and Postdoctoral Researcher at the IOL Lab of ZIB.
 footer_text:
-keywords: Max Zimmer, mathematics, machine learning, deep learning, optimization, neural network pruning, sparsity, quantization, AI4Science, sustainability, TU Berlin, Zuse Institute Berlin
+keywords: Max Zimmer, mathematics, machine learning, deep learning, optimization, neural network pruning, sparsity, quantization, AI4Science, AI safety, sustainability, TU Berlin, Zuse Institute Berlin
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: favicon.ico # the emoji used as the favicon (alternatively, provide image name in /assets/img/)

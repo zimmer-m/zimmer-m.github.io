@@ -1,6 +1,9 @@
 - title: Current Position
   type: time_table
   contents:
+    - title: Anthropic Safety Fellow
+      institution: <a href="https://www.anthropic.com/">Anthropic</a>
+      year: Nov 2026–Feb 2027
     - title: Postdoctoral Researcher
       institution: Interactive Optimization and Learning Lab, Zuse Institute Berlin
       year: 2026–present
