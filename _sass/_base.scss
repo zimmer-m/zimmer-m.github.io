@@ -129,8 +129,15 @@ blockquote {
       display: flex;
       justify-content: center;
 
+      // Size the hover wrapper rather than only its first figure. This keeps
+      // both profile images aligned and prevents the photo from dominating
+      // the narrow mobile layout.
+      .profile-hover {
+        width: 55%;
+      }
+
       figure {
-        max-width: 70%;
+        max-width: 100%;
       }
     }
 
