@@ -1,3 +1,19 @@
+@inproceedings{wagner2025freelunchllmcompression,
+  title={A Free Lunch in {LLM} Compression: Revisiting Retraining after Pruning},
+  author={Moritz Wagner and Christophe Roux and Max Zimmer and Sebastian Pokutta},
+  booktitle={The Fortieth Annual Conference on Neural Information Processing Systems},
+  year={2026},
+  url={https://openreview.net/forum?id=fXCIZretcP},
+  abstract      = {While Neural Network pruning typically requires retraining the model to recover pruning-induced performance degradation, state-of-the-art Large Language Models (LLMs) pruning methods instead solve a layer-wise mask selection and reconstruction problem on a small set of calibration data to avoid full retraining, as it is considered computationally infeasible for LLMs. Reconstructing single matrices in isolation has favorable properties, such as convexity of the objective and significantly reduced memory requirements compared to full retraining. In practice, however, reconstruction is often implemented at coarser granularities, e.g., reconstructing a whole transformer block against its dense activations instead of a single matrix. In this work, we study the key design choices when reconstructing or retraining the remaining weights after pruning. We conduct an extensive computational study on state-of-the-art GPT architectures, and report several surprising findings that challenge common intuitions about retraining after pruning. In particular, we observe a free lunch scenario: reconstructing attention and MLP components separately within each transformer block is nearly the most resource-efficient yet achieves the best perplexity. Most importantly, this Pareto-optimal setup achieves better performance than full retraining, despite requiring only a fraction of the memory. Furthermore, we demonstrate that simple and efficient pruning criteria such as Wanda can outperform much more complex approaches when the reconstruction step is properly executed, highlighting its importance. Our findings challenge the narrative that retraining should be avoided at all costs and provide important insights into post-pruning performance recovery for LLMs.},
+  abbr={NeurIPS26},
+  bibtex_show={true},
+  pdf={https://arxiv.org/abs/2510.14444},
+  preview={llm_compression.png},
+  selected={true},
+  tags={efficiency},
+  code={https://github.com/ZIB-IOL/Free-Lunch-in-LLM-Compression}
+}
+
 @article{pelleriti2026optimal,
   title={Optimal Gradient-Norm Minimization in Non-Euclidean H{\"o}lder-Smooth Convex Optimization},
   author={Nico Pelleriti and Maryam Shiran and David Mart{\'i}nez-Rubio and Max Zimmer and Sebastian Pokutta},
@@ -231,21 +247,6 @@
   selected={true},
   tags={efficiency},
   code={https://github.com/ZIB-IOL/SparseSwaps}
-}
-
-@article{wagner2025freelunchllmcompression,
-  title={A Free Lunch in LLM Compression: Revisiting Retraining after Pruning},
-  author={Moritz Wagner and Christophe Roux and Max Zimmer and Sebastian Pokutta},
-  journal={arXiv preprint arXiv:2510.14444},
-  year={2025},
-  abstract      = {While Neural Network pruning typically requires retraining the model to recover pruning-induced performance degradation, state-of-the-art Large Language Models (LLMs) pruning methods instead solve a layer-wise mask selection and reconstruction problem on a small set of calibration data to avoid full retraining, as it is considered computationally infeasible for LLMs. Reconstructing single matrices in isolation has favorable properties, such as convexity of the objective and significantly reduced memory requirements compared to full retraining. In practice, however, reconstruction is often implemented at coarser granularities, e.g., reconstructing a whole transformer block against its dense activations instead of a single matrix. In this work, we study the key design choices when reconstructing or retraining the remaining weights after pruning. We conduct an extensive computational study on state-of-the-art GPT architectures, and report several surprising findings that challenge common intuitions about retraining after pruning. In particular, we observe a free lunch scenario: reconstructing attention and MLP components separately within each transformer block is nearly the most resource-efficient yet achieves the best perplexity. Most importantly, this Pareto-optimal setup achieves better performance than full retraining, despite requiring only a fraction of the memory. Furthermore, we demonstrate that simple and efficient pruning criteria such as Wanda can outperform much more complex approaches when the reconstruction step is properly executed, highlighting its importance. Our findings challenge the narrative that retraining should be avoided at all costs and provide important insights into post-pruning performance recovery for LLMs.},
-  abbr={Preprint},
-  bibtex_show={true},
-  pdf={https://arxiv.org/abs/2510.14444},
-  preview={llm_compression.png},
-  selected={true},
-  tags={efficiency},
-  code={https://github.com/ZIB-IOL/Free-Lunch-in-LLM-Compression}
 }
 
 @article{roux2025dontbegreedyjustrelax,
