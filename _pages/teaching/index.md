@@ -2,8 +2,8 @@
 layout: page
 title: teaching
 permalink: /teaching/
-nav: true
-nav_order: 6
+#nav: true
+#nav_order: 6
 ---
 
 <div class="teaching-index">
