@@ -18,7 +18,7 @@ summary: >-
 moodle_url: https://isis.tu-berlin.de/course/view.php?id=49635
 details:
   - label: Lecture time
-    value: Thursday 14–16
+    value: Tuesday 14–16
   - label: Location
     value: MA751
   - label: Contact
