@@ -1,0 +1,17 @@
+{% assign pub_stats = site.data.publication_stats %}
+{% if pub_stats and pub_stats.total > 0 %}
+<div class="publication-stats">
+  <div class="publication-stats-total">
+    <span class="publication-stats-number">{{ pub_stats.total }}</span>
+    <span class="publication-stats-label">publications</span>
+  </div>
+  <div class="publication-stats-venues">
+    {% for venue in pub_stats.venues %}
+      <span class="publication-venue">
+        <span class="publication-venue-count">{{ venue.count }}</span>
+        <span class="publication-venue-name">{{ venue.name }}</span>
+      </span>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

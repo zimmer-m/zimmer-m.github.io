@@ -8,11 +8,13 @@ nav_order: 1
 ---
 
 <div class="post">
-  <div class="header-bar">
+  <div class="header-bar publication-page-header">
     <h1>{{ page.title }}</h1>
     <h2>{{ page.description }}</h2>
   </div>
 </div>
+
+{% include publication_stats.html %}
 
 <div class="publication-search">
   <input type="text" id="pub-search-input" placeholder="Type to filter..." autocomplete="off" />

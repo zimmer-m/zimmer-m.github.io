@@ -1,3 +1,82 @@
+// Subtle, single-line publication summary above the filters
+.publication-page-header {
+  margin-bottom: 0.55rem;
+}
+
+.publications > .section-header + .publication-stats {
+  margin-top: -0.3rem;
+}
+
+.publication-stats {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  margin: 0 0 0.55rem;
+  overflow-x: auto;
+  color: var(--global-text-color-light);
+  font-family: var(--global-font-sans);
+  font-size: 0.72rem;
+  line-height: 1.2;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .publication-stats-total {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: baseline;
+    gap: 0.18rem;
+    white-space: nowrap;
+
+    &::after {
+      margin: 0 0.45rem;
+      content: "•";
+      opacity: 0.45;
+    }
+
+    .publication-stats-number {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--global-theme-color);
+    }
+
+    .publication-stats-label {
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  .publication-stats-venues {
+    display: flex;
+    flex: 1 0 auto;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    min-width: max-content;
+
+    .publication-venue {
+      display: inline-flex;
+      align-items: baseline;
+      white-space: nowrap;
+
+      & + .publication-venue::before {
+        margin: 0 0.45rem;
+        content: "•";
+        opacity: 0.45;
+      }
+
+      .publication-venue-count {
+        margin-right: 0.16rem;
+        font-size: 0.74rem;
+        font-weight: 700;
+        color: var(--global-theme-color);
+      }
+    }
+  }
+}
+
 // Publication search bar
 .publication-search {
   margin-bottom: 0.75rem;
