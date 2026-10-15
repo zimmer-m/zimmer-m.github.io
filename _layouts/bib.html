@@ -1,6 +1,9 @@
 ---
 ---
 <!-- _layouts/bib.html -->
+{% if site.serve_schema_org %}
+<script type="application/ld+json">{{ entry | publication_schema | json_ld }}</script>
+{% endif %}
       <div class="row entry" data-tags="{{ entry.tags | join: ',' }}">
         <div class="pub-thumb-col" data-tags="{{ entry.tags | join: ',' }}">
         {%- if entry.preview -%}

@@ -22,6 +22,8 @@ module Jekyll
       self.read_yaml(File.join(base, '_layouts'), 'tag-publications.html')
       self.data['tag'] = tag['tag']
       self.data['title'] = "Publications tagged \"#{tag['name']}\""
+      self.data['seo_description'] = "Publications tagged \"#{tag['name']}\"."
+      self.data['schema_type'] = 'CollectionPage'
     end
   end
 end

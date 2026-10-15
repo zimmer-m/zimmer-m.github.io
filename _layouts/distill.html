@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- _layouts/distill.html -->
-<html>
+<html lang="{{ site.lang | default: 'en' | escape }}">
   <head>
     {%- include head.html %}
 
@@ -114,24 +114,24 @@
 
   <d-front-matter>
     <script async type="text/json">{
-      "title": "{{ page.title }}",
-      "description": "{{ page.description }}",
-      "published": "{{ page.date | date: '%B %-d, %Y' }}",
+      "title": {{ page.title | json_ld }},
+      "description": {{ page.description | json_ld }},
+      "published": {{ page.date | date: '%B %-d, %Y' | json_ld }},
       "authors": [
         {% for author in page.authors -%}
         {
-          "author": "{{ author.name }}",
+          "author": {{ author.name | json_ld }},
           {% assign lastname = author.name | split: " " | last %}
           {% if site.data.coauthors[lastname] %}
             {% assign coauthor = site.data.coauthors[lastname][0] %}
-            "authorURL": "{{ coauthor.url }}",
+            "authorURL": {{ coauthor.url | json_ld }},
           {% else %}
-            "authorURL": "{{ author.url }}",
+            "authorURL": {{ author.url | json_ld }},
           {% endif %}
           "affiliations": [
             {
-              "name": "{{ author.affiliations.name }}",
-              "url": "{{ author.affiliations.url }}"
+              "name": {{ author.affiliations.name | json_ld }},
+              "url": {{ author.affiliations.url | json_ld }}
             }
           ]
         }{% if forloop.last == false %},{% endif %}
