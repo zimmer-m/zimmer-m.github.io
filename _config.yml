@@ -198,6 +198,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - AGENTS.md
+  - tests
 keep_files:
   - CNAME
   - .nojekyll

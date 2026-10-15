@@ -182,7 +182,7 @@ const defined = {
     cta: [
       { label: "maxzimmer.org", url: "https://maxzimmer.org" },
       { label: "iol.zib.de/learn", url: "https://iol.zib.de/research/iol-learn.html" },
-      { label: "zimmer@zib.de", url: "mailto:zimmer@zib.de" }
+      { label: "max@maxzimmer.org", url: "mailto:max@maxzimmer.org" }
     ],
     social: [
       { icon: "fa-brands fa-x-twitter", label: "X / Twitter", url: "https://x.com/maxzimmerberlin" },
