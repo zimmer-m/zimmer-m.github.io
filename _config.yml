@@ -2,13 +2,13 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: blank # the website title (if blank, full name will be used instead)
+title: Max Zimmer # A real title is also used by jekyll-feed.
 first_name: Max
 middle_name:
 last_name: Zimmer
 email: max[at]maxzimmer.org
-description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Academic website of Max Zimmer. Deep Learning Research Lead and Postdoctoral Researcher at the IOL Lab of ZIB.
+description: >-
+  Personal and academic website of Max Zimmer. Deep Learning Research.
 footer_text:
 keywords: Max Zimmer, mathematics, machine learning, deep learning, optimization, neural network pruning, sparsity, quantization, AI4Science, AI safety, sustainability, TU Berlin, Zuse Institute Berlin
 

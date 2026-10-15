@@ -4,6 +4,7 @@ title: "What Do Evolutionary Coding Agents Evolve?"
 subtitle: "A closer look at what changes inside evolutionary code search runs."
 date: 2026-06-15
 permalink: /what-do-evolutionary-coding-agents-evolve/
+seo_description: EvoTrace and EvoReplay reveal what evolutionary coding agents change during code search, separating algorithmic changes from tuning and repeated code churn.
 description: "Our paper <b>What Do Evolutionary Coding Agents Evolve?</b> introduces EvoTrace, a dataset of 121 evolutionary code-search runs, and EvoReplay, a tool for inspecting and rerunning parts of those runs. The goal is to tell whether better scores come from new program structure, constant tuning, context changes, overfitting, or repeated code churn."
 tags: [deep-learning, agentic-ai]
 keywords: "evolutionary coding agents, language models, code search, EvoTrace, EvoReplay, evolutionary search, agentic AI"

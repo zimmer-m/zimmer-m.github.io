@@ -2,6 +2,9 @@
 layout: blog
 permalink: /publications/
 title: publications
+seo_title: Publications
+seo_description: Publications, with links to papers and code.
+schema_type: CollectionPage
 description: list of all my publications - you can filter by tag.
 nav: true
 nav_order: 1

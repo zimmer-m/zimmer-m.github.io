@@ -3,6 +3,7 @@ layout: project-distill
 title: "The Agentic Researcher: A Practical Guide to AI-Assisted Research in Mathematics and Machine Learning"
 date: 2026-04-12
 permalink: /the-agentic-researcher/
+seo_description: A practical guide and open-source framework for AI-assisted research in mathematics and machine learning, with coding agents, guardrails, and case studies.
 description: "Our paper <b>The Agentic Researcher</b> presents an open-source framework that turns CLI coding agents into autonomous research assistants. Through methodological rules formulated as agent prompts, we enable sustained autonomous research sessions — including sessions running over 20 hours across multi-node GPU clusters without human intervention."
 tags: [deep-learning, agentic-ai]
 keywords: "agentic AI, AI-assisted research, autonomous research, Claude Code, coding agents, LLM research, scientific methodology"

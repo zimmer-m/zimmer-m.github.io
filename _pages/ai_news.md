@@ -1,6 +1,8 @@
 ---
 layout: blog
 title: "ai news & links"
+seo_title: AI News and Reading List
+seo_description: Articles, essays, and links I find worth reading.
 description: "a collection of interesting links, essays, and AI news."
 permalink: /ai_news/
 classes: wide

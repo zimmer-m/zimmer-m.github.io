@@ -1,6 +1,8 @@
 ---
 layout: page
 title: teaching
+seo_title: Teaching
+seo_description: Courses, lecture materials, and teaching experience.
 permalink: /teaching/
 #nav: true
 #nav_order: 6

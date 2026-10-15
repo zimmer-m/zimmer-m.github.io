@@ -2,6 +2,8 @@
 layout: blog
 permalink: /talks/
 title: talks & activities
+seo_title: Talks and Activities
+seo_description: Talks, posters, workshops, and other activities.
 description: talks, posters, events, and other activities.
 nav: true
 nav_order: 5

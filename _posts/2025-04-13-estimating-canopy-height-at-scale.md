@@ -2,6 +2,7 @@
 layout: distill
 title: "Global-Scale Forest Height Estimation"
 date: 2025-04-13
+seo_description: How deep learning combines satellite data and GEDI measurements to estimate global tree canopy height. Summary of our ICML 2024 paper, with code and maps.
 description: Our paper <b>Estimating Canopy Height at Scale</b> was accepted to <b>ICML 2024</b>! In this work, we present a novel framework for global-scale forest height estimation. Using a deep learning approach that leverages large amounts of satellite data with only sparsely distributed ground-truth height measurements from NASA's GEDI mission, we achieve state-of-the-art accuracy with MAE/RMSE of 2.43m/4.73m overall, significantly outperforming existing approaches. The resulting height map facilitates ecological analyses at a global scale.
 tags: [deep-learning, ai4science, sustainability]
 bibliography: estimating-canopy-height-at-scale.bib

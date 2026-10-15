@@ -1,6 +1,9 @@
 ---
 layout: blog
 title: blog
+seo_title: Research Blog
+seo_description: Notes on papers and research projects.
+schema_type: CollectionPage
 permalink: /blog/
 nav: true
 nav_order: 6

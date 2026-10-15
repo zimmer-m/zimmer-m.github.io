@@ -5,6 +5,7 @@
 layout: page
 title: "Privacy Policy / Datenschutzerklärung"
 permalink: /privacy-policy/
+seo_description: Information about hosting, analytics, and data protection.
 
 ---
 
@@ -18,7 +19,7 @@ This website (https://maxzimmer.org) is operated by **Max Zimmer** as a personal
 
 ### 2. Data Controller
 Max Zimmer  
-Email: [zimmer@zib.de](mailto:zimmer@zib.de)
+Email: [max@maxzimmer.org](mailto:max@maxzimmer.org)
 
 ### 3. Data Collection and Use
 
@@ -85,7 +86,7 @@ Diese Website (https://maxzimmer.org) wird von **Max Zimmer** als privates, nich
 
 ### 2. Verantwortlicher
 Max Zimmer  
-E-Mail: [zimmer@zib.de](mailto:zimmer@zib.de)
+E-Mail: [max@maxzimmer.org](mailto:max@maxzimmer.org)
 
 
 

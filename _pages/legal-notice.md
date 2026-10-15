@@ -2,6 +2,7 @@
 layout: page
 title: "Legal Notice / Impressum"
 permalink: /legal-notice/
+seo_description: Legal notice and contact information, in English and German.
 
 ---
 _Last updated: October 2025_  
@@ -17,7 +18,7 @@ c/o Zuse Institute Berlin (ZIB)
 Takustraße 7  
 14195 Berlin, Germany  
 
-Email: [zimmer@zib.de](mailto:zimmer@zib.de)
+Email: [max@maxzimmer.org](mailto:max@maxzimmer.org)
 
 ### 2. Responsibility for Content
 Content on this site has been prepared with the greatest care. However, no guarantee is given for accuracy, completeness, or timeliness. As the provider, I am responsible for my own content in accordance with § 7 (1) TMG. Under §§ 8–10 TMG, I am not obliged to monitor transmitted or stored external information or to search for circumstances indicating illegal activity.
@@ -39,7 +40,7 @@ Takustraße 7
 14195 Berlin  
 Deutschland  
 
-E-Mail: [zimmer@zib.de](mailto:zimmer@zib.de)
+E-Mail: [max@maxzimmer.org](mailto:max@maxzimmer.org)
 
 ### 2. Verantwortlichkeit für Inhalte
 Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten verantwortlich. Nach §§ 8 bis 10 TMG bin ich jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.

@@ -1,6 +1,8 @@
 ---
 layout: about
 title: about
+seo_description: >-
+  Personal and academic website of Max Zimmer. Deep Learning Research.
 permalink: /
 subtitle: |+
   <div class="about-callout about-callout-role">

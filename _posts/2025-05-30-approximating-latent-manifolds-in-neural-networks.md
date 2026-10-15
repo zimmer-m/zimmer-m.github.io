@@ -2,6 +2,7 @@
 layout: distill
 title: "Approximating Latent Manifolds in Neural Networks via Vanishing Ideals"
 date: 2025-05-30
+seo_description: Using vanishing ideals to characterize neural network representations and build compact polynomial layers. Summary of our ICML 2025 paper, with code.
 description: Our ICML25 paper <b>Approximating Latent Manifolds in Neural Networks via Vanishing Ideals</b> introduces a novel approach to understanding data representation in neural networks through vanishing ideals. To characterize the structure of latent spaces, we scale vanishing ideal algorithms to handle high-dimensional data. The resulting algebraic characterizations can be used to replace standard network layers with more compact and efficient polynomial layers, leading to significant parameter reduction and potential improvements in inference speed while maintaining competitive performance.
 bibliography: approximating-latent-manifolds-in-neural-networks.bib
 publication_type: "ICML25"
