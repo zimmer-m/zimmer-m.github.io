@@ -343,6 +343,19 @@ html[data-theme='dark'] .sx-page {
   hyphens: auto;
 }
 
+/* narrow boxes stay ragged: justified text in a card column opens wide gaps */
+.sx-page .sx-body .project-card p,
+.sx-page .sx-body .insight-box p,
+.sx-page .sx-body .sx-note p,
+.sx-page .sx-body .sx-quiz p,
+.sx-page .sx-body .sx-quiz li,
+.sx-page .sx-body .sx-stat p,
+.sx-page .sx-body .figure-note,
+.sx-page .sx-body td p,
+.sx-page .sx-body td li {
+  text-align: left;
+}
+
 .sx-body a {
   color: var(--sx-accent);
   text-decoration: underline;

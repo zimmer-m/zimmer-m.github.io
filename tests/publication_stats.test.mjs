@@ -68,13 +68,13 @@ test('groups venues, counts totals and peer-reviewed entries', () => {
 
 test('real bibliography yields a consistent, ordered breakdown', () => {
   const data = stats(readFileSync(join(root, '_bibliography/papers.bib'), 'utf8'));
-  assert.equal(data.total, 35);
+  assert.equal(data.total, 36);
   assert.equal(data.venues.reduce((n, v) => n + v.count, 0), data.total);
   assert.ok(data.peer_reviewed > 0 && data.peer_reviewed <= data.total);
   assert.ok(data.venues.every(v => v.count > 0));
   assert.deepEqual(data.venues.map(v => v.name),
     ['ICML', 'ICLR', 'NeurIPS', 'AISTATS', 'Preprints', 'Workshops', 'Journals', 'Others']);
-  assert.deepEqual(data.venues.map(v => v.count), [8, 5, 2, 1, 11, 4, 3, 1]);
+  assert.deepEqual(data.venues.map(v => v.count), [8, 5, 2, 1, 12, 4, 3, 1]);
 });
 
 test('compact counter sits above the filters on both publication lists', () => {

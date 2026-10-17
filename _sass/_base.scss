@@ -451,8 +451,9 @@ footer.sticky-bottom {
     }
 
     .cv-year {
-      flex: 0 0 auto;
-      min-width: 130px;
+      // fixed column so long ranges ("Nov 2026–Feb 2027") don't push their row's details right
+      flex: 0 0 150px;
+      min-width: 0;
       font-size: 1rem;
       font-weight: 600;
       color: var(--global-text-color);
