@@ -1,6 +1,7 @@
 ---
 layout: distill
 title: "Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?"
+subtitle: "Neural networks as a tool for finding colorings of the plane, including two new 6-colorings."
 seo_description: How neural networks discover plane colorings through continuous optimization. Summary of our ICML 2025 oral (top 1% of submissions) on the Hadwiger-Nelson problem and its variants.
 date: 2025-05-29
 description: "Our ICML 2025 Oral Paper <b>Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?</b> introduces a novel neural network approach to tackle the famous Hadwiger-Nelson problem and related geometric coloring challenges. We reformulate the combinatorial task as a continuous optimization problem, enabling neural networks to find probabilistic colorings. This led to discovering two new 6-colorings, marking the first progress in 30 years on a key variant involving different forbidden distances and significantly expanding the known solution range."
@@ -11,7 +12,8 @@ paper_url: "https://arxiv.org/abs/2501.18527"
 code_url: "https://github.com/ZIB-IOL/neural-discovery-icml25"
 giscus_comments: false
 related_posts: false
-series_title: "AI for Mathematical Discovery"
+series: ai-math-discovery
+chapter: P1
 authors:
   - name: Konrad Mundinger
     affiliations:
@@ -30,7 +32,7 @@ authors:
       name: Zuse Institute Berlin
 ---
 
-<h2 data-nav="The Chromatic Number">The chromatic number of the plane</h2>
+<h2 data-kind="Background">The chromatic number of the plane</h2>
 
 The Hadwiger-Nelson (HN) problem, first posed in 1950, asks a fundamental question at the intersection of geometry and combinatorics: What is the minimum number of colors needed to color the entire Euclidean plane $\mathbb{R}^2$ such that no two points at unit distance share the same color? This minimum number is referred to as the *chromatic number of the plane*, denoted $\chi(\mathbb{R}^2)$, as it is the chromatic number of the infinite graph with vertex set $\mathbb{R}^2$ and edges connecting pairs of points at unit distance. What makes this seemingly simple setup challenging is the combination between discrete choices (the colors) with continuous geometry (the distance on the plane).
 
@@ -38,7 +40,7 @@ Despite over 70 years of research, the exact value of $\chi(\mathbb{R}^2)$ remai
 
 In this work, we focus on improving the upper bounds. We explore how neural networks (NNs) can serve as a tool for mathematical discovery, guiding our intuition towards potential new constructions for this problem and its variants.
 
-<h2 data-nav="Neural Discovery">A New Approach: Neural Networks for Mathematical Discovery</h2>
+<h2 data-kind="Method">A New Approach: Neural Networks for Mathematical Discovery</h2>
 ### Modeling the Coloring Problem
 
 We introduce a new approach to generate colorings which avoid unit distance conflicts using NNs. The core idea is to reframe the combinatorial problem as a continuous optimization task that NNs are well-suited to handle. Instead of assigning a fixed color (a discrete choice) to each point, we relax the constraint by defining a probabilistic coloring. We train the NN to output a *probability distribution* over the available colors for any given point $(x, y) \in \mathbb{R}^2$.
@@ -76,7 +78,7 @@ The NN acts as a powerful function approximator, capable of learning complex spa
     <div class="figure-caption">Left: A probabilistic coloring pattern suggested by the NN after training to minimize conflicts for a $(1,1,1,1,1,d)$ variant (defined later). Right: The formalized mathematical construction derived from the NN's output, published in a specialized venue <d-cite key="2024_SixcoloringsExpansion"></d-cite>. This coloring is valid for a specific range of $d$.</div>
 </div>
 
-<h2 data-nav="Coloring Variants">Coloring Variants and Recent Progress</h2>
+<h2 data-kind="Results">Coloring Variants and Recent Progress</h2>
 
 While finding a 6-coloring for the original problem remains difficult (our NNs consistently find patterns needing seven colors, aligning with the possibility that $\chi(\mathbb{R}^2)=7$), this NN-based optimization approach proved highly successful on related variants of the problem.
 
@@ -128,7 +130,7 @@ The plot below further summarizes these findings by showing the minimum conflict
     <div class="figure-caption">Minimum conflict rate found by NNs across different distances $d$ for the $(1,1,1,1,1,d)$ variant. The orange region shows the previously known range of $d$ for valid 6-colorings, while the blue region shows the significantly expanded range enabled by our new NN-discovered constructions.</div>
 </div>
 
-<h2 data-nav="Almost Colorings">Almost Coloring the Plane</h2>
+<h2 data-kind="Extension">Almost Coloring the Plane</h2>
 
 Beyond the distance variant, our framework demonstrated its applicability to other related geometric coloring problems, such as "almost coloring" the plane, arising as a natural extension of the HN problem: what is the minimum fraction of the plane that must be removed such that the remaining points *can* be colored with $c$ colors without monochromatic unit-distance pairs? We introduced an additional $(c+1)$-th color, corresponding to the removed points, and used a Lagrangian relaxation approach. This involves a modified loss function that penalizes conflicts among the first $c$ colors while also penalizing the use of the $(c+1)$-th "uncolored" color via a Lagrange multiplier $\lambda$.
 
@@ -174,7 +176,7 @@ Our numerical experiments for $c=6$ colors recovered patterns resembling known c
   </div>
 </div>
 
-## Conclusion and Outlook
+<h2 data-kind="Conclusion">Conclusion and Outlook</h2>
 
 Our work highlights the potential of NNs as tools for mathematical exploration. By reformulating combinatorial geometry problems, like the Hadwiger-Nelson problem and its variants, as continuous optimization tasks, we can experimentally discover new and potentially interesting patterns. While these networks do not yield formal proofs directly, they effectively explore complex solution spaces and uncover structured patterns that can guide mathematical intuition.
 

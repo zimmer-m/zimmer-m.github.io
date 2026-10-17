@@ -111,7 +111,7 @@ _styles: |
 <div class="project-section">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="Question">The Question</h2>
+<h2 data-kind="Motivation">The Question</h2>
 
 Evolutionary coding agents keep a population of candidate programs, ask a language model to modify them, run the changed code, and keep the versions that score well. This setup has produced strong results in mathematical discovery and algorithm design, but the usual headline is still just one number: the best score reached by a run.
 
@@ -142,7 +142,7 @@ That score alone does not tell us what happened. A run might discover a new algo
 <div class="project-section alt">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="EvoTrace">EvoTrace</h2>
+<h2 data-kind="Dataset">EvoTrace</h2>
 
 EvoTrace is a dataset of structured search traces from evolutionary coding systems that use language models. It covers 121 runs across four frameworks, five generator models, and 16 tasks: six Python mathematical-discovery tasks and ten C++ competitive programming problems from ALE-bench Lite.
 
@@ -173,7 +173,7 @@ Instead of saving only final scores, each trace saves what is needed to inspect 
 <div class="project-section">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="EvoReplay">EvoReplay</h2>
+<h2 data-kind="Tool">EvoReplay</h2>
 
 EvoReplay is the tool built on top of EvoTrace. It lets us pick a point in a saved run, rebuild the local search state around it, and then rerun, simplify, retune, or rejudge the candidate program.
 
@@ -206,7 +206,7 @@ EvoReplay is the tool built on top of EvoTrace. It lets us pick a point in a sav
 <div class="project-section alt">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="Edit Types">Which Edits Matter?</h2>
+<h2 data-kind="Analysis">Which Edits Matter?</h2>
 
 Every parent-child edit is labeled with one or more of nine edit types. The paper uses a language-model judge for this, then checks it against blind human re-annotation on a stratified sample of 200 edits.
 
@@ -234,7 +234,7 @@ The edits that happen most often are not the edits that help most often. Hyperpa
 <div class="project-section">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="Findings">Main Findings</h2>
+<h2 data-kind="Results">Main Findings</h2>
 
 Looking at the full trace changes how we read the final score. Several improvements are real, but the same score increase can come from different causes.
 
@@ -272,7 +272,7 @@ Looking at the full trace changes how we read the final score. Several improveme
 <div class="project-section alt">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="Takeaway">Takeaway</h2>
+<h2 data-kind="Conclusion">Takeaway</h2>
 
 Evolutionary coding agents should not be judged only by the best score they reach. The same final number can mean a new algorithm, a better constant setting, overfitting to public feedback, repeated code churn, or an old idea resurfacing from the prompt context.
 
@@ -284,7 +284,7 @@ EvoTrace and EvoReplay make those cases measurable. They let us ask whether a ru
 <div class="project-section">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="Citation">Citation</h2>
+<h2 data-kind="Citation">Citation</h2>
 
 If you find this work useful, please consider citing our paper:
 

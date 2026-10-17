@@ -1,6 +1,7 @@
 ---
 layout: distill
 title: "Global-Scale Forest Height Estimation"
+subtitle: "A global canopy height map for 2020, learned from satellite imagery and sparse GEDI lidar measurements."
 date: 2025-04-13
 seo_description: How deep learning combines satellite data and GEDI measurements to estimate global tree canopy height. Summary of our ICML 2024 paper, with code and maps.
 description: Our paper <b>Estimating Canopy Height at Scale</b> was accepted to <b>ICML 2024</b>! In this work, we present a novel framework for global-scale forest height estimation. Using a deep learning approach that leverages large amounts of satellite data with only sparsely distributed ground-truth height measurements from NASA's GEDI mission, we achieve state-of-the-art accuracy with MAE/RMSE of 2.43m/4.73m overall, significantly outperforming existing approaches. The resulting height map facilitates ecological analyses at a global scale.
@@ -12,7 +13,8 @@ code_url: "https://github.com/AI4Forest/Global-Canopy-Height-Map"
 paper_custom: "Map|https://worldwidemap.projects.earthengine.app/view/canopy-height-2020"
 giscus_comments: false
 related_posts: false
-series_title: "Tree Canopy Height Estimation"
+series: tree-canopy-height
+chapter: P1
 authors:
   - name: Jan Pauls
     affiliations:
@@ -43,40 +45,7 @@ authors:
       name: University of Münster
 ---
 
-<div class="series-nav">
-  <div class="series-header">
-    <div class="title-row">
-      <span class="part-badge">Part 1 of 2</span>
-      <!-- <span class="part-badge">Part 1 of 3</span> -->
-      <h3>Series: Tree Canopy Height Estimation</h3>
-    </div>
-    <p>This post is part of a series of posts on tree canopy height estimation using deep learning and satellite data.</p>
-  </div>
-  <div class="posts">
-    <div class="post">
-      <div class="post-content">
-        <strong class="post-title current">Part 1. Global-Scale Forest Height Estimation</strong>
-        <span class="post-description">Introduction of the problem of estimating tree height from satellite data, its challenges and how we have overcome them in our ICML24 paper.</span>
-      </div>
-    </div>
-    <a href="/blog/2025/capturing-temporal-dynamics-in-tree-canopy-height/" class="post inactive">
-      <div class="post-content">
-        <span class="post-title">Part 2. Capturing Temporal Dynamics in Canopy Height</span>
-        <span class="post-description">Part 2 reveals how we moved beyond a single-year map to track changes in canopy height over time, as detailed in our ICML25 paper.</span>
-      </div>
-    </a>
-    <!-- Part 3: uncomment when ECHOSAT post is published
-    <a href="/blog/2026/echosat/" class="post inactive">
-      <div class="post-content">
-        <span class="post-title">Part 3. ECHOSAT: Estimating Canopy Height Over Space And Time</span>
-        <span class="post-description">Part 3 combines global coverage with temporal dynamics, producing the first 10m-resolution tree height map spanning seven years.</span>
-      </div>
-    </a>
-    -->
-  </div>
-</div>
-
-## Intro: Why Forest Monitoring Matters
+<h2 data-kind="Motivation">Why Forest Monitoring Matters</h2>
 
 Knowing the health and structure of forests is essential for combating climate change. Forests act as a natural carbon sink, absorbing around half of the $CO_2$ from human activities, while also providing habitat for countless species. Yet traditional forest monitoring relies on field workers manually measuring individual trees, an approach that is highly accurate but impractical at global scale. How can we monitor ecosystems that cover nearly one-third of the Earth's land?
 
@@ -87,7 +56,7 @@ Knowing the health and structure of forests is essential for combating climate c
 
 Accurate forest height maps allow scientists to understand how much carbon forests store and how it is distributed, to identify and protect old-growth forests, and to make informed decisions about conservation. The method presented here provides more precise height estimates than previous maps, especially for short vegetation and complex forest areas, enhancing the ability of scientists and policymakers to understand and protect forest resources.
 
-<h2 data-nav="The Challenge">The Challenge of Global Forest Monitoring</h2>
+<h2 data-kind="Problem">The Challenge of Global Forest Monitoring</h2>
 
 Traditional forest monitoring through manual measurement of individual trees provides highly accurate data, but it clearly becomes impractical when trying to assess forests at a large scale. Furthermore, there's a stark divide in monitoring capabilities: industrialized nations often have sufficient resources to conduct comprehensive forest surveys, while many others lack the necessary resources to perform extensive monitoring of their forest landscapes.
 
@@ -127,7 +96,7 @@ Mountainous terrain poses unique measurement challenges. GEDI's laser technology
 
 Even with accurate height measurements, GPS and satellite positioning errors can cause misalignment between reported and actual measurement locations. This spatial offset presents a critical challenge: how can we train a reliable model when the ground-truth data may be shifted from its true position?
 
-<h2 data-nav="Our Approach">Our Approach to Forest Height Estimation</h2>
+<h2 data-kind="Method">Our Approach to Forest Height Estimation</h2>
 <div class="figure-container">
     <img src="/assets/img/blog_img/estimating-canopy-height-at-scale/pipeline.png" alt="Our processing pipeline" style="max-width: 100%;" class="zoomable" data-zoomable>
     <div class="figure-caption">Overview of our approach: from satellite data to the global height map.</div>
@@ -210,7 +179,7 @@ Looking at this analysis in detail, our method shows excellent performance for t
 
 
 
-## Conclusion
+<h2 data-kind="Conclusion">Conclusion</h2>
 
 Creating accurate global forest height maps is crucial for understanding and protecting our planet's forests. Our method combines the latest satellite technology with machine learning to produce the most detailed and accurate global forest height map to date. While we've made significant progress, there's still more to explore. Future improvements could include:
 - Even better handling of mountainous regions

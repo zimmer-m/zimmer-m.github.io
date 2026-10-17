@@ -1,0 +1,14 @@
+# Blog series. Posts join with front matter `series: ai-math-discovery` and `chapter: <code>`.
+title: "AI for Mathematical Discovery"
+tagline: "Using neural networks and AI agents as research tools in mathematics: from new colorings of the plane to autonomous research assistants."
+kicker: "A series"
+nav_label: "Parts"
+url: /blog/series/ai-math-discovery/
+unit: parts
+chapters:
+  - code: P1
+    title: "Neural Discovery in Mathematics"
+    summary: "Neural networks find new colorings of the plane for variants of the Hadwiger-Nelson problem (ICML25 oral)."
+  - code: P2
+    title: "The Agentic Researcher"
+    summary: "An open-source framework that turns CLI coding agents into autonomous research assistants for mathematics and machine learning."

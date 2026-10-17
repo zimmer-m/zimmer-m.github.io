@@ -1,6 +1,7 @@
 ---
 layout: distill
 title: "Approximating Latent Manifolds in Neural Networks via Vanishing Ideals"
+subtitle: "Describing class manifolds in a network's latent space with polynomials, and replacing layers with them."
 date: 2025-05-30
 seo_description: Using vanishing ideals to characterize neural network representations and build compact polynomial layers. Summary of our ICML 2025 paper, with code.
 description: Our ICML25 paper <b>Approximating Latent Manifolds in Neural Networks via Vanishing Ideals</b> introduces a novel approach to understanding data representation in neural networks through vanishing ideals. To characterize the structure of latent spaces, we scale vanishing ideal algorithms to handle high-dimensional data. The resulting algebraic characterizations can be used to replace standard network layers with more compact and efficient polynomial layers, leading to significant parameter reduction and potential improvements in inference speed while maintaining competitive performance.
@@ -26,7 +27,7 @@ authors:
       name: Zuse Institute Berlin
 ---
 
-## The Manifold Hypothesis
+<h2 data-kind="Background">The Manifold Hypothesis</h2>
 
 A foundational concept in understanding the efficacy of deep neural networks is the *Manifold Hypothesis* <d-cite key="fefferman2013testing"></d-cite>. This hypothesis posits that real-world, high-dimensional data (such as images or text) does not uniformly occupy the vastness of the space it lives in. Instead, it tends to concentrate on or near lower-dimensional *manifolds*. For example, while an image might be represented by thousands of pixel values, the set of images depicting a particular object class (e.g., "cats") might form a manifold with a much smaller inherent dimensionality, accounting for variations like pose, lighting, and individual appearance.
 
@@ -39,7 +40,7 @@ To characterize these latent manifolds, we seek to find their algebraic descript
     <div class="figure-caption">Neural networks transform input data manifolds. The output of a baseline NN (left) is often class probabilities. Our approach (right) considers the output of a truncated NN, where data from different classes may lie on distinct latent manifolds. We characterize these manifolds using polynomial equations derived from vanishing ideals.</div>
 </div>
 
-<h2 data-nav="An Algebraic View">An Algebraic View on Latent Manifolds</h2>
+<h2 data-kind="Method">An Algebraic View on Latent Manifolds</h2>
 
 Recall that the latent manifolds we aim to characterize can often be described as *algebraic varieties*—the zero set of a system of polynomial equations. When we process data through a neural network up to a certain layer, the resulting activations (our points in latent space) can be viewed as a finite set of samples $\mathbf{Z} = \\{\mathbf{z}_1, \\dots, \mathbf{z}_m\\}$ drawn from such an underlying manifold. From this set of samples, we can seek to find its algebraic description by computing the *vanishing ideal* $\mathcal{I}(\mathbf{Z})$, which is the set of all polynomials $p$ such that $p(\mathbf{z}_i) = 0$ for all $\mathbf{z}_i \\in \mathbf{Z}$. These polynomials approximate the algebraic structure of the variety containing $\mathbf{Z}$, noting that a sample of the manifold is of course also only an approximation to the manifold itself.
 
@@ -65,7 +66,7 @@ To address these challenges, we employ the following techniques:
     <div class="figure-caption">Illustration of our pruning process. Starting with a full set of monomials and generated polynomials (columns), we first prune polynomials with low discriminative scores (e.g., $p_2, p_4$). Due to the induced sparsity, many monomial rows may become all-zero (e.g., $x, xy, x^3$), indicating they no longer contribute to any remaining polynomial. These rows are also effectively removed, leading to a compact representation using only essential monomials (e.g., $y, x^2, y^2$).</div>
 </div>
 
-<h2 data-nav="VI-Nets">VI-Net: Replacing Network Layers with Polynomial Expansions</h2>
+<h2 data-kind="Application">VI-Net: Replacing Network Layers with Polynomial Expansions</h2>
 
 Now that we have established methods for approximating the class-specific manifolds in a neural network's latent space via their (approximate) vanishing ideal generators, we can make use of this algebraic insight. A primary goal is to enhance the efficiency of pre-trained neural networks. Deep networks, while powerful, often contain many computationally expensive layers. We propose replacing a significant portion of these final layers with a single, more structured *polynomial layer* built from the pruned generators discussed earlier.
 
@@ -158,7 +159,7 @@ VI-Nets can be significantly more parameter-efficient and exhibit higher through
   <div class="table-caption">Performance of VI-Net variants. "Total Params" (Millions) = "Base Params" (truncated ResNet) + "Poly Params" (polynomial layer). VI-Nets achieve comparable accuracy to baselines with fewer parameters and often higher throughput.</div>
 </div>
 
-## Conclusion and Outlook
+<h2 data-kind="Conclusion">Conclusion and Outlook</h2>
 
 This research creates a practical connection between manifold learning in neural networks and computational algebra. By adapting vanishing ideal algorithms, we effectively characterize the algebraic structure of class-specific manifolds within deep network latent spaces. The proposed VI-Net architecture demonstrates that these algebraic characterizations can construct polynomial layers to replace standard network components. This in turn yields models that are more parameter-efficient and can achieve faster inference while maintaining competitive accuracy.
 

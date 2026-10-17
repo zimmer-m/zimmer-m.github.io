@@ -1,0 +1,16 @@
+<!-- Copy BibTeX (used by the citation box at the end of paper posts) -->
+<script>
+function copyBibtex() {
+  var content = document.getElementById('bibtex-content').textContent;
+  var btn = document.querySelector('.bibtex-copy-btn');
+  var text = document.getElementById('copy-text');
+  navigator.clipboard.writeText(content).then(function () {
+    btn.classList.add('copied');
+    text.textContent = 'Copied';
+    setTimeout(function () {
+      btn.classList.remove('copied');
+      text.textContent = 'Copy';
+    }, 2000);
+  });
+}
+</script>

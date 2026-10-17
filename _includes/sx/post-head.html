@@ -1,0 +1,65 @@
+{%- comment -%}
+  Header for blog posts (layouts distill and project-distill). Parameter: minutes.
+  Uses page.series / page.chapter for the "Part k of n" eyebrow when the post belongs to a series.
+{%- endcomment -%}
+{%- assign sxh = site.data.series[page.series] -%}
+<header class="sx-head sx-head--post">
+  <div class="sx-eyebrow">
+    {%- if sxh and sxh.chapters.size > 1 %}
+      {%- for ch in sxh.chapters -%}
+        {%- if ch.code == page.chapter %}<b>{{ sxh.part_word | default: "Part" }} {{ forloop.index }} of {{ sxh.chapters | size }}</b>{% endif -%}
+      {%- endfor %}
+    {%- endif %}
+    {%- if page.publication_type %}<b>{{ page.publication_type | escape }}</b>{% endif %}
+    <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+    <span>{{ include.minutes }} min read</span>
+    {%- if sxh and sxh.chapters.size < 2 %}<span>Series · {{ sxh.title | escape }}</span>{% endif %}
+  </div>
+  <h1>{{ page.title }}</h1>
+  {%- assign sxh_lede = page.subtitle | default: page.description -%}
+  {%- if sxh_lede %}
+  <p class="sx-lede">{{ sxh_lede }}</p>
+  {%- endif %}
+  {%- assign sxh_links = false -%}
+  {%- if page.paper_url or page.code_url or page.paper_custom or page.paper_custom2 -%}{%- assign sxh_links = true -%}{%- endif -%}
+  {%- if page.authors or sxh_links or page.tags.size > 0 %}
+  <dl class="sx-byline">
+    {%- if page.authors %}
+    <div>
+      <dt>Authors</dt>
+      <dd>
+        <ul class="sx-authors">
+          {%- for author in page.authors -%}
+            {%- assign lastname = author.name | split: " " | last -%}
+            {%- assign author_url = author.url -%}
+            {%- if site.data.coauthors[lastname] -%}{%- assign author_url = site.data.coauthors[lastname][0].url -%}{%- endif %}
+          <li>{% if author_url %}<a href="{{ author_url }}">{{ author.name }}</a>{% else %}<span class="sx-author-name">{{ author.name }}</span>{% endif %}{% if author.affiliations.name %}<span class="sx-affil">{{ author.affiliations.name }}</span>{% endif %}</li>
+          {%- endfor %}
+        </ul>
+      </dd>
+    </div>
+    {%- endif %}
+    {%- if sxh_links %}
+    <div>
+      <dt>Links</dt>
+      <dd class="sx-links">
+        {%- if page.paper_url %}<a href="{{ page.paper_url }}" target="_blank" rel="noopener noreferrer">Paper<span aria-hidden="true">↗</span></a>{% endif %}
+        {%- if page.code_url %}<a href="{{ page.code_url }}" target="_blank" rel="noopener noreferrer">Code<span aria-hidden="true">↗</span></a>{% endif %}
+        {%- if page.paper_custom %}{% assign custom_parts = page.paper_custom | split: '|' %}<a href="{{ custom_parts[1] }}" target="_blank" rel="noopener noreferrer">{{ custom_parts[0] }}<span aria-hidden="true">↗</span></a>{% endif %}
+        {%- if page.paper_custom2 %}{% assign custom_parts2 = page.paper_custom2 | split: '|' %}<a href="{{ custom_parts2[1] }}" target="_blank" rel="noopener noreferrer">{{ custom_parts2[0] }}<span aria-hidden="true">↗</span></a>{% endif %}
+      </dd>
+    </div>
+    {%- endif %}
+    {%- if page.tags.size > 0 %}
+    <div>
+      <dt>Topics</dt>
+      <dd>
+        <ul class="sx-chips">
+          {%- for tag in page.tags %}<li><a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a></li>{% endfor %}
+        </ul>
+      </dd>
+    </div>
+    {%- endif %}
+  </dl>
+  {%- endif %}
+</header>

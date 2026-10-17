@@ -1,6 +1,7 @@
 ---
 layout: distill
 title: "Capturing Temporal Dynamics in Tree Canopy Height"
+subtitle: "From a single-year map to canopy height over time: a 10 m map of Europe for 2019 to 2022."
 date: 2025-05-01
 seo_description: Mapping changes in European tree canopy height at 10 m resolution with Sentinel-2 and GEDI data. Summary of our ICML 2025 paper, with code and maps.
 description: Our paper <b>Capturing Temporal Dynamics in Large-Scale Canopy Tree Height Estimation</b> was accepted to <b>ICML 2025</b>! In this work, we present a novel approach to generate large-scale, high-resolution canopy height maps over time. Using Sentinel-2 time series satellite data and GEDI LiDAR data as ground truth, we present the first 10m resolution temporal canopy height map of the European continent for the period 2019-2022. Our pipeline and the resulting temporal height map are publicly available, enabling comprehensive large-scale monitoring of forests.
@@ -12,7 +13,8 @@ code_url: "https://github.com/AI4Forest/Europe-Temporal-Canopy-Height"
 paper_custom: "Map|https://europetreemap.projects.earthengine.app/view/temporalcanopyheight"
 giscus_comments: false
 related_posts: false
-series_title: "Tree Canopy Height Estimation"
+series: tree-canopy-height
+chapter: P2
 authors:
   - name: Jan Pauls
     affiliations:
@@ -37,46 +39,12 @@ authors:
       name: University of Münster
 ---
 
-<div class="series-nav">
-  <div class="series-header">
-    <div class="title-row">
-      <span class="part-badge">Part 2 of 2</span>
-      <!-- <span class="part-badge">Part 2 of 3</span> -->
-      <h3>Series: Tree Canopy Height Estimation</h3>
-    </div>
-    <p>This post is part of a series of posts on tree canopy height estimation using deep learning and satellite data.</p>
-  </div>
-  <div class="posts">
-    <a href="/blog/2025/estimating-canopy-height-at-scale/" class="post inactive">
-      <div class="post-content">
-        <span class="post-title">Part 1. Global-Scale Forest Height Estimation</span>
-        <span class="post-description">Introduction of the problem of estimating tree height from satellite data, its challenges and how we have overcome them in our ICML24 paper.</span>
-      </div>
-    </a>
-    <div class="post">
-      <div class="post-content">
-        <strong class="post-title current">Part 2. Capturing Temporal Dynamics in Canopy Height</strong>
-        <span class="post-description">Part 2 reveals how we moved beyond a single-year map to track changes in canopy height over time, as detailed in our ICML25 paper.</span>
-      </div>
-    </div>
-    <!-- Part 3: uncomment when ECHOSAT post is published
-    <a href="/blog/2026/echosat/" class="post inactive">
-      <div class="post-content">
-        <span class="post-title">Part 3. ECHOSAT: Estimating Canopy Height Over Space And Time</span>
-        <span class="post-description">Part 3 combines global coverage with temporal dynamics, producing the first 10m-resolution tree height map spanning seven years.</span>
-      </div>
-    </a>
-    -->
-  </div>
-</div>
-
-
-<h2 data-nav="Recap">Recap: Learning Forest Height at Scale</h2>
+<h2 data-kind="Background">Learning Forest Height at Scale</h2>
 
 This is the second part of the series on *Tree Canopy Height Estimation*. In [Part 1](/blog/2025/estimating-canopy-height-at-scale/), we discussed the motivation for using deep 
 learning techniques on satellite data for forest height estimation and the challenges involved. We have seen how our method overcomes key technical challenges to generate accurate, high-resolution canopy height maps, resulting in a global forest height map for the year 2020. This post extends that work in an important new direction: we now track the canopy height over time.
 
-## What Are We Missing?
+<h2 data-kind="Problem">What Are We Missing?</h2>
 
 While having a global forest height map might suggest that no more work is to be done, we are in fact missing out on a lot of information. In this post, we will explore some of the limitations of our current approach and discuss directions for improvements (and, unsurprisingly, how we successfully address them). Two significant issues become apparent:
 
@@ -93,7 +61,7 @@ Before we discuss how we tackle these challenges, check out the figure below fro
     <div class="figure-caption">Comparison of six canopy height maps with precise measurements obtained via aerial laser scanning (ALS). The patches contain tall trees exceeding 30 m in height. Our model is the only one that can accurately estimate the height of such trees.</div>
 </div>
 
-## Addressing the Challenges
+<h2 data-kind="Method">Addressing the Challenges</h2>
 
 With these two problems in mind, we aimed to enhance the model from our previous work <d-cite key="paulsestimating"></d-cite>.
 
@@ -103,7 +71,7 @@ As a solution, we change our model architecture to a 3D U-Net<d-cite key="ccicce
 
 We further train not only on image and label for a single year, but from all images and labels from 2019 to 2022 (all years with full GEDI coverage). This way our model becomes invariant to different year-specific color variations and we can apply it to multiple years to get a temporal change map.
 
-## Our results
+<h2 data-kind="Results">Our results</h2>
 
 Since we do not preprocess our data to create composite images, the datasets we use are twelve times larger than in our previous work. In consequence, we limit our training and analysis to the European continent, comparing the following maps restricted to this region: Tolan et al. (2023) <d-cite key="tolan2023"></d-cite>, Liu et al. (2023) <d-cite key="liu2023"></d-cite>, Lang et al. (2022) <d-cite key="langGlobalCanopyHeight2022"></d-cite>, Turubanova et al. (2024) <d-cite key="turubanova_europe"></d-cite>, and our previous work Pauls et al. (2024) <d-cite key="paulsestimating"></d-cite>.
 
@@ -203,7 +171,7 @@ By applying our model across multiple years (2019-2022), we can observe how fore
 
 
 
-## Conclusion
+<h2 data-kind="Conclusion">Conclusion</h2>
 
 Our approach to large-scale temporal forest height estimation surpasses all previous methods in accuracy, particularly for tall trees. Additionally, by applying our model across multiple years, we have developed a temporal change map capable of tracking disturbances and regrowth.
 

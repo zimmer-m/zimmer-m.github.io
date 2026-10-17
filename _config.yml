@@ -169,6 +169,9 @@ collections:
   projects:
     output: false
     permalink: /projects/:path/
+  series:
+    output: true
+    permalink: /blog/series/:path/
 
 news_scrollable: false # adds a vertical scroll bar if there are more than 3 news items
 news_limit:  # leave blank to include all the news in the `_news` folder

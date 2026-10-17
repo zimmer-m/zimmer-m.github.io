@@ -1,6 +1,9 @@
 ---
 layout: project-distill
 title: "The Agentic Researcher: A Practical Guide to AI-Assisted Research in Mathematics and Machine Learning"
+subtitle: "An open-source framework that turns CLI coding agents into autonomous research assistants."
+series: ai-math-discovery
+chapter: P2
 date: 2026-04-12
 permalink: /the-agentic-researcher/
 seo_description: A practical guide and open-source framework for AI-assisted research in mathematics and machine learning, with coding agents, guardrails, and case studies.
@@ -37,7 +40,7 @@ authors:
 <div class="project-section">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="Framework">The Framework</h2>
+<h2 data-kind="Framework">The Framework</h2>
 
 The Agentic Researcher is an open-source framework that turns CLI coding agents into autonomous research assistants. The core idea: encode scientific methodology as agent prompts, so that the agent follows the same principles a careful researcher would.
 
@@ -64,7 +67,7 @@ In practice, the researcher provides a research question, available tools, and r
 <div class="project-section alt">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="Getting Started">Getting Started</h2>
+<h2 data-kind="Usage">Getting Started</h2>
 
 The full source code and documentation are available at [github.com/ZIB-IOL/The-Agentic-Researcher](https://github.com/ZIB-IOL/The-Agentic-Researcher).
 
@@ -128,7 +131,7 @@ The agent uses git worktrees for parallel sessions, so independent experiments r
 <div class="project-section">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="Experiment Loop">The Experiment Loop</h2>
+<h2 data-kind="Method">The Experiment Loop</h2>
 
 <div class="figure-container reveal">
   <img src="/assets/img/blog_img/agentic-researcher/framework_overview.png" alt="Overview of the agentic research framework" style="max-width: 100%; border-radius: 8px;" data-zoomable>
@@ -154,7 +157,7 @@ Negative results are documented with the same rigor as positive ones. Every expe
 <div class="project-section alt">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="Commandments">The Ten Commandments</h2>
+<h2 data-kind="Principles">The Ten Commandments</h2>
 
 What makes autonomous sessions productive is not the underlying LLM but the methodological rules governing it. Without these rules, agents drift from the plan, fabricate results, or abandon promising directions after minor setbacks. We encode these rules as prompts that the agent follows throughout the session.
 
@@ -221,7 +224,7 @@ Beyond these universal rules, the framework includes domain-specific commandment
 <div class="project-section">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="Case Studies">Case Studies</h2>
+<h2 data-kind="Results">Case Studies</h2>
 
 We validate the framework through six case studies spanning deep learning and mathematics. All figures below were produced autonomously by the agent and taken directly from the agent's reports.
 
@@ -240,7 +243,7 @@ Given a memory budget, the agent explored modifications to the Muon optimizer fo
   </div>
 </div>
 
-<p style="text-align: center; font-size: 0.9rem; color: var(--global-text-color-light);"><em>40+ experiments over 20+ hours of autonomous operation.</em></p>
+<p class="figure-note">40+ experiments over 20+ hours of autonomous operation.</p>
 
 ### Weight Reconstruction in LLM Pruning
 
@@ -284,7 +287,7 @@ While debugging a broken pruning algorithm, the agent observed severe activation
 <div class="project-section alt">
 <div class="project-section-inner" markdown="1">
 
-<h2 data-nav="Citation">Citation</h2>
+<h2 data-kind="Citation">Citation</h2>
 
 If you find this work useful, please consider citing our paper:
 

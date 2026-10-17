@@ -1,0 +1,41 @@
+{%- comment -%}
+  Next-entry card and progress dots. Parameters: key (series slug), current (chapter code).
+{%- endcomment -%}
+{%- assign sxn = site.data.series[include.key] -%}
+{%- assign sxn_docs = site.documents | where: "series", include.key -%}
+{%- assign sxn_next = nil -%}
+{%- assign sxn_found = false -%}
+{%- for ch in sxn.chapters -%}
+  {%- if sxn_found -%}{%- assign sxn_next = ch -%}{%- break -%}{%- endif -%}
+  {%- if ch.code == include.current -%}{%- assign sxn_found = true -%}{%- endif -%}
+{%- endfor -%}
+<nav class="sx-next" aria-label="Series navigation">
+  {%- if sxn_next -%}
+    {%- assign next_doc = sxn_docs | where: "chapter", sxn_next.code | first -%}
+    {%- if next_doc and sxn_next.status != "planned" %}
+  <a class="sx-next-card" href="{{ next_doc.url | relative_url }}">
+    <span><small>Next · {{ sxn_next.code }}</small><strong>{{ sxn_next.title | escape }}</strong></span>
+    <span class="sx-arrow" aria-hidden="true">→</span>
+  </a>
+    {%- else %}
+  <div class="sx-next-card">
+    <span><small>Coming next · {{ sxn_next.code }}</small><strong>{{ sxn_next.title | escape }}</strong></span>
+  </div>
+    {%- endif -%}
+  {%- else %}
+  <a class="sx-next-card" href="{{ sxn.url | default: '/blog/' | relative_url }}">
+    <span><small>End of the series</small><strong>{{ sxn.title | escape }}</strong></span>
+    <span class="sx-arrow" aria-hidden="true">{% if sxn.url %}↑{% else %}→{% endif %}</span>
+  </a>
+  {%- endif %}
+  <ol class="sx-dots" aria-label="All entries in this series">
+    {%- for ch in sxn.chapters -%}
+      {%- assign doc = sxn_docs | where: "chapter", ch.code | first -%}
+      {%- if doc and ch.status != "planned" %}
+    <li><a href="{{ doc.url | relative_url }}" title="{{ ch.code }} · {{ ch.title | escape }}" aria-label="{{ ch.code }} {{ ch.title | escape }}"{% if ch.code == include.current %} aria-current="page"{% endif %}></a></li>
+      {%- else %}
+    <li><span title="{{ ch.code }} · {{ ch.title | escape }} (planned)"></span></li>
+      {%- endif -%}
+    {%- endfor %}
+  </ol>
+</nav>
