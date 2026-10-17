@@ -11,7 +11,6 @@ subtitle: |+
   <b>Postdoctoral Researcher</b> at the <a href="https://www.zib.de/">Zuse Institute Berlin</a><br>
   PhD in Mathematics, <a href="https://www.tu.berlin/en/math">TU Berlin</a> (2026)
   </div>
-  <div class="about-callout about-callout-hiring"><b>We are hiring!</b> We are seeking motivated PhD students to work on Deep Learning. Reach out or directly apply <a href="http://iol.zib.de/openings">here</a>.</div>
 
 profile:
   align: left
