@@ -11,7 +11,7 @@ description: "Our paper <b>The Agentic Researcher</b> presents an open-source fr
 tags: [deep-learning, agentic-ai]
 keywords: "agentic AI, AI-assisted research, autonomous research, Claude Code, coding agents, LLM research, scientific methodology"
 og_image: "https://maxzimmer.org/assets/img/blog_img/agentic-researcher/terminal-1.png"
-publication_type: "Preprint"
+publication_type: "ICML26 Workshop Oral"
 paper_url: "https://arxiv.org/abs/2603.15914"
 code_url: "https://github.com/ZIB-IOL/The-Agentic-Researcher"
 project: true
@@ -296,10 +296,10 @@ If you find this work useful, please consider citing our paper:
     <span>BibTeX</span>
     <button class="bibtex-copy-btn" onclick="copyBibtex()"><span id="copy-text">Copy</span></button>
   </div>
-  <pre id="bibtex-content">@article{zimmer2026agentic,
-  title={The Agentic Researcher: A Practical Guide to AI-Assisted Research in Mathematics and Machine Learning},
+  <pre id="bibtex-content">@inproceedings{zimmer2026agentic,
+  title={The Agentic Researcher: A Practical Guide to {AI}-Assisted Research in Mathematics and Machine Learning},
   author={Max Zimmer and Nico Pelleriti and Christophe Roux and Sebastian Pokutta},
-  journal={arXiv preprint arXiv:2603.15914},
+  booktitle={ICML 2026 Workshop: AI as a Tool for Mathematics, Computer Science, and Machine Learning},
   year={2026}
 }</pre>
 </div>

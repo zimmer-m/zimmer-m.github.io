@@ -1,15 +1,11 @@
 {%- comment -%}
   Header for blog posts (layouts distill and project-distill). Parameter: minutes.
-  Uses page.series / page.chapter for the "Part k of n" eyebrow when the post belongs to a series.
+  Series posts with 2+ parts show their position in the rail's series list, not in the eyebrow;
+  a single-part series is named in the eyebrow instead.
 {%- endcomment -%}
 {%- assign sxh = site.data.series[page.series] -%}
 <header class="sx-head sx-head--post">
   <div class="sx-eyebrow">
-    {%- if sxh and sxh.chapters.size > 1 %}
-      {%- for ch in sxh.chapters -%}
-        {%- if ch.code == page.chapter %}<b>{{ sxh.part_word | default: "Part" }} {{ forloop.index }} of {{ sxh.chapters | size }}</b>{% endif -%}
-      {%- endfor %}
-    {%- endif %}
     {%- if page.publication_type %}<b>{{ page.publication_type | escape }}</b>{% endif %}
     <span>{{ page.date | date: "%B %-d, %Y" }}</span>
     <span>{{ include.minutes }} min read</span>

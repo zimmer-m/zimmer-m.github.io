@@ -335,11 +335,12 @@ html[data-theme='dark'] .sx-page {
   color: var(--sx-ink);
 }
 
-/* ragged right, like the chapters (overrides the site-wide justified post text) */
+/* justified prose; hyphenation keeps the word spacing even in the narrow column */
 .sx-page .sx-body p,
 .sx-page .sx-body li {
-  text-align: left;
-  hyphens: manual;
+  text-align: justify;
+  -webkit-hyphens: auto; /* Safari still needs the prefix */
+  hyphens: auto;
 }
 
 .sx-body a {
