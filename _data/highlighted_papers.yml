@@ -1,6 +1,14 @@
 # Papers shown as tiles in the "Highlighted recent publications" box on the about page.
-# To add/remove a paper: edit this file AND set highlight_box={true} in papers.bib.
+# Add/remove/reorder tiles here; the list order determines their display order.
 # Fields: title, tag (display), tag_id (for /#tag-id anchor), venue, preview, pdf, code (optional), blog (optional)
+
+- title: "The KV-Surgeon: Compensation-Aware Offline KV-Cache Compaction"
+  tag: Efficiency
+  tag_id: efficiency
+  venue: "Preprint · 2026"
+  preview: kv_surgeon.png
+  pdf: https://arxiv.org/abs/2610.25933
+  code: https://github.com/ZIB-IOL/KV-Surgeon
 
 - title: "The Agentic Researcher: A Practical Guide to AI-Assisted Research"
   tag: Agentic AI
@@ -27,12 +35,3 @@
   preview: sparseswaps.png
   pdf: https://arxiv.org/abs/2512.10922
   code: https://github.com/ZIB-IOL/SparseSwaps
-
-- title: "ECHOSAT: Estimating Canopy Height Over Space And Time"
-  tag: Sustainability
-  tag_id: sustainability
-  venue: "2026"
-  preview: echosat.png
-  pdf: https://arxiv.org/abs/2602.21421
-  code: https://github.com/ai4forest/echosat
-  blog: /blog/2026/echosat
