@@ -1,3 +1,18 @@
+@article{wagner2026kvsurgeon,
+  title={The {KV-Surgeon}: Compensation-Aware Offline {KV-Cache} Compaction},
+  author={Wagner, Moritz and Roux, Christophe and Zimmer, Max and Pokutta, Sebastian},
+  journal={arXiv preprint arXiv:2610.25933},
+  year={2026},
+  abstract={Offline compaction of the key--value cache (KV-cache) reduces the cost of repeatedly querying a fixed context by constructing a smaller cache once and reusing it subsequently. The central challenge of compaction is deciding which cache entries to delete and which to retain. Existing methods score each candidate for deletion on its own, with the rest of the cache being held fixed. However, softmax renormalization of the attention operation couples these decisions in a nonlinear manner: removing one entry changes the attention weights of every remaining one. In this work, we introduce KV-Surgeon, which uses calibration data to take interactions into account in a tractable way. We derive a quadratic surrogate that admits closed-form expressions for jointly making the optimal greedy removal decision as well as compensation within the remaining entries. On QuALITY, LongHealth, and Long Code Arena, and at every evaluated compaction ratio, KV-Surgeon substantially advances the cost--accuracy Pareto frontier of dense and mixture-of-experts models from 4B to 30B parameters. At $50\times$ compaction, KV-Surgeon improves question-answering accuracy by up to four points over attention matching (Zweiger et al., 2026), the state of the art, at comparable cost. Lastly, we introduce an even faster variant, which also exceeds the state of the art while requiring only two fifths of its cost.},
+  pdf={https://arxiv.org/abs/2610.25933},
+  code={https://github.com/ZIB-IOL/KV-Surgeon},
+  abbr={Preprint},
+  bibtex_show={true},
+  preview={kv_surgeon.png},
+  selected={true},
+  tags={efficiency}
+}
+
 @inproceedings{koshizuka2026trust,
   title={A Trust Region Approach for Learning Schr{\"o}dinger Bridges},
   author={Takeshi Koshizuka and Denis Blessing and Max Zimmer and Sebastian Pokutta and Lorenz Richter},
